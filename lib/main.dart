@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:totem_app/model/dynamic_data.dart';
+import 'package:totem_app/pages/eigenschappen.dart';
 import 'package:totem_app/pages/home.dart';
 import 'package:provider/provider.dart';
 import 'package:totem_app/pages/totems.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
             routes: <String, WidgetBuilder>{
               '/': (context) => const Home(),
               '/totems': (context) => const Totems(),
+              '/eigenschappen': (context) => const Eigenschappen(),
             }));
   }
 }

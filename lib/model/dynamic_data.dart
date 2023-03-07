@@ -10,6 +10,7 @@ const dataRepo =
 
 class DynamicData extends ChangeNotifier {
   List<AnimalData>? animals;
+  List<String>? traits;
   Map<String, String> text = {};
 
   DynamicData() {
@@ -27,6 +28,10 @@ class DynamicData extends ChangeNotifier {
     var source = await fetchAsset('content/totems.json');
     var data = await json.decode(source);
     animals = TotemData.fromJson(data).animals;
+
+    var allTraits = animals!.expand((a) => a.traits).toList();
+    traits = allTraits.toSet().toList();
+    traits!.sort();
   }
 
   Future refreshText(String key) async {

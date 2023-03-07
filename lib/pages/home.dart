@@ -12,11 +12,20 @@ class Home extends StatelessWidget {
         body: ListView(
           padding: const EdgeInsets.all(20),
           children: [
-            FilledButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/totems');
-                },
-                child: const Text('Totems'))
+            Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: FilledButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/totems');
+                    },
+                    child: const Text('Totems'))),
+            Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: FilledButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/eigenschappen');
+                    },
+                    child: const Text('Eigenschappen')))
           ],
         ));
   }

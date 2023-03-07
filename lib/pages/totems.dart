@@ -13,16 +13,15 @@ class Totems extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Totems'),
         ),
-        body: ListView.builder(
-            itemCount: animals.length,
-            itemBuilder: (context, index) {
-              var animal = animals[index];
-              return ListTile(
-                title: Text(animal.name),
-                subtitle: animal.synonyms == null
-                    ? null
-                    : Text(animal.synonyms!.take(4).join(', ')),
-              );
-            }));
+        body: Scrollbar(
+            child: ListView.builder(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                itemCount: animals.length,
+                itemBuilder: (context, index) {
+                  var animal = animals[index];
+                  return ListTile(
+                    title: Text(animal.name),
+                  );
+                })));
   }
 }
