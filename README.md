@@ -12,6 +12,10 @@ Gebouwd met [Flutter](https://docs.flutter.dev/).
 1. Het is aangeraden om [VSCode](https://code.visualstudio.com/) te gebruiken met de [Flutter extensie](https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter).
 2. Anders kan je gebruik maken van `flutter run` ([meer documentatie](https://docs.flutter.dev/get-started/test-drive?tab=terminal))
 
+### Automatisch genereren van bestanden
+Enkele delen van de app worden automatisch gegenereerd. Bij het aanpassen van de configuratie (in `pubspec.yaml`) of bron bestanden moeten volgende commands uitgevoerd worden:
+1. [Json parsers](https://pub.dev/packages/json_serializable): `flutter pub run build_runner watch --delete-conflicting-outputs`
+
 ## Deployment
 1. [Instructions voor Android](https://docs.flutter.dev/deployment/android)
 2. [Instructions voor iOS](https://docs.flutter.dev/deployment/ios)

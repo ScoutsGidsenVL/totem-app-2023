@@ -1,11 +1,10 @@
 {
-    "name": "totem_app",
-    "short_name": "totem_app",
+    "name": "Totemapp",
+    "short_name": "Totemapp",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

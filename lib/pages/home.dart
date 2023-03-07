@@ -11,7 +11,13 @@ class Home extends StatelessWidget {
         ),
         body: ListView(
           padding: const EdgeInsets.all(20),
-          children: const [Text('Lorem ipsum')],
+          children: [
+            FilledButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/totems');
+                },
+                child: const Text('Totems'))
+          ],
         ));
   }
 }
