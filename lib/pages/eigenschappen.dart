@@ -24,21 +24,23 @@ class _EigenschappenState extends State<Eigenschappen> {
 
   @override
   Widget build(BuildContext context) {
-    var traits = context.watch<DynamicData>().traits ?? [];
+    var traits = context.watch<DynamicData>().traits?.keys.toList() ?? [];
 
     return Scaffold(
         appBar: AppBar(
           title: const Text('Eigenschappen'),
         ),
-        body: ListView.builder(
-            itemCount: traits.length,
-            itemBuilder: (context, index) {
-              var trait = traits[index];
-              return CheckboxListTile(
-                value: selectedTraits.contains(trait),
-                onChanged: (enabled) => {selectTrait(trait, enabled ?? false)},
-                title: Text(trait),
-              );
-            }));
+        body: Scrollbar(
+            child: ListView.builder(
+                itemCount: traits.length,
+                itemBuilder: (context, index) {
+                  var trait = traits[index];
+                  return CheckboxListTile(
+                    value: selectedTraits.contains(trait),
+                    onChanged: (enabled) =>
+                        {selectTrait(trait, enabled ?? false)},
+                    title: Text(trait),
+                  );
+                })));
   }
 }

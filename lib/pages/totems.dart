@@ -7,7 +7,7 @@ class Totems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var animals = context.watch<DynamicData>().animals ?? [];
+    var animals = context.watch<DynamicData>().animals?.values.toList() ?? [];
 
     return Scaffold(
         appBar: AppBar(

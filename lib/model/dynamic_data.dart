@@ -9,8 +9,8 @@ const dataRepo =
     'https://raw.githubusercontent.com/ScoutsGidsenVL/totem-app-2023/main';
 
 class DynamicData extends ChangeNotifier {
-  List<AnimalData>? animals;
-  List<String>? traits;
+  Map<String, AnimalData>? animals;
+  Map<String, List<String>>? traits;
   Map<String, String> text = {};
 
   DynamicData() {
@@ -27,11 +27,19 @@ class DynamicData extends ChangeNotifier {
   Future refreshTotemData() async {
     var source = await fetchAsset('content/totems.json');
     var data = await json.decode(source);
-    animals = TotemData.fromJson(data).animals;
+    var allAnimals = TotemData.fromJson(data).animals;
+    animals = Map.fromEntries(allAnimals.map((a) => MapEntry(a.name, a)));
 
-    var allTraits = animals!.expand((a) => a.traits).toList();
-    traits = allTraits.toSet().toList();
-    traits!.sort();
+    var duplicateTraits = allAnimals.expand((a) => a.traits).toList();
+    var allTraits = duplicateTraits.toSet().toList();
+    allTraits.sort();
+
+    traits = Map.fromEntries(allTraits.map((t) => MapEntry(t, [])));
+    for (var animal in allAnimals) {
+      for (var trait in animal.traits) {
+        traits![trait]!.add(animal.name);
+      }
+    }
   }
 
   Future refreshText(String key) async {
