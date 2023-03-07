@@ -36,6 +36,8 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   json_serializable: ^6.6.1
   build_runner: ^2.3.3
+  flutter_launcher_icons: ^0.12.0
+  flutter_native_splash: ^2.2.19
 
 flutter:
   uses-material-design: true
@@ -43,3 +45,29 @@ flutter:
   # https://docs.flutter.dev/development/ui/assets-and-images
   assets:
     - assets/content/
+
+# https://pub.dev/packages/flutter_launcher_icons
+flutter_icons:
+  image_path: "assets/icons/icon.png"
+  android: "ic_launcher"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  adaptive_icon_background: "assets/icons/icon-background.png"
+  adaptive_icon_foreground: "assets/icons/icon.png"
+  ios: true
+  image_path_ios: "assets/icons/icon-ios.png"
+  remove_alpha_ios: true
+  web:
+    generate: true
+    image_path: "assets/icons/icon.png"
+    background_color: "#C0D8EA"
+    theme_color: "#004474"
+  windows:
+    generate: true
+    image_path: "assets/icons/icon.png"
+    icon_size: 48 # min:48, max:256, default: 48
+
+# https://pub.dev/packages/flutter_native_splash
+flutter_native_splash:
+  color: "#C0D8EA"
+  color_dark: "#424240"
+  image: assets/images/totem.png
