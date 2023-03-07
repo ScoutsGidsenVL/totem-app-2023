@@ -1,0 +1,8 @@
+# Excluded from stats
+# https://github.com/github/linguist/blob/master/docs/overrides.md
+android/** linguist-vendored
+ios/** linguist-vendored
+linux/** linguist-vendored
+macos/** linguist-vendored
+web/** linguist-vendored
+windows/** linguist-vendored
