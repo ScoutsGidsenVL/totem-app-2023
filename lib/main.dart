@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:totem_app/model/dynamic_data.dart';
+import 'package:totem_app/model/traits_filter.dart';
 import 'package:totem_app/pages/eigenschappen.dart';
 import 'package:totem_app/pages/home.dart';
 import 'package:provider/provider.dart';
@@ -18,8 +19,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-        create: (_) => DynamicData(),
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => DynamicData()),
+          ChangeNotifierProvider(create: (_) => TraitsFilter()),
+        ],
         child: MaterialApp(
             title: 'Totemapp',
             theme: ThemeData(
@@ -40,11 +44,15 @@ class MyApp extends StatelessWidget {
             initialRoute: '/',
             routes: <String, WidgetBuilder>{
               '/': (context) => const Home(),
-              '/totems': (context) => const Totems(),
               '/eigenschappen': (context) => const Eigenschappen(),
             },
             onGenerateRoute: (settings) {
-              if (settings.name == '/totem') {
+              if (settings.name == '/totems') {
+                final args = (settings.arguments ?? TotemsArguments())
+                    as TotemsArguments;
+                return MaterialPageRoute(
+                    builder: (context) => Totems(filtered: args.filtered));
+              } else if (settings.name == '/totem') {
                 final args = settings.arguments as TotemDetailArguments;
                 return MaterialPageRoute(
                     builder: (context) => TotemDetail(name: args.name));
