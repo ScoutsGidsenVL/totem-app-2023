@@ -1,5 +1,6 @@
 import 'package:azlistview/azlistview.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:totem_app/util.dart';
 
 part 'totem_data.g.dart';
 
@@ -25,7 +26,7 @@ class AnimalData extends ISuspensionBean {
 
   @override
   String getSuspensionTag() {
-    return _getSuspensionTag(name);
+    return getFirstLetter(name);
   }
 
   factory AnimalData.fromJson(Map<String, dynamic> json) =>
@@ -39,15 +40,6 @@ class TraitData extends ISuspensionBean {
 
   @override
   String getSuspensionTag() {
-    return _getSuspensionTag(trait);
-  }
-}
-
-String _getSuspensionTag(String value) {
-  var tag = value.substring(0, 1).toUpperCase();
-  if (RegExp("[A-Z]").hasMatch(tag)) {
-    return tag;
-  } else {
-    return "#";
+    return getFirstLetter(trait);
   }
 }

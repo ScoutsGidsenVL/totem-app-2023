@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:totem_app/model/dynamic_data.dart';
+import 'package:totem_app/model/loaded_profile.dart';
 import 'package:totem_app/model/traits_filter.dart';
 import 'package:totem_app/pages/eigenschappen.dart';
 import 'package:totem_app/pages/home.dart';
 import 'package:provider/provider.dart';
+import 'package:totem_app/pages/profielen.dart';
 import 'package:totem_app/pages/totem_detail.dart';
 import 'package:totem_app/pages/totems.dart';
 
@@ -23,6 +25,7 @@ class MyApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider(create: (_) => DynamicData()),
           ChangeNotifierProvider(create: (_) => TraitsFilter()),
+          ChangeNotifierProvider(create: (_) => LoadedProfile()),
         ],
         child: MaterialApp(
             title: 'Totemapp',
@@ -45,6 +48,7 @@ class MyApp extends StatelessWidget {
             routes: <String, WidgetBuilder>{
               '/': (context) => const Home(),
               '/eigenschappen': (context) => const Eigenschappen(),
+              '/profielen': (context) => const Profielen(),
             },
             onGenerateRoute: (settings) {
               if (settings.name == '/totems') {

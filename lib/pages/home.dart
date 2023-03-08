@@ -25,7 +25,14 @@ class Home extends StatelessWidget {
                     onPressed: () {
                       Navigator.pushNamed(context, '/eigenschappen');
                     },
-                    child: const Text('Eigenschappen')))
+                    child: const Text('Eigenschappen'))),
+            Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: FilledButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/profielen');
+                    },
+                    child: const Text('Profielen'))),
           ],
         ));
   }

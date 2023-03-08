@@ -4,7 +4,7 @@ import 'package:totem_app/model/dynamic_data.dart';
 import 'package:totem_app/model/totem_data.dart';
 import 'package:totem_app/model/traits_filter.dart';
 import 'package:azlistview/azlistview.dart';
-import 'package:totem_app/widgets/animal_row.dart';
+import 'package:totem_app/widgets/animal_entry.dart';
 
 class Totems extends StatelessWidget {
   const Totems({Key? key, this.filtered}) : super(key: key);
