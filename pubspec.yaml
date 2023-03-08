@@ -45,6 +45,14 @@ flutter:
   # https://docs.flutter.dev/development/ui/assets-and-images
   assets:
     - assets/content/
+    - assets/fonts/
+    - assets/images/
+
+  # https://docs.flutter.dev/cookbook/design/fonts
+  fonts:
+    - family: Verveine
+      fonts:
+        - asset: assets/fonts/verveine.ttf
 
 # https://pub.dev/packages/flutter_launcher_icons
 flutter_icons:
@@ -69,5 +77,5 @@ flutter_icons:
 # https://pub.dev/packages/flutter_native_splash
 flutter_native_splash:
   color: "#C0D8EA"
-  color_dark: "#424240"
+  color_dark: "#282D30"
   image: assets/images/totem.png

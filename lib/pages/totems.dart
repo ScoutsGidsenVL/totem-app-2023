@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totem_app/model/dynamic_data.dart';
+import 'package:totem_app/pages/totem_detail.dart';
 
 class Totems extends StatelessWidget {
   const Totems({Key? key}) : super(key: key);
@@ -15,11 +16,14 @@ class Totems extends StatelessWidget {
         ),
         body: Scrollbar(
             child: ListView.builder(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
                 itemCount: animals.length,
                 itemBuilder: (context, index) {
                   var animal = animals[index];
                   return ListTile(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/totem',
+                          arguments: TotemDetailArguments(animal.name));
+                    },
                     title: Text(animal.name),
                   );
                 })));
