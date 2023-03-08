@@ -1,49 +1,57 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totem_app/model/dynamic_data.dart';
+import 'package:totem_app/model/totem_data.dart';
 import 'package:totem_app/model/traits_filter.dart';
-import 'package:totem_app/pages/totem_detail.dart';
+import 'package:azlistview/azlistview.dart';
+import 'package:totem_app/widgets/animal_row.dart';
 
 class Totems extends StatelessWidget {
   const Totems({Key? key, this.filtered}) : super(key: key);
 
   final bool? filtered;
 
+  Widget _filteredView(BuildContext context, List<AnimalData> animals) {
+    var filter = context.watch<TraitsFilter>();
+    var filteredAnimals = filter.apply(animals);
+
+    return ListView.builder(
+        itemCount: filteredAnimals.length,
+        itemBuilder: (context, index) {
+          var e = filteredAnimals[index];
+          return AnimalEntry(animal: e.animal, score: e.score);
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     var animals = context.watch<DynamicData>().animals?.values.toList() ?? [];
-    var filter = filtered != true ? null : context.watch<TraitsFilter>();
-    var filteredAnimals = (filter == null
-            ? Map.fromEntries(animals.map((a) => MapEntry(a, 0)))
-            : filter.apply(animals))
-        .entries
-        .toList();
 
     return Scaffold(
         appBar: AppBar(
           title: const Text('Totems'),
         ),
         body: Scrollbar(
-            child: ListView.builder(
-                itemCount: filteredAnimals.length,
-                itemBuilder: (context, index) {
-                  var animal = filteredAnimals[index];
-                  return ListTile(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/totem',
-                            arguments: TotemDetailArguments(animal.key.name));
-                      },
-                      title: Row(
-                        children: [
-                          Expanded(
-                              child: Text(
-                                  '${animal.key.id.toString()}. ${animal.key.name}')),
-                          animal.value == 0
-                              ? Container()
-                              : Text(animal.value.toString()),
-                        ],
-                      ));
-                })));
+            child: filtered == true
+                ? _filteredView(context, animals)
+                : AzListView(
+                    data: animals,
+                    itemCount: animals.length,
+                    itemBuilder: (context, index) {
+                      return AnimalEntry(animal: animals[index]);
+                    },
+                    indexBarData: SuspensionUtil.getTagIndexList(animals),
+                    indexBarOptions: IndexBarOptions(
+                      needRebuild: true,
+                      hapticFeedback: true,
+                      selectTextStyle: const TextStyle(
+                          fontSize: 12,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500),
+                      selectItemDecoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Theme.of(context).colorScheme.primary),
+                    ))));
   }
 }
 
