@@ -55,4 +55,4 @@ In groep:
 - Stilstaan bij zijn rol in de groep
 - Stilstaan bij scouting
 
-## VEEL SUCCES!
+## Veel success!

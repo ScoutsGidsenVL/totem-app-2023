@@ -5,6 +5,7 @@ import 'package:totem_app/model/traits_filter.dart';
 import 'package:totem_app/pages/checklist.dart';
 import 'package:totem_app/pages/eigenschappen.dart';
 import 'package:provider/provider.dart';
+import 'package:totem_app/pages/filtered_totems.dart';
 import 'package:totem_app/pages/profielen.dart';
 import 'package:totem_app/pages/totem_detail.dart';
 import 'package:totem_app/pages/totems.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
                 colorScheme: const ColorScheme.light(
                     primary: primary,
                     primaryContainer: Color(0xFF004474),
-                    secondary: Color(0xFF572500)),
+                    secondary: Color.fromARGB(255, 0, 108, 186)),
                 textTheme: const TextTheme(
                     headlineMedium: TextStyle(
                         fontSize: 34, color: primary, fontFamily: 'Verveine'),
@@ -56,20 +57,38 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> with TickerProviderStateMixin<Home> {
   static List<TabItem> tabs = [
-    TabItem(0, 'Totems', Icons.pets, (k) => TotemsTab(k)),
-    TabItem(
-        1, 'Eigenschappen', Icons.question_answer, (k) => EigenschappenTab(k)),
-    TabItem(2, 'Profielen', Icons.person, (k) => ProfielenTab(k)),
-    TabItem(3, 'Checklist', Icons.check_circle, (k) => ChecklistTab(k)),
+    TabItem(0, 'Totems', Icons.pets, (settings) {
+      switch (settings.name) {
+        case '/':
+          return const Totems();
+        case '/totem-detail':
+          final args = settings.arguments as TotemDetailArguments;
+          return TotemDetail(name: args.name);
+      }
+      return null;
+    }),
+    TabItem(1, 'Eigenschappen', Icons.question_answer, (settings) {
+      switch (settings.name) {
+        case '/':
+          return const Eigenschappen();
+        case '/results':
+          return const FilteredTotems();
+        case '/totem-detail':
+          final args = settings.arguments as TotemDetailArguments;
+          return TotemDetail(name: args.name);
+      }
+      return null;
+    }),
+    TabItem(2, 'Profielen', Icons.person, (settings) {
+      return const Profielen();
+    }),
+    TabItem(3, 'Checklist', Icons.check_circle, (settings) {
+      return const Checklist();
+    }),
   ];
 
   int _currentIndex = 0;
-  final _navigatorKeys = [
-    GlobalKey<NavigatorState>(),
-    GlobalKey<NavigatorState>(),
-    GlobalKey<NavigatorState>(),
-    GlobalKey<NavigatorState>(),
-  ];
+  final _navigatorKeys = tabs.map((e) => GlobalKey<NavigatorState>()).toList();
 
   void _selectTab(int index) {
     setState(() {
@@ -88,7 +107,18 @@ class _HomeState extends State<Home> with TickerProviderStateMixin<Home> {
                     .map((t) => Offstage(
                         offstage: _currentIndex != t.index,
                         child: SafeArea(
-                            child: t.builder(_navigatorKeys[t.index]))))
+                            child: Navigator(
+                                key: _navigatorKeys[t.index],
+                                onGenerateRoute: (settings) {
+                                  return MaterialPageRoute(builder: (context) {
+                                    var res = t.router(settings);
+                                    if (res == null) {
+                                      assert(false);
+                                      return const SizedBox();
+                                    }
+                                    return res;
+                                  });
+                                }))))
                     .toList()),
             bottomNavigationBar: BottomNavigationBar(
               type: BottomNavigationBarType.fixed,
@@ -103,105 +133,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin<Home> {
 }
 
 class TabItem {
-  const TabItem(this.index, this.title, this.icon, this.builder);
+  const TabItem(this.index, this.title, this.icon, this.router);
   final int index;
   final String title;
   final IconData icon;
-  final Widget Function(GlobalKey<NavigatorState> navKey) builder;
-}
-
-class TotemsTab extends StatelessWidget {
-  const TotemsTab(this.navigatorKey, {super.key});
-  final GlobalKey<NavigatorState> navigatorKey;
-
-  @override
-  Widget build(BuildContext context) {
-    return Navigator(
-      key: navigatorKey,
-      onGenerateRoute: (settings) {
-        return MaterialPageRoute(builder: (context) {
-          switch (settings.name) {
-            case '/':
-              return const Totems();
-            case '/totem-detail':
-              final args = settings.arguments as TotemDetailArguments;
-              return TotemDetail(name: args.name);
-          }
-          assert(false);
-          return const SizedBox();
-        });
-      },
-    );
-  }
-}
-
-class EigenschappenTab extends StatelessWidget {
-  const EigenschappenTab(this.navigatorKey, {super.key});
-  final GlobalKey<NavigatorState> navigatorKey;
-
-  @override
-  Widget build(BuildContext context) {
-    return Navigator(
-      key: navigatorKey,
-      onGenerateRoute: (settings) {
-        return MaterialPageRoute(builder: (context) {
-          switch (settings.name) {
-            case '/':
-              return const Eigenschappen();
-            case '/results':
-              return const Totems(filtered: true);
-            case '/totem-detail':
-              final args = settings.arguments as TotemDetailArguments;
-              return TotemDetail(name: args.name);
-          }
-          assert(false);
-          return const SizedBox();
-        });
-      },
-    );
-  }
-}
-
-class ProfielenTab extends StatelessWidget {
-  const ProfielenTab(this.navigatorKey, {super.key});
-  final GlobalKey<NavigatorState> navigatorKey;
-
-  @override
-  Widget build(BuildContext context) {
-    return Navigator(
-      key: navigatorKey,
-      onGenerateRoute: (settings) {
-        return MaterialPageRoute(builder: (context) {
-          switch (settings.name) {
-            case '/':
-              return const Profielen();
-          }
-          assert(false);
-          return const SizedBox();
-        });
-      },
-    );
-  }
-}
-
-class ChecklistTab extends StatelessWidget {
-  const ChecklistTab(this.navigatorKey, {super.key});
-  final GlobalKey<NavigatorState> navigatorKey;
-
-  @override
-  Widget build(BuildContext context) {
-    return Navigator(
-      key: navigatorKey,
-      onGenerateRoute: (settings) {
-        return MaterialPageRoute(builder: (context) {
-          switch (settings.name) {
-            case '/':
-              return const Checklist();
-          }
-          assert(false);
-          return const SizedBox();
-        });
-      },
-    );
-  }
+  final Widget? Function(RouteSettings) router;
 }

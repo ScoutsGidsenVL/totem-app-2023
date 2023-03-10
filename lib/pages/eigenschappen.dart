@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totem_app/model/dynamic_data.dart';
 import 'package:totem_app/model/traits_filter.dart';
-import 'package:totem_app/pages/totems.dart';
 
 class Eigenschappen extends StatefulWidget {
   const Eigenschappen({Key? key}) : super(key: key);
@@ -72,8 +71,7 @@ class _EigenschappenState extends State<Eigenschappen> {
                   ),
                   FilledButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/results',
-                          arguments: TotemsArguments(filtered: true));
+                      Navigator.pushNamed(context, '/results');
                     },
                     child: Row(
                       children: const [
