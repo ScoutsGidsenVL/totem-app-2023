@@ -33,6 +33,13 @@ class Home extends StatelessWidget {
                       Navigator.pushNamed(context, '/profielen');
                     },
                     child: const Text('Profielen'))),
+            Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: FilledButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/checklist');
+                    },
+                    child: const Text('Totemisatie Checklist'))),
           ],
         ));
   }

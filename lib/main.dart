@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:totem_app/model/dynamic_data.dart';
 import 'package:totem_app/model/loaded_profile.dart';
 import 'package:totem_app/model/traits_filter.dart';
+import 'package:totem_app/pages/checklist.dart';
 import 'package:totem_app/pages/eigenschappen.dart';
 import 'package:totem_app/pages/home.dart';
 import 'package:provider/provider.dart';
@@ -49,6 +50,7 @@ class MyApp extends StatelessWidget {
               '/': (context) => const Home(),
               '/eigenschappen': (context) => const Eigenschappen(),
               '/profielen': (context) => const Profielen(),
+              '/checklist': (context) => const Checklist(),
             },
             onGenerateRoute: (settings) {
               if (settings.name == '/totems') {

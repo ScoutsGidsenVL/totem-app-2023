@@ -21,6 +21,7 @@ class DynamicData extends ChangeNotifier {
   Future refreshData() async {
     await Future.wait([
       refreshTotemData(),
+      refreshText('checklist'),
     ]);
     notifyListeners();
   }
