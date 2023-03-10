@@ -9,11 +9,37 @@ class Profielen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var profiles = context.watch<LoadedProfile>().profiles;
+    var loadedProfile = context.watch<LoadedProfile>();
+    var profiles = loadedProfile.profiles;
 
     return Scaffold(
         appBar: AppBar(
           title: const Text('Profielen'),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        return SimpleDialog(
+                          title: const Text('Nieuw profiel'),
+                          contentPadding: const EdgeInsets.all(12),
+                          children: [
+                            TextField(
+                                onSubmitted: (a) {
+                                  loadedProfile.createProfile(a);
+                                  Navigator.pop(context);
+                                },
+                                autofocus: true,
+                                decoration: const InputDecoration(
+                                    labelText: 'Naam',
+                                    border: OutlineInputBorder())),
+                          ],
+                        );
+                      });
+                },
+                icon: const Icon(Icons.add))
+          ],
         ),
         body: Scrollbar(
             child: AzListView(

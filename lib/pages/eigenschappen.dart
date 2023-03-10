@@ -27,8 +27,7 @@ extension ISuspensionBean on String {
 class _EigenschappenState extends State<Eigenschappen> {
   @override
   Widget build(BuildContext context) {
-    var traits = context.watch<DynamicData>().traits?.keys.toList() ?? [];
-    var traitsData = traits.map((e) => TraitData(e)).toList();
+    var traits = context.watch<DynamicData>().traits?.values.toList() ?? [];
     var filter = context.watch<TraitsFilter>();
 
     return Scaffold(
@@ -37,20 +36,20 @@ class _EigenschappenState extends State<Eigenschappen> {
         ),
         body: Scrollbar(
             child: AzListView(
-                data: traitsData,
+                data: traits,
                 itemCount: traits.length,
                 itemBuilder: (context, index) {
                   var trait = traits[index];
                   return CheckboxListTile(
                     contentPadding: const EdgeInsets.only(left: 16, right: 32),
-                    value: filter.isSelected(trait),
+                    value: filter.isSelected(trait.name),
                     onChanged: (enabled) =>
-                        {filter.selectTrait(trait, enabled ?? false)},
-                    title: Text(trait),
+                        {filter.selectTrait(trait.name, enabled ?? false)},
+                    title: Text(trait.name),
                     activeColor: Theme.of(context).colorScheme.primary,
                   );
                 },
-                indexBarData: SuspensionUtil.getTagIndexList(traitsData),
+                indexBarData: SuspensionUtil.getTagIndexList(traits),
                 indexBarOptions: IndexBarOptions(
                   needRebuild: true,
                   hapticFeedback: true,

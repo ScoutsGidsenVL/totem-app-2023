@@ -2,6 +2,7 @@ import 'package:azlistview/azlistview.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:totem_app/util.dart';
+import 'package:collection/collection.dart';
 
 class LoadedProfile extends ChangeNotifier {
   List<ProfileData> profiles = [];
@@ -14,10 +15,21 @@ class LoadedProfile extends ChangeNotifier {
   Future loadProfiles() async {
     final prefs = await SharedPreferences.getInstance();
     var encodedProfiles = prefs.getStringList('profiles') ?? [];
-    profiles = encodedProfiles.map((p) => ProfileData.decode(p)).toList();
+    var allProfiles = encodedProfiles
+        .map((p) => ProfileData.decode(p))
+        .where((p) => p.name.isNotEmpty)
+        .toList();
 
     // dummy profile
-    profiles.add(ProfileData("Bob", ["Behendig"], ["Aap"]));
+    allProfiles.add(ProfileData("Bob", ["Behendig"], ["Aap"]));
+
+    profiles =
+        Map.fromEntries(allProfiles.map((p) => MapEntry(p.name, p)).toList())
+            .values
+            .toList();
+
+    profiles
+        .sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
 
     notifyListeners();
   }
@@ -28,12 +40,19 @@ class LoadedProfile extends ChangeNotifier {
     await prefs.setStringList('profiles', encodedProfiles);
   }
 
-  ProfileData get profile {
-    return profiles.firstWhere((p) => p.name == _loadedProfileName);
+  ProfileData? get profile {
+    return profiles.where((p) => p.name == _loadedProfileName).firstOrNull;
   }
 
   void change(String name) {
     _loadedProfileName = name;
+    notifyListeners();
+  }
+
+  void createProfile(String name) {
+    profiles.add(ProfileData(name, [], []));
+    change(name);
+    storeProfiles();
   }
 }
 
@@ -50,10 +69,10 @@ class ProfileData extends ISuspensionBean {
   }
 
   String encode() {
-    return "";
+    return name;
   }
 
   factory ProfileData.decode(String code) {
-    return ProfileData("", [], []);
+    return ProfileData(code, [], []);
   }
 }

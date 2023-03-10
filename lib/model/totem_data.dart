@@ -6,9 +6,10 @@ part 'totem_data.g.dart';
 
 @JsonSerializable(createToJson: false)
 class TotemData {
-  TotemData(this.animals);
+  TotemData(this.animals, this.traits);
 
   List<AnimalData> animals;
+  List<TraitData> traits;
 
   factory TotemData.fromJson(Map<String, dynamic> json) =>
       _$TotemDataFromJson(json);
@@ -25,6 +26,10 @@ class AnimalData extends ISuspensionBean {
   String description;
 
   @override
+  @JsonKey(includeFromJson: false)
+  bool get isShowSuspension;
+
+  @override
   String getSuspensionTag() {
     return getFirstLetter(name);
   }
@@ -33,13 +38,22 @@ class AnimalData extends ISuspensionBean {
       _$AnimalDataFromJson(json);
 }
 
+@JsonSerializable(createToJson: false)
 class TraitData extends ISuspensionBean {
-  TraitData(this.trait);
+  TraitData(this.id, this.name);
 
-  String trait;
+  int id;
+  String name;
+
+  @override
+  @JsonKey(includeFromJson: false)
+  bool get isShowSuspension;
 
   @override
   String getSuspensionTag() {
-    return getFirstLetter(trait);
+    return getFirstLetter(name);
   }
+
+  factory TraitData.fromJson(Map<String, dynamic> json) =>
+      _$TraitDataFromJson(json);
 }

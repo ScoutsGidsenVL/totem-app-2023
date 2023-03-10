@@ -10,7 +10,8 @@ const dataRepo =
 
 class DynamicData extends ChangeNotifier {
   Map<String, AnimalData>? animals;
-  Map<String, List<String>>? traits;
+  Map<String, TraitData>? traits;
+  Map<String, List<String>>? traitToAnimals;
   Map<String, String> text = {};
 
   DynamicData() {
@@ -27,17 +28,17 @@ class DynamicData extends ChangeNotifier {
   Future refreshTotemData() async {
     var source = await fetchAsset('content/totems.json');
     var data = await json.decode(source);
-    var allAnimals = TotemData.fromJson(data).animals;
+    var totemData = TotemData.fromJson(data);
+    var allAnimals = totemData.animals;
     animals = Map.fromEntries(allAnimals.map((a) => MapEntry(a.name, a)));
+    var allTraits = totemData.traits;
+    traits = Map.fromEntries(allTraits.map((t) => MapEntry(t.name, t)));
 
-    var duplicateTraits = allAnimals.expand((a) => a.traits).toList();
-    var allTraits = duplicateTraits.toSet().toList();
-    allTraits.sort();
-
-    traits = Map.fromEntries(allTraits.map((t) => MapEntry(t, [])));
+    traitToAnimals =
+        Map.fromEntries(allTraits.map((t) => MapEntry(t.name, [])));
     for (var animal in allAnimals) {
       for (var trait in animal.traits) {
-        traits![trait]!.add(animal.name);
+        traitToAnimals![trait]!.add(animal.name);
       }
     }
   }

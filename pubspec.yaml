@@ -31,6 +31,7 @@ dependencies:
   flutter_cache_manager: ^3.3.0
   azlistview: ^2.0.0
   shared_preferences: ^2.0.18
+  collection: ^1.17.0
 
 dev_dependencies:
   flutter_test:
