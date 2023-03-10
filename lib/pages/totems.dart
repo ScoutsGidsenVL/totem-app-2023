@@ -28,9 +28,8 @@ class Totems extends StatelessWidget {
     var animals = context.watch<DynamicData>().animals?.values.toList() ?? [];
 
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Totems'),
-        ),
+        appBar:
+            filtered == true ? AppBar(title: const Text('Resultaten')) : null,
         body: Scrollbar(
             child: filtered == true
                 ? _filteredView(context, animals)

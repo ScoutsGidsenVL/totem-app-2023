@@ -13,34 +13,6 @@ class Profielen extends StatelessWidget {
     var profiles = loadedProfile.profiles;
 
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Profielen'),
-          actions: [
-            IconButton(
-                onPressed: () {
-                  showDialog(
-                      context: context,
-                      builder: (context) {
-                        return SimpleDialog(
-                          title: const Text('Nieuw profiel'),
-                          contentPadding: const EdgeInsets.all(12),
-                          children: [
-                            TextField(
-                                onSubmitted: (a) {
-                                  loadedProfile.createProfile(a);
-                                  Navigator.pop(context);
-                                },
-                                autofocus: true,
-                                decoration: const InputDecoration(
-                                    labelText: 'Naam',
-                                    border: OutlineInputBorder())),
-                          ],
-                        );
-                      });
-                },
-                icon: const Icon(Icons.add))
-          ],
-        ),
         body: Scrollbar(
             child: AzListView(
                 data: profiles,
@@ -59,6 +31,30 @@ class Profielen extends StatelessWidget {
                   selectItemDecoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: Theme.of(context).colorScheme.primary),
-                ))));
+                ))),
+        floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return SimpleDialog(
+                      title: const Text('Nieuw profiel'),
+                      contentPadding: const EdgeInsets.all(12),
+                      children: [
+                        TextField(
+                            onSubmitted: (a) {
+                              loadedProfile.createProfile(a);
+                              Navigator.pop(context);
+                            },
+                            autofocus: true,
+                            decoration: const InputDecoration(
+                                labelText: 'Naam',
+                                border: OutlineInputBorder())),
+                      ],
+                    );
+                  });
+            },
+            backgroundColor: Theme.of(context).colorScheme.primary,
+            child: const Icon(Icons.add)));
   }
 }

@@ -2,7 +2,6 @@ import 'package:azlistview/azlistview.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totem_app/model/dynamic_data.dart';
-import 'package:totem_app/model/totem_data.dart';
 import 'package:totem_app/model/traits_filter.dart';
 import 'package:totem_app/pages/totems.dart';
 
@@ -31,9 +30,6 @@ class _EigenschappenState extends State<Eigenschappen> {
     var filter = context.watch<TraitsFilter>();
 
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Eigenschappen'),
-        ),
         body: Scrollbar(
             child: AzListView(
                 data: traits,
@@ -76,7 +72,7 @@ class _EigenschappenState extends State<Eigenschappen> {
                   ),
                   FilledButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/totems',
+                      Navigator.pushNamed(context, '/results',
                           arguments: TotemsArguments(filtered: true));
                     },
                     child: Row(
