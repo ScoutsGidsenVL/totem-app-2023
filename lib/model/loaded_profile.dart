@@ -28,10 +28,13 @@ class LoadedProfile extends ChangeNotifier {
             .values
             .toList();
 
+    _sortProfiles();
+    notifyListeners();
+  }
+
+  void _sortProfiles() {
     profiles
         .sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
-
-    notifyListeners();
   }
 
   Future storeProfiles() async {
@@ -44,14 +47,26 @@ class LoadedProfile extends ChangeNotifier {
     return profiles.where((p) => p.name == _loadedProfileName).firstOrNull;
   }
 
-  void change(String name) {
+  void selectProfile(String name) {
     _loadedProfileName = name;
+    notifyListeners();
+  }
+
+  void unselectProfile() {
+    _loadedProfileName = null;
     notifyListeners();
   }
 
   void createProfile(String name) {
     profiles.add(ProfileData(name, [], []));
-    change(name);
+    _sortProfiles();
+    selectProfile(name);
+    storeProfiles();
+  }
+
+  void deleteProfile(String name) {
+    profiles.removeWhere((p) => p.name == name);
+    unselectProfile();
     storeProfiles();
   }
 }

@@ -128,6 +128,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin<Home> {
                   .toList(),
               currentIndex: _currentIndex,
               onTap: _selectTab,
+              selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
             )));
   }
 }

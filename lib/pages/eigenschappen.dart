@@ -2,6 +2,7 @@ import 'package:azlistview/azlistview.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totem_app/model/dynamic_data.dart';
+import 'package:totem_app/model/loaded_profile.dart';
 import 'package:totem_app/model/traits_filter.dart';
 
 class Eigenschappen extends StatefulWidget {

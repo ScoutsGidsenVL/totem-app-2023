@@ -47,6 +47,7 @@ class Profielen extends StatelessWidget {
                               Navigator.pop(context);
                             },
                             autofocus: true,
+                            textCapitalization: TextCapitalization.words,
                             decoration: const InputDecoration(
                                 labelText: 'Naam',
                                 border: OutlineInputBorder())),
