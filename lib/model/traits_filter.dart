@@ -1,35 +1,58 @@
 import 'package:flutter/foundation.dart';
+import 'package:totem_app/model/profile_manager.dart';
 import 'package:totem_app/model/totem_data.dart';
 import 'package:azlistview/azlistview.dart';
 
 class TraitsFilter extends ChangeNotifier {
-  Set<String> selectedTraits = {};
+  TraitsFilter(this.profileManager, Set<String>? selectedTraits) {
+    fallbackTraits = selectedTraits ?? {};
+  }
+
+  ProfileManager? profileManager;
+  late Set<String> fallbackTraits;
+
+  List<String>? get profileTraits {
+    return profileManager?.profile?.traits;
+  }
+
+  Set<String> get traits {
+    return profileTraits?.toSet() ?? fallbackTraits;
+  }
 
   bool get isEmpty {
-    return selectedTraits.isEmpty;
+    return traits.isEmpty;
   }
 
   int get length {
-    return selectedTraits.length;
+    return traits.length;
   }
 
   bool isSelected(String trait) {
-    return selectedTraits.contains(trait);
+    return traits.contains(trait);
   }
 
   void selectTrait(String trait, bool enabled) {
-    if (enabled) {
-      selectedTraits.add(trait);
+    if (profileTraits != null) {
+      if (enabled) {
+        profileTraits!.add(trait);
+      } else {
+        profileTraits!.remove(trait);
+      }
+      profileManager!.storeProfiles();
     } else {
-      selectedTraits.remove(trait);
+      if (enabled) {
+        fallbackTraits.add(trait);
+      } else {
+        fallbackTraits.remove(trait);
+      }
     }
     notifyListeners();
   }
 
   List<TotemResult> apply(Iterable<AnimalData> animals) {
     return animals
-        .map((a) => TotemResult(
-            a, a.traits.toSet().intersection(selectedTraits).length))
+        .map(
+            (a) => TotemResult(a, a.traits.toSet().intersection(traits).length))
         .where((e) => e.score > 0)
         .toList()
       ..sort((a, b) => b.score - a.score);

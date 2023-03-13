@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:totem_app/model/dynamic_data.dart';
-import 'package:totem_app/model/loaded_profile.dart';
+import 'package:totem_app/model/profile_manager.dart';
 import 'package:totem_app/model/traits_filter.dart';
 import 'package:totem_app/pages/checklist.dart';
 import 'package:totem_app/pages/eigenschappen.dart';
@@ -24,8 +24,13 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) => DynamicData()),
-          ChangeNotifierProvider(create: (_) => TraitsFilter()),
-          ChangeNotifierProvider(create: (_) => LoadedProfile()),
+          ChangeNotifierProxyProvider<DynamicData, ProfileManager>(
+              update: (_, dynamicData, prev) => ProfileManager(dynamicData),
+              create: (_) => ProfileManager(null)),
+          ChangeNotifierProxyProvider<ProfileManager, TraitsFilter>(
+              update: (_, profileManager, prev) =>
+                  TraitsFilter(profileManager, prev?.fallbackTraits),
+              create: (_) => TraitsFilter(null, {})),
         ],
         child: MaterialApp(
             title: 'Totemapp',
@@ -33,7 +38,8 @@ class MyApp extends StatelessWidget {
                 colorScheme: const ColorScheme.light(
                     primary: primary,
                     primaryContainer: Color(0xFF004474),
-                    secondary: Color(0xFF006CBA)),
+                    secondary: Color(0xFF006CBA),
+                    onSurfaceVariant: Color(0xFF858585)),
                 textTheme: const TextTheme(
                     headlineMedium: TextStyle(
                         fontSize: 34, color: primary, fontFamily: 'Verveine'),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:totem_app/model/loaded_profile.dart';
+import 'package:totem_app/model/profile_manager.dart';
 
 class ProfileEntry extends StatelessWidget {
   final ProfileData profile;
@@ -9,41 +9,37 @@ class ProfileEntry extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var loadedProfile = context.watch<LoadedProfile>();
+    var manager = context.watch<ProfileManager>();
 
     return ListTile(
+        contentPadding: const EdgeInsets.only(left: 16, right: 32),
         onTap: () {
-          if (loadedProfile.profile?.name == profile.name) {
-            loadedProfile.unselectProfile();
-          } else {
-            loadedProfile.selectProfile(profile.name);
-          }
+          manager.selectProfile(profile.name);
         },
-        onLongPress: () {
-          showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                  title: Text('${profile.name} verwijderen?'),
-                  actions: [
-                    TextButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Text('Annuleren')),
-                    TextButton(
-                        onPressed: () {
-                          loadedProfile.deleteProfile(profile.name);
-                          Navigator.pop(context);
-                        },
-                        child: const Text('Verwijderen'))
-                  ],
-                );
-              });
-        },
-        leading: Icon(loadedProfile.profile?.name == profile.name
-            ? Icons.check_circle
-            : Icons.circle_outlined),
-        title: Text(profile.name));
+        title: Text(profile.name),
+        trailing: IconButton(
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: Text('${profile.name} verwijderen?'),
+                      actions: [
+                        TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Text('Annuleren')),
+                        TextButton(
+                            onPressed: () {
+                              manager.deleteProfile(profile.name);
+                              Navigator.pop(context);
+                            },
+                            child: const Text('Verwijderen'))
+                      ],
+                    );
+                  });
+            },
+            icon: const Icon(Icons.delete)));
   }
 }

@@ -13,6 +13,7 @@ class Totems extends StatefulWidget {
 }
 
 class _TotemsState extends State<Totems> {
+  final FocusNode _searchFocus = FocusNode();
   final TextEditingController _searchController = TextEditingController();
   String _search = '';
 
@@ -24,9 +25,17 @@ class _TotemsState extends State<Totems> {
 
   void clearSearch() {
     setState(() {
+      _searchFocus.unfocus();
       _searchController.clear();
       _search = '';
     });
+  }
+
+  @override
+  void dispose() {
+    _searchFocus.dispose();
+    _searchController.dispose();
+    super.dispose();
   }
 
   @override
@@ -65,6 +74,7 @@ class _TotemsState extends State<Totems> {
           Padding(
               padding: const EdgeInsets.all(10),
               child: TextField(
+                  focusNode: _searchFocus,
                   controller: _searchController,
                   onChanged: doSearch,
                   decoration: InputDecoration(

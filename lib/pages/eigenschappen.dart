@@ -13,6 +13,7 @@ class Eigenschappen extends StatefulWidget {
 }
 
 class _EigenschappenState extends State<Eigenschappen> {
+  final FocusNode _searchFocus = FocusNode();
   final TextEditingController _searchController = TextEditingController();
   String _search = '';
 
@@ -24,9 +25,17 @@ class _EigenschappenState extends State<Eigenschappen> {
 
   void clearSearch() {
     setState(() {
+      _searchFocus.unfocus();
       _searchController.clear();
       _search = '';
     });
+  }
+
+  @override
+  void dispose() {
+    _searchFocus.dispose();
+    _searchController.dispose();
+    super.dispose();
   }
 
   @override
@@ -61,6 +70,7 @@ class _EigenschappenState extends State<Eigenschappen> {
               Padding(
                   padding: const EdgeInsets.all(10),
                   child: TextField(
+                      focusNode: _searchFocus,
                       controller: _searchController,
                       onChanged: doSearch,
                       decoration: InputDecoration(

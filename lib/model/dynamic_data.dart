@@ -11,6 +11,8 @@ const dataRepo =
 class DynamicData extends ChangeNotifier {
   Map<String, AnimalData>? animals;
   Map<String, TraitData>? traits;
+  Map<int, AnimalData>? animalsById;
+  Map<int, TraitData>? traitsById;
   Map<String, List<String>>? traitToAnimals;
   Map<String, String> text = {};
 
@@ -30,10 +32,14 @@ class DynamicData extends ChangeNotifier {
     var source = await fetchAsset('content/totems.json');
     var data = await json.decode(source);
     var totemData = TotemData.fromJson(data);
+
     var allAnimals = totemData.animals;
     animals = Map.fromEntries(allAnimals.map((a) => MapEntry(a.name, a)));
+    animalsById = Map.fromEntries(allAnimals.map((a) => MapEntry(a.id, a)));
+
     var allTraits = totemData.traits;
     traits = Map.fromEntries(allTraits.map((t) => MapEntry(t.name, t)));
+    traitsById = Map.fromEntries(allTraits.map((t) => MapEntry(t.id, t)));
 
     traitToAnimals =
         Map.fromEntries(allTraits.map((t) => MapEntry(t.name, [])));
