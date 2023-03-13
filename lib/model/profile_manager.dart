@@ -28,9 +28,6 @@ class ProfileManager extends ChangeNotifier {
         .where((p) => p.name.isNotEmpty)
         .toList();
 
-    // dummy profile
-    allProfiles.add(ProfileData("Bob", ['Aap'], ['Behendig']));
-
     profiles =
         Map.fromEntries(allProfiles.map((p) => MapEntry(p.name, p)).toList())
             .values
@@ -78,6 +75,12 @@ class ProfileManager extends ChangeNotifier {
   void deleteProfile(String name) {
     profiles.removeWhere((p) => p.name == name);
     unselectProfile();
+    storeProfiles();
+  }
+
+  void updateProfile(Function fn) {
+    fn();
+    notifyListeners();
     storeProfiles();
   }
 }
