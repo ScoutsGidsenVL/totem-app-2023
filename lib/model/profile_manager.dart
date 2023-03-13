@@ -43,7 +43,7 @@ class ProfileManager extends ChangeNotifier {
   }
 
   Future storeProfiles() async {
-    if (dynamicData?.animals == null || dynamicData?.traits == null) {
+    if (dynamicData?.animalsById == null || dynamicData?.traitsById == null) {
       return;
     }
     final prefs = await SharedPreferences.getInstance();
@@ -107,10 +107,28 @@ class ProfileData extends ISuspensionBean {
       builder.add(list);
     }
 
+    void addBitset(int length, bool Function(int) bitset) {
+      assert(length % 8 == 0);
+      final list = <int>[];
+      for (var i = 0; i < length; i += 8) {
+        int n = 0;
+        if (bitset(i + 0)) n += 1;
+        if (bitset(i + 1)) n += 2;
+        if (bitset(i + 2)) n += 4;
+        if (bitset(i + 3)) n += 8;
+        if (bitset(i + 4)) n += 16;
+        if (bitset(i + 5)) n += 32;
+        if (bitset(i + 6)) n += 64;
+        if (bitset(i + 7)) n += 128;
+        list.add(n);
+      }
+      builder.add(list);
+    }
+
     var encodedName = utf8.encode(name);
     addList(encodedName);
-    addList(animals.map((e) => dynamicData.animals![e]?.id ?? 0).toList());
-    addList(traits.map((e) => dynamicData.traits![e]?.id ?? 0).toList());
+    addBitset(400, (i) => animals.contains(dynamicData.animalsById![i]?.name));
+    addBitset(360, (i) => traits.contains(dynamicData.traitsById![i]?.name));
 
     final bytes = builder.takeBytes();
     final str = base64.encode(bytes);
@@ -128,16 +146,39 @@ class ProfileData extends ISuspensionBean {
       return list;
     }
 
+    List<bool> getBitset(int length) {
+      assert(length % 8 == 0);
+      final byteLength = length ~/ 8;
+      final bitset = bytes.slice(cursor, cursor + byteLength);
+      cursor += byteLength;
+      final list = <bool>[];
+      for (var i = 0; i < byteLength; i += 1) {
+        int n = bitset[i];
+        list.add(n & (1 << 0) > 0);
+        list.add(n & (1 << 1) > 0);
+        list.add(n & (1 << 2) > 0);
+        list.add(n & (1 << 3) > 0);
+        list.add(n & (1 << 4) > 0);
+        list.add(n & (1 << 5) > 0);
+        list.add(n & (1 << 6) > 0);
+        list.add(n & (1 << 7) > 0);
+      }
+      return list;
+    }
+
     try {
       final versionId = bytes[cursor++];
       switch (versionId) {
         case 1:
           final name = utf8.decode(getList());
-          final animals = getList()
-              .map((e) => dynamicData.animalsById![e]?.name ?? '')
+          final animals = getBitset(400)
+              .mapIndexed(
+                  (i, b) => b ? dynamicData.animalsById![i]?.name : null)
+              .whereType<String>()
               .toList();
-          final traits = getList()
-              .map((e) => dynamicData.traitsById![e]?.name ?? '')
+          final traits = getBitset(360)
+              .mapIndexed((i, b) => b ? dynamicData.traitsById![i]?.name : null)
+              .whereType<String>()
               .toList();
           return ProfileData(name, animals, traits);
         default:
