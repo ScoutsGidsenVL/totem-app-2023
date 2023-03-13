@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:totem_app/model/totem_data.dart';
 
-class TotemCard extends StatelessWidget {
+class AnimalCard extends StatelessWidget {
   final AnimalData animal;
 
-  const TotemCard({super.key, required this.animal});
+  const AnimalCard({super.key, required this.animal});
 
   @override
   Widget build(BuildContext context) {
