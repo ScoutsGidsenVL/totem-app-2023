@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
                 colorScheme: const ColorScheme.light(
                     primary: primary,
                     primaryContainer: Color(0xFF004474),
-                    secondary: Color.fromARGB(255, 0, 108, 186)),
+                    secondary: Color(0xFF006CBA)),
                 textTheme: const TextTheme(
                     headlineMedium: TextStyle(
                         fontSize: 34, color: primary, fontFamily: 'Verveine'),
@@ -67,7 +67,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin<Home> {
       }
       return null;
     }),
-    TabItem(1, 'Eigenschappen', Icons.question_answer, (settings) {
+    TabItem(1, 'Eigenschappen', Icons.psychology, (settings) {
       switch (settings.name) {
         case '/':
           return const Eigenschappen();
@@ -99,8 +99,16 @@ class _HomeState extends State<Home> with TickerProviderStateMixin<Home> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-        onWillPop: () async =>
-            !await _navigatorKeys[_currentIndex].currentState!.maybePop(),
+        onWillPop: () async {
+          var popped =
+              await _navigatorKeys[_currentIndex].currentState!.maybePop();
+          if (popped) return false;
+          if (_currentIndex != 0) {
+            _selectTab(0);
+            return false;
+          }
+          return true;
+        },
         child: Scaffold(
             body: Stack(
                 children: tabs
