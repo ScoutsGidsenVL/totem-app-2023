@@ -67,7 +67,6 @@ flutter_icons:
   adaptive_icon_foreground: "assets/icons/icon.png"
   ios: true
   image_path_ios: "assets/icons/icon-ios.png"
-  remove_alpha_ios: true
   web:
     generate: true
     image_path: "assets/icons/icon.png"
@@ -80,6 +79,6 @@ flutter_icons:
 
 # https://pub.dev/packages/flutter_native_splash
 flutter_native_splash:
-  color: "#C0D8EA"
-  color_dark: "#282D30"
+  color: "#fafafa"
+  color_dark: "#272727"
   image: "assets/images/splash.png"
