@@ -120,7 +120,9 @@ class _TotemsState extends State<Totems> {
                         itemCount: animals.length,
                         itemBuilder: (context, index) {
                           return AnimalEntry(
-                              animal: animals[index], padRight: true);
+                              animal: animals[index],
+                              padRight: true,
+                              swipeList: animals);
                         },
                         indexBarData:
                             _search.isNotEmpty || constraints.maxHeight < 400

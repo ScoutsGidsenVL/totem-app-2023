@@ -7,11 +7,11 @@ import 'package:totem_app/widgets/animal_star_button.dart';
 
 class AnimalEntry extends StatelessWidget {
   final AnimalData animal;
-  final int? score;
   final bool padRight;
+  final List<AnimalData>? swipeList;
 
   const AnimalEntry(
-      {super.key, required this.animal, this.score, this.padRight = false});
+      {super.key, required this.animal, this.padRight = false, this.swipeList});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,8 @@ class AnimalEntry extends StatelessWidget {
                     builder: (context, controller) {
                       return SingleChildScrollView(
                           controller: controller,
-                          child: AnimalCard(animal: animal));
+                          child:
+                              AnimalCard(animal: animal, swipeList: swipeList));
                     });
               });
         },
@@ -49,7 +50,6 @@ class AnimalEntry extends StatelessWidget {
                     text: animal.name, style: const TextStyle(fontSize: 20)),
               ],
             ))),
-            score == null ? Container() : Text(score.toString()),
           ],
         ),
         trailing:

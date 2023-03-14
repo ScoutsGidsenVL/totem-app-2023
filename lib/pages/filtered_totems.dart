@@ -9,19 +9,22 @@ class FilteredTotems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final animals = context.watch<DynamicData>().animals?.values.toList() ?? [];
+    final allAnimals =
+        context.watch<DynamicData>().animals?.values.toList() ?? [];
     final filter = context.watch<TraitsFilter>();
-    final filteredAnimals = filter.apply(animals);
+    final animals = filter.apply(allAnimals);
 
     return Scaffold(
         body: Column(children: [
       Expanded(
           child: Scrollbar(
               child: ListView.builder(
-                  itemCount: filteredAnimals.length,
+                  itemCount: animals.length,
                   itemBuilder: (context, index) {
-                    var e = filteredAnimals[index];
-                    return AnimalEntry(animal: e.animal, score: e.score);
+                    var e = animals[index];
+                    return AnimalEntry(
+                        animal: e.animal,
+                        swipeList: animals.map((e) => e.animal).toList());
                   }))),
       filter.isEmpty
           ? Container()
@@ -33,7 +36,7 @@ class FilteredTotems extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         vertical: 16, horizontal: 12),
                     child: Text(
-                        '${filteredAnimals.length} ${filteredAnimals.length == 1 ? 'resultaat' : 'resultaten'}',
+                        '${animals.length} ${animals.length == 1 ? 'resultaat' : 'resultaten'}',
                         style: const TextStyle(color: Colors.white)),
                   ),
                 ),
