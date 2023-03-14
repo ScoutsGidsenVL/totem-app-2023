@@ -27,7 +27,7 @@ class AnimalStarButton extends StatelessWidget {
             }
           });
         },
-        color: starred ? Colors.amber : null,
+        color: starred ? Colors.amber.shade600 : null,
         icon: Icon(starred ? Icons.star : Icons.star_outline));
   }
 }

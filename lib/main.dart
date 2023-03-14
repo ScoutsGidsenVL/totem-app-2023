@@ -103,9 +103,13 @@ class _HomeState extends State<Home> with TickerProviderStateMixin<Home> {
   final _navigatorKeys = tabs.map((e) => GlobalKey<NavigatorState>()).toList();
 
   void _selectTab(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
+    if (_currentIndex == index) {
+      _navigatorKeys[_currentIndex].currentState!.maybePop();
+    } else {
+      setState(() {
+        _currentIndex = index;
+      });
+    }
   }
 
   @override

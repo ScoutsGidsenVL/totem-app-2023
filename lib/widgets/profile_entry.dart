@@ -9,7 +9,7 @@ class ProfileEntry extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var manager = context.watch<ProfileManager>();
+    final manager = context.watch<ProfileManager>();
 
     return ListTile(
         contentPadding: const EdgeInsets.only(left: 16, right: 32),

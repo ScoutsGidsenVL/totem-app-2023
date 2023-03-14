@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totem_app/model/profile_manager.dart';
 import 'package:azlistview/azlistview.dart';
+import 'package:totem_app/widgets/profile_card.dart';
 import 'package:totem_app/widgets/profile_entry.dart';
 
 class Profielen extends StatelessWidget {
@@ -9,9 +10,9 @@ class Profielen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var manager = context.watch<ProfileManager>();
-    var profiles = manager.profiles;
-    var profile = manager.profile;
+    final manager = context.watch<ProfileManager>();
+    final profiles = manager.profiles;
+    final profile = manager.profile;
 
     return Scaffold(
         body: Scrollbar(
@@ -20,26 +21,7 @@ class Profielen extends StatelessWidget {
               ? Container()
               : Padding(
                   padding: const EdgeInsets.all(10),
-                  child: Card(
-                      child: Padding(
-                    padding: const EdgeInsets.all(5),
-                    child: Row(children: [
-                      Icon(Icons.account_circle,
-                          size: 48,
-                          color:
-                              Theme.of(context).colorScheme.onSurfaceVariant),
-                      Expanded(
-                          child: Padding(
-                              padding: const EdgeInsets.only(left: 5),
-                              child: Text(profile.name,
-                                  style: const TextStyle(fontSize: 22)))),
-                      IconButton(
-                          onPressed: () {
-                            manager.unselectProfile();
-                          },
-                          icon: const Icon(Icons.close))
-                    ]),
-                  ))),
+                  child: ProfileCard(profile)),
           Expanded(
               child: LayoutBuilder(
                   builder: (context, constraints) => AzListView(
@@ -84,7 +66,6 @@ class Profielen extends StatelessWidget {
                     );
                   });
             },
-            backgroundColor: Theme.of(context).colorScheme.primary,
             child: const Icon(Icons.add)));
   }
 }

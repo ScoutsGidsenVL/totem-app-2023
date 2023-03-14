@@ -17,6 +17,11 @@ MarkdownStyleSheet markdownStyle(BuildContext context) {
       a: TextStyle(
           color: Theme.of(context).colorScheme.secondary,
           decoration: TextDecoration.underline),
+      h1: TextStyle(
+          fontSize: 26,
+          fontWeight: FontWeight.bold,
+          fontStyle: FontStyle.normal,
+          color: Theme.of(context).colorScheme.primary),
       h2: TextStyle(
           fontSize: 24, color: Theme.of(context).colorScheme.secondary),
       h2Padding: const EdgeInsets.only(top: 8));

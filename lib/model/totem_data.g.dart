@@ -18,7 +18,7 @@ TotemData _$TotemDataFromJson(Map<String, dynamic> json) => TotemData(
 AnimalData _$AnimalDataFromJson(Map<String, dynamic> json) => AnimalData(
       json['id'] as int,
       json['name'] as String,
-      (json['synonyms'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      (json['synonyms'] as List<dynamic>).map((e) => e as String).toList(),
       (json['traits'] as List<dynamic>).map((e) => e as String).toList(),
       json['description'] as String,
     );

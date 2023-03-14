@@ -9,9 +9,8 @@ class Checklist extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var body = context.watch<DynamicData>().text['checklist'] ?? '';
+    final body = context.watch<DynamicData>().text['checklist'] ?? '';
     return Scaffold(
-        appBar: AppBar(title: const Text('Totemisatie checklist')),
         body: Markdown(data: body, styleSheet: markdownStyle(context)));
   }
 }

@@ -1,3 +1,4 @@
+# Totemisatie checklist
 Een goede, kwalitatieve totemisatie vergt tijd en inspanning. Deze handige checklist helpt je om niets te vergeten. Wil je weten wat er achter deze checklist schuilt? Kijk dan in de Totemmap, hét handboek voor elke totemisatie en een bron van ideeën en inspiratie om je totemactiviteiten top te maken.
 
 ## Voorbereiding

@@ -48,7 +48,7 @@ class _TotemsState extends State<Totems> {
 
   @override
   Widget build(BuildContext context) {
-    var allAnimals =
+    final allAnimals =
         context.watch<DynamicData>().animals?.values.toList() ?? [];
     final profile = context.watch<ProfileManager>().profile;
 
@@ -59,10 +59,10 @@ class _TotemsState extends State<Totems> {
               var score = 0;
               if (a.name.toLowerCase().contains(_search)) score += 3;
               if (a.name.toLowerCase().startsWith(_search)) score += 6;
-              a.synonyms?.forEach((s) {
+              for (var s in a.synonyms) {
                 if (s.toLowerCase().contains(_search)) score += 1;
                 if (s.toLowerCase().startsWith(_search)) score += 2;
-              });
+              }
               return MapEntry(a, score);
             })
             .where((e) => e.value > 0)
@@ -85,8 +85,7 @@ class _TotemsState extends State<Totems> {
           return true;
         },
         child: Scaffold(
-            body: Scrollbar(
-                child: Column(children: [
+            body: Column(children: [
           Padding(
               padding: const EdgeInsets.all(10),
               child: TextField(
@@ -114,28 +113,31 @@ class _TotemsState extends State<Totems> {
                       labelText: 'Zoek totem',
                       border: const OutlineInputBorder()))),
           Expanded(
-              child: LayoutBuilder(
-                  builder: (context, constraints) => AzListView(
-                      data: animals,
-                      itemCount: animals.length,
-                      itemBuilder: (context, index) {
-                        return AnimalEntry(animal: animals[index]);
-                      },
-                      indexBarData:
-                          _search.isNotEmpty || constraints.maxHeight < 400
-                              ? []
-                              : SuspensionUtil.getTagIndexList(animals),
-                      indexBarOptions: IndexBarOptions(
-                        needRebuild: true,
-                        hapticFeedback: true,
-                        selectTextStyle: const TextStyle(
-                            fontSize: 12,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500),
-                        selectItemDecoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Theme.of(context).colorScheme.primary),
-                      )))),
-        ]))));
+            child: Scrollbar(
+                child: LayoutBuilder(
+                    builder: (context, constraints) => AzListView(
+                        data: animals,
+                        itemCount: animals.length,
+                        itemBuilder: (context, index) {
+                          return AnimalEntry(
+                              animal: animals[index], padRight: true);
+                        },
+                        indexBarData:
+                            _search.isNotEmpty || constraints.maxHeight < 400
+                                ? []
+                                : SuspensionUtil.getTagIndexList(animals),
+                        indexBarOptions: IndexBarOptions(
+                          needRebuild: true,
+                          hapticFeedback: true,
+                          selectTextStyle: const TextStyle(
+                              fontSize: 12,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500),
+                          selectItemDecoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Theme.of(context).colorScheme.primary),
+                        )))),
+          )
+        ])));
   }
 }

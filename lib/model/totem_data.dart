@@ -21,7 +21,7 @@ class AnimalData extends ISuspensionBean {
 
   int id;
   String name;
-  List<String>? synonyms;
+  List<String> synonyms;
   List<String> traits;
   String description;
 
