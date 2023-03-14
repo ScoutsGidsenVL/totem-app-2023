@@ -16,6 +16,7 @@ class AnimalEntry extends StatelessWidget {
     final profile = context.watch<ProfileManager>().profile;
 
     return ListTile(
+        key: Key(animal.name),
         contentPadding: const EdgeInsets.only(left: 16, right: 32),
         onTap: () {
           Navigator.pushNamed(context, '/totem-detail',

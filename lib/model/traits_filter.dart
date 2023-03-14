@@ -49,6 +49,16 @@ class TraitsFilter extends ChangeNotifier {
     notifyListeners();
   }
 
+  void clear() {
+    if (profileTraits != null) {
+      profileTraits!.clear();
+      profileManager!.storeProfiles();
+    } else {
+      fallbackTraits.clear();
+    }
+    notifyListeners();
+  }
+
   List<TotemResult> apply(Iterable<AnimalData> animals) {
     return animals
         .map(

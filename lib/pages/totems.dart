@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totem_app/model/dynamic_data.dart';
 import 'package:azlistview/azlistview.dart';
+import 'package:totem_app/model/profile_manager.dart';
 import 'package:totem_app/widgets/animal_entry.dart';
 
 class Totems extends StatefulWidget {
@@ -16,6 +17,7 @@ class _TotemsState extends State<Totems> {
   final FocusNode _searchFocus = FocusNode();
   final TextEditingController _searchController = TextEditingController();
   String _search = '';
+  bool _showRelevant = false;
 
   void doSearch(String query) {
     setState(() {
@@ -31,6 +33,12 @@ class _TotemsState extends State<Totems> {
     });
   }
 
+  void toggleRelevant() {
+    setState(() {
+      _showRelevant = !_showRelevant;
+    });
+  }
+
   @override
   void dispose() {
     _searchFocus.dispose();
@@ -42,7 +50,9 @@ class _TotemsState extends State<Totems> {
   Widget build(BuildContext context) {
     var allAnimals =
         context.watch<DynamicData>().animals?.values.toList() ?? [];
-    var animals = _search.isEmpty
+    final profile = context.watch<ProfileManager>().profile;
+
+    var searchAnimals = _search.isEmpty
         ? allAnimals
         : allAnimals
             .map((a) {
@@ -59,6 +69,12 @@ class _TotemsState extends State<Totems> {
             .sorted((a, b) => b.value - a.value)
             .map((e) => e.key)
             .toList();
+
+    var animals = _showRelevant && profile != null
+        ? searchAnimals.where((a) {
+            return profile.animals.contains(a.name);
+          }).toList()
+        : searchAnimals;
 
     return WillPopScope(
         onWillPop: () async {
@@ -78,11 +94,23 @@ class _TotemsState extends State<Totems> {
                   controller: _searchController,
                   onChanged: doSearch,
                   decoration: InputDecoration(
-                      suffixIcon: _search.isEmpty
-                          ? null
-                          : IconButton(
-                              onPressed: clearSearch,
-                              icon: const Icon(Icons.close)),
+                      suffixIcon: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            _search.isEmpty
+                                ? Container()
+                                : IconButton(
+                                    onPressed: clearSearch,
+                                    icon: const Icon(Icons.close)),
+                            profile == null
+                                ? Container()
+                                : IconButton(
+                                    onPressed: toggleRelevant,
+                                    icon: Icon(_showRelevant
+                                        ? Icons.star
+                                        : Icons.star_half))
+                          ]),
                       labelText: 'Zoek totem',
                       border: const OutlineInputBorder()))),
           Expanded(

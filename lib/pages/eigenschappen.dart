@@ -3,6 +3,7 @@ import 'package:azlistview/azlistview.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totem_app/model/dynamic_data.dart';
+import 'package:totem_app/model/profile_manager.dart';
 import 'package:totem_app/model/traits_filter.dart';
 
 class Eigenschappen extends StatefulWidget {
@@ -16,6 +17,7 @@ class _EigenschappenState extends State<Eigenschappen> {
   final FocusNode _searchFocus = FocusNode();
   final TextEditingController _searchController = TextEditingController();
   String _search = '';
+  bool _showRelevant = false;
 
   void doSearch(String query) {
     setState(() {
@@ -31,6 +33,12 @@ class _EigenschappenState extends State<Eigenschappen> {
     });
   }
 
+  void toggleRelevant() {
+    setState(() {
+      _showRelevant = !_showRelevant;
+    });
+  }
+
   @override
   void dispose() {
     _searchFocus.dispose();
@@ -40,9 +48,12 @@ class _EigenschappenState extends State<Eigenschappen> {
 
   @override
   Widget build(BuildContext context) {
-    var filter = context.watch<TraitsFilter>();
-    var allTraits = context.watch<DynamicData>().traits?.values.toList() ?? [];
-    var traits = _search.isEmpty
+    final filter = context.watch<TraitsFilter>();
+    final allTraits =
+        context.watch<DynamicData>().traits?.values.toList() ?? [];
+    final profile = context.watch<ProfileManager>().profile;
+
+    final searchTraits = _search.isEmpty
         ? allTraits
         : allTraits
             .map((t) {
@@ -55,6 +66,10 @@ class _EigenschappenState extends State<Eigenschappen> {
             .sorted((a, b) => b.value - a.value)
             .map((e) => e.key)
             .toList();
+
+    var traits = _showRelevant && filter.length > 0
+        ? searchTraits.where((t) => filter.isSelected(t.name)).toList()
+        : searchTraits;
 
     return WillPopScope(
         onWillPop: () async {
@@ -74,11 +89,23 @@ class _EigenschappenState extends State<Eigenschappen> {
                       controller: _searchController,
                       onChanged: doSearch,
                       decoration: InputDecoration(
-                          suffixIcon: _search.isEmpty
-                              ? null
-                              : IconButton(
-                                  onPressed: clearSearch,
-                                  icon: const Icon(Icons.close)),
+                          suffixIcon: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                _search.isEmpty
+                                    ? Container()
+                                    : IconButton(
+                                        onPressed: clearSearch,
+                                        icon: const Icon(Icons.close)),
+                                filter.length <= 0
+                                    ? Container()
+                                    : IconButton(
+                                        onPressed: toggleRelevant,
+                                        icon: Icon(_showRelevant
+                                            ? Icons.check_box
+                                            : Icons.check_box_outline_blank)),
+                              ]),
                           labelText: 'Zoek eigenschap',
                           border: const OutlineInputBorder()))),
               Expanded(
@@ -89,6 +116,8 @@ class _EigenschappenState extends State<Eigenschappen> {
                           itemBuilder: (context, index) {
                             var trait = traits[index];
                             return CheckboxListTile(
+                              controlAffinity: ListTileControlAffinity.leading,
+                              key: Key(trait.name),
                               contentPadding:
                                   const EdgeInsets.only(left: 16, right: 32),
                               value: filter.isSelected(trait.name),
@@ -121,6 +150,31 @@ class _EigenschappenState extends State<Eigenschappen> {
                 : Material(
                     color: Theme.of(context).colorScheme.primary,
                     child: Row(children: [
+                      IconButton(
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    title: const Text('Reset selectie?'),
+                                    actions: [
+                                      TextButton(
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          child: const Text('Annuleren')),
+                                      TextButton(
+                                          onPressed: () {
+                                            filter.clear();
+                                            Navigator.pop(context);
+                                          },
+                                          child: const Text('Reset'))
+                                    ],
+                                  );
+                                });
+                          },
+                          icon: Icon(Icons.delete,
+                              color: Theme.of(context).colorScheme.onPrimary)),
                       Expanded(
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
@@ -134,12 +188,13 @@ class _EigenschappenState extends State<Eigenschappen> {
                           Navigator.pushNamed(context, '/results');
                         },
                         child: Row(
-                          children: const [
-                            Text('VIND TOTEMS',
+                          children: [
+                            const Text('VIND TOTEMS',
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w300)),
-                            Icon(Icons.arrow_forward, color: Colors.white)
+                            Icon(Icons.arrow_forward,
+                                color: Theme.of(context).colorScheme.onPrimary)
                           ],
                         ),
                       )
