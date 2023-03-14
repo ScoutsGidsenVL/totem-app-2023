@@ -43,7 +43,9 @@ class ProfileManager extends ChangeNotifier {
   }
 
   Future storeProfiles() async {
-    if (dynamicData?.animalsById == null || dynamicData?.traitsById == null) {
+    if (dynamicData?.animalsById == null ||
+        dynamicData?.traitsById == null ||
+        dynamicData?.animals == null) {
       return;
     }
     final prefs = await SharedPreferences.getInstance();
@@ -127,7 +129,12 @@ class ProfileData extends ISuspensionBean {
 
     var encodedName = utf8.encode(name);
     addList(encodedName);
-    addBitset(400, (i) => animals.contains(dynamicData.animalsById![i]?.name));
+
+    addList(animals.expand((a) {
+      final id = dynamicData.animals![a]?.id ?? 0;
+      return id <= 254 ? [id] : <int>[255, id - 254];
+    }).toList());
+
     addBitset(360, (i) => traits.contains(dynamicData.traitsById![i]?.name));
 
     final bytes = builder.takeBytes();
@@ -171,15 +178,26 @@ class ProfileData extends ISuspensionBean {
       switch (versionId) {
         case 1:
           final name = utf8.decode(getList());
-          final animals = getBitset(400)
-              .mapIndexed(
-                  (i, b) => b ? dynamicData.animalsById![i]?.name : null)
-              .whereType<String>()
-              .toList();
+
+          final animals = <String>[];
+          var animalBytes = getList();
+          for (var i = 0; i < animalBytes.length; i += 1) {
+            var id = animalBytes[i];
+            if (id == 255) {
+              i += 1;
+              id += animalBytes[i] - 1;
+            }
+            final name = dynamicData.animalsById![id]?.name;
+            if (name != null) {
+              animals.add(name);
+            }
+          }
+
           final traits = getBitset(360)
               .mapIndexed((i, b) => b ? dynamicData.traitsById![i]?.name : null)
               .whereType<String>()
               .toList();
+
           return ProfileData(name, animals, traits);
         default:
           throw FormatException('Unknown profile data version $versionId');

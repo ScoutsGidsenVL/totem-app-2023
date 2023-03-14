@@ -23,7 +23,7 @@ class AnimalStarButton extends StatelessWidget {
             if (starred) {
               profile.animals.remove(animal);
             } else {
-              profile.animals.add(animal);
+              profile.animals.insert(0, animal);
             }
           });
         },
