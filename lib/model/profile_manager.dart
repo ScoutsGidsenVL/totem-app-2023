@@ -11,9 +11,9 @@ import 'package:collection/collection.dart';
 class ProfileManager extends ChangeNotifier {
   DynamicData? dynamicData;
   List<ProfileData> profiles = [];
-  String? _selectedName;
+  String? selectedName;
 
-  ProfileManager(this.dynamicData) {
+  ProfileManager(this.dynamicData, this.selectedName) {
     loadProfiles();
   }
 
@@ -54,16 +54,16 @@ class ProfileManager extends ChangeNotifier {
   }
 
   ProfileData? get profile {
-    return profiles.where((p) => p.name == _selectedName).firstOrNull;
+    return profiles.where((p) => p.name == selectedName).firstOrNull;
   }
 
   void selectProfile(String name) {
-    _selectedName = name;
+    selectedName = name;
     notifyListeners();
   }
 
   void unselectProfile() {
-    _selectedName = null;
+    selectedName = null;
     notifyListeners();
   }
 

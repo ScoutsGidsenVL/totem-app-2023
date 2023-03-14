@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totem_app/model/profile_manager.dart';
 import 'package:totem_app/model/totem_data.dart';
-import 'package:totem_app/pages/totem_detail.dart';
+import 'package:totem_app/widgets/animal_card.dart';
 import 'package:totem_app/widgets/animal_star_button.dart';
 
 class AnimalEntry extends StatelessWidget {
@@ -22,8 +22,15 @@ class AnimalEntry extends StatelessWidget {
         contentPadding:
             padRight ? const EdgeInsets.only(left: 16, right: 32) : null,
         onTap: () {
-          Navigator.pushNamed(context, '/totem-detail',
-              arguments: TotemDetailArguments(animal.name));
+          showModalBottomSheet(
+              context: context,
+              enableDrag: true,
+              isScrollControlled: true,
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(8))),
+              builder: (context) {
+                return AnimalCard(animal: animal);
+              });
         },
         title: Row(
           children: [

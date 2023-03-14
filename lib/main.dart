@@ -7,7 +7,6 @@ import 'package:totem_app/pages/eigenschappen.dart';
 import 'package:provider/provider.dart';
 import 'package:totem_app/pages/filtered_totems.dart';
 import 'package:totem_app/pages/profielen.dart';
-import 'package:totem_app/pages/totem_detail.dart';
 import 'package:totem_app/pages/totems.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
@@ -31,8 +30,9 @@ class MyApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider(create: (_) => DynamicData()),
           ChangeNotifierProxyProvider<DynamicData, ProfileManager>(
-              update: (_, dynamicData, prev) => ProfileManager(dynamicData),
-              create: (_) => ProfileManager(null)),
+              update: (_, dynamicData, prev) =>
+                  ProfileManager(dynamicData, prev?.selectedName),
+              create: (_) => ProfileManager(null, null)),
           ChangeNotifierProxyProvider<ProfileManager, TraitsFilter>(
               update: (_, profileManager, prev) =>
                   TraitsFilter(profileManager, prev?.fallbackTraits),
@@ -73,9 +73,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin<Home> {
       switch (settings.name) {
         case '/':
           return const Totems();
-        case '/totem-detail':
-          final args = settings.arguments as TotemDetailArguments;
-          return TotemDetail(name: args.name);
       }
       return null;
     }),
@@ -85,9 +82,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin<Home> {
           return const Eigenschappen();
         case '/results':
           return const FilteredTotems();
-        case '/totem-detail':
-          final args = settings.arguments as TotemDetailArguments;
-          return TotemDetail(name: args.name);
       }
       return null;
     }),
