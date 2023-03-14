@@ -27,14 +27,28 @@ class AnimalEntry extends StatelessWidget {
               enableDrag: true,
               isScrollControlled: true,
               shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(8))),
+                  borderRadius:
+                      BorderRadius.vertical(top: Radius.circular(10))),
               builder: (context) {
-                return AnimalCard(animal: animal);
+                return DraggableScrollableSheet(
+                    expand: false,
+                    builder: (context, controller) {
+                      return SingleChildScrollView(
+                          controller: controller,
+                          child: AnimalCard(animal: animal));
+                    });
               });
         },
         title: Row(
           children: [
-            Expanded(child: Text('${animal.id.toString()}. ${animal.name}')),
+            Expanded(
+                child: Text.rich(TextSpan(
+              children: [
+                TextSpan(text: '${animal.id.toString()}. '),
+                TextSpan(
+                    text: animal.name, style: const TextStyle(fontSize: 20)),
+              ],
+            ))),
             score == null ? Container() : Text(score.toString()),
           ],
         ),

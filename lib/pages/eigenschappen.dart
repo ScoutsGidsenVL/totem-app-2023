@@ -122,7 +122,8 @@ class _EigenschappenState extends State<Eigenschappen> {
                               onChanged: (enabled) => {
                                 filter.selectTrait(trait.name, enabled ?? false)
                               },
-                              title: Text(trait.name),
+                              title: Text(trait.name,
+                                  style: const TextStyle(fontSize: 20)),
                               activeColor:
                                   Theme.of(context).colorScheme.primary,
                             );

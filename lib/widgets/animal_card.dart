@@ -48,8 +48,20 @@ class AnimalCard extends StatelessWidget {
               padding: EdgeInsets.only(top: 8, bottom: 12),
               child: Image(image: AssetImage('assets/images/separation.png')),
             ),
-            Text(animal.description,
-                style: Theme.of(context).textTheme.bodyMedium),
+            Padding(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: Text(animal.description,
+                    style: Theme.of(context).textTheme.bodyMedium)),
+            Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              const Padding(
+                  padding: EdgeInsets.only(right: 8),
+                  child: Icon(Icons.psychology)),
+              Flexible(
+                  child: Text(animal.traits.join(', '),
+                      style: const TextStyle(
+                          fontSize: 20, fontStyle: FontStyle.italic),
+                      softWrap: true))
+            ]),
           ]),
     );
   }
