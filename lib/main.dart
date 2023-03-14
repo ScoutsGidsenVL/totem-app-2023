@@ -9,8 +9,14 @@ import 'package:totem_app/pages/filtered_totems.dart';
 import 'package:totem_app/pages/profielen.dart';
 import 'package:totem_app/pages/totem_detail.dart';
 import 'package:totem_app/pages/totems.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  Future.delayed(const Duration(milliseconds: 600)).then((_) {
+    FlutterNativeSplash.remove();
+  });
   runApp(const MyApp());
 }
 

@@ -33,6 +33,7 @@ dependencies:
   shared_preferences: ^2.0.18
   collection: ^1.17.0
   flutter_markdown: ^0.6.14
+  flutter_native_splash: ^2.2.19
 
 dev_dependencies:
   flutter_test:
@@ -41,7 +42,6 @@ dev_dependencies:
   json_serializable: ^6.6.1
   build_runner: ^2.3.3
   flutter_launcher_icons: ^0.12.0
-  flutter_native_splash: ^2.2.19
 
 flutter:
   uses-material-design: true
@@ -82,4 +82,4 @@ flutter_icons:
 flutter_native_splash:
   color: "#C0D8EA"
   color_dark: "#282D30"
-  image: assets/images/totem.png
+  image: "assets/images/splash.png"
