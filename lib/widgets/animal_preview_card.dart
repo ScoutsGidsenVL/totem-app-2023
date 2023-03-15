@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:totem_app/model/totem_data.dart';
+import 'package:totem_app/widgets/animal_name.dart';
+import 'package:totem_app/widgets/traits_list.dart';
 
 class AnimalPreviewCard extends StatelessWidget {
   const AnimalPreviewCard({super.key, required this.animal, this.onPressed});
@@ -20,24 +22,8 @@ class AnimalPreviewCard extends StatelessWidget {
               children: [
                 Padding(
                     padding: const EdgeInsets.only(bottom: 8),
-                    child: Text.rich(TextSpan(
-                      children: [
-                        TextSpan(
-                            text: '${animal.id.toString()}. ',
-                            style: const TextStyle(fontSize: 18)),
-                        TextSpan(text: animal.name),
-                      ],
-                    ))),
-                Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  const Padding(
-                      padding: EdgeInsets.only(right: 8),
-                      child: Icon(Icons.psychology)),
-                  Flexible(
-                      child: Text(animal.traits.join(', '),
-                          style: const TextStyle(
-                              fontSize: 18, fontStyle: FontStyle.italic),
-                          softWrap: true))
-                ])
+                    child: AnimalName(animal)),
+                TraitsList(animal.traits),
               ],
             )),
       ),

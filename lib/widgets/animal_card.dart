@@ -7,6 +7,7 @@ import 'package:totem_app/model/dynamic_data.dart';
 import 'package:totem_app/model/totem_data.dart';
 import 'package:totem_app/widgets/animal_star_button.dart';
 import 'package:totem_app/widgets/animal_preview_card.dart';
+import 'package:totem_app/widgets/traits_list.dart';
 
 class AnimalCard extends StatefulWidget {
   final AnimalData animal;
@@ -116,19 +117,7 @@ class _AnimalCardState extends State<AnimalCard> {
                               child: Text(_animal.description,
                                   style:
                                       Theme.of(context).textTheme.bodyMedium)),
-                          Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Padding(
-                                    padding: EdgeInsets.only(right: 8),
-                                    child: Icon(Icons.psychology)),
-                                Flexible(
-                                    child: Text(_animal.traits.join(', '),
-                                        style: const TextStyle(
-                                            fontSize: 20,
-                                            fontStyle: FontStyle.italic),
-                                        softWrap: true))
-                              ]),
+                          TraitsList(_animal.traits),
                           similarAnimals.isEmpty
                               ? Container()
                               : Padding(

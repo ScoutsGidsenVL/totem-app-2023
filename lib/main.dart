@@ -20,6 +20,7 @@ void main() {
 }
 
 const primary = Color(0xFF005C9D);
+const lightGray = Color(0xFF6C757D);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
                     primary: primary,
                     primaryContainer: Color(0xFF004474),
                     secondary: Color(0xFF006CBA),
-                    onSurfaceVariant: Color(0xFF858585)),
+                    onSurfaceVariant: lightGray),
                 textTheme: const TextTheme(
                     headlineMedium: TextStyle(
                         fontSize: 34, color: primary, fontFamily: 'Verveine'),
@@ -56,7 +57,7 @@ class MyApp extends StatelessWidget {
                         fontWeight: FontWeight.w300),
                     bodyLarge: TextStyle(fontSize: 21),
                     bodyMedium: TextStyle(fontSize: 21),
-                    bodySmall: TextStyle(fontSize: 19))),
+                    bodySmall: TextStyle(fontSize: 19, color: lightGray))),
             home: const Home()));
   }
 }
