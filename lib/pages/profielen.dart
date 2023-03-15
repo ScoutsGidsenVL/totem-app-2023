@@ -16,34 +16,35 @@ class Profielen extends StatelessWidget {
     final profile = manager.profile;
 
     return Scaffold(
-        body: Scrollbar(
-            child: Column(children: [
+        body: Column(children: [
           profile == null
               ? Container()
               : Padding(
                   padding: const EdgeInsets.all(10),
                   child: ProfileCard(profile)),
           Expanded(
-              child: LayoutBuilder(
-                  builder: (context, constraints) => AzListView(
-                      data: profiles,
-                      itemCount: profiles.length,
-                      itemBuilder: (context, index) {
-                        return ProfileEntry(profile: profiles[index]);
-                      },
-                      indexBarData: SuspensionUtil.getTagIndexList(profiles),
-                      indexBarOptions: IndexBarOptions(
-                        needRebuild: true,
-                        hapticFeedback: true,
-                        selectTextStyle: const TextStyle(
-                            fontSize: 12,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500),
-                        selectItemDecoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Theme.of(context).colorScheme.primary),
-                      ))))
-        ])),
+              child: Scrollbar(
+                  child: LayoutBuilder(
+                      builder: (context, constraints) => AzListView(
+                          data: profiles,
+                          itemCount: profiles.length,
+                          itemBuilder: (context, index) {
+                            return ProfileEntry(profile: profiles[index]);
+                          },
+                          indexBarData:
+                              SuspensionUtil.getTagIndexList(profiles),
+                          indexBarOptions: IndexBarOptions(
+                            needRebuild: true,
+                            hapticFeedback: true,
+                            selectTextStyle: const TextStyle(
+                                fontSize: 12,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500),
+                            selectItemDecoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Theme.of(context).colorScheme.primary),
+                          )))))
+        ]),
         floatingActionButton: FloatingActionButton(
             onPressed: () {
               showDialog(
