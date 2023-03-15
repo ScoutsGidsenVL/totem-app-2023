@@ -75,9 +75,12 @@ class ProfileManager extends ChangeNotifier {
   }
 
   void deleteProfile(String name) {
+    if (name == selectedName) {
+      selectedName = null;
+    }
     profiles.removeWhere((p) => p.name == name);
-    unselectProfile();
     storeProfiles();
+    notifyListeners();
   }
 
   void updateProfile(Function fn) {

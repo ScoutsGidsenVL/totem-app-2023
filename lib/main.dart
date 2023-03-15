@@ -85,9 +85,15 @@ class _HomeState extends State<Home> with TickerProviderStateMixin<Home> {
       }
       return null;
     }),
-    TabItem(2, 'Profielen', Icons.person, (settings) {
-      return const Profielen();
-    }),
+    TabItem(
+      2,
+      'Profielen',
+      Icons.person,
+      (settings) {
+        return const Profielen();
+      },
+      badge: (context) => context.watch<ProfileManager>().profile?.name,
+    ),
     TabItem(3, 'Checklist', Icons.check_circle, (settings) {
       return const Checklist();
     }),
@@ -140,10 +146,19 @@ class _HomeState extends State<Home> with TickerProviderStateMixin<Home> {
                     .toList()),
             bottomNavigationBar: BottomNavigationBar(
               type: BottomNavigationBarType.fixed,
-              items: tabs
-                  .map((t) => BottomNavigationBarItem(
-                      icon: Icon(t.icon), label: t.title))
-                  .toList(),
+              items: tabs.map((t) {
+                final badge = t.badge?.call(context);
+                return BottomNavigationBarItem(
+                    icon: badge == null
+                        ? Icon(t.icon)
+                        : Badge(
+                            label: Text(badge),
+                            backgroundColor:
+                                Theme.of(context).colorScheme.primary,
+                            child: Icon(t.icon),
+                          ),
+                    label: t.title);
+              }).toList(),
               currentIndex: _currentIndex,
               onTap: _selectTab,
               selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
@@ -152,9 +167,10 @@ class _HomeState extends State<Home> with TickerProviderStateMixin<Home> {
 }
 
 class TabItem {
-  const TabItem(this.index, this.title, this.icon, this.router);
+  const TabItem(this.index, this.title, this.icon, this.router, {this.badge});
   final int index;
   final String title;
   final IconData icon;
-  final Widget? Function(RouteSettings) router;
+  final Widget? Function(RouteSettings settings) router;
+  final String? Function(BuildContext context)? badge;
 }
