@@ -26,14 +26,7 @@ class AnimalEntry extends StatelessWidget {
                   borderRadius:
                       BorderRadius.vertical(top: Radius.circular(10))),
               builder: (context) {
-                return DraggableScrollableSheet(
-                    expand: false,
-                    builder: (context, controller) {
-                      return SingleChildScrollView(
-                          controller: controller,
-                          child:
-                              AnimalCard(animal: animal, swipeList: swipeList));
-                    });
+                return AnimalCard(animal: animal, swipeList: swipeList);
               });
         },
         title: Row(
