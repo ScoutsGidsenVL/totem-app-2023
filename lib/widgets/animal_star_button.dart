@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totem_app/model/profile_manager.dart';
 
+final starColor = Colors.amber.shade600;
+
 class AnimalStarButton extends StatelessWidget {
   const AnimalStarButton({
     super.key,
@@ -13,21 +15,47 @@ class AnimalStarButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final profileManager = context.watch<ProfileManager>();
+    final profiles = profileManager.profiles;
     final profile = profileManager.profile;
-    final starred = profile?.animals.contains(animal) ?? false;
+    final starred = profile == null
+        ? profiles.any((p) => p.animals.contains(animal))
+        : profile.animals.contains(animal);
 
     return IconButton(
         onPressed: () {
-          if (profile == null) return;
-          profileManager.updateProfile(() {
-            if (starred) {
-              profile.animals.remove(animal);
-            } else {
-              profile.animals.insert(0, animal);
-            }
-          });
+          if (profile != null) {
+            profileManager.toggleAnimal(profile, animal);
+            return;
+          }
+          showDialog(
+              context: context,
+              builder: (context) {
+                return SimpleDialog(
+                    title: Text('Voeg $animal toe aan'),
+                    contentPadding: const EdgeInsets.all(12),
+                    children: [
+                      ...profiles.map((profile) {
+                        final starred = profile.animals.contains(animal);
+                        return SimpleDialogOption(
+                          onPressed: () {
+                            profileManager.toggleAnimal(profile, animal);
+                            Navigator.pop(context);
+                          },
+                          child: Row(children: [
+                            starred
+                                ? Icon(Icons.star, color: starColor)
+                                : const Icon(Icons.star_outline),
+                            Padding(
+                                padding: const EdgeInsets.only(left: 8),
+                                child: Text(profile.name)),
+                          ]),
+                        );
+                      }).toList(),
+                    ]);
+              });
+          return;
         },
-        color: starred ? Colors.amber.shade600 : null,
+        color: starred ? starColor : null,
         icon: Icon(starred ? Icons.star : Icons.star_outline));
   }
 }

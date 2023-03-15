@@ -50,7 +50,9 @@ class _TotemsState extends State<Totems> {
   Widget build(BuildContext context) {
     final allAnimals =
         context.watch<DynamicData>().animals?.values.toList() ?? [];
-    final profile = context.watch<ProfileManager>().profile;
+    final profileManager = context.watch<ProfileManager>();
+    final profiles = profileManager.profiles;
+    final profile = profileManager.profile;
 
     var searchAnimals = _search.isEmpty
         ? allAnimals
@@ -70,9 +72,11 @@ class _TotemsState extends State<Totems> {
             .map((e) => e.key)
             .toList();
 
-    var animals = _showRelevant && profile != null
+    var animals = _showRelevant
         ? searchAnimals.where((a) {
-            return profile.animals.contains(a.name);
+            return profile == null
+                ? profiles.any((p) => p.animals.contains(a.name))
+                : profile.animals.contains(a.name);
           }).toList()
         : searchAnimals;
 
@@ -102,13 +106,11 @@ class _TotemsState extends State<Totems> {
                                 : IconButton(
                                     onPressed: clearSearch,
                                     icon: const Icon(Icons.close)),
-                            profile == null
-                                ? Container()
-                                : IconButton(
-                                    onPressed: toggleRelevant,
-                                    icon: Icon(_showRelevant
-                                        ? Icons.star
-                                        : Icons.star_half))
+                            IconButton(
+                                onPressed: toggleRelevant,
+                                icon: Icon(_showRelevant
+                                    ? Icons.star
+                                    : Icons.star_outline))
                           ]),
                       labelText: 'Zoek totem',
                       border: const OutlineInputBorder()))),

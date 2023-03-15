@@ -1,8 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:totem_app/model/profile_manager.dart';
 import 'package:totem_app/model/totem_data.dart';
 import 'package:totem_app/widgets/animal_star_button.dart';
 
@@ -39,8 +37,6 @@ class _AnimalCardState extends State<AnimalCard> {
 
   @override
   Widget build(BuildContext context) {
-    final profile = context.watch<ProfileManager>().profile;
-
     return GestureDetector(
         onHorizontalDragEnd: widget.swipeList == null
             ? null
@@ -84,9 +80,7 @@ class _AnimalCardState extends State<AnimalCard> {
                                       .headlineSmall),
                             ]),
                             softWrap: true)),
-                    profile == null
-                        ? Container()
-                        : AnimalStarButton(animal: _animal.name),
+                    AnimalStarButton(animal: _animal.name),
                   ],
                 ),
                 const Padding(

@@ -70,8 +70,9 @@ class ProfileManager extends ChangeNotifier {
   void createProfile(String name, List<String> traits) {
     profiles.add(ProfileData(name, [], traits));
     _sortProfiles();
-    selectProfile(name);
+    selectedName = name;
     storeProfiles();
+    notifyListeners();
   }
 
   void deleteProfile(String name) {
@@ -83,10 +84,20 @@ class ProfileManager extends ChangeNotifier {
     notifyListeners();
   }
 
+  void toggleAnimal(ProfileData profile, String animal) {
+    if (profile.animals.contains(animal)) {
+      profile.animals.remove(animal);
+    } else {
+      profile.animals.insert(0, animal);
+    }
+    storeProfiles();
+    notifyListeners();
+  }
+
   void updateProfile(Function fn) {
     fn();
-    notifyListeners();
     storeProfiles();
+    notifyListeners();
   }
 }
 
