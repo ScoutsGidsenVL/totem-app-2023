@@ -67,8 +67,8 @@ class ProfileManager extends ChangeNotifier {
     notifyListeners();
   }
 
-  void createProfile(String name) {
-    profiles.add(ProfileData(name, [], []));
+  void createProfile(String name, List<String> traits) {
+    profiles.add(ProfileData(name, [], traits));
     _sortProfiles();
     selectProfile(name);
     storeProfiles();

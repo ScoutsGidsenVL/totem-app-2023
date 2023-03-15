@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:totem_app/model/profile_manager.dart';
 import 'package:azlistview/azlistview.dart';
 import 'package:totem_app/widgets/profile_card.dart';
+import 'package:totem_app/widgets/profile_creation_dialog.dart';
 import 'package:totem_app/widgets/profile_entry.dart';
 
 class Profielen extends StatelessWidget {
@@ -48,22 +49,9 @@ class Profielen extends StatelessWidget {
               showDialog(
                   context: context,
                   builder: (context) {
-                    return SimpleDialog(
-                      title: const Text('Nieuw profiel'),
-                      contentPadding: const EdgeInsets.all(12),
-                      children: [
-                        TextField(
-                            onSubmitted: (a) {
-                              manager.createProfile(a);
-                              Navigator.pop(context);
-                            },
-                            autofocus: true,
-                            textCapitalization: TextCapitalization.words,
-                            decoration: const InputDecoration(
-                                labelText: 'Naam',
-                                border: OutlineInputBorder())),
-                      ],
-                    );
+                    return ProfileCreationDialog(onSubmitted: (name) {
+                      manager.createProfile(name, []);
+                    });
                   });
             },
             child: const Icon(Icons.add)));
