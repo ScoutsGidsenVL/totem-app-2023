@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totem_app/model/profile_manager.dart';
+import 'package:totem_app/widgets/profile_creation_dialog.dart';
 
 final starColor = Colors.amber.shade600;
 
@@ -51,6 +52,27 @@ class AnimalStarButton extends StatelessWidget {
                           ]),
                         );
                       }).toList(),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          final parentContext = context;
+                          showDialog(
+                              context: context,
+                              builder: (context) {
+                                return ProfileCreationDialog(
+                                    onSubmitted: (name) {
+                                  profileManager
+                                      .createProfile(name, animals: [animal]);
+                                  Navigator.pop(parentContext);
+                                });
+                              });
+                        },
+                        child: Row(children: const [
+                          Icon(Icons.person_add),
+                          Padding(
+                              padding: EdgeInsets.only(left: 8),
+                              child: Text('Nieuw profiel')),
+                        ]),
+                      )
                     ]);
               });
           return;

@@ -222,8 +222,8 @@ class _EigenschappenState extends State<Eigenschappen> {
                                           .where((t) => filter.isSelected(t))
                                           .toList();
                                       filter.clear();
-                                      profileManager.createProfile(
-                                          name, selectedTraits);
+                                      profileManager.createProfile(name,
+                                          traits: selectedTraits);
                                     });
                                   });
                             },
