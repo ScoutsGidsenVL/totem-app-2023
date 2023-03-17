@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totem_app/model/profile_manager.dart';
+import 'package:totem_app/util.dart';
 import 'package:totem_app/widgets/profile_dialog.dart';
 
 final starColor = Colors.amber.shade600;
@@ -25,7 +26,12 @@ class AnimalStarButton extends StatelessWidget {
     return IconButton(
         onPressed: () {
           if (profile != null) {
-            profileManager.toggleAnimal(profile, animal);
+            profileManager.toggleAnimal(profile, animal, !starred);
+            if (starred) {
+              showUndo(context, '$animal verwijderd van ${profile.name}', () {
+                profileManager.toggleAnimal(profile, animal, true);
+              });
+            }
             return;
           }
           showDialog(
@@ -39,7 +45,15 @@ class AnimalStarButton extends StatelessWidget {
                         final starred = profile.animals.contains(animal);
                         return SimpleDialogOption(
                           onPressed: () {
-                            profileManager.toggleAnimal(profile, animal);
+                            profileManager.toggleAnimal(
+                                profile, animal, !starred);
+                            if (starred) {
+                              showUndo(context,
+                                  '$animal verwijderd van ${profile.name}', () {
+                                profileManager.toggleAnimal(
+                                    profile, animal, true);
+                              });
+                            }
                             Navigator.pop(context);
                           },
                           child: Row(children: [

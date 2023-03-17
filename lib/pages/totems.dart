@@ -72,13 +72,17 @@ class _TotemsState extends State<Totems> {
             .map((e) => e.key)
             .toList();
 
-    var animals = _showRelevant
-        ? searchAnimals.where((a) {
-            return profile == null
-                ? profiles.any((p) => p.animals.contains(a.name))
-                : profile.animals.contains(a.name);
-          }).toList()
-        : searchAnimals;
+    var relevantAnimals = searchAnimals.where((a) {
+      return profile == null
+          ? profiles.any((p) => p.animals.contains(a.name))
+          : profile.animals.contains(a.name);
+    }).toList();
+
+    var animals = _showRelevant ? relevantAnimals : searchAnimals;
+
+    if (relevantAnimals.isEmpty && _showRelevant) {
+      Future.microtask(() => setState(() => _showRelevant = false));
+    }
 
     return WillPopScope(
         onWillPop: () async {
@@ -106,11 +110,13 @@ class _TotemsState extends State<Totems> {
                                 : IconButton(
                                     onPressed: clearSearch,
                                     icon: const Icon(Icons.close)),
-                            IconButton(
-                                onPressed: toggleRelevant,
-                                icon: Icon(_showRelevant
-                                    ? Icons.star
-                                    : Icons.star_outline))
+                            relevantAnimals.isEmpty
+                                ? Container()
+                                : IconButton(
+                                    onPressed: toggleRelevant,
+                                    icon: Icon(_showRelevant
+                                        ? Icons.star
+                                        : Icons.star_outline))
                           ]),
                       labelText: 'Zoek totem',
                       border: const OutlineInputBorder()))),

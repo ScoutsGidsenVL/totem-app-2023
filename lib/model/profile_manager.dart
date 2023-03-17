@@ -70,10 +70,14 @@ class ProfileManager extends ChangeNotifier {
 
   void createProfile(String name,
       {List<String>? animals, List<String>? traits, int? color}) {
-    profiles.add(ProfileData(
-        name, animals ?? [], traits ?? [], color ?? ProfileData.randomColor()));
-    _sortProfiles();
     selectedName = name;
+    addProfile(ProfileData(
+        name, animals ?? [], traits ?? [], color ?? ProfileData.randomColor()));
+  }
+
+  void addProfile(ProfileData profile) {
+    profiles.add(profile);
+    _sortProfiles();
     storeProfiles();
     notifyListeners();
   }
@@ -87,11 +91,11 @@ class ProfileManager extends ChangeNotifier {
     notifyListeners();
   }
 
-  void toggleAnimal(ProfileData profile, String animal) {
-    if (profile.animals.contains(animal)) {
-      profile.animals.remove(animal);
-    } else {
+  void toggleAnimal(ProfileData profile, String animal, bool starred) {
+    if (starred) {
       profile.animals.insert(0, animal);
+    } else {
+      profile.animals.remove(animal);
     }
     storeProfiles();
     notifyListeners();

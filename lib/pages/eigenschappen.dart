@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:totem_app/model/dynamic_data.dart';
 import 'package:totem_app/model/profile_manager.dart';
 import 'package:totem_app/model/traits_filter.dart';
+import 'package:totem_app/util.dart';
 import 'package:totem_app/widgets/profile_dialog.dart';
 
 class Eigenschappen extends StatefulWidget {
@@ -72,6 +73,10 @@ class _EigenschappenState extends State<Eigenschappen> {
         ? searchTraits.where((t) => filter.isSelected(t.name)).toList()
         : searchTraits;
 
+    if (filter.isEmpty && _showRelevant) {
+      Future.microtask(() => setState(() => _showRelevant = false));
+    }
+
     return WillPopScope(
         onWillPop: () async {
           if (_search.isNotEmpty) {
@@ -98,7 +103,7 @@ class _EigenschappenState extends State<Eigenschappen> {
                                     : IconButton(
                                         onPressed: clearSearch,
                                         icon: const Icon(Icons.close)),
-                                filter.length <= 0
+                                filter.isEmpty
                                     ? Container()
                                     : IconButton(
                                         onPressed: toggleRelevant,
@@ -156,26 +161,11 @@ class _EigenschappenState extends State<Eigenschappen> {
                       child: Row(children: [
                         IconButton(
                             onPressed: () {
-                              showDialog(
-                                  context: context,
-                                  builder: (context) {
-                                    return AlertDialog(
-                                      title: const Text('Reset selectie?'),
-                                      actions: [
-                                        TextButton(
-                                            onPressed: () {
-                                              Navigator.pop(context);
-                                            },
-                                            child: const Text('Annuleren')),
-                                        TextButton(
-                                            onPressed: () {
-                                              filter.clear();
-                                              Navigator.pop(context);
-                                            },
-                                            child: const Text('Reset'))
-                                      ],
-                                    );
-                                  });
+                              final oldTraits = filter.traits;
+                              filter.reset();
+                              showUndo(context, 'Selectie gewist', () {
+                                context.read<TraitsFilter>().set(oldTraits);
+                              });
                             },
                             icon: Icon(Icons.delete,
                                 color:
@@ -221,7 +211,7 @@ class _EigenschappenState extends State<Eigenschappen> {
                                       .map((e) => e.name)
                                       .where((t) => filter.isSelected(t))
                                       .toList();
-                                  filter.clear();
+                                  filter.reset();
                                   profileManager.createProfile(name,
                                       traits: selectedTraits, color: color);
                                 });

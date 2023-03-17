@@ -50,12 +50,24 @@ class TraitsFilter extends ChangeNotifier {
     notifyListeners();
   }
 
-  void clear() {
+  void reset() {
     if (profileTraits != null) {
-      profileTraits!.clear();
-      profileManager!.storeProfiles();
+      profileManager!.updateProfile(() {
+        profileTraits!.clear();
+      });
     } else {
       fallbackTraits.clear();
+    }
+    notifyListeners();
+  }
+
+  void set(Set<String> traits) {
+    if (profileTraits != null) {
+      profileManager?.updateProfile(() {
+        profileManager!.profile!.traits = traits.toList();
+      });
+    } else {
+      fallbackTraits = traits;
     }
     notifyListeners();
   }

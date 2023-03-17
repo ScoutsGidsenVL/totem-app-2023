@@ -57,30 +57,15 @@ class Checklist extends StatelessWidget {
         }),
         TextButton(
             onPressed: () {
-              showDialog(
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      title: const Text('Checklist resetten?'),
-                      actions: [
-                        TextButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: const Text('Annuleren')),
-                        TextButton(
-                            onPressed: () {
-                              checklist.reset();
-                              Navigator.pop(context);
-                            },
-                            child: const Text('Resetten'))
-                      ],
-                    );
-                  });
+              final oldChecked = List<String>.from(checklist.checked);
+              checklist.reset();
+              showUndo(context, 'Checklist gewist', () {
+                context.read<ChecklistData>().set(oldChecked);
+              });
             },
             style: const ButtonStyle(
                 padding: MaterialStatePropertyAll(EdgeInsets.all(24))),
-            child: const Text('Checklist resetten'))
+            child: const Text('Checklist wissen'))
       ],
     ));
   }

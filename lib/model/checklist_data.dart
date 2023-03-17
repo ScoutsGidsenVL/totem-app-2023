@@ -38,4 +38,10 @@ class ChecklistData extends ChangeNotifier {
     storeChecklist();
     notifyListeners();
   }
+
+  void set(List<String> list) {
+    checked = list;
+    storeChecklist();
+    notifyListeners();
+  }
 }

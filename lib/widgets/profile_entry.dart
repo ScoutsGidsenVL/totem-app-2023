@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totem_app/model/profile_manager.dart';
+import 'package:totem_app/util.dart';
 
 class ProfileEntry extends StatelessWidget {
   final ProfileData profile;
@@ -43,26 +44,13 @@ class ProfileEntry extends StatelessWidget {
         ),
         trailing: IconButton(
             onPressed: () {
-              showDialog(
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      title: Text('${profile.name} verwijderen?'),
-                      actions: [
-                        TextButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: const Text('Annuleren')),
-                        TextButton(
-                            onPressed: () {
-                              manager.deleteProfile(profile.name);
-                              Navigator.pop(context);
-                            },
-                            child: const Text('Verwijderen'))
-                      ],
-                    );
-                  });
+              final oldSelectedName = manager.selectedName;
+              manager.deleteProfile(profile.name);
+              showUndo(context, '${profile.name} verwijderd', () {
+                final manager = context.read<ProfileManager>();
+                manager.selectedName = oldSelectedName;
+                manager.addProfile(profile);
+              });
             },
             icon: const Icon(Icons.delete)));
   }
