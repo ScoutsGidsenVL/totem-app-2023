@@ -14,6 +14,10 @@ class FilteredTotems extends StatelessWidget {
     final filter = context.watch<TraitsFilter>();
     final animals = filter.apply(allAnimals);
 
+    if (filter.isEmpty) {
+      Future.microtask(() => Navigator.pop(context));
+    }
+
     return Scaffold(
         body: Column(children: [
       Expanded(
