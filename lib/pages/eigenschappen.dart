@@ -216,14 +216,14 @@ class _EigenschappenState extends State<Eigenschappen> {
                               context: context,
                               builder: (context) {
                                 return ProfileCreationDialog(
-                                    onSubmitted: (name) {
+                                    onSubmitted: (name, color) {
                                   var selectedTraits = traits
                                       .map((e) => e.name)
                                       .where((t) => filter.isSelected(t))
                                       .toList();
                                   filter.clear();
                                   profileManager.createProfile(name,
-                                      traits: selectedTraits);
+                                      traits: selectedTraits, color: color);
                                 });
                               });
                         },

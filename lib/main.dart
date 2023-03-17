@@ -48,6 +48,7 @@ class MyApp extends StatelessWidget {
                     primary: primary,
                     primaryContainer: Color(0xFF004474),
                     secondary: Color(0xFF006CBA),
+                    surfaceVariant: Color(0xFFE4E4E4),
                     onSurfaceVariant: lightGray),
                 textTheme: const TextTheme(
                     headlineMedium: TextStyle(
@@ -89,15 +90,13 @@ class _HomeState extends State<Home> with TickerProviderStateMixin<Home> {
       }
       return null;
     }),
-    TabItem(
-      2,
-      'Profielen',
-      Icons.person,
-      (settings) {
-        return const Profielen();
-      },
-      badge: (context) => context.watch<ProfileManager>().profile?.name,
-    ),
+    TabItem(2, 'Profielen', Icons.person, (settings) {
+      return const Profielen();
+    }, badge: (context) {
+      final profile = context.watch<ProfileManager>().profile;
+      if (profile == null) return null;
+      return BadgeInfo(profile.name, profile.color.shade700);
+    }),
     TabItem(3, 'Checklist', Icons.check_circle, (settings) {
       return const Checklist();
     }),
@@ -156,8 +155,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin<Home> {
                     icon: badge == null
                         ? Icon(t.icon)
                         : Badge(
-                            label: Text(badge),
-                            backgroundColor:
+                            label: Text(badge.label),
+                            backgroundColor: badge.color ??
                                 Theme.of(context).colorScheme.primary,
                             child: Icon(t.icon),
                           ),
@@ -176,5 +175,11 @@ class TabItem {
   final String title;
   final IconData icon;
   final Widget? Function(RouteSettings settings) router;
-  final String? Function(BuildContext context)? badge;
+  final BadgeInfo? Function(BuildContext context)? badge;
+}
+
+class BadgeInfo {
+  const BadgeInfo(this.label, this.color);
+  final String label;
+  final Color? color;
 }

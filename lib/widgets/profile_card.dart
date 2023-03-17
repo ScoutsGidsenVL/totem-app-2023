@@ -15,8 +15,7 @@ class ProfileCard extends StatelessWidget {
         child: Padding(
       padding: const EdgeInsets.all(5),
       child: Row(children: [
-        Icon(Icons.account_circle,
-            size: 48, color: Theme.of(context).colorScheme.onSurfaceVariant),
+        Icon(Icons.account_circle, size: 48, color: profile.color.shade700),
         Expanded(
             child: Padding(
                 padding: const EdgeInsets.only(left: 5),

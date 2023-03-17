@@ -44,8 +44,10 @@ class AnimalStarButton extends StatelessWidget {
                           },
                           child: Row(children: [
                             starred
-                                ? Icon(Icons.star, color: starColor)
-                                : const Icon(Icons.star_outline),
+                                ? Icon(Icons.star,
+                                    color: profile.color.shade700)
+                                : Icon(Icons.star_outline,
+                                    color: profile.color.shade700),
                             Padding(
                                 padding: const EdgeInsets.only(left: 8),
                                 child: Text(profile.name)),
@@ -59,9 +61,9 @@ class AnimalStarButton extends StatelessWidget {
                               context: context,
                               builder: (context) {
                                 return ProfileCreationDialog(
-                                    onSubmitted: (name) {
-                                  profileManager
-                                      .createProfile(name, animals: [animal]);
+                                    onSubmitted: (name, color) {
+                                  profileManager.createProfile(name,
+                                      animals: [animal], color: color);
                                   Navigator.pop(parentContext);
                                 });
                               });

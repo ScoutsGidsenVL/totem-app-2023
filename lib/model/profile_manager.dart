@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math';
 import 'dart:typed_data';
 import 'package:azlistview/azlistview.dart';
 import 'package:flutter/material.dart';
@@ -68,8 +69,9 @@ class ProfileManager extends ChangeNotifier {
   }
 
   void createProfile(String name,
-      {List<String>? animals, List<String>? traits}) {
-    profiles.add(ProfileData(name, animals ?? [], traits ?? []));
+      {List<String>? animals, List<String>? traits, int? color}) {
+    profiles.add(ProfileData(
+        name, animals ?? [], traits ?? [], color ?? ProfileData.randomColor()));
     _sortProfiles();
     selectedName = name;
     storeProfiles();
@@ -103,15 +105,39 @@ class ProfileManager extends ChangeNotifier {
 }
 
 class ProfileData extends ISuspensionBean {
-  ProfileData(this.name, this.animals, this.traits);
+  static const colors = <MaterialColor>[
+    Colors.pink,
+    Colors.red,
+    Colors.orange,
+    Colors.yellow,
+    Colors.lime,
+    Colors.green,
+    Colors.teal,
+    Colors.cyan,
+    Colors.blue,
+    Colors.indigo,
+    Colors.purple,
+    Colors.brown,
+  ];
+
+  static int randomColor() {
+    return Random().nextInt(ProfileData.colors.length);
+  }
+
+  ProfileData(this.name, this.animals, this.traits, this.colorId);
 
   String name;
   List<String> animals;
   List<String> traits;
+  int colorId;
 
   @override
   String getSuspensionTag() {
     return getFirstLetter(name);
+  }
+
+  MaterialColor get color {
+    return ProfileData.colors[colorId];
   }
 
   String encode(DynamicData dynamicData) {
@@ -144,6 +170,8 @@ class ProfileData extends ISuspensionBean {
 
     var encodedName = utf8.encode(name);
     addList(encodedName);
+
+    builder.addByte(colorId);
 
     addList(animals.expand((a) {
       final id = dynamicData.animals![a]?.id ?? 0;
@@ -194,6 +222,8 @@ class ProfileData extends ISuspensionBean {
         case 1:
           final name = utf8.decode(getList());
 
+          final color = bytes[cursor++];
+
           final animals = <String>[];
           var animalBytes = getList();
           for (var i = 0; i < animalBytes.length; i += 1) {
@@ -213,12 +243,12 @@ class ProfileData extends ISuspensionBean {
               .whereType<String>()
               .toList();
 
-          return ProfileData(name, animals, traits);
+          return ProfileData(name, animals, traits, color);
         default:
           throw FormatException('Unknown profile data version $versionId');
       }
     } catch (e) {
-      return ProfileData(code, [], []);
+      return ProfileData(code, [], [], 0);
     }
   }
 }
