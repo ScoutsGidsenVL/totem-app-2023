@@ -3,6 +3,9 @@
 
 Gebouwd met [Flutter](https://docs.flutter.dev/).
 
+|![](images/totems_detail.png)|![](images/eigenschappen_selectie.png)|![](images/profielen.png)|
+|---|---|---|
+
 ## Installatie
 1. Installeer flutter: [Get started](https://docs.flutter.dev/get-started/install).
 2. De app source code zit in `lib/` en `assets/`.
