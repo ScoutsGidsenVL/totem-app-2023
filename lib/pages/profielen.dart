@@ -50,7 +50,9 @@ class Profielen extends StatelessWidget {
                   context: context,
                   builder: (context) {
                     return ProfileDialog(onSubmitted: (name, color) {
-                      manager.createProfile(name, color: color);
+                      context
+                          .read<ProfileManager>()
+                          .createProfile(name, color: color);
                     });
                   });
             },

@@ -76,6 +76,9 @@ class ProfileManager extends ChangeNotifier {
   }
 
   void addProfile(ProfileData profile) {
+    if (profiles.any((p) => p.name == profile.name)) {
+      return;
+    }
     profiles.add(profile);
     _sortProfiles();
     storeProfiles();

@@ -76,8 +76,10 @@ class AnimalStarButton extends StatelessWidget {
                               builder: (context) {
                                 return ProfileDialog(
                                     onSubmitted: (name, color) {
-                                  profileManager.createProfile(name,
-                                      animals: [animal], color: color);
+                                  context.read<ProfileManager>().createProfile(
+                                      name,
+                                      animals: [animal],
+                                      color: color);
                                   Navigator.pop(parentContext);
                                 });
                               });

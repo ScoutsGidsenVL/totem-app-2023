@@ -212,8 +212,10 @@ class _EigenschappenState extends State<Eigenschappen> {
                                       .where((t) => filter.isSelected(t))
                                       .toList();
                                   filter.reset();
-                                  profileManager.createProfile(name,
-                                      traits: selectedTraits, color: color);
+                                  context.read<ProfileManager>().createProfile(
+                                      name,
+                                      traits: selectedTraits,
+                                      color: color);
                                 });
                               });
                         },
