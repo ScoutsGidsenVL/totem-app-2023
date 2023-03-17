@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:totem_app/model/dynamic_data.dart';
 import 'package:totem_app/model/profile_manager.dart';
 import 'package:totem_app/model/traits_filter.dart';
-import 'package:totem_app/widgets/profile_creation_dialog.dart';
+import 'package:totem_app/widgets/profile_dialog.dart';
 
 class Eigenschappen extends StatefulWidget {
   const Eigenschappen({Key? key}) : super(key: key);
@@ -215,7 +215,7 @@ class _EigenschappenState extends State<Eigenschappen> {
                           showDialog(
                               context: context,
                               builder: (context) {
-                                return ProfileCreationDialog(
+                                return ProfileDialog(
                                     onSubmitted: (name, color) {
                                   var selectedTraits = traits
                                       .map((e) => e.name)

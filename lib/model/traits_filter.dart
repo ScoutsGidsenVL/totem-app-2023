@@ -33,12 +33,13 @@ class TraitsFilter extends ChangeNotifier {
 
   void selectTrait(String trait, bool enabled) {
     if (profileTraits != null) {
-      if (enabled) {
-        profileTraits!.add(trait);
-      } else {
-        profileTraits!.remove(trait);
-      }
-      profileManager!.storeProfiles();
+      profileManager?.updateProfile(() {
+        if (enabled) {
+          profileTraits!.add(trait);
+        } else {
+          profileTraits!.remove(trait);
+        }
+      });
     } else {
       if (enabled) {
         fallbackTraits.add(trait);

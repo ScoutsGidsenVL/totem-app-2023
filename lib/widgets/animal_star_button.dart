@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totem_app/model/profile_manager.dart';
-import 'package:totem_app/widgets/profile_creation_dialog.dart';
+import 'package:totem_app/widgets/profile_dialog.dart';
 
 final starColor = Colors.amber.shade600;
 
@@ -60,7 +60,7 @@ class AnimalStarButton extends StatelessWidget {
                           showDialog(
                               context: context,
                               builder: (context) {
-                                return ProfileCreationDialog(
+                                return ProfileDialog(
                                     onSubmitted: (name, color) {
                                   profileManager.createProfile(name,
                                       animals: [animal], color: color);
