@@ -16,7 +16,22 @@ class ProfileEntry extends StatelessWidget {
         onTap: () {
           manager.selectProfile(profile.name);
         },
-        title: Text(profile.name),
+        title: Text.rich(
+            TextSpan(children: [
+              TextSpan(
+                  text: profile.name, style: const TextStyle(fontSize: 20)),
+              ...profile.animals.isEmpty
+                  ? []
+                  : [
+                      TextSpan(
+                          text: ' - ${profile.animals.join(', ')}',
+                          style: TextStyle(
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onSurfaceVariant))
+                    ],
+            ]),
+            overflow: TextOverflow.ellipsis),
         trailing: IconButton(
             onPressed: () {
               showDialog(

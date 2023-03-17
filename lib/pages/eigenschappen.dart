@@ -205,29 +205,32 @@ class _EigenschappenState extends State<Eigenschappen> {
                             ))
                       ]))
             ]),
-            floatingActionButton:
-                profileManager.profile != null || filter.isEmpty
-                    ? null
-                    : Padding(
-                        padding: const EdgeInsets.only(bottom: 57),
-                        child: FloatingActionButton(
-                            onPressed: () {
-                              showDialog(
-                                  context: context,
-                                  builder: (context) {
-                                    return ProfileCreationDialog(
-                                        onSubmitted: (name) {
-                                      var selectedTraits = traits
-                                          .map((e) => e.name)
-                                          .where((t) => filter.isSelected(t))
-                                          .toList();
-                                      filter.clear();
-                                      profileManager.createProfile(name,
-                                          traits: selectedTraits);
-                                    });
-                                  });
-                            },
-                            child: const Icon(Icons.person_add)),
-                      )));
+            floatingActionButton: profileManager.profile != null ||
+                    filter.isEmpty
+                ? null
+                : Padding(
+                    padding: const EdgeInsets.only(bottom: 57),
+                    child: FloatingActionButton(
+                        onPressed: () {
+                          showDialog(
+                              context: context,
+                              builder: (context) {
+                                return ProfileCreationDialog(
+                                    onSubmitted: (name) {
+                                  var selectedTraits = traits
+                                      .map((e) => e.name)
+                                      .where((t) => filter.isSelected(t))
+                                      .toList();
+                                  filter.clear();
+                                  profileManager.createProfile(name,
+                                      traits: selectedTraits);
+                                });
+                              });
+                        },
+                        backgroundColor: Theme.of(context).colorScheme.primary,
+                        foregroundColor:
+                            Theme.of(context).colorScheme.onPrimary,
+                        child: const Icon(Icons.person_add)),
+                  )));
   }
 }
