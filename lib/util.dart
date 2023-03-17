@@ -24,5 +24,5 @@ MarkdownStyleSheet markdownStyle(BuildContext context) {
           color: Theme.of(context).colorScheme.primary),
       h2: TextStyle(
           fontSize: 24, color: Theme.of(context).colorScheme.secondary),
-      h2Padding: const EdgeInsets.only(top: 8));
+      h2Padding: const EdgeInsets.only(top: 16));
 }

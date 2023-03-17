@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:totem_app/model/checklist_data.dart';
 import 'package:totem_app/model/dynamic_data.dart';
 import 'package:totem_app/model/profile_manager.dart';
 import 'package:totem_app/model/traits_filter.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) => DynamicData()),
+          ChangeNotifierProvider(create: (_) => ChecklistData()),
           ChangeNotifierProxyProvider<DynamicData, ProfileManager>(
               update: (_, dynamicData, prev) =>
                   ProfileManager(dynamicData, prev?.selectedName),
@@ -106,7 +108,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin<Home> {
 
   void _selectTab(int index) {
     if (_currentIndex == index) {
-      _navigatorKeys[_currentIndex].currentState!.maybePop();
+      _navigatorKeys[_currentIndex].currentState!.popUntil((r) => r.isFirst);
     } else {
       setState(() {
         _currentIndex = index;
