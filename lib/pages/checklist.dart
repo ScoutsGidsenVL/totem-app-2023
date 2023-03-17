@@ -48,6 +48,7 @@ class Checklist extends StatelessWidget {
               controlAffinity: ListTileControlAffinity.leading,
               visualDensity: VisualDensity.compact,
               dense: true,
+              activeColor: Theme.of(context).colorScheme.primary,
               value: checklist.isChecked(name),
               onChanged: (enabled) {
                 checklist.toggleCheck(name);

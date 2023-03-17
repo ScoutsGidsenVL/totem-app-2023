@@ -22,22 +22,23 @@ class ProfileEntry extends StatelessWidget {
               padding: const EdgeInsets.only(right: 8),
               child: Icon(Icons.account_circle, color: profile.color.shade700),
             ),
-            Text.rich(
-                TextSpan(children: [
-                  TextSpan(
-                      text: profile.name, style: const TextStyle(fontSize: 20)),
-                  ...profile.animals.isEmpty
-                      ? []
-                      : [
-                          TextSpan(
-                              text: ' - ${profile.animals.join(', ')}',
-                              style: TextStyle(
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .onSurfaceVariant))
-                        ],
-                ]),
-                overflow: TextOverflow.ellipsis),
+            Flexible(
+              child: Text.rich(
+                  TextSpan(children: [
+                    TextSpan(
+                        text: profile.name,
+                        style: const TextStyle(fontSize: 20)),
+                    profile.animals.isEmpty
+                        ? const TextSpan()
+                        : TextSpan(
+                            text: ' - ${profile.animals.join(', ')}',
+                            style: TextStyle(
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .onSurfaceVariant)),
+                  ]),
+                  overflow: TextOverflow.ellipsis),
+            ),
           ],
         ),
         trailing: IconButton(
