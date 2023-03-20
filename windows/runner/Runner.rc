@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "be.scoutsengidsenvlaanderen" "\0"
-            VALUE "FileDescription", "totem_app" "\0"
+            VALUE "FileDescription", "totemapp" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "totem_app" "\0"
+            VALUE "InternalName", "totemapp" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 be.scoutsengidsenvlaanderen. All rights reserved." "\0"
-            VALUE "OriginalFilename", "totem_app.exe" "\0"
-            VALUE "ProductName", "totem_app" "\0"
+            VALUE "OriginalFilename", "totemapp.exe" "\0"
+            VALUE "ProductName", "totemapp" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

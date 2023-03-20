@@ -1,9 +1,9 @@
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:totem_app/model/checklist_data.dart';
-import 'package:totem_app/model/dynamic_data.dart';
-import 'package:totem_app/util.dart';
+import 'package:totemapp/model/checklist_data.dart';
+import 'package:totemapp/model/dynamic_data.dart';
+import 'package:totemapp/util.dart';
 
 class Checklist extends StatelessWidget {
   const Checklist({super.key});

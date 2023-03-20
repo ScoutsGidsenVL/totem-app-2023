@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:totem_app/model/profile_manager.dart';
+import 'package:totemapp/model/profile_manager.dart';
 
 class ProfileDialog extends StatefulWidget {
   const ProfileDialog(

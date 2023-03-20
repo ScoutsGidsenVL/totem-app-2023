@@ -5,8 +5,8 @@ import 'dart:typed_data';
 import 'package:azlistview/azlistview.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:totem_app/model/dynamic_data.dart';
-import 'package:totem_app/util.dart';
+import 'package:totemapp/model/dynamic_data.dart';
+import 'package:totemapp/util.dart';
 import 'package:collection/collection.dart';
 
 class ProfileManager extends ChangeNotifier {

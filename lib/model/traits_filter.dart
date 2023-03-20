@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:totem_app/model/profile_manager.dart';
-import 'package:totem_app/model/totem_data.dart';
+import 'package:totemapp/model/profile_manager.dart';
+import 'package:totemapp/model/totem_data.dart';
 import 'package:azlistview/azlistview.dart';
 
 class TraitsFilter extends ChangeNotifier {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:totem_app/model/totem_data.dart';
-import 'package:totem_app/widgets/animal_name.dart';
-import 'package:totem_app/widgets/traits_list.dart';
+import 'package:totemapp/model/totem_data.dart';
+import 'package:totemapp/widgets/animal_name.dart';
+import 'package:totemapp/widgets/traits_list.dart';
 
 class AnimalPreviewCard extends StatelessWidget {
   const AnimalPreviewCard({super.key, required this.animal, this.onPressed});

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:totem_app/model/profile_manager.dart';
-import 'package:totem_app/util.dart';
-import 'package:totem_app/widgets/profile_dialog.dart';
+import 'package:totemapp/model/profile_manager.dart';
+import 'package:totemapp/util.dart';
+import 'package:totemapp/widgets/profile_dialog.dart';
 
 final starColor = Colors.amber.shade600;
 

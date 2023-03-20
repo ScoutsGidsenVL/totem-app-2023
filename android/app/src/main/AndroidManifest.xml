@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="be.scoutsengidsenvlaanderen.totem_app">
+    package="be.scoutsengidsenvlaanderen.totemapp">
    <application
         android:label="Totemapp"
         android:name="${applicationName}"

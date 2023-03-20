@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:totem_app/model/totem_data.dart';
-import 'package:totem_app/widgets/animal_card.dart';
-import 'package:totem_app/widgets/animal_name.dart';
-import 'package:totem_app/widgets/animal_star_button.dart';
+import 'package:totemapp/model/totem_data.dart';
+import 'package:totemapp/widgets/animal_card.dart';
+import 'package:totemapp/widgets/animal_name.dart';
+import 'package:totemapp/widgets/animal_star_button.dart';
 
 class AnimalEntry extends StatelessWidget {
   final AnimalData animal;

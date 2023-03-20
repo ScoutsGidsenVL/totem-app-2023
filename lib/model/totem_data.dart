@@ -1,6 +1,6 @@
 import 'package:azlistview/azlistview.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:totem_app/util.dart';
+import 'package:totemapp/util.dart';
 
 part 'totem_data.g.dart';
 

@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import 'package:totem_app/model/totem_data.dart';
+import 'package:totemapp/model/totem_data.dart';
 
 const dataRepo =
     'https://raw.githubusercontent.com/ScoutsGidsenVL/totem-app-2023/main';

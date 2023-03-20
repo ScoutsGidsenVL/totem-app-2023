@@ -3,11 +3,11 @@ import 'dart:math';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:totem_app/model/dynamic_data.dart';
-import 'package:totem_app/model/totem_data.dart';
-import 'package:totem_app/widgets/animal_star_button.dart';
-import 'package:totem_app/widgets/animal_preview_card.dart';
-import 'package:totem_app/widgets/traits_list.dart';
+import 'package:totemapp/model/dynamic_data.dart';
+import 'package:totemapp/model/totem_data.dart';
+import 'package:totemapp/widgets/animal_star_button.dart';
+import 'package:totemapp/widgets/animal_preview_card.dart';
+import 'package:totemapp/widgets/traits_list.dart';
 
 class AnimalCard extends StatefulWidget {
   final AnimalData animal;

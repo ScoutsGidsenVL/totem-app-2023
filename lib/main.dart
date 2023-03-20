@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:totem_app/model/checklist_data.dart';
-import 'package:totem_app/model/dynamic_data.dart';
-import 'package:totem_app/model/profile_manager.dart';
-import 'package:totem_app/model/traits_filter.dart';
-import 'package:totem_app/pages/checklist.dart';
-import 'package:totem_app/pages/eigenschappen.dart';
+import 'package:totemapp/model/checklist_data.dart';
+import 'package:totemapp/model/dynamic_data.dart';
+import 'package:totemapp/model/profile_manager.dart';
+import 'package:totemapp/model/traits_filter.dart';
+import 'package:totemapp/pages/checklist.dart';
+import 'package:totemapp/pages/eigenschappen.dart';
 import 'package:provider/provider.dart';
-import 'package:totem_app/pages/filtered_totems.dart';
-import 'package:totem_app/pages/profielen.dart';
-import 'package:totem_app/pages/totems.dart';
+import 'package:totemapp/pages/filtered_totems.dart';
+import 'package:totemapp/pages/profielen.dart';
+import 'package:totemapp/pages/totems.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() {

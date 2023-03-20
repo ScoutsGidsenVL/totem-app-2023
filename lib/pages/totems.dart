@@ -1,10 +1,10 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:totem_app/model/dynamic_data.dart';
+import 'package:totemapp/model/dynamic_data.dart';
 import 'package:azlistview/azlistview.dart';
-import 'package:totem_app/model/profile_manager.dart';
-import 'package:totem_app/widgets/animal_entry.dart';
+import 'package:totemapp/model/profile_manager.dart';
+import 'package:totemapp/widgets/animal_entry.dart';
 
 class Totems extends StatefulWidget {
   const Totems({Key? key}) : super(key: key);

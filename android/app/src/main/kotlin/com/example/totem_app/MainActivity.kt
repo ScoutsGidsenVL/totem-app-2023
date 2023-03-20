@@ -1,4 +1,4 @@
-package be.scoutsengidsenvlaanderen.totem_app
+package be.scoutsengidsenvlaanderen.totemapp
 
 import io.flutter.embedding.android.FlutterActivity
 

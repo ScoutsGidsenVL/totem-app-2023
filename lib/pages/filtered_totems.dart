@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:totem_app/model/dynamic_data.dart';
-import 'package:totem_app/model/traits_filter.dart';
-import 'package:totem_app/widgets/animal_entry.dart';
+import 'package:totemapp/model/dynamic_data.dart';
+import 'package:totemapp/model/traits_filter.dart';
+import 'package:totemapp/widgets/animal_entry.dart';
 
 class FilteredTotems extends StatelessWidget {
   const FilteredTotems({super.key});
