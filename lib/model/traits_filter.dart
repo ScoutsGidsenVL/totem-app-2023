@@ -32,19 +32,28 @@ class TraitsFilter extends ChangeNotifier {
   }
 
   void selectTrait(String trait, bool enabled) {
-    if (profileTraits != null) {
-      profileManager?.updateProfile(() {
-        if (enabled) {
-          profileTraits!.add(trait);
-        } else {
-          profileTraits!.remove(trait);
-        }
-      });
-    } else {
-      if (enabled) {
-        fallbackTraits.add(trait);
+    updateTraits(Map.fromEntries([MapEntry(trait, enabled)]));
+    notifyListeners();
+  }
+
+  void updateTraits(Map<String, bool> traits) {
+    for (final entry in traits.entries) {
+      final trait = entry.key;
+      final enabled = entry.value;
+      if (profileTraits != null) {
+        profileManager?.updateProfile(() {
+          if (enabled) {
+            profileTraits!.add(trait);
+          } else {
+            profileTraits!.remove(trait);
+          }
+        });
       } else {
-        fallbackTraits.remove(trait);
+        if (enabled) {
+          fallbackTraits.add(trait);
+        } else {
+          fallbackTraits.remove(trait);
+        }
       }
     }
     notifyListeners();

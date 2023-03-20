@@ -7291,1299 +7291,1882 @@
 	"traits": [
 		{
 			"id": 1,
-			"name": "Aandachtig"
+			"name": "Aandachtig",
+			"traits": [
+				"Attent",
+				"Belangstellend",
+				"Geconcentreerd",
+				"Oplettend",
+				"Opmerkzaam",
+				"Zorgvuldig"
+			]
 		},
 		{
 			"id": 2,
-			"name": "Aangenaam"
+			"name": "Aangenaam",
+			"traits": [
+				"Aardig",
+				"Attractief",
+				"Behaaglijk",
+				"Charmant",
+				"Comfortabel",
+				"Fijn",
+				"Gemakkelijk",
+				"Genoeglijk",
+				"Gerieflijk",
+				"Gezellig",
+				"Heerlijk",
+				"Heuglijk",
+				"Innemend",
+				"Knus",
+				"Leuk",
+				"Plezant",
+				"Plezierig",
+				"Prettig",
+				"Verblijdend",
+				"Verheugend",
+				"Vreugdevol",
+				"Vriendelijk",
+				"Weldadig",
+				"Welgevallig"
+			]
 		},
 		{
 			"id": 3,
-			"name": "Aangepast"
+			"name": "Aangepast",
+			"traits": [
+				"Aanpassend"
+			]
 		},
 		{
 			"id": 4,
-			"name": "Aanhalig"
+			"name": "Aanhalig",
+			"traits": [
+				"Aanhankelijk",
+				"Flemend",
+				"Klef",
+				"Knuffelig",
+				"Teder",
+				"Vleierig"
+			]
 		},
 		{
 			"id": 5,
-			"name": "Aanhankelijk"
+			"name": "Aanhankelijk",
+			"traits": [
+				"Aanhalig",
+				"Gehecht",
+				"Liefdevol",
+				"Liefhebbend",
+				"Plakkerig",
+				"Toegedaan",
+				"Toegenegen",
+				"Toegewijd",
+				"Trouw",
+				"Verknocht",
+				"Vleierig"
+			]
 		},
 		{
 			"id": 6,
-			"name": "Aanpassend"
+			"name": "Aanpassend",
+			"traits": [
+				"Aangepast"
+			]
 		},
 		{
 			"id": 7,
-			"name": "Aantrekkelijk"
+			"name": "Aantrekkelijk",
+			"traits": [
+				"Aangenaam",
+				"Aanlokkelijk",
+				"Aanminnig",
+				"Aanvallig",
+				"Attractief",
+				"Begeerlijk",
+				"Bekoorlijk",
+				"Betoverend",
+				"Charmant",
+				"Flatteus",
+				"Innemend",
+				"Knap",
+				"Lief",
+				"Lieflijk",
+				"Mooi",
+				"Ooglijk",
+				"Pakkend",
+				"Prettig",
+				"Verleidelijk",
+				"Verlokkelijk",
+				"Verlokkend",
+				"Voordelig"
+			]
 		},
 		{
 			"id": 8,
-			"name": "Achterdochtig"
+			"name": "Achterdochtig",
+			"traits": [
+				"Argwanend",
+				"Ergdenkend",
+				"Mistrouwig",
+				"Paranoïde",
+				"Wantrouwend",
+				"Wantrouwig"
+			]
 		},
 		{
 			"id": 9,
-			"name": "Acrobatisch"
+			"name": "Acrobatisch",
+			"traits": [
+				"Behendig",
+				"Lenig"
+			]
 		},
 		{
 			"id": 10,
-			"name": "Actief"
+			"name": "Actief",
+			"traits": [
+				"Arbeidzaam",
+				"Bedrijvend",
+				"Bedrijvig",
+				"Bezig",
+				"Dienstdoend",
+				"Druk",
+				"Energiek",
+				"Ijverig",
+				"Krachtig",
+				"Naarstig",
+				"Nijver",
+				"Noest",
+				"Onvermoeibaar",
+				"Vlijtig",
+				"Werkzaam"
+			]
 		},
 		{
 			"id": 11,
-			"name": "Afhankelijk"
+			"name": "Afhankelijk",
+			"traits": [
+				"Gebonden",
+				"Onzelfstandig"
+			]
 		},
 		{
 			"id": 12,
-			"name": "Afwachtend"
+			"name": "Afwachtend",
+			"traits": [
+				"Afhoudend",
+				"Bedachtzaam",
+				"Ingehouden",
+				"Terughoudend",
+				"Voorzichtig"
+			]
 		},
 		{
 			"id": 13,
-			"name": "Alert"
+			"name": "Alert",
+			"traits": [
+				"Aandachtig",
+				"Attent",
+				"Gevat",
+				"Nauwlettend",
+				"Oplettend",
+				"Opmerkzaam",
+				"Puntig",
+				"Raak",
+				"Snedig",
+				"Waakzaam",
+				"Wakker"
+			]
 		},
 		{
 			"id": 14,
-			"name": "Altruïstisch"
+			"name": "Altruïstisch",
+			"traits": [
+				"Delend",
+				"Menslievend",
+				"Onbaatzuchtig",
+				"Opofferingsgezind"
+			]
 		},
 		{
 			"id": 15,
-			"name": "Apart"
+			"name": "Apart",
+			"traits": [
+				"Bijzonder",
+				"Excentriek",
+				"Ongewoon",
+				"Opvallend",
+				"Raar",
+				"Speciaal",
+				"Uniek",
+				"Vreemd"
+			]
 		},
 		{
 			"id": 16,
-			"name": "Argeloos"
+			"name": "Argeloos",
+			"traits": [
+				"Gedachteloos",
+				"Innocent",
+				"Naïef",
+				"Nietsvermoedend",
+				"Onnozel",
+				"Onschuldig"
+			]
 		},
 		{
 			"id": 17,
-			"name": "Assertief"
+			"name": "Assertief",
+			"traits": [
+				"Weerbaar",
+				"Zelfbewust",
+				"Zelfverzekerd"
+			]
 		},
 		{
 			"id": 18,
-			"name": "Atletisch"
+			"name": "Atletisch",
+			"traits": [
+				"Gespierd",
+				"Sportief"
+			]
 		},
 		{
 			"id": 19,
-			"name": "Attent"
+			"name": "Attent",
+			"traits": [
+				"Aandachtig",
+				"Alert",
+				"Behulpzaam",
+				"Belangstellend",
+				"Geconcentreerd",
+				"Hoffelijk",
+				"Hulpvaardig",
+				"Nauwlettend",
+				"Observerend",
+				"Oplettend",
+				"Opmerkzaam",
+				"Voorkomend",
+				"Vriendelijk",
+				"Waakzaam"
+			]
 		},
 		{
 			"id": 20,
-			"name": "Avontuurlijk"
+			"name": "Avontuurlijk",
+			"traits": [
+				"Afwisselend",
+				"Boeiend",
+				"Dapper",
+				"Durver",
+				"Gewaagd",
+				"Moedig",
+				"Onbevreesd",
+				"Ondernemend",
+				"Riskant"
+			]
 		},
 		{
 			"id": 21,
-			"name": "Bedaard"
+			"name": "Bedaard",
+			"traits": [
+				"Beheerst",
+				"Bezadigd",
+				"Bezonnen",
+				"Geduldig",
+				"Gelaten",
+				"Gelijkmoedig",
+				"Gerust",
+				"Gezapig",
+				"Kalm",
+				"Kalmpjes",
+				"Langzaam",
+				"Onbewogen",
+				"Onverstoorbaar",
+				"Ontspannen",
+				"Rustig",
+				"Sereen",
+				"Waardig",
+				"Weloverwogen",
+				"Zachtjes"
+			]
 		},
 		{
 			"id": 22,
-			"name": "Bedachtzaam"
+			"name": "Bedachtzaam",
+			"traits": [
+				"Behoedzaam",
+				"Beraden",
+				"Bezonnen",
+				"Denkend",
+				"Doordacht",
+				"Intelligent",
+				"Kalm",
+				"Nadenkend",
+				"Omzichtig",
+				"Rustig",
+				"Schrander",
+				"Verstandig",
+				"Voorzichtig",
+				"Welberaden",
+				"Weloverwogen"
+			]
 		},
 		{
 			"id": 23,
-			"name": "Bedrijvig"
+			"name": "Bedrijvig",
+			"traits": [
+				"Actief",
+				"Bezig",
+				"Druk",
+				"Hardwerkend",
+				"Ijverig",
+				"Industrieus",
+				"Levendig",
+				"Nijver",
+				"Nuttig",
+				"Ondernemend",
+				"Werkend",
+				"Werklustig",
+				"Werkzaam",
+				"Vlijtig"
+			]
 		},
 		{
 			"id": 24,
-			"name": "Begaafd"
+			"name": "Begaafd",
+			"traits": [
+				"Bedeeld",
+				"Begiftigd",
+				"Geniaal",
+				"Getalenteerd",
+				"Intelligent",
+				"Slim",
+				"Talentvol",
+				"Verstandig"
+			]
 		},
 		{
 			"id": 25,
-			"name": "Begrijpend"
+			"name": "Begrijpend",
+			"traits": [
+				"Begripvol",
+				"Bemiddelend",
+				"Compassievol",
+				"Empathisch",
+				"Luisterbereid",
+				"Meelevend"
+			]
 		},
 		{
 			"id": 26,
-			"name": "Behendig"
+			"name": "Behendig",
+			"traits": [
+				"Acrobatisch",
+				"Bedreven",
+				"Bekwaam",
+				"Bijdehand",
+				"Handig",
+				"Lenig",
+				"Vaardig",
+				"Vlug"
+			]
 		},
 		{
 			"id": 27,
-			"name": "Behoedzaam"
+			"name": "Behoedzaam",
+			"traits": [
+				"Bedachtzaam",
+				"Omzichtig",
+				"Voorzichtig",
+				"Zachtjes"
+			]
 		},
 		{
 			"id": 28,
-			"name": "Behulpzaam"
+			"name": "Behulpzaam",
+			"traits": []
 		},
 		{
 			"id": 29,
-			"name": "Bemiddelend"
+			"name": "Bemiddelend",
+			"traits": []
 		},
 		{
 			"id": 30,
-			"name": "Bescheiden"
+			"name": "Bescheiden",
+			"traits": []
 		},
 		{
 			"id": 31,
-			"name": "Beschermend"
+			"name": "Beschermend",
+			"traits": []
 		},
 		{
 			"id": 32,
-			"name": "Betrouwbaar"
+			"name": "Betrouwbaar",
+			"traits": []
 		},
 		{
 			"id": 33,
-			"name": "Bevallig"
+			"name": "Bevallig",
+			"traits": []
 		},
 		{
 			"id": 34,
-			"name": "Beweeglijk"
+			"name": "Beweeglijk",
+			"traits": []
 		},
 		{
 			"id": 35,
-			"name": "Bezorgd"
+			"name": "Bezorgd",
+			"traits": []
 		},
 		{
 			"id": 36,
-			"name": "Beïnvloedbaar"
+			"name": "Beïnvloedbaar",
+			"traits": []
 		},
 		{
 			"id": 37,
-			"name": "Blijmoedig"
+			"name": "Blijmoedig",
+			"traits": []
 		},
 		{
 			"id": 38,
-			"name": "Bouwlustig"
+			"name": "Bouwlustig",
+			"traits": []
 		},
 		{
 			"id": 39,
-			"name": "Brutaal"
+			"name": "Brutaal",
+			"traits": []
 		},
 		{
 			"id": 40,
-			"name": "Charmant"
+			"name": "Charmant",
+			"traits": []
 		},
 		{
 			"id": 41,
-			"name": "Communicatief"
+			"name": "Communicatief",
+			"traits": []
 		},
 		{
 			"id": 42,
-			"name": "Competitief"
+			"name": "Competitief",
+			"traits": []
 		},
 		{
 			"id": 43,
-			"name": "Creatief"
+			"name": "Creatief",
+			"traits": []
 		},
 		{
 			"id": 44,
-			"name": "Dankbaar"
+			"name": "Dankbaar",
+			"traits": []
 		},
 		{
 			"id": 45,
-			"name": "Dapper"
+			"name": "Dapper",
+			"traits": []
 		},
 		{
 			"id": 46,
-			"name": "Dartel"
+			"name": "Dartel",
+			"traits": []
 		},
 		{
 			"id": 47,
-			"name": "Delend"
+			"name": "Delend",
+			"traits": []
 		},
 		{
 			"id": 48,
-			"name": "Doelgericht"
+			"name": "Doelgericht",
+			"traits": []
 		},
 		{
 			"id": 49,
-			"name": "Doordacht"
+			"name": "Doordacht",
+			"traits": []
 		},
 		{
 			"id": 50,
-			"name": "Doortastend"
+			"name": "Doortastend",
+			"traits": []
 		},
 		{
 			"id": 51,
-			"name": "Doorzettend"
+			"name": "Doorzettend",
+			"traits": []
 		},
 		{
 			"id": 52,
-			"name": "Driftig"
+			"name": "Driftig",
+			"traits": []
 		},
 		{
 			"id": 53,
-			"name": "Druk"
+			"name": "Druk",
+			"traits": []
 		},
 		{
 			"id": 54,
-			"name": "Durver"
+			"name": "Durver",
+			"traits": []
 		},
 		{
 			"id": 55,
-			"name": "Edel"
+			"name": "Edel",
+			"traits": []
 		},
 		{
 			"id": 56,
-			"name": "Edelmoedig"
+			"name": "Edelmoedig",
+			"traits": []
 		},
 		{
 			"id": 57,
-			"name": "Eerlijk"
+			"name": "Eerlijk",
+			"traits": []
 		},
 		{
 			"id": 58,
-			"name": "Eervol"
+			"name": "Eervol",
+			"traits": []
 		},
 		{
 			"id": 59,
-			"name": "Eetlustig"
+			"name": "Eetlustig",
+			"traits": []
 		},
 		{
 			"id": 60,
-			"name": "Efficiënt"
+			"name": "Efficiënt",
+			"traits": []
 		},
 		{
 			"id": 61,
-			"name": "Eigenwijs"
+			"name": "Eigenwijs",
+			"traits": []
 		},
 		{
 			"id": 62,
-			"name": "Eigenzinnig"
+			"name": "Eigenzinnig",
+			"traits": []
 		},
 		{
 			"id": 63,
-			"name": "Elegant"
+			"name": "Elegant",
+			"traits": []
 		},
 		{
 			"id": 64,
-			"name": "Energiek"
+			"name": "Energiek",
+			"traits": []
 		},
 		{
 			"id": 65,
-			"name": "Enthousiast"
+			"name": "Enthousiast",
+			"traits": []
 		},
 		{
 			"id": 66,
-			"name": "Ernstig"
+			"name": "Ernstig",
+			"traits": []
 		},
 		{
 			"id": 67,
-			"name": "Ervaringsgericht"
+			"name": "Ervaringsgericht",
+			"traits": []
 		},
 		{
 			"id": 68,
-			"name": "Evenwichtig"
+			"name": "Evenwichtig",
+			"traits": []
 		},
 		{
 			"id": 69,
-			"name": "Expressief"
+			"name": "Expressief",
+			"traits": []
 		},
 		{
 			"id": 70,
-			"name": "Familiaal"
+			"name": "Familiaal",
+			"traits": []
 		},
 		{
 			"id": 71,
-			"name": "Fascinerend"
+			"name": "Fascinerend",
+			"traits": []
 		},
 		{
 			"id": 72,
-			"name": "Fel"
+			"name": "Fel",
+			"traits": []
 		},
 		{
 			"id": 73,
-			"name": "Fier"
+			"name": "Fier",
+			"traits": []
 		},
 		{
 			"id": 74,
-			"name": "Fijngevoelig"
+			"name": "Fijngevoelig",
+			"traits": []
 		},
 		{
 			"id": 75,
-			"name": "Flamboyant"
+			"name": "Flamboyant",
+			"traits": []
 		},
 		{
 			"id": 76,
-			"name": "Flexibel"
+			"name": "Flexibel",
+			"traits": []
 		},
 		{
 			"id": 77,
-			"name": "Fraai"
+			"name": "Fraai",
+			"traits": []
 		},
 		{
 			"id": 78,
-			"name": "Gebalanceerd"
+			"name": "Gebalanceerd",
+			"traits": []
 		},
 		{
 			"id": 79,
-			"name": "Geconcentreerd"
+			"name": "Geconcentreerd",
+			"traits": []
 		},
 		{
 			"id": 80,
-			"name": "Geducht"
+			"name": "Geducht",
+			"traits": []
 		},
 		{
 			"id": 81,
-			"name": "Geduldig"
+			"name": "Geduldig",
+			"traits": []
 		},
 		{
 			"id": 82,
-			"name": "Gehard"
+			"name": "Gehard",
+			"traits": []
 		},
 		{
 			"id": 83,
-			"name": "Gehecht"
+			"name": "Gehecht",
+			"traits": []
 		},
 		{
 			"id": 84,
-			"name": "Gehoorzaam"
+			"name": "Gehoorzaam",
+			"traits": []
 		},
 		{
 			"id": 85,
-			"name": "Gemakzuchtig"
+			"name": "Gemakzuchtig",
+			"traits": []
 		},
 		{
 			"id": 86,
-			"name": "Gemeenschapsgevoel"
+			"name": "Gemeenschapsgevoel",
+			"traits": []
 		},
 		{
 			"id": 87,
-			"name": "Gemoedelijk"
+			"name": "Gemoedelijk",
+			"traits": []
 		},
 		{
 			"id": 88,
-			"name": "Genegen"
+			"name": "Genegen",
+			"traits": []
 		},
 		{
 			"id": 89,
-			"name": "Genieter"
+			"name": "Genieter",
+			"traits": []
 		},
 		{
 			"id": 90,
-			"name": "Georganiseerd"
+			"name": "Georganiseerd",
+			"traits": []
 		},
 		{
 			"id": 91,
-			"name": "Geruisloos"
+			"name": "Geruisloos",
+			"traits": []
 		},
 		{
 			"id": 92,
-			"name": "Gespierd"
+			"name": "Gespierd",
+			"traits": []
 		},
 		{
 			"id": 93,
-			"name": "Gevat"
+			"name": "Gevat",
+			"traits": []
 		},
 		{
 			"id": 94,
-			"name": "Gevoelig"
+			"name": "Gevoelig",
+			"traits": []
 		},
 		{
 			"id": 95,
-			"name": "Gewoontedier"
+			"name": "Gewoontedier",
+			"traits": []
 		},
 		{
 			"id": 96,
-			"name": "Gezapig"
+			"name": "Gezapig",
+			"traits": []
 		},
 		{
 			"id": 97,
-			"name": "Gezellig"
+			"name": "Gezellig",
+			"traits": []
 		},
 		{
 			"id": 98,
-			"name": "Geïnteresseerd"
+			"name": "Geïnteresseerd",
+			"traits": []
 		},
 		{
 			"id": 99,
-			"name": "Goed geheugen"
+			"name": "Goed geheugen",
+			"traits": []
 		},
 		{
 			"id": 100,
-			"name": "Goed oriëntatiegevoel"
+			"name": "Goed oriëntatiegevoel",
+			"traits": []
 		},
 		{
 			"id": 101,
-			"name": "Goedaardig"
+			"name": "Goedaardig",
+			"traits": []
 		},
 		{
 			"id": 102,
-			"name": "Goedgeluimd"
+			"name": "Goedgeluimd",
+			"traits": []
 		},
 		{
 			"id": 103,
-			"name": "Gracieus"
+			"name": "Gracieus",
+			"traits": []
 		},
 		{
 			"id": 104,
-			"name": "Grappig"
+			"name": "Grappig",
+			"traits": []
 		},
 		{
 			"id": 105,
-			"name": "Grimmig"
+			"name": "Grimmig",
+			"traits": []
 		},
 		{
 			"id": 106,
-			"name": "Groepsdier"
+			"name": "Groepsdier",
+			"traits": []
 		},
 		{
 			"id": 107,
-			"name": "Groepsdier (Grote Groep)"
+			"name": "Groepsdier (Grote Groep)",
+			"traits": []
 		},
 		{
 			"id": 108,
-			"name": "Groepsdier (Kleine Groep)"
+			"name": "Groepsdier (Kleine Groep)",
+			"traits": []
 		},
 		{
 			"id": 109,
-			"name": "Guitig"
+			"name": "Guitig",
+			"traits": []
 		},
 		{
 			"id": 110,
-			"name": "Gulzig"
+			"name": "Gulzig",
+			"traits": []
 		},
 		{
 			"id": 111,
-			"name": "Handig"
+			"name": "Handig",
+			"traits": []
 		},
 		{
 			"id": 112,
-			"name": "Hardnekkig"
+			"name": "Hardnekkig",
+			"traits": []
 		},
 		{
 			"id": 113,
-			"name": "Hardwerkend"
+			"name": "Hardwerkend",
+			"traits": []
 		},
 		{
 			"id": 114,
-			"name": "Hartstochtelijk"
+			"name": "Hartstochtelijk",
+			"traits": []
 		},
 		{
 			"id": 115,
-			"name": "Hebzuchtig"
+			"name": "Hebzuchtig",
+			"traits": []
 		},
 		{
 			"id": 116,
-			"name": "Hiërarchisch"
+			"name": "Hiërarchisch",
+			"traits": []
 		},
 		{
 			"id": 117,
-			"name": "Honkvast"
+			"name": "Honkvast",
+			"traits": []
 		},
 		{
 			"id": 118,
-			"name": "Huiselijk"
+			"name": "Huiselijk",
+			"traits": []
 		},
 		{
 			"id": 119,
-			"name": "Hulpvaardig"
+			"name": "Hulpvaardig",
+			"traits": []
 		},
 		{
 			"id": 120,
-			"name": "Humeurig"
+			"name": "Humeurig",
+			"traits": []
 		},
 		{
 			"id": 121,
-			"name": "Humoristisch"
+			"name": "Humoristisch",
+			"traits": []
 		},
 		{
 			"id": 122,
-			"name": "Ijverig"
+			"name": "Ijverig",
+			"traits": []
 		},
 		{
 			"id": 123,
-			"name": "Imiterend"
+			"name": "Imiterend",
+			"traits": []
 		},
 		{
 			"id": 124,
-			"name": "Imponerend"
+			"name": "Imponerend",
+			"traits": []
 		},
 		{
 			"id": 125,
-			"name": "Impulsief"
+			"name": "Impulsief",
+			"traits": []
 		},
 		{
 			"id": 126,
-			"name": "Indrukwekkend"
+			"name": "Indrukwekkend",
+			"traits": []
 		},
 		{
 			"id": 127,
-			"name": "Ingenieus"
+			"name": "Ingenieus",
+			"traits": []
 		},
 		{
 			"id": 128,
-			"name": "Instinctief"
+			"name": "Instinctief",
+			"traits": []
 		},
 		{
 			"id": 129,
-			"name": "Intelligent"
+			"name": "Intelligent",
+			"traits": []
 		},
 		{
 			"id": 130,
-			"name": "Interessant"
+			"name": "Interessant",
+			"traits": []
 		},
 		{
 			"id": 131,
-			"name": "Intrigerend"
+			"name": "Intrigerend",
+			"traits": []
 		},
 		{
 			"id": 132,
-			"name": "Inventief"
+			"name": "Inventief",
+			"traits": []
 		},
 		{
 			"id": 133,
-			"name": "Jaloers"
+			"name": "Jaloers",
+			"traits": []
 		},
 		{
 			"id": 134,
-			"name": "Joviaal"
+			"name": "Joviaal",
+			"traits": []
 		},
 		{
 			"id": 135,
-			"name": "Kalm"
+			"name": "Kalm",
+			"traits": []
 		},
 		{
 			"id": 136,
-			"name": "Kibbelend"
+			"name": "Kibbelend",
+			"traits": []
 		},
 		{
 			"id": 137,
-			"name": "Kieskeurig"
+			"name": "Kieskeurig",
+			"traits": []
 		},
 		{
 			"id": 138,
-			"name": "Kleurrijk"
+			"name": "Kleurrijk",
+			"traits": []
 		},
 		{
 			"id": 139,
-			"name": "Koddig"
+			"name": "Koddig",
+			"traits": []
 		},
 		{
 			"id": 140,
-			"name": "Koppig"
+			"name": "Koppig",
+			"traits": []
 		},
 		{
 			"id": 141,
-			"name": "Krachtig"
+			"name": "Krachtig",
+			"traits": []
 		},
 		{
 			"id": 142,
-			"name": "Kunstig"
+			"name": "Kunstig",
+			"traits": []
 		},
 		{
 			"id": 143,
-			"name": "Kwetsbaar"
+			"name": "Kwetsbaar",
+			"traits": []
 		},
 		{
 			"id": 144,
-			"name": "Lachend"
+			"name": "Lachend",
+			"traits": []
 		},
 		{
 			"id": 145,
-			"name": "Langzaam"
+			"name": "Langzaam",
+			"traits": []
 		},
 		{
 			"id": 146,
-			"name": "Leergierig"
+			"name": "Leergierig",
+			"traits": []
 		},
 		{
 			"id": 147,
-			"name": "Lenig"
+			"name": "Lenig",
+			"traits": []
 		},
 		{
 			"id": 148,
-			"name": "Levendig"
+			"name": "Levendig",
+			"traits": []
 		},
 		{
 			"id": 149,
-			"name": "Levensgenieter"
+			"name": "Levensgenieter",
+			"traits": []
 		},
 		{
 			"id": 150,
-			"name": "Levenslustig"
+			"name": "Levenslustig",
+			"traits": []
 		},
 		{
 			"id": 151,
-			"name": "Lichtgeraakt"
+			"name": "Lichtgeraakt",
+			"traits": []
 		},
 		{
 			"id": 152,
-			"name": "Liefdevol"
+			"name": "Liefdevol",
+			"traits": []
 		},
 		{
 			"id": 153,
-			"name": "Liefkozend"
+			"name": "Liefkozend",
+			"traits": []
 		},
 		{
 			"id": 154,
-			"name": "Lieftallig"
+			"name": "Lieftallig",
+			"traits": []
 		},
 		{
 			"id": 155,
-			"name": "Listig"
+			"name": "Listig",
+			"traits": []
 		},
 		{
 			"id": 156,
-			"name": "Luidruchtig"
+			"name": "Luidruchtig",
+			"traits": []
 		},
 		{
 			"id": 157,
-			"name": "Luisterbereid"
+			"name": "Luisterbereid",
+			"traits": []
 		},
 		{
 			"id": 158,
-			"name": "Majestueus"
+			"name": "Majestueus",
+			"traits": []
 		},
 		{
 			"id": 159,
-			"name": "Meedogenloos"
+			"name": "Meedogenloos",
+			"traits": []
 		},
 		{
 			"id": 160,
-			"name": "Meelevend"
+			"name": "Meelevend",
+			"traits": []
 		},
 		{
 			"id": 161,
-			"name": "Melodieus"
+			"name": "Melodieus",
+			"traits": []
 		},
 		{
 			"id": 162,
-			"name": "Merkwaardig"
+			"name": "Merkwaardig",
+			"traits": []
 		},
 		{
 			"id": 163,
-			"name": "Moedig"
+			"name": "Moedig",
+			"traits": []
 		},
 		{
 			"id": 164,
-			"name": "Monter"
+			"name": "Monter",
+			"traits": []
 		},
 		{
 			"id": 165,
-			"name": "Mysterieus"
+			"name": "Mysterieus",
+			"traits": []
 		},
 		{
 			"id": 166,
-			"name": "Nachtelijk"
+			"name": "Nachtelijk",
+			"traits": []
 		},
 		{
 			"id": 167,
-			"name": "Nauwkeurig"
+			"name": "Nauwkeurig",
+			"traits": []
 		},
 		{
 			"id": 168,
-			"name": "Naïef"
+			"name": "Naïef",
+			"traits": []
 		},
 		{
 			"id": 169,
-			"name": "Nerveus"
+			"name": "Nerveus",
+			"traits": []
 		},
 		{
 			"id": 170,
-			"name": "Niet kieskeurig"
+			"name": "Niet kieskeurig",
+			"traits": []
 		},
 		{
 			"id": 171,
-			"name": "Niet veeleisend"
+			"name": "Niet veeleisend",
+			"traits": []
 		},
 		{
 			"id": 172,
-			"name": "Nieuwsgierig"
+			"name": "Nieuwsgierig",
+			"traits": []
 		},
 		{
 			"id": 173,
-			"name": "Nonchalant"
+			"name": "Nonchalant",
+			"traits": []
 		},
 		{
 			"id": 174,
-			"name": "Nuttig"
+			"name": "Nuttig",
+			"traits": []
 		},
 		{
 			"id": 175,
-			"name": "Observerend"
+			"name": "Observerend",
+			"traits": []
 		},
 		{
 			"id": 176,
-			"name": "Onafhankelijk"
+			"name": "Onafhankelijk",
+			"traits": []
 		},
 		{
 			"id": 177,
-			"name": "Onberekenbaar"
+			"name": "Onberekenbaar",
+			"traits": []
 		},
 		{
 			"id": 178,
-			"name": "Onbevreesd"
+			"name": "Onbevreesd",
+			"traits": []
 		},
 		{
 			"id": 179,
-			"name": "Onbewogen"
+			"name": "Onbewogen",
+			"traits": []
 		},
 		{
 			"id": 180,
-			"name": "Onderhoudend"
+			"name": "Onderhoudend",
+			"traits": []
 		},
 		{
 			"id": 181,
-			"name": "Ondernemend"
+			"name": "Ondernemend",
+			"traits": []
 		},
 		{
 			"id": 182,
-			"name": "Ondersteunend"
+			"name": "Ondersteunend",
+			"traits": []
 		},
 		{
 			"id": 183,
-			"name": "Onderzoekend"
+			"name": "Onderzoekend",
+			"traits": []
 		},
 		{
 			"id": 184,
-			"name": "Ondeugend"
+			"name": "Ondeugend",
+			"traits": []
 		},
 		{
 			"id": 185,
-			"name": "Ongedurig"
+			"name": "Ongedurig",
+			"traits": []
 		},
 		{
 			"id": 186,
-			"name": "Ongewoon"
+			"name": "Ongewoon",
+			"traits": []
 		},
 		{
 			"id": 187,
-			"name": "Ongrijpbaar"
+			"name": "Ongrijpbaar",
+			"traits": []
 		},
 		{
 			"id": 188,
-			"name": "Onhandig"
+			"name": "Onhandig",
+			"traits": []
 		},
 		{
 			"id": 189,
-			"name": "Onopvallend"
+			"name": "Onopvallend",
+			"traits": []
 		},
 		{
 			"id": 190,
-			"name": "Onrustig"
+			"name": "Onrustig",
+			"traits": []
 		},
 		{
 			"id": 191,
-			"name": "Onstuimig"
+			"name": "Onstuimig",
+			"traits": []
 		},
 		{
 			"id": 192,
-			"name": "Ontembaar"
+			"name": "Ontembaar",
+			"traits": []
 		},
 		{
 			"id": 193,
-			"name": "Ontspannen"
+			"name": "Ontspannen",
+			"traits": []
 		},
 		{
 			"id": 194,
-			"name": "Onvermoeibaar"
+			"name": "Onvermoeibaar",
+			"traits": []
 		},
 		{
 			"id": 195,
-			"name": "Onverstoorbaar"
+			"name": "Onverstoorbaar",
+			"traits": []
 		},
 		{
 			"id": 196,
-			"name": "Onvoorzichtig"
+			"name": "Onvoorzichtig",
+			"traits": []
 		},
 		{
 			"id": 197,
-			"name": "Opdringerig"
+			"name": "Opdringerig",
+			"traits": []
 		},
 		{
 			"id": 198,
-			"name": "Openhartig"
+			"name": "Openhartig",
+			"traits": []
 		},
 		{
 			"id": 199,
-			"name": "Opgewekt"
+			"name": "Opgewekt",
+			"traits": []
 		},
 		{
 			"id": 200,
-			"name": "Opgewonden"
+			"name": "Opgewonden",
+			"traits": []
 		},
 		{
 			"id": 201,
-			"name": "Oplettend"
+			"name": "Oplettend",
+			"traits": []
 		},
 		{
 			"id": 202,
-			"name": "Opmerkelijk"
+			"name": "Opmerkelijk",
+			"traits": []
 		},
 		{
 			"id": 203,
-			"name": "Opmerkzaam"
+			"name": "Opmerkzaam",
+			"traits": []
 		},
 		{
 			"id": 204,
-			"name": "Opofferingsgezind"
+			"name": "Opofferingsgezind",
+			"traits": []
 		},
 		{
 			"id": 205,
-			"name": "Opportunistisch"
+			"name": "Opportunistisch",
+			"traits": []
 		},
 		{
 			"id": 206,
-			"name": "Opvallend"
+			"name": "Opvallend",
+			"traits": []
 		},
 		{
 			"id": 207,
-			"name": "Opvliegend"
+			"name": "Opvliegend",
+			"traits": []
 		},
 		{
 			"id": 208,
-			"name": "Opvoedend"
+			"name": "Opvoedend",
+			"traits": []
 		},
 		{
 			"id": 209,
-			"name": "Opvrolijkend"
+			"name": "Opvrolijkend",
+			"traits": []
 		},
 		{
 			"id": 210,
-			"name": "Ordelijk"
+			"name": "Ordelijk",
+			"traits": []
 		},
 		{
 			"id": 211,
-			"name": "Organisator"
+			"name": "Organisator",
+			"traits": []
 		},
 		{
 			"id": 212,
-			"name": "Overleggend"
+			"name": "Overleggend",
+			"traits": []
 		},
 		{
 			"id": 213,
-			"name": "Parmantig"
+			"name": "Parmantig",
+			"traits": []
 		},
 		{
 			"id": 214,
-			"name": "Plagerig"
+			"name": "Plagerig",
+			"traits": []
 		},
 		{
 			"id": 215,
-			"name": "Plantrekker"
+			"name": "Plantrekker",
+			"traits": []
 		},
 		{
 			"id": 216,
-			"name": "Plichtsbewust"
+			"name": "Plichtsbewust",
+			"traits": []
 		},
 		{
 			"id": 217,
-			"name": "Potsierlijk"
+			"name": "Potsierlijk",
+			"traits": []
 		},
 		{
 			"id": 218,
-			"name": "Praatlustig"
+			"name": "Praatlustig",
+			"traits": []
 		},
 		{
 			"id": 219,
-			"name": "Prachtig"
+			"name": "Prachtig",
+			"traits": []
 		},
 		{
 			"id": 220,
-			"name": "Praktisch"
+			"name": "Praktisch",
+			"traits": []
 		},
 		{
 			"id": 221,
-			"name": "Pretentieloos"
+			"name": "Pretentieloos",
+			"traits": []
 		},
 		{
 			"id": 222,
-			"name": "Prikkelbaar"
+			"name": "Prikkelbaar",
+			"traits": []
 		},
 		{
 			"id": 223,
-			"name": "Probleemoplossend"
+			"name": "Probleemoplossend",
+			"traits": []
 		},
 		{
 			"id": 224,
-			"name": "Pronkerig"
+			"name": "Pronkerig",
+			"traits": []
 		},
 		{
 			"id": 225,
-			"name": "Respectvol"
+			"name": "Respectvol",
+			"traits": []
 		},
 		{
 			"id": 226,
-			"name": "Roekeloos"
+			"name": "Roekeloos",
+			"traits": []
 		},
 		{
 			"id": 227,
-			"name": "Rusteloos"
+			"name": "Rusteloos",
+			"traits": []
 		},
 		{
 			"id": 228,
-			"name": "Rustig"
+			"name": "Rustig",
+			"traits": []
 		},
 		{
 			"id": 229,
-			"name": "Rustzoeker"
+			"name": "Rustzoeker",
+			"traits": []
 		},
 		{
 			"id": 230,
-			"name": "Samenwerkend"
+			"name": "Samenwerkend",
+			"traits": []
 		},
 		{
 			"id": 231,
-			"name": "Schattig"
+			"name": "Schattig",
+			"traits": []
 		},
 		{
 			"id": 232,
-			"name": "Scherpzinnig"
+			"name": "Scherpzinnig",
+			"traits": []
 		},
 		{
 			"id": 233,
-			"name": "Schrander"
+			"name": "Schrander",
+			"traits": []
 		},
 		{
 			"id": 234,
-			"name": "Schuw"
+			"name": "Schuw",
+			"traits": []
 		},
 		{
 			"id": 235,
-			"name": "Sierlijk"
+			"name": "Sierlijk",
+			"traits": []
 		},
 		{
 			"id": 236,
-			"name": "Slaapgraag"
+			"name": "Slaapgraag",
+			"traits": []
 		},
 		{
 			"id": 237,
-			"name": "Slim"
+			"name": "Slim",
+			"traits": []
 		},
 		{
 			"id": 238,
-			"name": "Slordig"
+			"name": "Slordig",
+			"traits": []
 		},
 		{
 			"id": 239,
-			"name": "Sluw"
+			"name": "Sluw",
+			"traits": []
 		},
 		{
 			"id": 240,
-			"name": "Snel"
+			"name": "Snel",
+			"traits": []
 		},
 		{
 			"id": 241,
-			"name": "Snel tevreden"
+			"name": "Snel tevreden",
+			"traits": []
 		},
 		{
 			"id": 242,
-			"name": "Sociaal"
+			"name": "Sociaal",
+			"traits": []
 		},
 		{
 			"id": 243,
-			"name": "Solidair"
+			"name": "Solidair",
+			"traits": []
 		},
 		{
 			"id": 244,
-			"name": "Solitair"
+			"name": "Solitair",
+			"traits": []
 		},
 		{
 			"id": 245,
-			"name": "Spaarzaam"
+			"name": "Spaarzaam",
+			"traits": []
 		},
 		{
 			"id": 246,
-			"name": "Speels"
+			"name": "Speels",
+			"traits": []
 		},
 		{
 			"id": 247,
-			"name": "Spontaan"
+			"name": "Spontaan",
+			"traits": []
 		},
 		{
 			"id": 248,
-			"name": "Sportief"
+			"name": "Sportief",
+			"traits": []
 		},
 		{
 			"id": 249,
-			"name": "Standvastig"
+			"name": "Standvastig",
+			"traits": []
 		},
 		{
 			"id": 250,
-			"name": "Statig"
+			"name": "Statig",
+			"traits": []
 		},
 		{
 			"id": 251,
-			"name": "Sterk"
+			"name": "Sterk",
+			"traits": []
 		},
 		{
 			"id": 252,
-			"name": "Stil"
+			"name": "Stil",
+			"traits": []
 		},
 		{
 			"id": 253,
-			"name": "Stoutmoedig"
+			"name": "Stoutmoedig",
+			"traits": []
 		},
 		{
 			"id": 254,
-			"name": "Strijdlustig"
+			"name": "Strijdlustig",
+			"traits": []
 		},
 		{
 			"id": 255,
-			"name": "Sympathiek"
+			"name": "Sympathiek",
+			"traits": []
 		},
 		{
 			"id": 256,
-			"name": "Taai"
+			"name": "Taai",
+			"traits": []
 		},
 		{
 			"id": 257,
-			"name": "Tactisch"
+			"name": "Tactisch",
+			"traits": []
 		},
 		{
 			"id": 258,
-			"name": "Teder"
+			"name": "Teder",
+			"traits": []
 		},
 		{
 			"id": 259,
-			"name": "Temperamentvol"
+			"name": "Temperamentvol",
+			"traits": []
 		},
 		{
 			"id": 260,
-			"name": "Territoriaal"
+			"name": "Territoriaal",
+			"traits": []
 		},
 		{
 			"id": 261,
-			"name": "Teruggetrokken"
+			"name": "Teruggetrokken",
+			"traits": []
 		},
 		{
 			"id": 262,
-			"name": "Terughoudend"
+			"name": "Terughoudend",
+			"traits": []
 		},
 		{
 			"id": 263,
-			"name": "Toegewijd"
+			"name": "Toegewijd",
+			"traits": []
 		},
 		{
 			"id": 264,
-			"name": "Toekomstgericht"
+			"name": "Toekomstgericht",
+			"traits": []
 		},
 		{
 			"id": 265,
-			"name": "Tolerant"
+			"name": "Tolerant",
+			"traits": []
 		},
 		{
 			"id": 266,
-			"name": "Traag"
+			"name": "Traag",
+			"traits": []
 		},
 		{
 			"id": 267,
-			"name": "Trots"
+			"name": "Trots",
+			"traits": []
 		},
 		{
 			"id": 268,
-			"name": "Trouw"
+			"name": "Trouw",
+			"traits": []
 		},
 		{
 			"id": 269,
-			"name": "Uitbundig"
+			"name": "Uitbundig",
+			"traits": []
 		},
 		{
 			"id": 270,
-			"name": "Uitdagend"
+			"name": "Uitdagend",
+			"traits": []
 		},
 		{
 			"id": 271,
-			"name": "Uithoudend"
+			"name": "Uithoudend",
+			"traits": []
 		},
 		{
 			"id": 272,
-			"name": "Uniek"
+			"name": "Uniek",
+			"traits": []
 		},
 		{
 			"id": 273,
-			"name": "Veeleisend"
+			"name": "Veeleisend",
+			"traits": []
 		},
 		{
 			"id": 274,
-			"name": "Veelzijdig"
+			"name": "Veelzijdig",
+			"traits": []
 		},
 		{
 			"id": 275,
-			"name": "Verantwoordelijk"
+			"name": "Verantwoordelijk",
+			"traits": []
 		},
 		{
 			"id": 276,
-			"name": "Verdedigend"
+			"name": "Verdedigend",
+			"traits": []
 		},
 		{
 			"id": 277,
-			"name": "Verdraagzaam"
+			"name": "Verdraagzaam",
+			"traits": []
 		},
 		{
 			"id": 278,
-			"name": "Verlegen"
+			"name": "Verlegen",
+			"traits": []
 		},
 		{
 			"id": 279,
-			"name": "Verrassend"
+			"name": "Verrassend",
+			"traits": []
 		},
 		{
 			"id": 280,
-			"name": "Verstandig"
+			"name": "Verstandig",
+			"traits": []
 		},
 		{
 			"id": 281,
-			"name": "Verstrooid"
+			"name": "Verstrooid",
+			"traits": []
 		},
 		{
 			"id": 282,
-			"name": "Vertrouwend"
+			"name": "Vertrouwend",
+			"traits": []
 		},
 		{
 			"id": 283,
-			"name": "Verzamelend"
+			"name": "Verzamelend",
+			"traits": []
 		},
 		{
 			"id": 284,
-			"name": "Verzoenend"
+			"name": "Verzoenend",
+			"traits": []
 		},
 		{
 			"id": 285,
-			"name": "Verzorgd"
+			"name": "Verzorgd",
+			"traits": []
 		},
 		{
 			"id": 286,
-			"name": "Vindingrijk"
+			"name": "Vindingrijk",
+			"traits": []
 		},
 		{
 			"id": 287,
-			"name": "Vlijtig"
+			"name": "Vlijtig",
+			"traits": []
 		},
 		{
 			"id": 288,
-			"name": "Vlug"
+			"name": "Vlug",
+			"traits": []
 		},
 		{
 			"id": 289,
-			"name": "Volgzaam"
+			"name": "Volgzaam",
+			"traits": []
 		},
 		{
 			"id": 290,
-			"name": "Volhardend"
+			"name": "Volhardend",
+			"traits": []
 		},
 		{
 			"id": 291,
-			"name": "Voorbeeldig"
+			"name": "Voorbeeldig",
+			"traits": []
 		},
 		{
 			"id": 292,
-			"name": "Vooruitziend"
+			"name": "Vooruitziend",
+			"traits": []
 		},
 		{
 			"id": 293,
-			"name": "Voorzichtig"
+			"name": "Voorzichtig",
+			"traits": []
 		},
 		{
 			"id": 294,
-			"name": "Vredelievend"
+			"name": "Vredelievend",
+			"traits": []
 		},
 		{
 			"id": 295,
-			"name": "Vreedzaam"
+			"name": "Vreedzaam",
+			"traits": []
 		},
 		{
 			"id": 296,
-			"name": "Vreesachtig"
+			"name": "Vreesachtig",
+			"traits": []
 		},
 		{
 			"id": 297,
-			"name": "Vriendelijk"
+			"name": "Vriendelijk",
+			"traits": []
 		},
 		{
 			"id": 298,
-			"name": "Vriendschappelijk"
+			"name": "Vriendschappelijk",
+			"traits": []
 		},
 		{
 			"id": 299,
-			"name": "Vrijgevochten"
+			"name": "Vrijgevochten",
+			"traits": []
 		},
 		{
 			"id": 300,
-			"name": "Vrijheidslievend"
+			"name": "Vrijheidslievend",
+			"traits": []
 		},
 		{
 			"id": 301,
-			"name": "Vrijmoedig"
+			"name": "Vrijmoedig",
+			"traits": []
 		},
 		{
 			"id": 302,
-			"name": "Vrolijk"
+			"name": "Vrolijk",
+			"traits": []
 		},
 		{
 			"id": 303,
-			"name": "Waakzaam"
+			"name": "Waakzaam",
+			"traits": []
 		},
 		{
 			"id": 304,
-			"name": "Waardig"
+			"name": "Waardig",
+			"traits": []
 		},
 		{
 			"id": 305,
-			"name": "Wakker"
+			"name": "Wakker",
+			"traits": []
 		},
 		{
 			"id": 306,
-			"name": "Wantrouwig"
+			"name": "Wantrouwig",
+			"traits": []
 		},
 		{
 			"id": 307,
-			"name": "Weerbaar"
+			"name": "Weerbaar",
+			"traits": []
 		},
 		{
 			"id": 308,
-			"name": "Welluidend"
+			"name": "Welluidend",
+			"traits": []
 		},
 		{
 			"id": 309,
-			"name": "Wendbaar"
+			"name": "Wendbaar",
+			"traits": []
 		},
 		{
 			"id": 310,
-			"name": "Wereldwijs"
+			"name": "Wereldwijs",
+			"traits": []
 		},
 		{
 			"id": 311,
-			"name": "Werklustig"
+			"name": "Werklustig",
+			"traits": []
 		},
 		{
 			"id": 312,
-			"name": "Zachtaardig"
+			"name": "Zachtaardig",
+			"traits": []
 		},
 		{
 			"id": 313,
-			"name": "Zachtmoedig"
+			"name": "Zachtmoedig",
+			"traits": []
 		},
 		{
 			"id": 314,
-			"name": "Zanglustig"
+			"name": "Zanglustig",
+			"traits": []
 		},
 		{
 			"id": 315,
-			"name": "Zelfbewust"
+			"name": "Zelfbewust",
+			"traits": []
 		},
 		{
 			"id": 316,
-			"name": "Zelfredzaam"
+			"name": "Zelfredzaam",
+			"traits": []
 		},
 		{
 			"id": 317,
-			"name": "Zelfstandig"
+			"name": "Zelfstandig",
+			"traits": []
 		},
 		{
 			"id": 318,
-			"name": "Zelfzeker"
+			"name": "Zelfzeker",
+			"traits": []
 		},
 		{
 			"id": 319,
-			"name": "Zenuwachtig"
+			"name": "Zenuwachtig",
+			"traits": []
 		},
 		{
 			"id": 320,
-			"name": "Zorgeloos"
+			"name": "Zorgeloos",
+			"traits": []
 		},
 		{
 			"id": 321,
-			"name": "Zorgvuldig"
+			"name": "Zorgvuldig",
+			"traits": []
 		},
 		{
 			"id": 322,
-			"name": "Zorgzaam"
+			"name": "Zorgzaam",
+			"traits": []
 		},
 		{
 			"id": 323,
-			"name": "Zwervend"
+			"name": "Zwervend",
+			"traits": []
 		},
 		{
 			"id": 324,
-			"name": "Zwijgzaam"
+			"name": "Zwijgzaam",
+			"traits": []
 		}
 	]
 }

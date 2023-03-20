@@ -26,4 +26,5 @@ AnimalData _$AnimalDataFromJson(Map<String, dynamic> json) => AnimalData(
 TraitData _$TraitDataFromJson(Map<String, dynamic> json) => TraitData(
       json['id'] as int,
       json['name'] as String,
+      (json['traits'] as List<dynamic>).map((e) => e as String).toList(),
     );

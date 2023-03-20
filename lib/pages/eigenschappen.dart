@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totemapp/model/dynamic_data.dart';
 import 'package:totemapp/model/profile_manager.dart';
+import 'package:totemapp/model/totem_data.dart';
 import 'package:totemapp/model/traits_filter.dart';
 import 'package:totemapp/util.dart';
 import 'package:totemapp/widgets/profile_dialog.dart';
+import 'package:totemapp/widgets/trait_entry.dart';
 
 class Eigenschappen extends StatefulWidget {
   const Eigenschappen({Key? key}) : super(key: key);
@@ -121,22 +123,7 @@ class _EigenschappenState extends State<Eigenschappen> {
                               itemCount: traits.length,
                               itemBuilder: (context, index) {
                                 var trait = traits[index];
-                                return CheckboxListTile(
-                                  controlAffinity:
-                                      ListTileControlAffinity.leading,
-                                  key: Key(trait.name),
-                                  contentPadding: const EdgeInsets.only(
-                                      left: 16, right: 32),
-                                  value: filter.isSelected(trait.name),
-                                  onChanged: (enabled) => {
-                                    filter.selectTrait(
-                                        trait.name, enabled ?? false)
-                                  },
-                                  title: Text(trait.name,
-                                      style: const TextStyle(fontSize: 20)),
-                                  activeColor:
-                                      Theme.of(context).colorScheme.primary,
-                                );
+                                return TraitEntry(trait: trait);
                               },
                               indexBarData: _search.isNotEmpty ||
                                       constraints.maxHeight < 400

@@ -40,10 +40,12 @@ class AnimalData extends ISuspensionBean {
 
 @JsonSerializable(createToJson: false)
 class TraitData extends ISuspensionBean {
-  TraitData(this.id, this.name);
+  TraitData(this.id, this.name, this.synonyms);
 
   int id;
   String name;
+  @JsonKey(name: 'traits')
+  List<String> synonyms;
 
   @override
   @JsonKey(includeFromJson: false)
