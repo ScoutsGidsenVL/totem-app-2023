@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totemapp/model/dynamic_data.dart';
 import 'package:totemapp/model/profile_manager.dart';
-import 'package:totemapp/model/totem_data.dart';
 import 'package:totemapp/model/traits_filter.dart';
 import 'package:totemapp/util.dart';
 import 'package:totemapp/widgets/profile_dialog.dart';
@@ -62,8 +61,12 @@ class _EigenschappenState extends State<Eigenschappen> {
         : allTraits
             .map((t) {
               var score = 0;
-              if (t.name.toLowerCase().contains(_search)) score += 3;
-              if (t.name.toLowerCase().startsWith(_search)) score += 6;
+              if (t.name.toLowerCase().contains(_search)) score += 10;
+              if (t.name.toLowerCase().startsWith(_search)) score += 20;
+              for (var s in t.synonyms) {
+                if (s.toLowerCase().contains(_search)) score += 1;
+                if (s.toLowerCase().startsWith(_search)) score += 2;
+              }
               return MapEntry(t, score);
             })
             .where((e) => e.value > 0)
