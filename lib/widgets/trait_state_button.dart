@@ -17,8 +17,21 @@ class TraitStateButton extends StatelessWidget {
 
     return IconButton(
         onPressed: () {
-          filter.setState(
-              trait.name, isSelected ? TraitState.neutral : targetState);
+          filter.updateTraits(Map.fromEntries([
+            MapEntry(trait.name, isSelected ? TraitState.neutral : targetState),
+            ...targetState == TraitState.positive
+                ? trait.synonyms.expand((s) {
+                    final synonymState = filter.getState(s);
+                    if (isSelected && synonymState == TraitState.related) {
+                      return [MapEntry(s, TraitState.neutral)];
+                    }
+                    if (!isSelected && synonymState == TraitState.neutral) {
+                      return [MapEntry(s, TraitState.related)];
+                    }
+                    return [];
+                  })
+                : [],
+          ]));
         },
         icon: Container(
           decoration: isSelected
