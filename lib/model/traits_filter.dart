@@ -24,7 +24,10 @@ class TraitsFilter extends ChangeNotifier {
   }
 
   int get length {
-    return traits.values.where((state) => state != TraitState.neutral).length;
+    return traits.values
+        .where((state) =>
+            state == TraitState.positive || state == TraitState.negative)
+        .length;
   }
 
   bool isPositive(String trait) {
@@ -61,28 +64,32 @@ class TraitsFilter extends ChangeNotifier {
   }
 
   List<TotemResult> apply(Iterable<AnimalData> animals) {
-    final positiveTraits = traits.entries
-        .where((e) => e.value == TraitState.positive)
-        .map((e) => e.key)
-        .toSet();
-    final negativeTraits = traits.entries
-        .where((e) => e.value == TraitState.positive)
-        .map((e) => e.key)
-        .toSet();
+    final traitsByState = Map.fromEntries(TraitState.values.map((state) {
+      return MapEntry(
+          state,
+          traits.entries
+              .where((e) => e.value == state)
+              .map((e) => e.key)
+              .toSet());
+    }));
     return animals
-        .map((a) => TotemResult(
-            a,
-            a.traits.toSet().intersection(positiveTraits).length -
-                2 * a.traits.toSet().intersection(negativeTraits).length))
+        .map((animal) {
+          final traits = animal.traits.toSet();
+          return TotemResult(
+              animal,
+              traitsByState.entries
+                  .map((e) => e.key.score * traits.intersection(e.value).length)
+                  .fold(0, (p, c) => p + c));
+        })
         .where((e) => e.score > 0)
         .toList()
-      ..sort((a, b) => b.score - a.score);
+      ..sort((a, b) => (b.score - a.score).sign.round());
   }
 }
 
 class TotemResult extends ISuspensionBean {
   final AnimalData animal;
-  final int score;
+  final double score;
 
   TotemResult(this.animal, this.score);
 
@@ -99,9 +106,10 @@ class TotemResult extends ISuspensionBean {
 
 enum TraitState {
   positive(1),
+  related(1),
   neutral(0),
-  negative(-1);
+  negative(-2);
 
   const TraitState(this.score);
-  final int score;
+  final double score;
 }

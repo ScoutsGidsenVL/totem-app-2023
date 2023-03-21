@@ -163,23 +163,32 @@ class _EigenschappenState extends State<Eigenschappen> {
                             icon: Icon(Icons.delete,
                                 color:
                                     Theme.of(context).colorScheme.onPrimary)),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 16, horizontal: 12),
-                            child: Text('${filter.length} geselecteerd',
-                                style: const TextStyle(color: Colors.white)),
-                          ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 16, horizontal: 12),
+                          child: FilledButton(
+                              onPressed: () {
+                                toggleRelevant();
+                              },
+                              child: Text('${filter.length} geselecteerd',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onPrimary))),
                         ),
+                        Expanded(child: Container()),
                         FilledButton(
                             onPressed: () {
                               Navigator.pushNamed(context, '/results');
                             },
                             child: Row(
                               children: [
-                                const Text('VIND TOTEMS',
+                                Text('VIND TOTEMS',
                                     style: TextStyle(
-                                        color: Colors.white,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onPrimary,
                                         fontWeight: FontWeight.w300)),
                                 Icon(Icons.arrow_forward,
                                     color:

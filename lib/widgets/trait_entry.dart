@@ -50,7 +50,7 @@ class TraitEntry extends StatelessWidget {
                     MapEntry(
                         e,
                         enabled == true
-                            ? TraitState.positive
+                            ? TraitState.related
                             : TraitState.neutral)),
           ]));
         },
