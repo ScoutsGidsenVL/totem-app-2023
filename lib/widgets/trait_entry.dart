@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:totemapp/model/dynamic_data.dart';
 import 'package:totemapp/model/totem_data.dart';
 import 'package:totemapp/model/traits_filter.dart';
 import 'package:totemapp/widgets/trait_card.dart';
+import 'package:totemapp/widgets/trait_state_button.dart';
 
 class TraitEntry extends StatelessWidget {
   const TraitEntry({
     super.key,
     required this.trait,
-    this.nestable,
+    this.nested = false,
   });
 
   final TraitData trait;
-  final bool? nestable;
+  final bool nested;
 
   void showCard(BuildContext context) {
     showModalBottomSheet(
@@ -29,39 +28,17 @@ class TraitEntry extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final allTraits = context.watch<DynamicData>().traits?.keys.toList() ?? [];
-    final filter = context.watch<TraitsFilter>();
-    final isSelected = filter.isPositive(trait.name);
-
-    return GestureDetector(
-      onLongPress: nestable != true ? null : () => showCard(context),
-      child: CheckboxListTile(
-        key: Key(trait.name),
-        controlAffinity: ListTileControlAffinity.leading,
-        contentPadding: const EdgeInsets.only(left: 16, right: 32),
-        value: isSelected,
-        onChanged: (enabled) {
-          filter.updateTraits(Map.fromEntries([
-            MapEntry(trait.name,
-                enabled == true ? TraitState.positive : TraitState.neutral),
-            ...nestable != true
-                ? []
-                : trait.synonyms.where((e) => allTraits.contains(e)).map((e) =>
-                    MapEntry(
-                        e,
-                        enabled == true
-                            ? TraitState.related
-                            : TraitState.neutral)),
-          ]));
-        },
-        title: Text(trait.name, style: const TextStyle(fontSize: 20)),
-        activeColor: Theme.of(context).colorScheme.primary,
-        secondary: !isSelected || trait.synonyms.isEmpty || nestable != true
-            ? null
-            : IconButton(
-                onPressed: () => showCard(context),
-                icon: const Icon(Icons.more_horiz)),
-      ),
+    return ListTile(
+      onTap: nested ? null : () => showCard(context),
+      key: Key(trait.name),
+      contentPadding:
+          nested ? null : const EdgeInsets.only(left: 16, right: 32),
+      title: Text(trait.name, style: const TextStyle(fontSize: 20)),
+      trailing: Row(mainAxisSize: MainAxisSize.min, children: [
+        TraitStateButton(trait, TraitState.negative),
+        TraitStateButton(trait, TraitState.related),
+        TraitStateButton(trait, TraitState.positive),
+      ]),
     );
   }
 }

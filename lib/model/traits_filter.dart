@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:totemapp/model/profile_manager.dart';
 import 'package:totemapp/model/totem_data.dart';
 import 'package:azlistview/azlistview.dart';
@@ -24,17 +24,14 @@ class TraitsFilter extends ChangeNotifier {
   }
 
   int get length {
-    return traits.values
-        .where((state) =>
-            state == TraitState.positive || state == TraitState.negative)
-        .length;
+    return traits.values.where((state) => state != TraitState.neutral).length;
   }
 
-  bool isPositive(String trait) {
-    return traits[trait] == TraitState.positive;
+  TraitState getState(String trait) {
+    return traits[trait] ?? TraitState.neutral;
   }
 
-  void setTrait(String trait, TraitState state) {
+  void setState(String trait, TraitState state) {
     updateTraits(Map.fromEntries([MapEntry(trait, state)]));
   }
 
@@ -83,13 +80,13 @@ class TraitsFilter extends ChangeNotifier {
         })
         .where((e) => e.score > 0)
         .toList()
-      ..sort((a, b) => (b.score - a.score).sign.round());
+      ..sort((a, b) => b.score - a.score);
   }
 }
 
 class TotemResult extends ISuspensionBean {
   final AnimalData animal;
-  final double score;
+  final int score;
 
   TotemResult(this.animal, this.score);
 
@@ -105,11 +102,14 @@ class TotemResult extends ISuspensionBean {
 }
 
 enum TraitState {
-  positive(1),
-  related(1),
-  neutral(0),
-  negative(-2);
+  positive(2, Colors.green, Icons.keyboard_double_arrow_up),
+  related(1, Colors.lightGreen, Icons.expand_less),
+  neutral(0, Colors.grey, Icons.remove),
+  negative(-5, Colors.red, Icons.keyboard_double_arrow_down);
 
-  const TraitState(this.score);
-  final double score;
+  const TraitState(this.score, this.color, this.icon);
+
+  final int score;
+  final MaterialColor color;
+  final IconData icon;
 }

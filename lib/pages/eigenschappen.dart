@@ -75,7 +75,9 @@ class _EigenschappenState extends State<Eigenschappen> {
             .toList();
 
     var traits = _showRelevant && filter.length > 0
-        ? searchTraits.where((t) => filter.isPositive(t.name)).toList()
+        ? searchTraits
+            .where((t) => filter.getState(t.name) != TraitState.neutral)
+            .toList()
         : searchTraits;
 
     if (filter.isEmpty && _showRelevant) {
@@ -126,7 +128,7 @@ class _EigenschappenState extends State<Eigenschappen> {
                               itemCount: traits.length,
                               itemBuilder: (context, index) {
                                 var trait = traits[index];
-                                return TraitEntry(trait: trait, nestable: true);
+                                return TraitEntry(trait: trait);
                               },
                               indexBarData: _search.isNotEmpty ||
                                       constraints.maxHeight < 400
@@ -163,21 +165,14 @@ class _EigenschappenState extends State<Eigenschappen> {
                             icon: Icon(Icons.delete,
                                 color:
                                     Theme.of(context).colorScheme.onPrimary)),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 16, horizontal: 12),
-                          child: FilledButton(
-                              onPressed: () {
-                                toggleRelevant();
-                              },
-                              child: Text('${filter.length} geselecteerd',
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onPrimary))),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 16, horizontal: 12),
+                            child: Text('${filter.length} geselecteerd',
+                                style: const TextStyle(color: Colors.white)),
+                          ),
                         ),
-                        Expanded(child: Container()),
                         FilledButton(
                             onPressed: () {
                               Navigator.pushNamed(context, '/results');
@@ -209,10 +204,13 @@ class _EigenschappenState extends State<Eigenschappen> {
                               builder: (context) {
                                 return ProfileDialog(
                                     onSubmitted: (name, color) {
+                                  final profileTraits =
+                                      Map<String, TraitState>.from(
+                                          filter.traits);
                                   filter.reset();
                                   context.read<ProfileManager>().createProfile(
                                       name,
-                                      traits: Map.from(filter.traits),
+                                      traits: profileTraits,
                                       color: color);
                                 });
                               });

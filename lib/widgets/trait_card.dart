@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totemapp/model/dynamic_data.dart';
 import 'package:totemapp/model/totem_data.dart';
+import 'package:totemapp/model/traits_filter.dart';
 import 'package:totemapp/widgets/trait_entry.dart';
+import 'package:totemapp/widgets/trait_state_button.dart';
 import 'package:totemapp/widgets/traits_list.dart';
 
 class TraitCard extends StatelessWidget {
@@ -26,14 +28,24 @@ class TraitCard extends StatelessWidget {
                   Padding(
                       padding:
                           const EdgeInsets.only(top: 10, left: 10, right: 10),
-                      child: Text(trait.name)),
+                      child: Row(
+                        children: [
+                          Text(trait.name),
+                          Expanded(child: Container()),
+                          Row(mainAxisSize: MainAxisSize.min, children: [
+                            TraitStateButton(trait, TraitState.negative),
+                            TraitStateButton(trait, TraitState.related),
+                            TraitStateButton(trait, TraitState.positive),
+                          ])
+                        ],
+                      )),
                   Padding(
                       padding: const EdgeInsets.all(10),
                       child: TraitsList(trait.synonyms, icon: Icons.menu_book)),
                   ...trait.synonyms.expand((s) {
                     final synonym = allTraits[s];
                     if (synonym == null) return [];
-                    return [TraitEntry(trait: synonym)];
+                    return [TraitEntry(trait: synonym, nested: true)];
                   }),
                 ]),
           );
