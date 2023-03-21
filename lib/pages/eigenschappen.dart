@@ -75,7 +75,7 @@ class _EigenschappenState extends State<Eigenschappen> {
             .toList();
 
     var traits = _showRelevant && filter.length > 0
-        ? searchTraits.where((t) => filter.isSelected(t.name)).toList()
+        ? searchTraits.where((t) => filter.isPositive(t.name)).toList()
         : searchTraits;
 
     if (filter.isEmpty && _showRelevant) {
@@ -151,10 +151,13 @@ class _EigenschappenState extends State<Eigenschappen> {
                       child: Row(children: [
                         IconButton(
                             onPressed: () {
-                              final oldTraits = filter.traits;
+                              final oldTraits =
+                                  Map<String, TraitState>.from(filter.traits);
                               filter.reset();
                               showUndo(context, 'Selectie gewist', () {
-                                context.read<TraitsFilter>().set(oldTraits);
+                                context
+                                    .read<TraitsFilter>()
+                                    .updateTraits(oldTraits, clear: true);
                               });
                             },
                             icon: Icon(Icons.delete,
@@ -197,14 +200,10 @@ class _EigenschappenState extends State<Eigenschappen> {
                               builder: (context) {
                                 return ProfileDialog(
                                     onSubmitted: (name, color) {
-                                  var selectedTraits = traits
-                                      .map((e) => e.name)
-                                      .where((t) => filter.isSelected(t))
-                                      .toList();
                                   filter.reset();
                                   context.read<ProfileManager>().createProfile(
                                       name,
-                                      traits: selectedTraits,
+                                      traits: Map.from(filter.traits),
                                       color: color);
                                 });
                               });

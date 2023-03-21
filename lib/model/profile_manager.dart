@@ -6,6 +6,7 @@ import 'package:azlistview/azlistview.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:totemapp/model/dynamic_data.dart';
+import 'package:totemapp/model/traits_filter.dart';
 import 'package:totemapp/util.dart';
 import 'package:collection/collection.dart';
 
@@ -69,10 +70,10 @@ class ProfileManager extends ChangeNotifier {
   }
 
   void createProfile(String name,
-      {List<String>? animals, List<String>? traits, int? color}) {
+      {List<String>? animals, Map<String, TraitState>? traits, int? color}) {
     selectedName = name;
     addProfile(ProfileData(
-        name, animals ?? [], traits ?? [], color ?? ProfileData.randomColor()));
+        name, animals ?? [], traits ?? {}, color ?? ProfileData.randomColor()));
   }
 
   void addProfile(ProfileData profile) {
@@ -135,7 +136,7 @@ class ProfileData extends ISuspensionBean {
 
   String name;
   List<String> animals;
-  List<String> traits;
+  Map<String, TraitState> traits;
   int colorId;
 
   @override
@@ -185,7 +186,8 @@ class ProfileData extends ISuspensionBean {
       return id <= 254 ? [id] : <int>[255, id - 254];
     }).toList());
 
-    addBitset(360, (i) => traits.contains(dynamicData.traitsById![i]?.name));
+    addBitset(360,
+        (i) => traits[dynamicData.traitsById![i]?.name] == TraitState.positive);
 
     final bytes = builder.takeBytes();
     final str = base64.encode(bytes);
@@ -245,17 +247,17 @@ class ProfileData extends ISuspensionBean {
             }
           }
 
-          final traits = getBitset(360)
+          final traits = Map.fromEntries(getBitset(360)
               .mapIndexed((i, b) => b ? dynamicData.traitsById![i]?.name : null)
               .whereType<String>()
-              .toList();
+              .map((e) => MapEntry(e, TraitState.positive)));
 
           return ProfileData(name, animals, traits, color);
         default:
           throw FormatException('Unknown profile data version $versionId');
       }
     } catch (e) {
-      return ProfileData(code, [], [], 0);
+      return ProfileData(code, [], {}, 0);
     }
   }
 }

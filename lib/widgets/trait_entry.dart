@@ -31,7 +31,7 @@ class TraitEntry extends StatelessWidget {
   Widget build(BuildContext context) {
     final allTraits = context.watch<DynamicData>().traits?.keys.toList() ?? [];
     final filter = context.watch<TraitsFilter>();
-    final isSelected = filter.isSelected(trait.name);
+    final isSelected = filter.isPositive(trait.name);
 
     return GestureDetector(
       onLongPress: nestable != true ? null : () => showCard(context),
@@ -42,12 +42,16 @@ class TraitEntry extends StatelessWidget {
         value: isSelected,
         onChanged: (enabled) {
           filter.updateTraits(Map.fromEntries([
-            MapEntry(trait.name, enabled ?? false),
+            MapEntry(trait.name,
+                enabled == true ? TraitState.positive : TraitState.neutral),
             ...nestable != true
                 ? []
-                : trait.synonyms
-                    .where((e) => allTraits.contains(e))
-                    .map((e) => MapEntry(e, enabled ?? false)),
+                : trait.synonyms.where((e) => allTraits.contains(e)).map((e) =>
+                    MapEntry(
+                        e,
+                        enabled == true
+                            ? TraitState.positive
+                            : TraitState.neutral)),
           ]));
         },
         title: Text(trait.name, style: const TextStyle(fontSize: 20)),

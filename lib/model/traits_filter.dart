@@ -4,87 +4,76 @@ import 'package:totemapp/model/totem_data.dart';
 import 'package:azlistview/azlistview.dart';
 
 class TraitsFilter extends ChangeNotifier {
-  TraitsFilter(this.profileManager, Set<String>? selectedTraits) {
+  TraitsFilter(this.profileManager, Map<String, TraitState>? selectedTraits) {
     fallbackTraits = selectedTraits ?? {};
   }
 
   ProfileManager? profileManager;
-  late Set<String> fallbackTraits;
+  late Map<String, TraitState> fallbackTraits;
 
-  List<String>? get profileTraits {
+  Map<String, TraitState>? get profileTraits {
     return profileManager?.profile?.traits;
   }
 
-  Set<String> get traits {
-    return profileTraits?.toSet() ?? fallbackTraits;
+  Map<String, TraitState> get traits {
+    return profileTraits ?? fallbackTraits;
   }
 
   bool get isEmpty {
-    return traits.isEmpty;
+    return length == 0;
   }
 
   int get length {
-    return traits.length;
+    return traits.values.where((state) => state != TraitState.neutral).length;
   }
 
-  bool isSelected(String trait) {
-    return traits.contains(trait);
+  bool isPositive(String trait) {
+    return traits[trait] == TraitState.positive;
   }
 
-  void selectTrait(String trait, bool enabled) {
-    updateTraits(Map.fromEntries([MapEntry(trait, enabled)]));
-    notifyListeners();
+  void setTrait(String trait, TraitState state) {
+    updateTraits(Map.fromEntries([MapEntry(trait, state)]));
   }
 
-  void updateTraits(Map<String, bool> traits) {
-    for (final entry in traits.entries) {
-      final trait = entry.key;
-      final enabled = entry.value;
-      if (profileTraits != null) {
-        profileManager?.updateProfile(() {
-          if (enabled) {
-            profileTraits!.add(trait);
-          } else {
-            profileTraits!.remove(trait);
-          }
-        });
-      } else {
-        if (enabled) {
-          fallbackTraits.add(trait);
-        } else {
-          fallbackTraits.remove(trait);
+  void reset() {
+    updateTraits({}, clear: true);
+  }
+
+  void updateTraits(Map<String, TraitState> traits, {bool? clear}) {
+    if (profileTraits != null) {
+      profileManager!.updateProfile(() {
+        if (clear == true) {
+          profileTraits!.clear();
         }
+        for (final entry in traits.entries) {
+          profileTraits![entry.key] = entry.value;
+        }
+      });
+    } else {
+      if (clear == true) {
+        fallbackTraits.clear();
+      }
+      for (final entry in traits.entries) {
+        fallbackTraits[entry.key] = entry.value;
       }
     }
     notifyListeners();
   }
 
-  void reset() {
-    if (profileTraits != null) {
-      profileManager!.updateProfile(() {
-        profileTraits!.clear();
-      });
-    } else {
-      fallbackTraits.clear();
-    }
-    notifyListeners();
-  }
-
-  void set(Set<String> traits) {
-    if (profileTraits != null) {
-      profileManager?.updateProfile(() {
-        profileManager!.profile!.traits = traits.toList();
-      });
-    } else {
-      fallbackTraits = traits;
-    }
-    notifyListeners();
-  }
-
   List<TotemResult> apply(Iterable<AnimalData> animals) {
+    final positiveTraits = traits.entries
+        .where((e) => e.value == TraitState.positive)
+        .map((e) => e.key)
+        .toSet();
+    final negativeTraits = traits.entries
+        .where((e) => e.value == TraitState.positive)
+        .map((e) => e.key)
+        .toSet();
     return animals
-        .map(
-            (a) => TotemResult(a, a.traits.toSet().intersection(traits).length))
+        .map((a) => TotemResult(
+            a,
+            a.traits.toSet().intersection(positiveTraits).length -
+                2 * a.traits.toSet().intersection(negativeTraits).length))
         .where((e) => e.score > 0)
         .toList()
       ..sort((a, b) => b.score - a.score);
@@ -106,4 +95,13 @@ class TotemResult extends ISuspensionBean {
       return "#";
     }
   }
+}
+
+enum TraitState {
+  positive(1),
+  neutral(0),
+  negative(-1);
+
+  const TraitState(this.score);
+  final int score;
 }
