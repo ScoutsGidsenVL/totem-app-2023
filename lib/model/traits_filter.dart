@@ -113,4 +113,22 @@ enum TraitState {
   final int score;
   final MaterialColor color;
   final IconData icon;
+
+  bool get isPositive {
+    return this == TraitState.related || this == TraitState.positive;
+  }
+
+  bool get isStrong {
+    return this == TraitState.negative || this == TraitState.positive;
+  }
+
+  factory TraitState.fromProperties(bool positive, bool strong) {
+    return positive
+        ? strong
+            ? TraitState.positive
+            : TraitState.related
+        : strong
+            ? TraitState.negative
+            : TraitState.neutral;
+  }
 }
