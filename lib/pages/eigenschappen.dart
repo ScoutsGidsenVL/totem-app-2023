@@ -126,7 +126,7 @@ class _EigenschappenState extends State<Eigenschappen> {
                               itemCount: traits.length,
                               itemBuilder: (context, index) {
                                 var trait = traits[index];
-                                return TraitEntry(trait: trait);
+                                return TraitEntry(trait: trait, nestable: true);
                               },
                               indexBarData: _search.isNotEmpty ||
                                       constraints.maxHeight < 400

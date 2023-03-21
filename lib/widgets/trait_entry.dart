@@ -9,9 +9,11 @@ class TraitEntry extends StatelessWidget {
   const TraitEntry({
     super.key,
     required this.trait,
+    this.nestable,
   });
 
   final TraitData trait;
+  final bool? nestable;
 
   void showCard(BuildContext context) {
     showModalBottomSheet(
@@ -32,9 +34,7 @@ class TraitEntry extends StatelessWidget {
     final isSelected = filter.isSelected(trait.name);
 
     return GestureDetector(
-      onLongPress: () {
-        showCard(context);
-      },
+      onLongPress: nestable != true ? null : () => showCard(context),
       child: CheckboxListTile(
         key: Key(trait.name),
         controlAffinity: ListTileControlAffinity.leading,
@@ -43,19 +43,19 @@ class TraitEntry extends StatelessWidget {
         onChanged: (enabled) {
           filter.updateTraits(Map.fromEntries([
             MapEntry(trait.name, enabled ?? false),
-            ...trait.synonyms
-                .where((e) => allTraits.contains(e))
-                .map((e) => MapEntry(e, enabled ?? false))
+            ...nestable != true
+                ? []
+                : trait.synonyms
+                    .where((e) => allTraits.contains(e))
+                    .map((e) => MapEntry(e, enabled ?? false)),
           ]));
         },
         title: Text(trait.name, style: const TextStyle(fontSize: 20)),
         activeColor: Theme.of(context).colorScheme.primary,
-        secondary: !isSelected || trait.synonyms.isEmpty
+        secondary: !isSelected || trait.synonyms.isEmpty || nestable != true
             ? null
             : IconButton(
-                onPressed: () {
-                  showCard(context);
-                },
+                onPressed: () => showCard(context),
                 icon: const Icon(Icons.more_horiz)),
       ),
     );
