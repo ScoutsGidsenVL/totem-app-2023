@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:totemapp/model/profile_manager.dart';
 import 'package:totemapp/model/totem_data.dart';
@@ -76,7 +77,7 @@ class TraitsFilter extends ChangeNotifier {
               animal,
               traitsByState.entries
                   .map((e) => e.key.score * traits.intersection(e.value).length)
-                  .fold(0, (p, c) => p + c));
+                  .sum);
         })
         .where((e) => e.score > 0)
         .toList()

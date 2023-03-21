@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totemapp/model/dynamic_data.dart';
@@ -33,16 +34,21 @@ class TraitCard extends StatelessWidget {
                           Text(trait.name),
                           Expanded(child: Container()),
                           Row(mainAxisSize: MainAxisSize.min, children: [
-                            TraitStateButton(trait, TraitState.negative),
-                            TraitStateButton(trait, TraitState.related),
-                            TraitStateButton(trait, TraitState.positive),
+                            TraitStateButton(trait, TraitState.negative,
+                                cascade: true, force: true),
+                            TraitStateButton(trait, TraitState.related,
+                                cascade: true, force: true),
+                            TraitStateButton(trait, TraitState.positive,
+                                cascade: true, force: true),
                           ])
                         ],
                       )),
                   Padding(
                       padding: const EdgeInsets.all(10),
                       child: TraitsList(trait.synonyms, icon: Icons.menu_book)),
-                  ...trait.synonyms.expand((s) {
+                  ...[...trait.synonyms, trait.name]
+                      .sorted((a, b) => a.compareTo(b))
+                      .expand((s) {
                     final synonym = allTraits[s];
                     if (synonym == null) return [];
                     return [TraitEntry(trait: synonym, nested: true)];

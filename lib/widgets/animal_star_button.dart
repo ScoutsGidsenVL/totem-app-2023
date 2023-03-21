@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totemapp/model/profile_manager.dart';
+import 'package:totemapp/model/traits_filter.dart';
 import 'package:totemapp/util.dart';
 import 'package:totemapp/widgets/profile_dialog.dart';
 
@@ -76,9 +77,13 @@ class AnimalStarButton extends StatelessWidget {
                               builder: (context) {
                                 return ProfileDialog(
                                     onSubmitted: (name, color) {
+                                  final profileTraits =
+                                      Map<String, TraitState>.from(
+                                          context.read<TraitsFilter>().traits);
                                   context.read<ProfileManager>().createProfile(
                                       name,
                                       animals: [animal],
+                                      traits: profileTraits,
                                       color: color);
                                   Navigator.pop(parentContext);
                                 });
