@@ -47,7 +47,6 @@ class ProfileEntry extends StatelessWidget {
               final oldSelectedName = manager.selectedName;
               manager.deleteProfile(profile.name);
               showUndo(context, '${profile.name} verwijderd', () {
-                final manager = context.read<ProfileManager>();
                 manager.selectedName = oldSelectedName;
                 manager.addProfile(profile);
               });
