@@ -35,11 +35,11 @@ class TraitCard extends StatelessWidget {
                           Expanded(child: Container()),
                           Row(mainAxisSize: MainAxisSize.min, children: [
                             TraitStateButton(trait, TraitState.negative,
-                                cascade: true, force: true),
+                                cascade: true),
                             TraitStateButton(trait, TraitState.related,
-                                cascade: true, force: true),
+                                cascade: true),
                             TraitStateButton(trait, TraitState.positive,
-                                cascade: true, force: true),
+                                cascade: true),
                           ])
                         ],
                       )),

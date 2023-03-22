@@ -8,10 +8,9 @@ class TraitStateButton extends StatelessWidget {
   final TraitData trait;
   final TraitState targetState;
   final bool cascade;
-  final bool force;
 
   const TraitStateButton(this.trait, this.targetState,
-      {super.key, this.cascade = false, this.force = false});
+      {super.key, this.cascade = false});
 
   @override
   Widget build(BuildContext context) {
@@ -22,24 +21,13 @@ class TraitStateButton extends StatelessWidget {
 
     return IconButton(
         onPressed: () {
+          final newState = active ? TraitState.neutral : targetState;
           filter.updateTraits(Map.fromEntries([
-            MapEntry(trait.name, active ? TraitState.neutral : targetState),
-            ...cascade && (targetState == TraitState.positive || force)
+            MapEntry(trait.name, newState),
+            ...cascade
                 ? trait.synonyms.expand((s) {
-                    final synonymState = filter.getState(s);
                     if (!allTraits.containsKey(s)) return [];
-                    if (force) {
-                      return [
-                        MapEntry(s, active ? TraitState.neutral : targetState)
-                      ];
-                    }
-                    if (active && synonymState == TraitState.related) {
-                      return [MapEntry(s, TraitState.neutral)];
-                    }
-                    if (!active && synonymState == TraitState.neutral) {
-                      return [MapEntry(s, TraitState.related)];
-                    }
-                    return [];
+                    return [MapEntry(s, newState)];
                   })
                 : [],
           ]));
