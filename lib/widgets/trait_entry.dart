@@ -34,11 +34,14 @@ class TraitEntry extends StatelessWidget {
       contentPadding:
           nested ? null : const EdgeInsets.only(left: 16, right: 32),
       title: Text(trait.name, style: const TextStyle(fontSize: 20)),
-      trailing: Row(mainAxisSize: MainAxisSize.min, children: [
-        TraitStateButton(trait, TraitState.negative),
-        TraitStateButton(trait, TraitState.related),
-        TraitStateButton(trait, TraitState.positive),
-      ]),
+      trailing: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TraitStateButton(trait, TraitState.negative),
+            TraitStateButton(trait, TraitState.related),
+            TraitStateButton(trait, TraitState.positive),
+          ]),
     );
   }
 }
