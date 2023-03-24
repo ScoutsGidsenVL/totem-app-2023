@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totemapp/model/profile_manager.dart';
 import 'package:azlistview/azlistview.dart';
+import 'package:totemapp/widgets/import_dialog.dart';
 import 'package:totemapp/widgets/profile_card.dart';
 import 'package:totemapp/widgets/profile_dialog.dart';
 import 'package:totemapp/widgets/profile_entry.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 class Profielen extends StatelessWidget {
   const Profielen({Key? key}) : super(key: key);
@@ -44,20 +46,46 @@ class Profielen extends StatelessWidget {
                             color: Theme.of(context).colorScheme.primary),
                       ))))
         ]),
-        floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              showDialog(
-                  context: context,
-                  builder: (context) {
-                    return ProfileDialog(onSubmitted: (name, color) {
-                      context
-                          .read<ProfileManager>()
-                          .createProfile(name, color: color);
-                    });
-                  });
-            },
-            backgroundColor: Theme.of(context).colorScheme.primary,
-            foregroundColor: Theme.of(context).colorScheme.onPrimary,
-            child: const Icon(Icons.add)));
+        floatingActionButton: SpeedDial(
+          icon: Icons.add,
+          activeIcon: Icons.close,
+          spacing: 3,
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          foregroundColor: Theme.of(context).colorScheme.onPrimary,
+          children: [
+            SpeedDialChild(
+                onTap: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        return ProfileDialog(onSubmitted: (name, color) {
+                          context
+                              .read<ProfileManager>()
+                              .createProfile(name, color: color);
+                        });
+                      });
+                },
+                backgroundColor: Theme.of(context).colorScheme.primary,
+                foregroundColor: Theme.of(context).colorScheme.onPrimary,
+                label: 'Nieuw profiel',
+                child: const Icon(Icons.person_add)),
+            SpeedDialChild(
+                onTap: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        return ImportDialog(onSubmitted: (profile) {
+                          context
+                              .read<ProfileManager>()
+                              .addProfile(profile, force: true);
+                        });
+                      });
+                },
+                backgroundColor: Theme.of(context).colorScheme.primary,
+                foregroundColor: Theme.of(context).colorScheme.onPrimary,
+                label: 'Importeer profiel',
+                child: const Icon(Icons.link)),
+          ],
+        ));
   }
 }

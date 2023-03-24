@@ -76,9 +76,13 @@ class ProfileManager extends ChangeNotifier {
         name, animals ?? [], traits ?? {}, color ?? ProfileData.randomColor()));
   }
 
-  void addProfile(ProfileData profile) {
+  void addProfile(ProfileData profile, {bool force = false}) {
     if (profiles.any((p) => p.name == profile.name)) {
-      return;
+      if (force) {
+        profiles.removeWhere((p) => p.name == profile.name);
+      } else {
+        return;
+      }
     }
     profiles.add(profile);
     _sortProfiles();
