@@ -7989,22 +7989,44 @@
 		{
 			"id": 55,
 			"name": "Edel",
-			"traits": []
+			"traits": [
+				"Eervol",
+				"Nobel"
+			]
 		},
 		{
 			"id": 56,
 			"name": "Edelmoedig",
-			"traits": []
+			"traits": [
+				"Genereus",
+				"Gul",
+				"Nobel"
+			]
 		},
 		{
 			"id": 57,
 			"name": "Eerlijk",
-			"traits": []
+			"traits": [
+				"Behoorlijk",
+				"Betrouwbaar",
+				"Echt",
+				"Gemeend",
+				"Openlijk",
+				"Oprecht",
+				"Rechtuit",
+				"Rechtvaardig"
+			]
 		},
 		{
 			"id": 58,
 			"name": "Eervol",
-			"traits": []
+			"traits": [
+				"Edel",
+				"Edelmoedig",
+				"Loffelijk",
+				"Respectvol",
+				"Verdienstelijk"
+			]
 		},
 		{
 			"id": 59,
@@ -8014,37 +8036,106 @@
 		{
 			"id": 60,
 			"name": "Efficiënt",
-			"traits": []
+			"traits": [
+				"Adequaat",
+				"Doelmatig",
+				"Doelgericht",
+				"Doeltreffend",
+				"Doordacht",
+				"Effectief",
+				"Probaat"
+			]
 		},
 		{
 			"id": 61,
 			"name": "Eigenwijs",
-			"traits": []
+			"traits": [
+				"Dwars",
+				"Eigenzinnig",
+				"Hardnekkig",
+				"Koppig",
+				"Onverstoorbaar",
+				"Standvastig",
+				"Tegendraads"
+			]
 		},
 		{
 			"id": 62,
 			"name": "Eigenzinnig",
-			"traits": []
+			"traits": [
+				"Eigenwijs",
+				"Halsstarrig",
+				"Individualistisch",
+				"Koppig",
+				"Standvastig",
+				"Stijfhoofdig"
+			]
 		},
 		{
 			"id": 63,
 			"name": "Elegant",
-			"traits": []
+			"traits": [
+				"Aantrekkelijk",
+				"Bevallig",
+				"Chic",
+				"Fraai",
+				"Gracieus",
+				"Prachtig",
+				"Sierlijk",
+				"Stijlvol",
+				"Zwierig"
+			]
 		},
 		{
 			"id": 64,
 			"name": "Energiek",
-			"traits": []
+			"traits": [
+				"Actief",
+				"Dynamisch",
+				"Krachtdadig",
+				"Krachtig",
+				"Levenslustig",
+				"Ondernemend",
+				"Onvermoeibaar",
+				"Pittig",
+				"Vitaal",
+				"Volhardend"
+			]
 		},
 		{
 			"id": 65,
 			"name": "Enthousiast",
-			"traits": []
+			"traits": [
+				"Expressief",
+				"Fanatiek",
+				"Flamboyant",
+				"Gemotiveerd",
+				"Hartstochtelijk",
+				"Levendig",
+				"Opgewonden",
+				"Uitbundig",
+				"Uitgelaten",
+				"Verwoed",
+				"Vurig"
+			]
 		},
 		{
 			"id": 66,
 			"name": "Ernstig",
-			"traits": []
+			"traits": [
+				"Degelijk",
+				"Deugdelijk",
+				"Echt",
+				"Eerlijk",
+				"Gemeend",
+				"Ingetogen",
+				"Oprecht",
+				"Overtuigd",
+				"Plechtig",
+				"Serieus",
+				"Zwaar",
+				"Zwaarwegend"
+			]
 		},
 		{
 			"id": 67,
