@@ -7543,7 +7543,6 @@
 				"Observerend",
 				"Oplettend",
 				"Opmerkzaam",
-				"Voorkomend",
 				"Vriendelijk",
 				"Waakzaam"
 			]
@@ -7682,52 +7681,114 @@
 		{
 			"id": 28,
 			"name": "Behulpzaam",
-			"traits": []
+			"traits": [
+				"Bereidwillig",
+				"Helpend",
+				"Hulpvaardig"
+			]
 		},
 		{
 			"id": 29,
 			"name": "Bemiddelend",
-			"traits": []
+			"traits": [
+				"Verzoenend"
+			]
 		},
 		{
 			"id": 30,
 			"name": "Bescheiden",
-			"traits": []
+			"traits": [
+				"Discreet",
+				"Ingetogen",
+				"Onopvallend",
+				"Pretentieloos",
+				"Terughoudend",
+				"Voorzichtig"
+			]
 		},
 		{
 			"id": 31,
 			"name": "Beschermend",
-			"traits": []
+			"traits": [
+				"Bezorgd",
+				"Verdedigend"
+			]
 		},
 		{
 			"id": 32,
 			"name": "Betrouwbaar",
-			"traits": []
+			"traits": [
+				"Degelijk",
+				"Eerlijk",
+				"Integer"
+			]
 		},
 		{
 			"id": 33,
 			"name": "Bevallig",
-			"traits": []
+			"traits": [
+				"Aangenaam",
+				"Bekoorlijk",
+				"Charmant",
+				"Elegant",
+				"Goedgevormd",
+				"Gracieus",
+				"Knap",
+				"Lief",
+				"Liefelijk",
+				"Lieftallig",
+				"Mooi"
+			]
 		},
 		{
 			"id": 34,
 			"name": "Beweeglijk",
-			"traits": []
+			"traits": [
+				"Behendig",
+				"Dartel",
+				"Druk",
+				"Lenig",
+				"Levendig",
+				"Snel",
+				"Speels",
+				"Vlug"
+			]
 		},
 		{
 			"id": 35,
 			"name": "Bezorgd",
-			"traits": []
+			"traits": [
+				"Angstig",
+				"Bang",
+				"Beducht",
+				"Beklemd",
+				"Bekommerd",
+				"Beschermend",
+				"Gespannen",
+				"Nerveus",
+				"Ongerust",
+				"Verontrust",
+				"Zenuwachtig",
+				"Zorgzaam"
+			]
 		},
 		{
 			"id": 36,
 			"name": "Beïnvloedbaar",
-			"traits": []
+			"traits": [
+				"Naïef",
+				"Ontvankelijk"
+			]
 		},
 		{
 			"id": 37,
 			"name": "Blijmoedig",
-			"traits": []
+			"traits": [
+				"Blij",
+				"Opgeruimd",
+				"Opgewekt",
+				"Vrolijk"
+			]
 		},
 		{
 			"id": 38,
@@ -7737,82 +7798,193 @@
 		{
 			"id": 39,
 			"name": "Brutaal",
-			"traits": []
+			"traits": [
+				"Beledigend",
+				"Grof",
+				"Onbeleefd",
+				"Onbeschaamd",
+				"Onbeschoft",
+				"Vrijmoedig"
+			]
 		},
 		{
 			"id": 40,
 			"name": "Charmant",
-			"traits": []
+			"traits": [
+				"Aangenaam",
+				"Bekoorlijk",
+				"Bevallig",
+				"Genoeglijk",
+				"Gezellig",
+				"Gracieus",
+				"Lieflijk",
+				"Lieftallig",
+				"Plezierig",
+				"Voorkomend",
+				"Vriendelijk"
+			]
 		},
 		{
 			"id": 41,
 			"name": "Communicatief",
-			"traits": []
+			"traits": [
+				"Mededeelzaam",
+				"Overleggend"
+			]
 		},
 		{
 			"id": 42,
 			"name": "Competitief",
-			"traits": []
+			"traits": [
+				"Strijdlustig"
+			]
 		},
 		{
 			"id": 43,
 			"name": "Creatief",
-			"traits": []
+			"traits": [
+				"Artistiek",
+				"Inventief",
+				"Kunstig",
+				"Origineel",
+				"Vindingrijk"
+			]
 		},
 		{
 			"id": 44,
 			"name": "Dankbaar",
-			"traits": []
+			"traits": [
+				"Erkentelijk",
+				"Lonend"
+			]
 		},
 		{
 			"id": 45,
 			"name": "Dapper",
-			"traits": []
+			"traits": [
+				"Avontuurlijk",
+				"Fier",
+				"Gedurfd",
+				"Gewaagd",
+				"Heldhaftig",
+				"Heroïek",
+				"Moedig",
+				"Onbeschroomd",
+				"Onbevreesd",
+				"Stoer",
+				"Stoutmoedig",
+				"Vrijmoedig"
+			]
 		},
 		{
 			"id": 46,
 			"name": "Dartel",
-			"traits": []
+			"traits": [
+				"Beweeglijk",
+				"Jolig",
+				"Levendig",
+				"Speels",
+				"Uitgelaten",
+				"Vrolijk"
+			]
 		},
 		{
 			"id": 47,
 			"name": "Delend",
-			"traits": []
+			"traits": [
+				"Altruïstisch",
+				"Opofferingsgezind"
+			]
 		},
 		{
 			"id": 48,
 			"name": "Doelgericht",
-			"traits": []
+			"traits": [
+				"Bewust",
+				"Doordacht",
+				"Doortastend",
+				"Efficiënt",
+				"Functioneel",
+				"Gefocust",
+				"Gericht",
+				"Weloverwogen"
+			]
 		},
 		{
 			"id": 49,
 			"name": "Doordacht",
-			"traits": []
+			"traits": [
+				"Ingenieus",
+				"Intelligent",
+				"Vernuftig",
+				"Welbedacht",
+				"Weloverwogen"
+			]
 		},
 		{
 			"id": 50,
 			"name": "Doortastend",
-			"traits": []
+			"traits": [
+				"Bedrijvig",
+				"Drastisch",
+				"Dynamisch",
+				"Energiek",
+				"Ferm",
+				"Flink",
+				"Krachtig",
+				"Ondernemend",
+				"Radicaal",
+				"Resoluut",
+				"Vlug"
+			]
 		},
 		{
 			"id": 51,
 			"name": "Doorzettend",
-			"traits": []
+			"traits": [
+				"Gehard",
+				"Volhardend"
+			]
 		},
 		{
 			"id": 52,
 			"name": "Driftig",
-			"traits": []
+			"traits": [
+				"Cholerisch",
+				"Heetgebakerd",
+				"Heethoofdig",
+				"Heftig",
+				"Koleirig",
+				"Levendig",
+				"Onbesuisd",
+				"Opvliegend",
+				"Temperamentvol",
+				"Vurig"
+			]
 		},
 		{
 			"id": 53,
 			"name": "Druk",
-			"traits": []
+			"traits": [
+				"Actief",
+				"Bedrijvig",
+				"Luidruchtig",
+				"Onrustig",
+				"Onstuimig",
+				"Rumoerig",
+				"Rusteloos"
+			]
 		},
 		{
 			"id": 54,
 			"name": "Durver",
-			"traits": []
+			"traits": [
+				"Avontuurlijk",
+				"Dapper",
+				"Onbevreesd",
+				"Moedig",
+				"Stoutmoedig"
+			]
 		},
 		{
 			"id": 55,
