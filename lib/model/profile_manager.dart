@@ -136,7 +136,9 @@ class ProfileData extends ISuspensionBean {
     return Random().nextInt(ProfileData.colors.length);
   }
 
-  ProfileData(this.name, this.animals, this.traits, this.colorId);
+  ProfileData(this.name, this.animals, this.traits, this.colorId)
+      : assert(name.isNotEmpty),
+        assert(colorId >= 0 && colorId < colors.length);
 
   String name;
   List<String> animals;
