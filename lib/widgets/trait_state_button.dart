@@ -4,6 +4,7 @@ import 'package:totemapp/model/dynamic_data.dart';
 import 'package:totemapp/model/totem_data.dart';
 import 'package:totemapp/model/traits_filter.dart';
 
+/// Only used when Eigenschappen.state is false
 class TraitStateButton extends StatelessWidget {
   final TraitData trait;
   final TraitState targetState;

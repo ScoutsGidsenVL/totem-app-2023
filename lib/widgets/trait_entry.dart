@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:totemapp/model/totem_data.dart';
 import 'package:totemapp/model/traits_filter.dart';
+import 'package:totemapp/pages/eigenschappen.dart';
 import 'package:totemapp/widgets/trait_card.dart';
 import 'package:totemapp/widgets/trait_state_button.dart';
 
@@ -28,6 +30,32 @@ class TraitEntry extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (Eigenschappen.simple) {
+      final filter = context.watch<TraitsFilter>();
+      final currentState = filter.getState(trait.name);
+      return GestureDetector(
+        onLongPress: nested ? null : () => showCard(context),
+        child: CheckboxListTile(
+            key: Key(trait.name),
+            contentPadding:
+                nested ? null : const EdgeInsets.only(left: 16, right: 32),
+            title: Text(trait.name, style: const TextStyle(fontSize: 20)),
+            controlAffinity: ListTileControlAffinity.leading,
+            activeColor: Theme.of(context).colorScheme.primary,
+            value: currentState.isPositive,
+            onChanged: (e) {
+              filter.setState(trait.name,
+                  e ?? false ? TraitState.positive : TraitState.negative);
+            },
+            secondary: nested
+                ? null
+                : IconButton(
+                    onPressed: () {
+                      showCard(context);
+                    },
+                    icon: const Icon(Icons.more_vert))),
+      );
+    }
     return ListTile(
       onTap: nested ? null : () => showCard(context),
       key: Key(trait.name),

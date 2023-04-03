@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:totemapp/model/profile_manager.dart';
 import 'package:totemapp/model/totem_data.dart';
 import 'package:azlistview/azlistview.dart';
+import 'package:totemapp/pages/eigenschappen.dart';
 
 class TraitsFilter extends ChangeNotifier {
   TraitsFilter(this.profileManager, Map<String, TraitState>? selectedTraits) {
@@ -26,6 +27,10 @@ class TraitsFilter extends ChangeNotifier {
 
   int get length {
     return traits.values.where((state) => state != TraitState.neutral).length;
+  }
+
+  int get selectedCount {
+    return traits.values.where((state) => state.isSelected).length;
   }
 
   TraitState getState(String trait) {
@@ -76,7 +81,8 @@ class TraitsFilter extends ChangeNotifier {
           return TotemResult(
               animal,
               traitsByState.entries
-                  .map((e) => e.key.score * traits.intersection(e.value).length)
+                  .map((e) =>
+                      e.key.filterScore * traits.intersection(e.value).length)
                   .sum);
         })
         .where((e) => e.score > 0)
@@ -120,6 +126,14 @@ enum TraitState {
 
   bool get isStrong {
     return this == TraitState.negative || this == TraitState.positive;
+  }
+
+  bool get isSelected {
+    return Eigenschappen.simple ? isPositive : this != TraitState.neutral;
+  }
+
+  int get filterScore {
+    return Eigenschappen.simple ? (isPositive ? 1 : 0) : score;
   }
 
   factory TraitState.fromProperties(bool positive, bool strong) {

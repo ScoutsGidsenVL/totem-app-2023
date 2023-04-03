@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totemapp/model/profile_manager.dart';
-import 'package:totemapp/model/traits_filter.dart';
 import 'package:totemapp/util.dart';
 import 'package:totemapp/widgets/profile_dialog.dart';
 import 'package:share_plus/share_plus.dart';
@@ -14,8 +13,6 @@ class ProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final manager = context.watch<ProfileManager>();
-    final traitCount =
-        profile.traits.values.where((s) => s != TraitState.neutral).length;
 
     return Card(
         child: Padding(
@@ -52,7 +49,7 @@ class ProfileCard extends StatelessWidget {
                               style: Theme.of(context).textTheme.bodySmall,
                               softWrap: true))
                     ])),
-          if (traitCount > 0)
+          if (profile.selectedCount > 0)
             Padding(
                 padding: const EdgeInsets.all(8),
                 child: Row(
@@ -65,7 +62,7 @@ class ProfileCard extends StatelessWidget {
                                   .colorScheme
                                   .onSurfaceVariant)),
                       Flexible(
-                          child: Text('$traitCount eigenschappen',
+                          child: Text('${profile.selectedCount} eigenschappen',
                               style: Theme.of(context).textTheme.bodySmall,
                               softWrap: true))
                     ])),

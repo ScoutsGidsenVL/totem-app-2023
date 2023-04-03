@@ -154,6 +154,10 @@ class ProfileData extends ISuspensionBean {
     return ProfileData.colors[colorId];
   }
 
+  int get selectedCount {
+    return traits.values.where((state) => state.isSelected).length;
+  }
+
   String encode(DynamicData dynamicData) {
     final builder = BytesBuilder();
     builder.addByte(1); // version ID

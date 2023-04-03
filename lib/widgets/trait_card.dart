@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:totemapp/model/dynamic_data.dart';
 import 'package:totemapp/model/totem_data.dart';
 import 'package:totemapp/model/traits_filter.dart';
+import 'package:totemapp/pages/eigenschappen.dart';
 import 'package:totemapp/widgets/trait_entry.dart';
 import 'package:totemapp/widgets/trait_state_button.dart';
 import 'package:totemapp/widgets/traits_list.dart';
@@ -33,14 +34,15 @@ class TraitCard extends StatelessWidget {
                         children: [
                           Text(trait.name),
                           Expanded(child: Container()),
-                          Row(mainAxisSize: MainAxisSize.min, children: [
-                            TraitStateButton(trait, TraitState.negative,
-                                cascade: true),
-                            TraitStateButton(trait, TraitState.related,
-                                cascade: true),
-                            TraitStateButton(trait, TraitState.positive,
-                                cascade: true),
-                          ])
+                          if (!Eigenschappen.simple)
+                            Row(mainAxisSize: MainAxisSize.min, children: [
+                              TraitStateButton(trait, TraitState.negative,
+                                  cascade: true),
+                              TraitStateButton(trait, TraitState.related,
+                                  cascade: true),
+                              TraitStateButton(trait, TraitState.positive,
+                                  cascade: true),
+                            ])
                         ],
                       )),
                   Padding(
