@@ -19,15 +19,11 @@ class Profielen extends StatelessWidget {
 
     return Scaffold(
         body: Column(children: [
-          profile == null
-              ? Container()
-              : Padding(
-                  padding: const EdgeInsets.only(left: 10, top: 10, right: 10),
-                  child: ProfileCard(profile)),
+          Padding(
+              padding: const EdgeInsets.all(10), child: ProfileCard(profile)),
           Expanded(
               child: Scrollbar(
                   child: AzListView(
-                      padding: const EdgeInsets.only(top: 10),
                       data: profiles,
                       itemCount: profiles.length,
                       itemBuilder: (context, index) {
