@@ -8364,8 +8364,7 @@
 			"traits": [
 				"Laks",
 				"Langzaam",
-				"Lui",
-				"Slaapgraag"
+				"Lui"
 			]
 		},
 		{
@@ -9440,7 +9439,7 @@
 			"id": 171,
 			"name": "Niet veeleisend",
 			"traits": [
-				"Niet veeleisend",
+				"Niet kieskeurig",
 				"Snel tevreden"
 			]
 		},
@@ -10084,152 +10083,362 @@
 		{
 			"id": 225,
 			"name": "Respectvol",
-			"traits": []
+			"traits": [
+				"Beleefd",
+				"Edel",
+				"Edelmoedig",
+				"Eerbiedig",
+				"Eervol",
+				"Waarderend"
+			]
 		},
 		{
 			"id": 226,
 			"name": "Roekeloos",
-			"traits": []
+			"traits": [
+				"Impulsief",
+				"Onbezonnen",
+				"Onstuimig",
+				"Onvoorzichtig",
+				"Zorgeloos"
+			]
 		},
 		{
 			"id": 227,
 			"name": "Rusteloos",
-			"traits": []
+			"traits": [
+				"Beweeglijk",
+				"Druk",
+				"Gejaagd",
+				"Ongedurig",
+				"Onrustig",
+				"Onstuimig",
+				"Zenuwachtig"
+			]
 		},
 		{
 			"id": 228,
 			"name": "Rustig",
-			"traits": []
+			"traits": [
+				"Bedaard",
+				"Beheerst",
+				"Gezapig",
+				"Kalm",
+				"Onbewogen",
+				"Sereen",
+				"Vreedzaam",
+				"Vrijmoedig"
+			]
 		},
 		{
 			"id": 229,
 			"name": "Rustzoeker",
-			"traits": []
+			"traits": [
+				"Bedaard",
+				"Kalm",
+				"Ontspannen",
+				"Vredelievend",
+				"Vreedzaam"
+			]
 		},
 		{
 			"id": 230,
 			"name": "Samenwerkend",
-			"traits": []
+			"traits": [
+				"Gemeenschapsgevoel",
+				"Samenhorig",
+				"Solidair"
+			]
 		},
 		{
 			"id": 231,
 			"name": "Schattig",
-			"traits": []
+			"traits": [
+				"Beeldig",
+				"Charmant",
+				"Koddig",
+				"Lief"
+			]
 		},
 		{
 			"id": 232,
 			"name": "Scherpzinnig",
-			"traits": []
+			"traits": [
+				"Alert",
+				"Gevat",
+				"Intelligent",
+				"Kritisch",
+				"Opmerkzaam",
+				"Schrander",
+				"Slim",
+				"Spitsvondig",
+				"Vernuftig",
+				"Vindingrijk",
+				"Wijs"
+			]
 		},
 		{
 			"id": 233,
 			"name": "Schrander",
-			"traits": []
+			"traits": [
+				"Alert",
+				"Doortastend",
+				"Gevat",
+				"Intelligent",
+				"Scherpzinnig",
+				"Slim",
+				"Spitsvondig",
+				"Wijs"
+			]
 		},
 		{
 			"id": 234,
 			"name": "Schuw",
-			"traits": []
+			"traits": [
+				"Schuchter",
+				"Terughoudend",
+				"Verlegen",
+				"Vreesachtig"
+			]
 		},
 		{
 			"id": 235,
 			"name": "Sierlijk",
-			"traits": []
+			"traits": [
+				"Aantrekkelijk",
+				"Elegant",
+				"Fraai",
+				"Gracieus",
+				"Mooi",
+				"Stijlvol"
+			]
 		},
 		{
 			"id": 236,
 			"name": "Slaapgraag",
-			"traits": []
+			"traits": [
+				"Dromerig",
+				"Slaperig"
+			]
 		},
 		{
 			"id": 237,
 			"name": "Slim",
-			"traits": []
+			"traits": [
+				"Bekwaam",
+				"Bedachtzaam",
+				"Doordacht",
+				"Ingenieus",
+				"Intelligent",
+				"Scherpzinnig",
+				"Schrander",
+				"Spitsvondig",
+				"Vaardig",
+				"Vernuftig",
+				"Vindingrijk",
+				"Wijs"
+			]
 		},
 		{
 			"id": 238,
 			"name": "Slordig",
-			"traits": []
+			"traits": [
+				"Achteloos",
+				"Chaotisch",
+				"Nonchalant",
+				"Onnauwkeurig",
+				"Onzorgvuldig",
+				"Rommelig",
+				"Verstrooid",
+				"Wanordelijk"
+			]
 		},
 		{
 			"id": 239,
 			"name": "Sluw",
-			"traits": []
+			"traits": [
+				"Doortrapt",
+				"Geslepen",
+				"Listig",
+				"Slim",
+				"Venijnig"
+			]
 		},
 		{
 			"id": 240,
 			"name": "Snel",
-			"traits": []
+			"traits": [
+				"Behendig",
+				"Beweeglijk",
+				"Gehaast",
+				"Lenig",
+				"Vlug"
+			]
 		},
 		{
 			"id": 241,
 			"name": "Snel tevreden",
-			"traits": []
+			"traits": [
+				"Niet kieskeurig",
+				"Niet veeleisend",
+				"Onverschillig",
+				"Terughoudend",
+				"Toegeeflijk"
+			]
 		},
 		{
 			"id": 242,
 			"name": "Sociaal",
-			"traits": []
+			"traits": [
+				"Communicatief",
+				"Gezellig",
+				"Groepsdier",
+				"Groepsdier (Grote Groep)",
+				"Groepsdier (Kleine Groep)",
+				"Hartelijk",
+				"Toegankelijk",
+				"Verbindend",
+				"Vriendelijk"
+			]
 		},
 		{
 			"id": 243,
 			"name": "Solidair",
-			"traits": []
+			"traits": [
+				"Aaneengesloten",
+				"Behulpzaam",
+				"Betrokken",
+				"Eensgezind",
+				"Gemeenschapsgevoel",
+				"Samenhorig"
+			]
 		},
 		{
 			"id": 244,
 			"name": "Solitair",
-			"traits": []
+			"traits": [
+				"Eenzaam",
+				"Kluizenaar",
+				"Teruggetrokken"
+			]
 		},
 		{
 			"id": 245,
 			"name": "Spaarzaam",
-			"traits": []
+			"traits": [
+				"Bedachtzaam",
+				"Behoedzaam",
+				"Economisch",
+				"Karig",
+				"Terughoudend",
+				"Voorzichtig",
+				"Zuinig"
+			]
 		},
 		{
 			"id": 246,
 			"name": "Speels",
-			"traits": []
+			"traits": [
+				"Beweeglijk",
+				"Dartel",
+				"Onbezorgd",
+				"Ondeugend",
+				"Vrolijk"
+			]
 		},
 		{
 			"id": 247,
 			"name": "Spontaan",
-			"traits": []
+			"traits": [
+				"Enthousiast",
+				"Impulsief",
+				"Joviaal",
+				"Ongeremd",
+				"Openhartig",
+				"Vrijmoedig"
+			]
 		},
 		{
 			"id": 248,
 			"name": "Sportief",
-			"traits": []
+			"traits": [
+				"Atletisch",
+				"Beweeglijk",
+				"Lenig",
+				"Sterk"
+			]
 		},
 		{
 			"id": 249,
 			"name": "Standvastig",
-			"traits": []
+			"traits": [
+				"Eigenzinnig",
+				"Eigenwijs",
+				"Hardnekkig",
+				"Koppig",
+				"Onverstoorbaar",
+				"Onverzettelijk",
+				"Vastberaden",
+				"Volhardend"
+			]
 		},
 		{
 			"id": 250,
 			"name": "Statig",
-			"traits": []
+			"traits": [
+				"Deftig",
+				"Majestueus",
+				"Plechtig",
+				"Verheven",
+				"Waardig"
+			]
 		},
 		{
 			"id": 251,
 			"name": "Sterk",
-			"traits": []
+			"traits": [
+				"Gespierd",
+				"Krachtig",
+				"Potig",
+				"Stevig"
+			]
 		},
 		{
 			"id": 252,
 			"name": "Stil",
-			"traits": []
+			"traits": [
+				"Bedaard",
+				"Geruisloos",
+				"Onopvallend",
+				"Terughoudend",
+				"Zacht",
+				"Vredig",
+				"Zwijgzaam"
+			]
 		},
 		{
 			"id": 253,
 			"name": "Stoutmoedig",
-			"traits": []
+			"traits": [
+				"Avontuurlijk",
+				"Dapper",
+				"Durver",
+				"Moedig",
+				"Onbevreesd",
+				"Onverschrokken"
+			]
 		},
 		{
 			"id": 254,
 			"name": "Strijdlustig",
-			"traits": []
+			"traits": [
+				"Assertief",
+				"Competitief",
+				"Gedreven",
+				"Onverschrokken",
+				"Vastberaden",
+				"Volhardend"
+			]
 		},
 		{
 			"id": 255,
