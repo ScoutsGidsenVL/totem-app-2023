@@ -8011,6 +8011,7 @@
 				"Echt",
 				"Gemeend",
 				"Openlijk",
+				"Openhartig",
 				"Oprecht",
 				"Rechtuit",
 				"Rechtvaardig"
@@ -8419,6 +8420,7 @@
 			"name": "Georganiseerd",
 			"traits": [
 				"Efficiënt",
+				"Geordend",
 				"Methodisch",
 				"Ordelijk",
 				"Organisator",
@@ -9317,7 +9319,7 @@
 				"Fenomenaal",
 				"Gedenkwaardig",
 				"Interessant",
-				"Markart",
+				"Markant",
 				"Ongewoon",
 				"Opmerkelijk",
 				"Raar",
@@ -9605,7 +9607,6 @@
 			"traits": [
 				"Ongeduldig",
 				"Onrustig",
-				"Opdringerig",
 				"Rusteloos",
 				"Veranderlijk",
 				"Wispelturig"
@@ -9672,172 +9673,413 @@
 		{
 			"id": 191,
 			"name": "Onstuimig",
-			"traits": []
+			"traits": [
+				"Beweeglijk",
+				"Driftig",
+				"Fel",
+				"Hartstochtelijk",
+				"Heftig",
+				"Onbesuisd",
+				"Stormig",
+				"Woest"
+			]
 		},
 		{
 			"id": 192,
 			"name": "Ontembaar",
-			"traits": []
+			"traits": [
+				"Onbeheersbaar",
+				"Vrijgevochten",
+				"Vrijheidslievend"
+			]
 		},
 		{
 			"id": 193,
 			"name": "Ontspannen",
-			"traits": []
+			"traits": [
+				"Argeloos",
+				"Gemoedelijk",
+				"Relaxt",
+				"Rustig",
+				"Zorgeloos"
+			]
 		},
 		{
 			"id": 194,
 			"name": "Onvermoeibaar",
-			"traits": []
+			"traits": [
+				"Actief",
+				"Doortastend",
+				"Energiek",
+				"Gedreven",
+				"Hardwerkend",
+				"Standvastig",
+				"Stug",
+				"Vastberaden",
+				"Vasthoudend",
+				"Volhardend"
+			]
 		},
 		{
 			"id": 195,
 			"name": "Onverstoorbaar",
-			"traits": []
+			"traits": [
+				"Bedaard",
+				"Kalm",
+				"Standvastig",
+				"Zelfbeheerst"
+			]
 		},
 		{
 			"id": 196,
 			"name": "Onvoorzichtig",
-			"traits": []
+			"traits": [
+				"Achteloos",
+				"Impulsief",
+				"Onberaden",
+				"Onbezonnen",
+				"Roekeloos",
+				"Zorgeloos"
+			]
 		},
 		{
 			"id": 197,
 			"name": "Opdringerig",
-			"traits": []
+			"traits": [
+				"Bemoeizuchtig",
+				"Hinderlijk",
+				"Irritant",
+				"Lastig",
+				"Onbescheiden",
+				"Schreeuwerig",
+				"Storend"
+			]
 		},
 		{
 			"id": 198,
 			"name": "Openhartig",
-			"traits": []
+			"traits": [
+				"Eerlijk",
+				"Joviaal",
+				"Openlijk",
+				"Oprecht",
+				"Rechtuit",
+				"Spontaan",
+				"Spraakzaam",
+				"Vrank",
+				"Vrijmoedig"
+			]
 		},
 		{
 			"id": 199,
 			"name": "Opgewekt",
-			"traits": []
+			"traits": [
+				"Blij",
+				"Blijmoedig",
+				"Enthousiast",
+				"Fris",
+				"Goedgemutst",
+				"Joviaal",
+				"Levendig",
+				"Levenslustig",
+				"Monter",
+				"Vrolijk",
+				"Welgemoed",
+				"Zonnig"
+			]
 		},
 		{
 			"id": 200,
 			"name": "Opgewonden",
-			"traits": []
+			"traits": [
+				"Blijmoedig",
+				"Energiek",
+				"Enthousiast",
+				"Gelukkig",
+				"Levendig",
+				"Opgetogen",
+				"Uitgelaten",
+				"Vrolijk"
+			]
 		},
 		{
 			"id": 201,
 			"name": "Oplettend",
-			"traits": []
+			"traits": [
+				"Aandachtig",
+				"Alert",
+				"Attent",
+				"Geconcentreerd",
+				"Opmerkzaam",
+				"Scherpzinnig",
+				"Waakzaam",
+				"Zorgvuldig"
+			]
 		},
 		{
 			"id": 202,
 			"name": "Opmerkelijk",
-			"traits": []
+			"traits": [
+				"Apart",
+				"Bijzonder",
+				"Eigenaardig",
+				"Merkwaardig",
+				"Ongewoon",
+				"Opvallend",
+				"Uniek",
+				"Vreemd"
+			]
 		},
 		{
 			"id": 203,
 			"name": "Opmerkzaam",
-			"traits": []
+			"traits": [
+				"Aandachtig",
+				"Alert",
+				"Attent",
+				"Bedachtzaam",
+				"Geconcentreerd",
+				"Observerend",
+				"Oplettend",
+				"Scherpzinnig",
+				"Waakzaam"
+			]
 		},
 		{
 			"id": 204,
 			"name": "Opofferingsgezind",
-			"traits": []
+			"traits": [
+				"Altruïstisch",
+				"Belangeloos",
+				"Delend"
+			]
 		},
 		{
 			"id": 205,
 			"name": "Opportunistisch",
-			"traits": []
+			"traits": [
+				"Berekenend",
+				"Voordeelzoeker"
+			]
 		},
 		{
 			"id": 206,
 			"name": "Opvallend",
-			"traits": []
+			"traits": [
+				"Aanwezig",
+				"Bijzonder",
+				"Markant",
+				"Opmerkelijk",
+				"Uitgesproken"
+			]
 		},
 		{
 			"id": 207,
 			"name": "Opvliegend",
-			"traits": []
+			"traits": [
+				"Driftig",
+				"Humeurig",
+				"Impulsief",
+				"Nerveus",
+				"Prikkelbaar",
+				"Temperamentvol"
+			]
 		},
 		{
 			"id": 208,
 			"name": "Opvoedend",
-			"traits": []
+			"traits": [
+				"Begeleidend",
+				"Educatief",
+				"Pedagogisch",
+				"Vormend"
+			]
 		},
 		{
 			"id": 209,
 			"name": "Opvrolijkend",
-			"traits": []
+			"traits": [
+				"Joviaal",
+				"Opgewekt",
+				"Vrolijk",
+				"Zonnig"
+			]
 		},
 		{
 			"id": 210,
 			"name": "Ordelijk",
-			"traits": []
+			"traits": [
+				"Geordend",
+				"Georganiseerd",
+				"Methodisch",
+				"Net",
+				"Opgeruimd",
+				"Organisator"
+			]
 		},
 		{
 			"id": 211,
 			"name": "Organisator",
-			"traits": []
+			"traits": [
+				"Efficiënt",
+				"Geordend",
+				"Georganiseerd",
+				"Methodisch",
+				"Ondernemend",
+				"Opgeruimd",
+				"Ordelijk",
+				"Planmatig"
+			]
 		},
 		{
 			"id": 212,
 			"name": "Overleggend",
-			"traits": []
+			"traits": [
+				"Bedachtzaam",
+				"Beraden",
+				"Communicatief",
+				"Nadenkend",
+				"Verstandig"
+			]
 		},
 		{
 			"id": 213,
 			"name": "Parmantig",
-			"traits": []
+			"traits": [
+				"Dapper",
+				"Deftig",
+				"Fier",
+				"Majestueus",
+				"Moedig",
+				"Parmant",
+				"Statig",
+				"Trots",
+				"Zelfverzekerd"
+			]
 		},
 		{
 			"id": 214,
 			"name": "Plagerig",
-			"traits": []
+			"traits": [
+				"Geestig",
+				"Grappig",
+				"Listig",
+				"Speels",
+				"Vrolijk"
+			]
 		},
 		{
 			"id": 215,
 			"name": "Plantrekker",
-			"traits": []
+			"traits": [
+				"Doortastend",
+				"Inventief",
+				"Handig",
+				"Onafhankelijk",
+				"Slim",
+				"Vindingrijk",
+				"Zelfredzaam",
+				"Zelfstandig"
+			]
 		},
 		{
 			"id": 216,
 			"name": "Plichtsbewust",
-			"traits": []
+			"traits": [
+				"Ernstig",
+				"Nauwkeurig",
+				"Stipt",
+				"Toegewijd",
+				"Veranderlijk"
+			]
 		},
 		{
 			"id": 217,
 			"name": "Potsierlijk",
-			"traits": []
+			"traits": [
+				"Belachelijk",
+				"Grappig",
+				"Humoristisch",
+				"Komisch",
+				"Lachwekkend"
+			]
 		},
 		{
 			"id": 218,
 			"name": "Praatlustig",
-			"traits": []
+			"traits": [
+				"Babbelziek",
+				"Luidruchtig",
+				"Schreeuwerig",
+				"Spraakzaam"
+			]
 		},
 		{
 			"id": 219,
 			"name": "Prachtig",
-			"traits": []
+			"traits": [
+				"Aantrekkelijk",
+				"Betoverend",
+				"Elegant",
+				"Fraai",
+				"Gracieus",
+				"Heerlijk",
+				"Imposant",
+				"Magnifiek",
+				"Mooi",
+				"Sierlijk"
+			]
 		},
 		{
 			"id": 220,
 			"name": "Praktisch",
-			"traits": []
+			"traits": [
+				"Doelgericht",
+				"Inventief",
+				"Nuttig",
+				"Probleemoplossend",
+				"Realistisch",
+				"Vindingrijk"
+			]
 		},
 		{
 			"id": 221,
 			"name": "Pretentieloos",
-			"traits": []
+			"traits": [
+				"Bescheiden",
+				"Eenvoudig",
+				"Nederig"
+			]
 		},
 		{
 			"id": 222,
 			"name": "Prikkelbaar",
-			"traits": []
+			"traits": [
+				"Gevoelig",
+				"Humeurig", 
+				"Wisselvallig"
+			]
 		},
 		{
 			"id": 223,
 			"name": "Probleemoplossend",
-			"traits": []
+			"traits": [
+				"Effectief",
+				"Efficiënt",
+				"Inventief",
+				"Praktisch",
+				"Vaardig",
+				"Vindingrijk"
+			]
 		},
 		{
 			"id": 224,
 			"name": "Pronkerig",
-			"traits": []
+			"traits": [
+				"Eigenwijs",
+				"Extravagant",
+				"Uitbundig"
+			]
 		},
 		{
 			"id": 225,
