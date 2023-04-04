@@ -1,7 +1,9 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:totemapp/model/checklist_data.dart';
 import 'package:totemapp/model/dynamic_data.dart';
 import 'package:totemapp/model/profile_manager.dart';
+import 'package:totemapp/model/tab_manager.dart';
 import 'package:totemapp/model/traits_filter.dart';
 import 'package:totemapp/pages/checklist.dart';
 import 'package:totemapp/pages/eigenschappen.dart';
@@ -30,6 +32,28 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
+          ChangeNotifierProvider(
+              create: (_) => TabManager([
+                    TabItem('Totems', Icons.pets, (settings) {
+                      return const Totems();
+                    }),
+                    TabItem('Eigenschappen', Icons.psychology, (settings) {
+                      if (settings.name == '/results') {
+                        return const FilteredTotems();
+                      }
+                      return const Eigenschappen();
+                    }),
+                    TabItem('Profielen', Icons.person, (settings) {
+                      return const Profielen();
+                    }, badge: (context) {
+                      final profile = context.watch<ProfileManager>().profile;
+                      if (profile == null) return null;
+                      return BadgeInfo(profile.name, profile.color.shade700);
+                    }),
+                    TabItem('Checklist', Icons.check_circle, (settings) {
+                      return const Checklist();
+                    }),
+                  ])),
           ChangeNotifierProvider(create: (_) => DynamicData()),
           ChangeNotifierProvider(create: (_) => ChecklistData()),
           ChangeNotifierProxyProvider<DynamicData, ProfileManager>(
@@ -65,77 +89,30 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Home extends StatefulWidget {
+class Home extends StatelessWidget {
   const Home({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> with TickerProviderStateMixin<Home> {
-  static List<TabItem> tabs = [
-    TabItem(0, 'Totems', Icons.pets, (settings) {
-      switch (settings.name) {
-        case '/':
-          return const Totems();
-      }
-      return null;
-    }),
-    TabItem(1, 'Eigenschappen', Icons.psychology, (settings) {
-      switch (settings.name) {
-        case '/':
-          return const Eigenschappen();
-        case '/results':
-          return const FilteredTotems();
-      }
-      return null;
-    }),
-    TabItem(2, 'Profielen', Icons.person, (settings) {
-      return const Profielen();
-    }, badge: (context) {
-      final profile = context.watch<ProfileManager>().profile;
-      if (profile == null) return null;
-      return BadgeInfo(profile.name, profile.color.shade700);
-    }),
-    TabItem(3, 'Checklist', Icons.check_circle, (settings) {
-      return const Checklist();
-    }),
-  ];
-
-  int _currentIndex = 0;
-  final _navigatorKeys = tabs.map((e) => GlobalKey<NavigatorState>()).toList();
-
-  void _selectTab(int index) {
-    if (_currentIndex == index) {
-      _navigatorKeys[_currentIndex].currentState!.popUntil((r) => r.isFirst);
-    } else {
-      setState(() {
-        _currentIndex = index;
-      });
-    }
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final manager = context.watch<TabManager>();
     return WillPopScope(
         onWillPop: () async {
-          var popped =
-              await _navigatorKeys[_currentIndex].currentState!.maybePop();
+          var popped = await manager.navigatorState!.maybePop();
           if (popped) return false;
-          if (_currentIndex != 0) {
-            _selectTab(0);
+          if (manager.currentTab != 0) {
+            manager.selectTab(0);
             return false;
           }
           return true;
         },
         child: Scaffold(
             body: Stack(
-                children: tabs
-                    .map((t) => Offstage(
-                        offstage: _currentIndex != t.index,
+                children: manager.tabs
+                    .mapIndexed((index, t) => Offstage(
+                        offstage: manager.currentTab != index,
                         child: SafeArea(
                             child: Navigator(
-                                key: _navigatorKeys[t.index],
+                                key: manager.navigatorKeys[index],
                                 onGenerateRoute: (settings) {
                                   return MaterialPageRoute(builder: (context) {
                                     var res = t.router(settings);
@@ -149,7 +126,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin<Home> {
                     .toList()),
             bottomNavigationBar: BottomNavigationBar(
               type: BottomNavigationBarType.fixed,
-              items: tabs.map((t) {
+              items: manager.tabs.map((t) {
                 final badge = t.badge?.call(context);
                 return BottomNavigationBarItem(
                     icon: badge == null
@@ -162,24 +139,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin<Home> {
                           ),
                     label: t.title);
               }).toList(),
-              currentIndex: _currentIndex,
-              onTap: _selectTab,
+              currentIndex: manager.currentTab,
+              onTap: manager.selectTab,
               selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
             )));
   }
-}
-
-class TabItem {
-  const TabItem(this.index, this.title, this.icon, this.router, {this.badge});
-  final int index;
-  final String title;
-  final IconData icon;
-  final Widget? Function(RouteSettings settings) router;
-  final BadgeInfo? Function(BuildContext context)? badge;
-}
-
-class BadgeInfo {
-  const BadgeInfo(this.label, this.color);
-  final String label;
-  final Color? color;
 }
