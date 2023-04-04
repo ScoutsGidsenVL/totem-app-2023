@@ -44,7 +44,6 @@ class TraitData extends ISuspensionBean {
 
   int id;
   String name;
-  @JsonKey(name: 'traits')
   List<String> synonyms;
 
   @override

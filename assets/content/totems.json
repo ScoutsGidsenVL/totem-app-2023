@@ -7292,7 +7292,7 @@
 		{
 			"id": 1,
 			"name": "Aandachtig",
-			"traits": [
+			"synonyms": [
 				"Attent",
 				"Belangstellend",
 				"Geconcentreerd",
@@ -7304,7 +7304,7 @@
 		{
 			"id": 2,
 			"name": "Aangenaam",
-			"traits": [
+			"synonyms": [
 				"Aardig",
 				"Attractief",
 				"Behaaglijk",
@@ -7334,14 +7334,14 @@
 		{
 			"id": 3,
 			"name": "Aangepast",
-			"traits": [
+			"synonyms": [
 				"Aanpassend"
 			]
 		},
 		{
 			"id": 4,
 			"name": "Aanhalig",
-			"traits": [
+			"synonyms": [
 				"Aanhankelijk",
 				"Flemend",
 				"Klef",
@@ -7353,7 +7353,7 @@
 		{
 			"id": 5,
 			"name": "Aanhankelijk",
-			"traits": [
+			"synonyms": [
 				"Aanhalig",
 				"Gehecht",
 				"Liefdevol",
@@ -7370,14 +7370,14 @@
 		{
 			"id": 6,
 			"name": "Aanpassend",
-			"traits": [
+			"synonyms": [
 				"Aangepast"
 			]
 		},
 		{
 			"id": 7,
 			"name": "Aantrekkelijk",
-			"traits": [
+			"synonyms": [
 				"Aanlokkelijk",
 				"Aanminnig",
 				"Aanvallig",
@@ -7401,7 +7401,7 @@
 		{
 			"id": 8,
 			"name": "Achterdochtig",
-			"traits": [
+			"synonyms": [
 				"Argwanend",
 				"Ergdenkend",
 				"Mistrouwig",
@@ -7412,7 +7412,7 @@
 		{
 			"id": 9,
 			"name": "Acrobatisch",
-			"traits": [
+			"synonyms": [
 				"Behendig",
 				"Lenig"
 			]
@@ -7420,7 +7420,7 @@
 		{
 			"id": 10,
 			"name": "Actief",
-			"traits": [
+			"synonyms": [
 				"Arbeidzaam",
 				"Bedrijvig",
 				"Bezig",
@@ -7440,7 +7440,7 @@
 		{
 			"id": 11,
 			"name": "Afhankelijk",
-			"traits": [
+			"synonyms": [
 				"Gebonden",
 				"Onzelfstandig"
 			]
@@ -7448,7 +7448,7 @@
 		{
 			"id": 12,
 			"name": "Afwachtend",
-			"traits": [
+			"synonyms": [
 				"Afhoudend",
 				"Bedachtzaam",
 				"Ingehouden",
@@ -7459,7 +7459,7 @@
 		{
 			"id": 13,
 			"name": "Alert",
-			"traits": [
+			"synonyms": [
 				"Aandachtig",
 				"Attent",
 				"Gevat",
@@ -7476,7 +7476,7 @@
 		{
 			"id": 14,
 			"name": "Altruïstisch",
-			"traits": [
+			"synonyms": [
 				"Delend",
 				"Menslievend",
 				"Onbaatzuchtig",
@@ -7486,7 +7486,7 @@
 		{
 			"id": 15,
 			"name": "Apart",
-			"traits": [
+			"synonyms": [
 				"Bijzonder",
 				"Excentriek",
 				"Ongewoon",
@@ -7500,7 +7500,7 @@
 		{
 			"id": 16,
 			"name": "Argeloos",
-			"traits": [
+			"synonyms": [
 				"Gedachteloos",
 				"Naïef",
 				"Nietsvermoedend",
@@ -7511,7 +7511,7 @@
 		{
 			"id": 17,
 			"name": "Assertief",
-			"traits": [
+			"synonyms": [
 				"Weerbaar",
 				"Zelfbewust",
 				"Zelfverzekerd"
@@ -7520,7 +7520,7 @@
 		{
 			"id": 18,
 			"name": "Atletisch",
-			"traits": [
+			"synonyms": [
 				"Gespierd",
 				"Sportief"
 			]
@@ -7528,7 +7528,7 @@
 		{
 			"id": 19,
 			"name": "Attent",
-			"traits": [
+			"synonyms": [
 				"Aandachtig",
 				"Alert",
 				"Behulpzaam",
@@ -7547,7 +7547,7 @@
 		{
 			"id": 20,
 			"name": "Avontuurlijk",
-			"traits": [
+			"synonyms": [
 				"Afwisselend",
 				"Boeiend",
 				"Dapper",
@@ -7562,7 +7562,7 @@
 		{
 			"id": 21,
 			"name": "Bedaard",
-			"traits": [
+			"synonyms": [
 				"Beheerst",
 				"Bezadigd",
 				"Bezonnen",
@@ -7587,7 +7587,7 @@
 		{
 			"id": 22,
 			"name": "Bedachtzaam",
-			"traits": [
+			"synonyms": [
 				"Behoedzaam",
 				"Beraden",
 				"Bezonnen",
@@ -7608,7 +7608,7 @@
 		{
 			"id": 23,
 			"name": "Bedrijvig",
-			"traits": [
+			"synonyms": [
 				"Actief",
 				"Bezig",
 				"Druk",
@@ -7628,7 +7628,7 @@
 		{
 			"id": 24,
 			"name": "Begaafd",
-			"traits": [
+			"synonyms": [
 				"Bedeeld",
 				"Begiftigd",
 				"Geniaal",
@@ -7642,7 +7642,7 @@
 		{
 			"id": 25,
 			"name": "Begrijpend",
-			"traits": [
+			"synonyms": [
 				"Begripvol",
 				"Bemiddelend",
 				"Compassievol",
@@ -7654,7 +7654,7 @@
 		{
 			"id": 26,
 			"name": "Behendig",
-			"traits": [
+			"synonyms": [
 				"Acrobatisch",
 				"Bedreven",
 				"Bekwaam",
@@ -7668,7 +7668,7 @@
 		{
 			"id": 27,
 			"name": "Behoedzaam",
-			"traits": [
+			"synonyms": [
 				"Bedachtzaam",
 				"Omzichtig",
 				"Voorzichtig",
@@ -7678,7 +7678,7 @@
 		{
 			"id": 28,
 			"name": "Behulpzaam",
-			"traits": [
+			"synonyms": [
 				"Bereidwillig",
 				"Helpend",
 				"Hulpvaardig"
@@ -7687,14 +7687,14 @@
 		{
 			"id": 29,
 			"name": "Bemiddelend",
-			"traits": [
+			"synonyms": [
 				"Verzoenend"
 			]
 		},
 		{
 			"id": 30,
 			"name": "Bescheiden",
-			"traits": [
+			"synonyms": [
 				"Discreet",
 				"Ingetogen",
 				"Onopvallend",
@@ -7706,7 +7706,7 @@
 		{
 			"id": 31,
 			"name": "Beschermend",
-			"traits": [
+			"synonyms": [
 				"Bezorgd",
 				"Verdedigend"
 			]
@@ -7714,7 +7714,7 @@
 		{
 			"id": 32,
 			"name": "Betrouwbaar",
-			"traits": [
+			"synonyms": [
 				"Degelijk",
 				"Eerlijk",
 				"Integer"
@@ -7723,7 +7723,7 @@
 		{
 			"id": 33,
 			"name": "Bevallig",
-			"traits": [
+			"synonyms": [
 				"Aangenaam",
 				"Bekoorlijk",
 				"Charmant",
@@ -7740,7 +7740,7 @@
 		{
 			"id": 34,
 			"name": "Beweeglijk",
-			"traits": [
+			"synonyms": [
 				"Behendig",
 				"Dartel",
 				"Druk",
@@ -7754,7 +7754,7 @@
 		{
 			"id": 35,
 			"name": "Bezorgd",
-			"traits": [
+			"synonyms": [
 				"Angstig",
 				"Bang",
 				"Beducht",
@@ -7772,7 +7772,7 @@
 		{
 			"id": 36,
 			"name": "Beïnvloedbaar",
-			"traits": [
+			"synonyms": [
 				"Naïef",
 				"Ontvankelijk"
 			]
@@ -7780,7 +7780,7 @@
 		{
 			"id": 37,
 			"name": "Blijmoedig",
-			"traits": [
+			"synonyms": [
 				"Blij",
 				"Opgeruimd",
 				"Opgewekt",
@@ -7790,14 +7790,14 @@
 		{
 			"id": 38,
 			"name": "Bouwlustig",
-			"traits": [
+			"synonyms": [
 				"Werklustig"
 			]
 		},
 		{
 			"id": 39,
 			"name": "Brutaal",
-			"traits": [
+			"synonyms": [
 				"Beledigend",
 				"Grof",
 				"Onbeleefd",
@@ -7809,7 +7809,7 @@
 		{
 			"id": 40,
 			"name": "Charmant",
-			"traits": [
+			"synonyms": [
 				"Aangenaam",
 				"Bekoorlijk",
 				"Bevallig",
@@ -7826,7 +7826,7 @@
 		{
 			"id": 41,
 			"name": "Communicatief",
-			"traits": [
+			"synonyms": [
 				"Mededeelzaam",
 				"Overleggend"
 			]
@@ -7834,14 +7834,14 @@
 		{
 			"id": 42,
 			"name": "Competitief",
-			"traits": [
+			"synonyms": [
 				"Strijdlustig"
 			]
 		},
 		{
 			"id": 43,
 			"name": "Creatief",
-			"traits": [
+			"synonyms": [
 				"Artistiek",
 				"Inventief",
 				"Kunstig",
@@ -7852,7 +7852,7 @@
 		{
 			"id": 44,
 			"name": "Dankbaar",
-			"traits": [
+			"synonyms": [
 				"Erkentelijk",
 				"Lonend"
 			]
@@ -7860,7 +7860,7 @@
 		{
 			"id": 45,
 			"name": "Dapper",
-			"traits": [
+			"synonyms": [
 				"Avontuurlijk",
 				"Fier",
 				"Gedurfd",
@@ -7878,7 +7878,7 @@
 		{
 			"id": 46,
 			"name": "Dartel",
-			"traits": [
+			"synonyms": [
 				"Beweeglijk",
 				"Jolig",
 				"Levendig",
@@ -7890,7 +7890,7 @@
 		{
 			"id": 47,
 			"name": "Delend",
-			"traits": [
+			"synonyms": [
 				"Altruïstisch",
 				"Opofferingsgezind"
 			]
@@ -7898,7 +7898,7 @@
 		{
 			"id": 48,
 			"name": "Doelgericht",
-			"traits": [
+			"synonyms": [
 				"Bewust",
 				"Doordacht",
 				"Doortastend",
@@ -7912,7 +7912,7 @@
 		{
 			"id": 49,
 			"name": "Doordacht",
-			"traits": [
+			"synonyms": [
 				"Ingenieus",
 				"Intelligent",
 				"Vernuftig",
@@ -7923,7 +7923,7 @@
 		{
 			"id": 50,
 			"name": "Doortastend",
-			"traits": [
+			"synonyms": [
 				"Bedrijvig",
 				"Drastisch",
 				"Dynamisch",
@@ -7940,7 +7940,7 @@
 		{
 			"id": 51,
 			"name": "Doorzettend",
-			"traits": [
+			"synonyms": [
 				"Gehard",
 				"Volhardend"
 			]
@@ -7948,7 +7948,7 @@
 		{
 			"id": 52,
 			"name": "Driftig",
-			"traits": [
+			"synonyms": [
 				"Cholerisch",
 				"Heetgebakerd",
 				"Heethoofdig",
@@ -7964,7 +7964,7 @@
 		{
 			"id": 53,
 			"name": "Druk",
-			"traits": [
+			"synonyms": [
 				"Actief",
 				"Bedrijvig",
 				"Luidruchtig",
@@ -7977,7 +7977,7 @@
 		{
 			"id": 54,
 			"name": "Durver",
-			"traits": [
+			"synonyms": [
 				"Avontuurlijk",
 				"Dapper",
 				"Onbevreesd",
@@ -7988,7 +7988,7 @@
 		{
 			"id": 55,
 			"name": "Edel",
-			"traits": [
+			"synonyms": [
 				"Eervol",
 				"Nobel"
 			]
@@ -7996,7 +7996,7 @@
 		{
 			"id": 56,
 			"name": "Edelmoedig",
-			"traits": [
+			"synonyms": [
 				"Genereus",
 				"Gul",
 				"Nobel"
@@ -8005,7 +8005,7 @@
 		{
 			"id": 57,
 			"name": "Eerlijk",
-			"traits": [
+			"synonyms": [
 				"Behoorlijk",
 				"Betrouwbaar",
 				"Echt",
@@ -8020,7 +8020,7 @@
 		{
 			"id": 58,
 			"name": "Eervol",
-			"traits": [
+			"synonyms": [
 				"Edel",
 				"Edelmoedig",
 				"Loffelijk",
@@ -8031,7 +8031,7 @@
 		{
 			"id": 59,
 			"name": "Eetlustig",
-			"traits": [
+			"synonyms": [
 				"Gulzig",
 				"Vraatzuchtig"
 			]
@@ -8039,7 +8039,7 @@
 		{
 			"id": 60,
 			"name": "Efficiënt",
-			"traits": [
+			"synonyms": [
 				"Adequaat",
 				"Doelmatig",
 				"Doelgericht",
@@ -8052,7 +8052,7 @@
 		{
 			"id": 61,
 			"name": "Eigenwijs",
-			"traits": [
+			"synonyms": [
 				"Dwars",
 				"Eigenzinnig",
 				"Hardnekkig",
@@ -8065,7 +8065,7 @@
 		{
 			"id": 62,
 			"name": "Eigenzinnig",
-			"traits": [
+			"synonyms": [
 				"Eigenwijs",
 				"Halsstarrig",
 				"Individualistisch",
@@ -8077,7 +8077,7 @@
 		{
 			"id": 63,
 			"name": "Elegant",
-			"traits": [
+			"synonyms": [
 				"Aantrekkelijk",
 				"Bevallig",
 				"Chic",
@@ -8092,7 +8092,7 @@
 		{
 			"id": 64,
 			"name": "Energiek",
-			"traits": [
+			"synonyms": [
 				"Actief",
 				"Dynamisch",
 				"Krachtdadig",
@@ -8108,7 +8108,7 @@
 		{
 			"id": 65,
 			"name": "Enthousiast",
-			"traits": [
+			"synonyms": [
 				"Expressief",
 				"Fanatiek",
 				"Gemotiveerd",
@@ -8124,7 +8124,7 @@
 		{
 			"id": 66,
 			"name": "Ernstig",
-			"traits": [
+			"synonyms": [
 				"Degelijk",
 				"Deugdelijk",
 				"Echt",
@@ -8142,14 +8142,14 @@
 		{
 			"id": 67,
 			"name": "Ervaringsgericht",
-			"traits": [
+			"synonyms": [
 				"Praktisch"
 			]
 		},
 		{
 			"id": 68,
 			"name": "Evenwichtig",
-			"traits": [
+			"synonyms": [
 				"Afgewogen",
 				"Gebalanceerd",
 				"Harmonieus"
@@ -8158,7 +8158,7 @@
 		{
 			"id": 69,
 			"name": "Expressief",
-			"traits": [
+			"synonyms": [
 				"Beeldend",
 				"Betekenisvol",
 				"Enthousiast",
@@ -8170,7 +8170,7 @@
 		{
 			"id": 70,
 			"name": "Familiaal",
-			"traits": [
+			"synonyms": [
 				"Gezellig",
 				"Huiselijk",
 				"Honkvast"
@@ -8179,7 +8179,7 @@
 		{
 			"id": 71,
 			"name": "Fascinerend",
-			"traits": [
+			"synonyms": [
 				"Betoverend",
 				"Boeiend",
 				"Enerverend",
@@ -8192,7 +8192,7 @@
 		{
 			"id": 72,
 			"name": "Fel",
-			"traits": [
+			"synonyms": [
 				"Gewelddadig",
 				"Hartstochtelijk",
 				"Heftig",
@@ -8208,7 +8208,7 @@
 		{
 			"id": 73,
 			"name": "Fier",
-			"traits": [
+			"synonyms": [
 				"Hooghartig",
 				"Majestueus",
 				"Parmantig",
@@ -8222,7 +8222,7 @@
 		{
 			"id": 74,
 			"name": "Fijngevoelig",
-			"traits": [
+			"synonyms": [
 				"Delicaat",
 				"Kies",
 				"Lichtgeraakt",
@@ -8233,7 +8233,7 @@
 		{
 			"id": 75,
 			"name": "Flamboyant",
-			"traits": [
+			"synonyms": [
 				"Excentriek",
 				"Extravagant",
 				"Vlammend",
@@ -8243,7 +8243,7 @@
 		{
 			"id": 76,
 			"name": "Flexibel",
-			"traits": [
+			"synonyms": [
 				"Lenig",
 				"Meegaand",
 				"Toegeeflijk",
@@ -8254,7 +8254,7 @@
 		{
 			"id": 77,
 			"name": "Fraai",
-			"traits": [
+			"synonyms": [
 				"Aantrekkelijk",
 				"Knap",
 				"Magnifiek",
@@ -8267,7 +8267,7 @@
 		{
 			"id": 78,
 			"name": "Gebalanceerd",
-			"traits": [
+			"synonyms": [
 				"Afwachtend",
 				"Evenwichtig",
 				"Geduldig",
@@ -8277,7 +8277,7 @@
 		{
 			"id": 79,
 			"name": "Geconcentreerd",
-			"traits": [
+			"synonyms": [
 				"Aandachtig",
 				"Alert",
 				"Attent",
@@ -8296,7 +8296,7 @@
 		{
 			"id": 80,
 			"name": "Geducht",
-			"traits": [
+			"synonyms": [
 				"Gevreesd",
 				"Imponerend",
 				"Indrukwekkend",
@@ -8310,7 +8310,7 @@
 		{
 			"id": 81,
 			"name": "Geduldig",
-			"traits": [
+			"synonyms": [
 				"Afwachtend",
 				"Bedaard",
 				"Kalm",
@@ -8323,7 +8323,7 @@
 		{
 			"id": 82,
 			"name": "Gehard",
-			"traits": [
+			"synonyms": [
 				"Taai",
 				"Sterk",
 				"Vastberaden",
@@ -8334,7 +8334,7 @@
 		{
 			"id": 83,
 			"name": "Gehecht",
-			"traits": [
+			"synonyms": [
 				"Aanhalig",
 				"Aanhankelijk",
 				"Genegen",
@@ -8346,7 +8346,7 @@
 		{
 			"id": 84,
 			"name": "Gehoorzaam",
-			"traits": [
+			"synonyms": [
 				"Braaf",
 				"Gedwee",
 				"Gewillig",
@@ -8362,7 +8362,7 @@
 		{
 			"id": 85,
 			"name": "Gemakzuchtig",
-			"traits": [
+			"synonyms": [
 				"Laks",
 				"Langzaam",
 				"Lui"
@@ -8371,7 +8371,7 @@
 		{
 			"id": 86,
 			"name": "Gemeenschapsgevoel",
-			"traits": [
+			"synonyms": [
 				"Samenhorig",
 				"Samenwerkend",
 				"Solidair",
@@ -8381,7 +8381,7 @@
 		{
 			"id": 87,
 			"name": "Gemoedelijk",
-			"traits": [
+			"synonyms": [
 				"Aangenaam",
 				"Gezellig",
 				"Goedaardig",
@@ -8397,7 +8397,7 @@
 		{
 			"id": 88,
 			"name": "Genegen",
-			"traits": [
+			"synonyms": [
 				"Bereid",
 				"Gehecht",
 				"Goedgezind",
@@ -8411,14 +8411,14 @@
 		{
 			"id": 89,
 			"name": "Genieter",
-			"traits": [
+			"synonyms": [
 				"Levensgenieter"
 			]
 		},
 		{
 			"id": 90,
 			"name": "Georganiseerd",
-			"traits": [
+			"synonyms": [
 				"Efficiënt",
 				"Geordend",
 				"Methodisch",
@@ -8430,7 +8430,7 @@
 		{
 			"id": 91,
 			"name": "Geruisloos",
-			"traits": [
+			"synonyms": [
 				"Ongemerkt",
 				"Onhoorbaar",
 				"Onopvallend",
@@ -8442,7 +8442,7 @@
 		{
 			"id": 92,
 			"name": "Gespierd",
-			"traits": [
+			"synonyms": [
 				"Atletisch",
 				"Krachtig",
 				"Sterk",
@@ -8452,7 +8452,7 @@
 		{
 			"id": 93,
 			"name": "Gevat",
-			"traits": [
+			"synonyms": [
 				"Alert",
 				"Geestig",
 				"Raak",
@@ -8466,7 +8466,7 @@
 		{
 			"id": 94,
 			"name": "Gevoelig",
-			"traits": [
+			"synonyms": [
 				"Kwetsbaar",
 				"Medelevend",
 				"Ontroerend",
@@ -8480,7 +8480,7 @@
 		{
 			"id": 95,
 			"name": "Gewoontedier",
-			"traits": [
+			"synonyms": [
 				"Routineus",
 				"Traditioneel"
 			]
@@ -8488,7 +8488,7 @@
 		{
 			"id": 96,
 			"name": "Gezapig",
-			"traits": [
+			"synonyms": [
 				"Futloos",
 				"Laks",
 				"Lui",
@@ -8500,7 +8500,7 @@
 		{
 			"id": 97,
 			"name": "Gezellig",
-			"traits": [
+			"synonyms": [
 				"Aangenaam",
 				"Behaaglijk",
 				"Comfortabel",
@@ -8517,7 +8517,7 @@
 		{
 			"id": 98,
 			"name": "Geïnteresseerd",
-			"traits": [
+			"synonyms": [
 				"Belanghebbend",
 				"Belangstellend",
 				"Leergierig",
@@ -8528,21 +8528,21 @@
 		{
 			"id": 99,
 			"name": "Goed geheugen",
-			"traits": [
+			"synonyms": [
 				"Scherpzinnig"
 			]
 		},
 		{
 			"id": 100,
 			"name": "Goed oriëntatiegevoel",
-			"traits": [
+			"synonyms": [
 				"Orientatievaardig"
 			]
 		},
 		{
 			"id": 101,
 			"name": "Goedaardig",
-			"traits": [
+			"synonyms": [
 				"Goedhartig",
 				"Onschuldig",
 				"Vriendelijk",
@@ -8554,7 +8554,7 @@
 		{
 			"id": 102,
 			"name": "Goedgeluimd",
-			"traits": [
+			"synonyms": [
 				"Aangenaam",
 				"Blijmoedig",
 				"Goedaardig",
@@ -8567,7 +8567,7 @@
 		{
 			"id": 103,
 			"name": "Gracieus",
-			"traits": [
+			"synonyms": [
 				"Elegant",
 				"Fraai",
 				"Sierlijk",
@@ -8577,7 +8577,7 @@
 		{
 			"id": 104,
 			"name": "Grappig",
-			"traits": [
+			"synonyms": [
 				"Amusant",
 				"Geestig",
 				"Hilarisch",
@@ -8589,7 +8589,7 @@
 		{
 			"id": 105,
 			"name": "Grimmig",
-			"traits": [
+			"synonyms": [
 				"Boos",
 				"Boosaardig",
 				"Fel",
@@ -8602,7 +8602,7 @@
 		{
 			"id": 106,
 			"name": "Groepsdier",
-			"traits": [
+			"synonyms": [
 				"Groepsdier (Grote Groep)",
 				"Groepsdier (Kleine Groep)",
 				"Sociaal",
@@ -8612,7 +8612,7 @@
 		{
 			"id": 107,
 			"name": "Groepsdier (Grote Groep)",
-			"traits": [
+			"synonyms": [
 				"Groepsdier",
 				"Groepsdier (Kleine Groep)",
 				"Sociaal",
@@ -8622,7 +8622,7 @@
 		{
 			"id": 108,
 			"name": "Groepsdier (Kleine Groep)",
-			"traits": [
+			"synonyms": [
 				"Groepsdier",
 				"Groepsdier (Grote Groep)",
 				"Sociaal",
@@ -8632,7 +8632,7 @@
 		{
 			"id": 109,
 			"name": "Guitig",
-			"traits": [
+			"synonyms": [
 				"Ondeugend",
 				"Plagerig",
 				"Speels",
@@ -8643,7 +8643,7 @@
 		{
 			"id": 110,
 			"name": "Gulzig",
-			"traits": [
+			"synonyms": [
 				"Graaierig",
 				"Gretig",
 				"Hebberig",
@@ -8655,7 +8655,7 @@
 		{
 			"id": 111,
 			"name": "Handig",
-			"traits": [
+			"synonyms": [
 				"Bedreven",
 				"Behendig",
 				"Bekwaam",
@@ -8669,7 +8669,7 @@
 		{
 			"id": 112,
 			"name": "Hardnekkig",
-			"traits": [
+			"synonyms": [
 				"Aanhoudend",
 				"Eigenzinnig",
 				"Halsstarrig",
@@ -8687,7 +8687,7 @@
 		{
 			"id": 113,
 			"name": "Hardwerkend",
-			"traits": [
+			"synonyms": [
 				"Ambitieus",
 				"Bedrijvig",
 				"Gedreven",
@@ -8699,7 +8699,7 @@
 		{
 			"id": 114,
 			"name": "Hartstochtelijk",
-			"traits": [
+			"synonyms": [
 				"Enthousiast",
 				"Fanatiek",
 				"Fervent",
@@ -8716,7 +8716,7 @@
 		{
 			"id": 115,
 			"name": "Hebzuchtig",
-			"traits": [
+			"synonyms": [
 				"Begerig",
 				"Egoïstisch",
 				"Geldzuchtig",
@@ -8730,7 +8730,7 @@
 		{
 			"id": 116,
 			"name": "Hiërarchisch",
-			"traits": [
+			"synonyms": [
 				"Autoritair",
 				"Geordend",
 				"Strikt"
@@ -8739,7 +8739,7 @@
 		{
 			"id": 117,
 			"name": "Honkvast",
-			"traits": [
+			"synonyms": [
 				"Familiaal",
 				"Huiselijk",
 				"Ongedwongen",
@@ -8750,7 +8750,7 @@
 		{
 			"id": 118,
 			"name": "Huiselijk",
-			"traits": [
+			"synonyms": [
 				"Familiaal",
 				"Gezellig",
 				"Honkvast",
@@ -8762,7 +8762,7 @@
 		{
 			"id": 119,
 			"name": "Hulpvaardig",
-			"traits": [
+			"synonyms": [
 				"Behulpzaam",
 				"Bereidwillig",
 				"Dienstbaar",
@@ -8775,7 +8775,7 @@
 		{
 			"id": 120,
 			"name": "Humeurig",
-			"traits": [
+			"synonyms": [
 				"Balorig",
 				"Brommerig",
 				"Chagrijnig",
@@ -8790,7 +8790,7 @@
 		{
 			"id": 121,
 			"name": "Humoristisch",
-			"traits": [
+			"synonyms": [
 				"Amusant",
 				"Geestig",
 				"Grappig",
@@ -8805,7 +8805,7 @@
 		{
 			"id": 122,
 			"name": "Ijverig",
-			"traits": [
+			"synonyms": [
 				"Actief",
 				"Ambitieus",
 				"Arbeidzaam",
@@ -8822,7 +8822,7 @@
 		{
 			"id": 123,
 			"name": "Imiterend",
-			"traits": [
+			"synonyms": [
 				"Nabootsend",
 				"Navolgend"
 			]
@@ -8830,7 +8830,7 @@
 		{
 			"id": 124,
 			"name": "Imponerend",
-			"traits": [
+			"synonyms": [
 				"Imposant",
 				"Indrukwekkend",
 				"Majestueus",
@@ -8843,7 +8843,7 @@
 		{
 			"id": 125,
 			"name": "Impulsief",
-			"traits": [
+			"synonyms": [
 				"Onbezonnen",
 				"Ongeremd",
 				"Overhaast",
@@ -8855,7 +8855,7 @@
 		{
 			"id": 126,
 			"name": "Indrukwekkend",
-			"traits": [
+			"synonyms": [
 				"Aangrijpend",
 				"Groots",
 				"Imponerend",
@@ -8878,7 +8878,7 @@
 		{
 			"id": 127,
 			"name": "Ingenieus",
-			"traits": [
+			"synonyms": [
 				"Creatief",
 				"Doordacht",
 				"Kunstig",
@@ -8892,7 +8892,7 @@
 		{
 			"id": 128,
 			"name": "Instinctief",
-			"traits": [
+			"synonyms": [
 				"Intuïtief",
 				"Onberedeneerd",
 				"Onbewust",
@@ -8902,7 +8902,7 @@
 		{
 			"id": 129,
 			"name": "Intelligent",
-			"traits": [
+			"synonyms": [
 				"Begaafd",
 				"Begiftigd",
 				"Geleerd",
@@ -8920,7 +8920,7 @@
 		{
 			"id": 130,
 			"name": "Interessant",
-			"traits": [
+			"synonyms": [
 				"Aangrijpend",
 				"Belangwekkend",
 				"Boeiend",
@@ -8933,7 +8933,7 @@
 		{
 			"id": 131,
 			"name": "Intrigerend",
-			"traits": [
+			"synonyms": [
 				"Fascinerend",
 				"Interessant"
 			]
@@ -8941,7 +8941,7 @@
 		{
 			"id": 132,
 			"name": "Inventief",
-			"traits": [
+			"synonyms": [
 				"Creatief",
 				"Fantasierijk",
 				"Ingenieus",
@@ -8955,7 +8955,7 @@
 		{
 			"id": 133,
 			"name": "Jaloers",
-			"traits": [
+			"synonyms": [
 				"Achterdochtig",
 				"Afgunstig",
 				"Ijverzuchtig",
@@ -8966,7 +8966,7 @@
 		{
 			"id": 134,
 			"name": "Joviaal",
-			"traits": [
+			"synonyms": [
 				"Blijmoedig",
 				"Gezellig",
 				"Hartelijk",
@@ -8980,7 +8980,7 @@
 		{
 			"id": 135,
 			"name": "Kalm",
-			"traits": [
+			"synonyms": [
 				"Bedaard",
 				"Beheerst",
 				"Flegmatiek",
@@ -8995,7 +8995,7 @@
 		{
 			"id": 136,
 			"name": "Kibbelend",
-			"traits": [
+			"synonyms": [
 				"Aanstootgevend",
 				"Ruziënd"
 			]
@@ -9003,7 +9003,7 @@
 		{
 			"id": 137,
 			"name": "Kieskeurig",
-			"traits": [
+			"synonyms": [
 				"Kritisch",
 				"Moeilijk",
 				"Selectief",
@@ -9013,7 +9013,7 @@
 		{
 			"id": 138,
 			"name": "Kleurrijk",
-			"traits": [
+			"synonyms": [
 				"Bekoorlijk",
 				"Felgekleurd"
 			]
@@ -9021,7 +9021,7 @@
 		{
 			"id": 139,
 			"name": "Koddig",
-			"traits": [
+			"synonyms": [
 				"Boertig",
 				"Komisch",
 				"Grappig",
@@ -9032,7 +9032,7 @@
 		{
 			"id": 140,
 			"name": "Koppig",
-			"traits": [
+			"synonyms": [
 				"Bokkig",
 				"Dwars",
 				"Eigenwijs",
@@ -9052,7 +9052,7 @@
 		{
 			"id": 141,
 			"name": "Krachtig",
-			"traits": [
+			"synonyms": [
 				"Flink",
 				"Energiek",
 				"Gespierd",
@@ -9064,7 +9064,7 @@
 		{
 			"id": 142,
 			"name": "Kunstig",
-			"traits": [
+			"synonyms": [
 				"Artistiek",
 				"Creatief",
 				"Expressief",
@@ -9075,7 +9075,7 @@
 		{
 			"id": 143,
 			"name": "Kwetsbaar",
-			"traits": [
+			"synonyms": [
 				"Broos",
 				"Gevoelig",
 				"Weerloos",
@@ -9085,7 +9085,7 @@
 		{
 			"id": 144,
 			"name": "Lachend",
-			"traits": [
+			"synonyms": [
 				"Grappig",
 				"Guitig",
 				"Joviaal",
@@ -9098,7 +9098,7 @@
 		{
 			"id": 145,
 			"name": "Langzaam",
-			"traits": [
+			"synonyms": [
 				"Loom",
 				"Rustig",
 				"Slepend",
@@ -9110,7 +9110,7 @@
 		{
 			"id": 146,
 			"name": "Leergierig",
-			"traits": [
+			"synonyms": [
 				"Ambitieus",
 				"Geïnteresseerd",
 				"Goedleers",
@@ -9121,7 +9121,7 @@
 		{
 			"id": 147,
 			"name": "Lenig",
-			"traits": [
+			"synonyms": [
 				"Acrobatisch",
 				"Behendig",
 				"Beweeglijk",
@@ -9132,7 +9132,7 @@
 		{
 			"id": 148,
 			"name": "Levendig",
-			"traits": [
+			"synonyms": [
 				"Actief",
 				"Bedrijvig",
 				"Beweeglijk",
@@ -9149,14 +9149,14 @@
 		{
 			"id": 149,
 			"name": "Levensgenieter",
-			"traits": [
+			"synonyms": [
 				"Genieter"
 			]
 		},
 		{
 			"id": 150,
 			"name": "Levenslustig",
-			"traits": [
+			"synonyms": [
 				"Energiek",
 				"Enthousiast",
 				"Opgewekt",
@@ -9170,7 +9170,7 @@
 		{
 			"id": 151,
 			"name": "Lichtgeraakt",
-			"traits": [
+			"synonyms": [
 				"Fijngevoelig",
 				"Gevoelig",
 				"Kwetsbaar",
@@ -9180,7 +9180,7 @@
 		{
 			"id": 152,
 			"name": "Liefdevol",
-			"traits": [
+			"synonyms": [
 				"Hartelijk",
 				"Innemend",
 				"Liefhebbend",
@@ -9192,7 +9192,7 @@
 		{
 			"id": 153,
 			"name": "Liefkozend",
-			"traits": [
+			"synonyms": [
 				"Aanhalig",
 				"Hartelijk",
 				"Innemend",
@@ -9204,7 +9204,7 @@
 		{
 			"id": 154,
 			"name": "Lieftallig",
-			"traits": [
+			"synonyms": [
 				"Bevallig",
 				"Charmant",
 				"Elegant",
@@ -9216,7 +9216,7 @@
 		{
 			"id": 155,
 			"name": "Listig",
-			"traits": [
+			"synonyms": [
 				"Bedrieglijk",
 				"Doortrapt",
 				"Geslepen",
@@ -9232,7 +9232,7 @@
 		{
 			"id": 156,
 			"name": "Luidruchtig",
-			"traits": [
+			"synonyms": [
 				"Bulderend",
 				"Druk",
 				"Kakelend",
@@ -9247,7 +9247,7 @@
 		{
 			"id": 157,
 			"name": "Luisterbereid",
-			"traits": [
+			"synonyms": [
 				"Aandachtig",
 				"Begrijpend",
 				"Bemiddelend",
@@ -9260,7 +9260,7 @@
 		{
 			"id": 158,
 			"name": "Majestueus",
-			"traits": [
+			"synonyms": [
 				"Groots",
 				"Heerlijk",
 				"Imponerend",
@@ -9272,7 +9272,7 @@
 		{
 			"id": 159,
 			"name": "Meedogenloos",
-			"traits": [
+			"synonyms": [
 				"Genadeloos",
 				"Hard",
 				"Harteloos",
@@ -9287,7 +9287,7 @@
 		{
 			"id": 160,
 			"name": "Meelevend",
-			"traits": [
+			"synonyms": [
 				"Begaan",
 				"Begrijpend",
 				"Empathisch",
@@ -9297,7 +9297,7 @@
 		{
 			"id": 161,
 			"name": "Melodieus",
-			"traits": [
+			"synonyms": [
 				"Harmonieus",
 				"Melodisch",
 				"Muzikaal",
@@ -9309,7 +9309,7 @@
 		{
 			"id": 162,
 			"name": "Merkwaardig",
-			"traits": [
+			"synonyms": [
 				"Apart",
 				"Bizar",
 				"Bijzonder",
@@ -9329,7 +9329,7 @@
 		{
 			"id": 163,
 			"name": "Moedig",
-			"traits": [
+			"synonyms": [
 				"Dapper",
 				"Durver",
 				"Heldhaftig",
@@ -9341,7 +9341,7 @@
 		{
 			"id": 164,
 			"name": "Monter",
-			"traits": [
+			"synonyms": [
 				"Blij",
 				"Blijmoedig",
 				"Charmant",
@@ -9363,7 +9363,7 @@
 		{
 			"id": 165,
 			"name": "Mysterieus",
-			"traits": [
+			"synonyms": [
 				"Geheimzinnig",
 				"Onbegrijpelijk",
 				"Onberekenbaar",
@@ -9376,12 +9376,12 @@
 		{
 			"id": 166,
 			"name": "Nachtelijk",
-			"traits": []
+			"synonyms": []
 		},
 		{
 			"id": 167,
 			"name": "Nauwkeurig",
-			"traits": [
+			"synonyms": [
 				"Accuraat",
 				"Correct",
 				"Exact",
@@ -9404,7 +9404,7 @@
 		{
 			"id": 168,
 			"name": "Naïef",
-			"traits": [
+			"synonyms": [
 				"Argeloos",
 				"Beïnvloedbaar",
 				"Nietsvermoedend",
@@ -9415,7 +9415,7 @@
 		{
 			"id": 169,
 			"name": "Nerveus",
-			"traits": [
+			"synonyms": [
 				"Angstig",
 				"Bezorgd",
 				"Gespannen",
@@ -9428,7 +9428,7 @@
 		{
 			"id": 170,
 			"name": "Niet kieskeurig",
-			"traits": [
+			"synonyms": [
 				"Onpartijdig",
 				"Niet veeleisend",
 				"Snel tevreden",
@@ -9439,7 +9439,7 @@
 		{
 			"id": 171,
 			"name": "Niet veeleisend",
-			"traits": [
+			"synonyms": [
 				"Niet kieskeurig",
 				"Snel tevreden"
 			]
@@ -9447,7 +9447,7 @@
 		{
 			"id": 172,
 			"name": "Nieuwsgierig",
-			"traits": [
+			"synonyms": [
 				"Belangstellend",
 				"Benieuwd",
 				"Geïnteresseerd",
@@ -9457,7 +9457,7 @@
 		{
 			"id": 173,
 			"name": "Nonchalant",
-			"traits": [
+			"synonyms": [
 				"Gemakzuchtig",
 				"Nalatig",
 				"Slordig",
@@ -9467,7 +9467,7 @@
 		{
 			"id": 174,
 			"name": "Nuttig",
-			"traits": [
+			"synonyms": [
 				"Bedrijvig",
 				"Behulpzaam",
 				"Bereidwillig",
@@ -9480,7 +9480,7 @@
 		{
 			"id": 175,
 			"name": "Observerend",
-			"traits": [
+			"synonyms": [
 				"Alert",
 				"Aandachtig",
 				"Oplettend",
@@ -9491,7 +9491,7 @@
 		{
 			"id": 176,
 			"name": "Onafhankelijk",
-			"traits": [
+			"synonyms": [
 				"Eigenzinnig",
 				"Plantrekker",
 				"Vrijheidslievend",
@@ -9502,7 +9502,7 @@
 		{
 			"id": 177,
 			"name": "Onberekenbaar",
-			"traits": [
+			"synonyms": [
 				"Grillig",
 				"Impulsief",
 				"Onbetrouwbaar",
@@ -9513,7 +9513,7 @@
 		{
 			"id": 178,
 			"name": "Onbevreesd",
-			"traits": [
+			"synonyms": [
 				"Assertief",
 				"Avontuurlijk",
 				"Dapper",
@@ -9527,7 +9527,7 @@
 		{
 			"id": 179,
 			"name": "Onbewogen",
-			"traits": [
+			"synonyms": [
 				"Bedaard",
 				"Emotieloos",
 				"Kalm",
@@ -9543,7 +9543,7 @@
 		{
 			"id": 180,
 			"name": "Onderhoudend",
-			"traits": [
+			"synonyms": [
 				"Aangenaam",
 				"Amusant",
 				"Boeiend",
@@ -9556,7 +9556,7 @@
 		{
 			"id": 181,
 			"name": "Ondernemend",
-			"traits": [
+			"synonyms": [
 				"Actief",
 				"Bedrijvig",
 				"Doortastend",
@@ -9570,7 +9570,7 @@
 		{
 			"id": 182,
 			"name": "Ondersteunend",
-			"traits": [
+			"synonyms": [
 				"Aanmoedigend",
 				"Behulpzaam",
 				"Hulpvaardig",
@@ -9580,7 +9580,7 @@
 		{
 			"id": 183,
 			"name": "Onderzoekend",
-			"traits": [
+			"synonyms": [
 				"Doordringend",
 				"Praktisch",
 				"Probleemoplossend",
@@ -9590,7 +9590,7 @@
 		{
 			"id": 184,
 			"name": "Ondeugend",
-			"traits": [
+			"synonyms": [
 				"Bliksems",
 				"Brutaal",
 				"Dartel",
@@ -9603,7 +9603,7 @@
 		{
 			"id": 185,
 			"name": "Ongedurig",
-			"traits": [
+			"synonyms": [
 				"Ongeduldig",
 				"Onrustig",
 				"Rusteloos",
@@ -9614,7 +9614,7 @@
 		{
 			"id": 186,
 			"name": "Ongewoon",
-			"traits": [
+			"synonyms": [
 				"Abnormaal",
 				"Apart",
 				"Afwijkend",
@@ -9636,7 +9636,7 @@
 		{
 			"id": 187,
 			"name": "Ongrijpbaar",
-			"traits": [
+			"synonyms": [
 				"Mysterieus",
 				"Onberekenbaar",
 				"Ondoorgrondelijk"
@@ -9645,14 +9645,14 @@
 		{
 			"id": 188,
 			"name": "Onhandig",
-			"traits": [
+			"synonyms": [
 				"Stuntelig"
 			]
 		},
 		{
 			"id": 189,
 			"name": "Onopvallend",
-			"traits": [
+			"synonyms": [
 				"Bescheiden",
 				"Discreet",
 				"Terughoudend",
@@ -9662,7 +9662,7 @@
 		{
 			"id": 190,
 			"name": "Onrustig",
-			"traits": [
+			"synonyms": [
 				"Angstig",
 				"Gespannen",
 				"Nerveus",
@@ -9672,7 +9672,7 @@
 		{
 			"id": 191,
 			"name": "Onstuimig",
-			"traits": [
+			"synonyms": [
 				"Beweeglijk",
 				"Driftig",
 				"Fel",
@@ -9686,7 +9686,7 @@
 		{
 			"id": 192,
 			"name": "Ontembaar",
-			"traits": [
+			"synonyms": [
 				"Onbeheersbaar",
 				"Vrijgevochten",
 				"Vrijheidslievend"
@@ -9695,7 +9695,7 @@
 		{
 			"id": 193,
 			"name": "Ontspannen",
-			"traits": [
+			"synonyms": [
 				"Argeloos",
 				"Gemoedelijk",
 				"Relaxt",
@@ -9706,7 +9706,7 @@
 		{
 			"id": 194,
 			"name": "Onvermoeibaar",
-			"traits": [
+			"synonyms": [
 				"Actief",
 				"Doortastend",
 				"Energiek",
@@ -9722,7 +9722,7 @@
 		{
 			"id": 195,
 			"name": "Onverstoorbaar",
-			"traits": [
+			"synonyms": [
 				"Bedaard",
 				"Kalm",
 				"Standvastig",
@@ -9732,7 +9732,7 @@
 		{
 			"id": 196,
 			"name": "Onvoorzichtig",
-			"traits": [
+			"synonyms": [
 				"Achteloos",
 				"Impulsief",
 				"Onberaden",
@@ -9744,7 +9744,7 @@
 		{
 			"id": 197,
 			"name": "Opdringerig",
-			"traits": [
+			"synonyms": [
 				"Bemoeizuchtig",
 				"Hinderlijk",
 				"Irritant",
@@ -9757,7 +9757,7 @@
 		{
 			"id": 198,
 			"name": "Openhartig",
-			"traits": [
+			"synonyms": [
 				"Eerlijk",
 				"Joviaal",
 				"Openlijk",
@@ -9772,7 +9772,7 @@
 		{
 			"id": 199,
 			"name": "Opgewekt",
-			"traits": [
+			"synonyms": [
 				"Blij",
 				"Blijmoedig",
 				"Enthousiast",
@@ -9790,7 +9790,7 @@
 		{
 			"id": 200,
 			"name": "Opgewonden",
-			"traits": [
+			"synonyms": [
 				"Blijmoedig",
 				"Energiek",
 				"Enthousiast",
@@ -9804,7 +9804,7 @@
 		{
 			"id": 201,
 			"name": "Oplettend",
-			"traits": [
+			"synonyms": [
 				"Aandachtig",
 				"Alert",
 				"Attent",
@@ -9818,7 +9818,7 @@
 		{
 			"id": 202,
 			"name": "Opmerkelijk",
-			"traits": [
+			"synonyms": [
 				"Apart",
 				"Bijzonder",
 				"Eigenaardig",
@@ -9832,7 +9832,7 @@
 		{
 			"id": 203,
 			"name": "Opmerkzaam",
-			"traits": [
+			"synonyms": [
 				"Aandachtig",
 				"Alert",
 				"Attent",
@@ -9847,7 +9847,7 @@
 		{
 			"id": 204,
 			"name": "Opofferingsgezind",
-			"traits": [
+			"synonyms": [
 				"Altruïstisch",
 				"Belangeloos",
 				"Delend"
@@ -9856,7 +9856,7 @@
 		{
 			"id": 205,
 			"name": "Opportunistisch",
-			"traits": [
+			"synonyms": [
 				"Berekenend",
 				"Voordeelzoeker"
 			]
@@ -9864,7 +9864,7 @@
 		{
 			"id": 206,
 			"name": "Opvallend",
-			"traits": [
+			"synonyms": [
 				"Aanwezig",
 				"Bijzonder",
 				"Markant",
@@ -9875,7 +9875,7 @@
 		{
 			"id": 207,
 			"name": "Opvliegend",
-			"traits": [
+			"synonyms": [
 				"Driftig",
 				"Humeurig",
 				"Impulsief",
@@ -9887,7 +9887,7 @@
 		{
 			"id": 208,
 			"name": "Opvoedend",
-			"traits": [
+			"synonyms": [
 				"Begeleidend",
 				"Educatief",
 				"Pedagogisch",
@@ -9897,7 +9897,7 @@
 		{
 			"id": 209,
 			"name": "Opvrolijkend",
-			"traits": [
+			"synonyms": [
 				"Joviaal",
 				"Opgewekt",
 				"Vrolijk",
@@ -9907,7 +9907,7 @@
 		{
 			"id": 210,
 			"name": "Ordelijk",
-			"traits": [
+			"synonyms": [
 				"Geordend",
 				"Georganiseerd",
 				"Methodisch",
@@ -9919,7 +9919,7 @@
 		{
 			"id": 211,
 			"name": "Organisator",
-			"traits": [
+			"synonyms": [
 				"Efficiënt",
 				"Geordend",
 				"Georganiseerd",
@@ -9933,7 +9933,7 @@
 		{
 			"id": 212,
 			"name": "Overleggend",
-			"traits": [
+			"synonyms": [
 				"Bedachtzaam",
 				"Beraden",
 				"Communicatief",
@@ -9944,7 +9944,7 @@
 		{
 			"id": 213,
 			"name": "Parmantig",
-			"traits": [
+			"synonyms": [
 				"Dapper",
 				"Deftig",
 				"Fier",
@@ -9959,7 +9959,7 @@
 		{
 			"id": 214,
 			"name": "Plagerig",
-			"traits": [
+			"synonyms": [
 				"Geestig",
 				"Grappig",
 				"Listig",
@@ -9970,7 +9970,7 @@
 		{
 			"id": 215,
 			"name": "Plantrekker",
-			"traits": [
+			"synonyms": [
 				"Doortastend",
 				"Inventief",
 				"Handig",
@@ -9984,7 +9984,7 @@
 		{
 			"id": 216,
 			"name": "Plichtsbewust",
-			"traits": [
+			"synonyms": [
 				"Ernstig",
 				"Nauwkeurig",
 				"Stipt",
@@ -9995,7 +9995,7 @@
 		{
 			"id": 217,
 			"name": "Potsierlijk",
-			"traits": [
+			"synonyms": [
 				"Belachelijk",
 				"Grappig",
 				"Humoristisch",
@@ -10006,7 +10006,7 @@
 		{
 			"id": 218,
 			"name": "Praatlustig",
-			"traits": [
+			"synonyms": [
 				"Babbelziek",
 				"Luidruchtig",
 				"Schreeuwerig",
@@ -10016,7 +10016,7 @@
 		{
 			"id": 219,
 			"name": "Prachtig",
-			"traits": [
+			"synonyms": [
 				"Aantrekkelijk",
 				"Betoverend",
 				"Elegant",
@@ -10032,7 +10032,7 @@
 		{
 			"id": 220,
 			"name": "Praktisch",
-			"traits": [
+			"synonyms": [
 				"Doelgericht",
 				"Inventief",
 				"Nuttig",
@@ -10044,7 +10044,7 @@
 		{
 			"id": 221,
 			"name": "Pretentieloos",
-			"traits": [
+			"synonyms": [
 				"Bescheiden",
 				"Eenvoudig",
 				"Nederig"
@@ -10053,7 +10053,7 @@
 		{
 			"id": 222,
 			"name": "Prikkelbaar",
-			"traits": [
+			"synonyms": [
 				"Gevoelig",
 				"Humeurig", 
 				"Wisselvallig"
@@ -10062,7 +10062,7 @@
 		{
 			"id": 223,
 			"name": "Probleemoplossend",
-			"traits": [
+			"synonyms": [
 				"Effectief",
 				"Efficiënt",
 				"Inventief",
@@ -10074,7 +10074,7 @@
 		{
 			"id": 224,
 			"name": "Pronkerig",
-			"traits": [
+			"synonyms": [
 				"Eigenwijs",
 				"Extravagant",
 				"Uitbundig"
@@ -10083,7 +10083,7 @@
 		{
 			"id": 225,
 			"name": "Respectvol",
-			"traits": [
+			"synonyms": [
 				"Beleefd",
 				"Edel",
 				"Edelmoedig",
@@ -10095,7 +10095,7 @@
 		{
 			"id": 226,
 			"name": "Roekeloos",
-			"traits": [
+			"synonyms": [
 				"Impulsief",
 				"Onbezonnen",
 				"Onstuimig",
@@ -10106,7 +10106,7 @@
 		{
 			"id": 227,
 			"name": "Rusteloos",
-			"traits": [
+			"synonyms": [
 				"Beweeglijk",
 				"Druk",
 				"Gejaagd",
@@ -10119,7 +10119,7 @@
 		{
 			"id": 228,
 			"name": "Rustig",
-			"traits": [
+			"synonyms": [
 				"Bedaard",
 				"Beheerst",
 				"Gezapig",
@@ -10133,7 +10133,7 @@
 		{
 			"id": 229,
 			"name": "Rustzoeker",
-			"traits": [
+			"synonyms": [
 				"Bedaard",
 				"Kalm",
 				"Ontspannen",
@@ -10145,7 +10145,7 @@
 		{
 			"id": 230,
 			"name": "Samenwerkend",
-			"traits": [
+			"synonyms": [
 				"Gemeenschapsgevoel",
 				"Samenhorig",
 				"Solidair"
@@ -10154,7 +10154,7 @@
 		{
 			"id": 231,
 			"name": "Schattig",
-			"traits": [
+			"synonyms": [
 				"Beeldig",
 				"Charmant",
 				"Koddig",
@@ -10164,7 +10164,7 @@
 		{
 			"id": 232,
 			"name": "Scherpzinnig",
-			"traits": [
+			"synonyms": [
 				"Alert",
 				"Gevat",
 				"Intelligent",
@@ -10181,7 +10181,7 @@
 		{
 			"id": 233,
 			"name": "Schrander",
-			"traits": [
+			"synonyms": [
 				"Alert",
 				"Doortastend",
 				"Gevat",
@@ -10195,7 +10195,7 @@
 		{
 			"id": 234,
 			"name": "Schuw",
-			"traits": [
+			"synonyms": [
 				"Schuchter",
 				"Terughoudend",
 				"Verlegen",
@@ -10205,7 +10205,7 @@
 		{
 			"id": 235,
 			"name": "Sierlijk",
-			"traits": [
+			"synonyms": [
 				"Aantrekkelijk",
 				"Elegant",
 				"Fraai",
@@ -10217,7 +10217,7 @@
 		{
 			"id": 236,
 			"name": "Slaapgraag",
-			"traits": [
+			"synonyms": [
 				"Dromerig",
 				"Slaperig"
 			]
@@ -10225,7 +10225,7 @@
 		{
 			"id": 237,
 			"name": "Slim",
-			"traits": [
+			"synonyms": [
 				"Bekwaam",
 				"Bedachtzaam",
 				"Doordacht",
@@ -10243,7 +10243,7 @@
 		{
 			"id": 238,
 			"name": "Slordig",
-			"traits": [
+			"synonyms": [
 				"Achteloos",
 				"Chaotisch",
 				"Nonchalant",
@@ -10257,7 +10257,7 @@
 		{
 			"id": 239,
 			"name": "Sluw",
-			"traits": [
+			"synonyms": [
 				"Doortrapt",
 				"Geslepen",
 				"Listig",
@@ -10268,7 +10268,7 @@
 		{
 			"id": 240,
 			"name": "Snel",
-			"traits": [
+			"synonyms": [
 				"Behendig",
 				"Beweeglijk",
 				"Gehaast",
@@ -10279,7 +10279,7 @@
 		{
 			"id": 241,
 			"name": "Snel tevreden",
-			"traits": [
+			"synonyms": [
 				"Niet kieskeurig",
 				"Niet veeleisend",
 				"Onverschillig",
@@ -10290,7 +10290,7 @@
 		{
 			"id": 242,
 			"name": "Sociaal",
-			"traits": [
+			"synonyms": [
 				"Communicatief",
 				"Gezellig",
 				"Groepsdier",
@@ -10305,7 +10305,7 @@
 		{
 			"id": 243,
 			"name": "Solidair",
-			"traits": [
+			"synonyms": [
 				"Aaneengesloten",
 				"Behulpzaam",
 				"Betrokken",
@@ -10317,7 +10317,7 @@
 		{
 			"id": 244,
 			"name": "Solitair",
-			"traits": [
+			"synonyms": [
 				"Eenzaam",
 				"Kluizenaar",
 				"Teruggetrokken"
@@ -10326,7 +10326,7 @@
 		{
 			"id": 245,
 			"name": "Spaarzaam",
-			"traits": [
+			"synonyms": [
 				"Bedachtzaam",
 				"Behoedzaam",
 				"Economisch",
@@ -10339,7 +10339,7 @@
 		{
 			"id": 246,
 			"name": "Speels",
-			"traits": [
+			"synonyms": [
 				"Beweeglijk",
 				"Dartel",
 				"Onbezorgd",
@@ -10350,7 +10350,7 @@
 		{
 			"id": 247,
 			"name": "Spontaan",
-			"traits": [
+			"synonyms": [
 				"Enthousiast",
 				"Impulsief",
 				"Joviaal",
@@ -10362,7 +10362,7 @@
 		{
 			"id": 248,
 			"name": "Sportief",
-			"traits": [
+			"synonyms": [
 				"Atletisch",
 				"Beweeglijk",
 				"Lenig",
@@ -10372,7 +10372,7 @@
 		{
 			"id": 249,
 			"name": "Standvastig",
-			"traits": [
+			"synonyms": [
 				"Eigenzinnig",
 				"Eigenwijs",
 				"Hardnekkig",
@@ -10386,7 +10386,7 @@
 		{
 			"id": 250,
 			"name": "Statig",
-			"traits": [
+			"synonyms": [
 				"Deftig",
 				"Majestueus",
 				"Plechtig",
@@ -10397,7 +10397,7 @@
 		{
 			"id": 251,
 			"name": "Sterk",
-			"traits": [
+			"synonyms": [
 				"Gespierd",
 				"Krachtig",
 				"Potig",
@@ -10407,7 +10407,7 @@
 		{
 			"id": 252,
 			"name": "Stil",
-			"traits": [
+			"synonyms": [
 				"Bedaard",
 				"Geruisloos",
 				"Onopvallend",
@@ -10420,7 +10420,7 @@
 		{
 			"id": 253,
 			"name": "Stoutmoedig",
-			"traits": [
+			"synonyms": [
 				"Avontuurlijk",
 				"Dapper",
 				"Durver",
@@ -10432,7 +10432,7 @@
 		{
 			"id": 254,
 			"name": "Strijdlustig",
-			"traits": [
+			"synonyms": [
 				"Assertief",
 				"Competitief",
 				"Gedreven",
@@ -10444,7 +10444,7 @@
 		{
 			"id": 255,
 			"name": "Sympathiek",
-			"traits": [
+			"synonyms": [
 				"Aangenaam",
 				"Aardig",
 				"Charmant",
@@ -10461,7 +10461,7 @@
 		{
 			"id": 256,
 			"name": "Taai",
-			"traits": [
+			"synonyms": [
 				"Doorzettend",
 				"Gehard",
 				"Hardnekkig",
@@ -10474,7 +10474,7 @@
 		{
 			"id": 257,
 			"name": "Tactisch",
-			"traits": [
+			"synonyms": [
 				"Doelgericht",
 				"Doordacht",
 				"Strategisch",
@@ -10486,7 +10486,7 @@
 		{
 			"id": 258,
 			"name": "Teder",
-			"traits": [
+			"synonyms": [
 				"Broos",
 				"Gevoelig",
 				"Kwetsbaar",
@@ -10498,7 +10498,7 @@
 		{
 			"id": 259,
 			"name": "Temperamentvol",
-			"traits": [
+			"synonyms": [
 				"Driftig",
 				"Energiek",
 				"Enthousiast",
@@ -10512,7 +10512,7 @@
 		{
 			"id": 260,
 			"name": "Territoriaal",
-			"traits": [
+			"synonyms": [
 				"Eigenzinnig",
 				"Halsstarrig",
 				"Verdedigend",
@@ -10522,7 +10522,7 @@
 		{
 			"id": 261,
 			"name": "Teruggetrokken",
-			"traits": [
+			"synonyms": [
 				"Eenzaam",
 				"Ingetogen",
 				"Kluizenaar",
@@ -10533,7 +10533,7 @@
 		{
 			"id": 262,
 			"name": "Terughoudend",
-			"traits": [
+			"synonyms": [
 				"Aarzelend",
 				"Afwachtend",
 				"Bedachtzaam",
@@ -10548,7 +10548,7 @@
 		{
 			"id": 263,
 			"name": "Toegewijd",
-			"traits": [
+			"synonyms": [
 				"Bezield",
 				"Enthousiast",
 				"Fanatiek",
@@ -10560,7 +10560,7 @@
 		{
 			"id": 264,
 			"name": "Toekomstgericht",
-			"traits": [
+			"synonyms": [
 				"Ambitieus",
 				"Doordacht",
 				"Doelgericht",
@@ -10572,7 +10572,7 @@
 		{
 			"id": 265,
 			"name": "Tolerant",
-			"traits": [
+			"synonyms": [
 				"Goedgunstig",
 				"Uithoudend",
 				"Verdraagzaam",
@@ -10582,7 +10582,7 @@
 		{
 			"id": 266,
 			"name": "Traag",
-			"traits": [
+			"synonyms": [
 				"Bedachtzaam",
 				"Langzaam",
 				"Lui",
@@ -10592,7 +10592,7 @@
 		{
 			"id": 267,
 			"name": "Trots",
-			"traits": [
+			"synonyms": [
 				"Fier",
 				"Hooghartig",
 				"Hoogmoedig",
@@ -10606,7 +10606,7 @@
 		{
 			"id": 268,
 			"name": "Trouw",
-			"traits": [
+			"synonyms": [
 				"Betrouwbaar",
 				"Eerlijk",
 				"Gehecht",
@@ -10618,7 +10618,7 @@
 		{
 			"id": 269,
 			"name": "Uitbundig",
-			"traits": [
+			"synonyms": [
 				"Enthousiast",
 				"Expressief",
 				"Flamboyant",
@@ -10634,7 +10634,7 @@
 		{
 			"id": 270,
 			"name": "Uitdagend",
-			"traits": [
+			"synonyms": [
 				"Ondeugend",
 				"Plagerig",
 				"Provocerend"
@@ -10643,7 +10643,7 @@
 		{
 			"id": 271,
 			"name": "Uithoudend",
-			"traits": [
+			"synonyms": [
 				"Taai",
 				"Tolerant",
 				"Verdraagzaam",
@@ -10653,7 +10653,7 @@
 		{
 			"id": 272,
 			"name": "Uniek",
-			"traits": [
+			"synonyms": [
 				"Apart",
 				"Bijzonder",
 				"Opvallend",
@@ -10666,7 +10666,7 @@
 		{
 			"id": 273,
 			"name": "Veeleisend",
-			"traits": [
+			"synonyms": [
 				"Kieskeurig",
 				"Kritisch",
 				"Moeilijk",
@@ -10676,7 +10676,7 @@
 		{
 			"id": 274,
 			"name": "Veelzijdig",
-			"traits": [
+			"synonyms": [
 				"Adaptief",
 				"Allround",
 				"Flexibel"
@@ -10685,7 +10685,7 @@
 		{
 			"id": 275,
 			"name": "Verantwoordelijk",
-			"traits": [
+			"synonyms": [
 				"Betrouwbaar",
 				"Bekwaam",
 				"Degelijk",
@@ -10698,7 +10698,7 @@
 		{
 			"id": 276,
 			"name": "Verdedigend",
-			"traits": [
+			"synonyms": [
 				"Beschermend",
 				"Defensief"
 			]
@@ -10706,7 +10706,7 @@
 		{
 			"id": 277,
 			"name": "Verdraagzaam",
-			"traits": [
+			"synonyms": [
 				"Geduldig",
 				"Meegaand",
 				"Toegeeflijk",
@@ -10716,7 +10716,7 @@
 		{
 			"id": 278,
 			"name": "Verlegen",
-			"traits": [
+			"synonyms": [
 				"Bedeesd",
 				"Bescheiden",
 				"Onzeker",
@@ -10728,7 +10728,7 @@
 		{
 			"id": 279,
 			"name": "Verrassend",
-			"traits": [
+			"synonyms": [
 				"Merkwaardig",
 				"Ongewoon",
 				"Onverwacht",
@@ -10740,7 +10740,7 @@
 		{
 			"id": 280,
 			"name": "Verstandig",
-			"traits": [
+			"synonyms": [
 				"Bedachtzaam",
 				"Begaafd",
 				"Beraden",
@@ -10754,7 +10754,7 @@
 		{
 			"id": 281,
 			"name": "Verstrooid",
-			"traits": [
+			"synonyms": [
 				"Dromerig",
 				"Nonchalant",
 				"Onoplettend",
@@ -10765,7 +10765,7 @@
 		{
 			"id": 282,
 			"name": "Vertrouwend",
-			"traits": [
+			"synonyms": [
 				"Gelovend",
 				"Hoopvol",
 				"Zelfverzekerd"
@@ -10774,7 +10774,7 @@
 		{
 			"id": 283,
 			"name": "Verzamelend",
-			"traits": [
+			"synonyms": [
 				"Horder",
 				"Verzamelaar"
 			]
@@ -10782,14 +10782,14 @@
 		{
 			"id": 284,
 			"name": "Verzoenend",
-			"traits": [
+			"synonyms": [
 				"Bemiddelend"
 			]
 		},
 		{
 			"id": 285,
 			"name": "Verzorgd",
-			"traits": [
+			"synonyms": [
 				"Net",
 				"Opgeruimd",
 				"Ordelijk",
@@ -10799,7 +10799,7 @@
 		{
 			"id": 286,
 			"name": "Vindingrijk",
-			"traits": [
+			"synonyms": [
 				"Creatief",
 				"Handig",
 				"Ingenieus",
@@ -10814,7 +10814,7 @@
 		{
 			"id": 287,
 			"name": "Vlijtig",
-			"traits": [
+			"synonyms": [
 				"Bedrijvig",
 				"Bezig",
 				"Gemotiveerd",
@@ -10826,7 +10826,7 @@
 		{
 			"id": 288,
 			"name": "Vlug",
-			"traits": [
+			"synonyms": [
 				"Behendig",
 				"Beweeglijk",
 				"Gevat",
@@ -10837,7 +10837,7 @@
 		{
 			"id": 289,
 			"name": "Volgzaam",
-			"traits": [
+			"synonyms": [
 				"Braaf",
 				"Gedwee",
 				"Gehoorzaam",
@@ -10848,7 +10848,7 @@
 		{
 			"id": 290,
 			"name": "Volhardend",
-			"traits": [
+			"synonyms": [
 				"Doortastend",
 				"Doorzettend",
 				"Onvermoeibaar",
@@ -10860,7 +10860,7 @@
 		{
 			"id": 291,
 			"name": "Voorbeeldig",
-			"traits": [
+			"synonyms": [
 				"Deugdelijk",
 				"Onberispelijk",
 				"Opperbest",
@@ -10870,7 +10870,7 @@
 		{
 			"id": 292,
 			"name": "Vooruitziend",
-			"traits": [
+			"synonyms": [
 				"Anticiperend",
 				"Doordacht",
 				"Proactief",
@@ -10883,7 +10883,7 @@
 		{
 			"id": 293,
 			"name": "Voorzichtig",
-			"traits": [
+			"synonyms": [
 				"Aarzelend",
 				"Bedachtzaam",
 				"Behoedzaam",
@@ -10896,7 +10896,7 @@
 		{
 			"id": 294,
 			"name": "Vredelievend",
-			"traits": [
+			"synonyms": [
 				"Pacifistisch",
 				"Vredig",
 				"Vreedzaam",
@@ -10907,7 +10907,7 @@
 		{
 			"id": 295,
 			"name": "Vreedzaam",
-			"traits": [
+			"synonyms": [
 				"Kalm",
 				"Rustig",
 				"Rustzoeker",
@@ -10919,7 +10919,7 @@
 		{
 			"id": 296,
 			"name": "Vreesachtig",
-			"traits": [
+			"synonyms": [
 				"Angstig",
 				"Bang",
 				"Huiverig",
@@ -10930,7 +10930,7 @@
 		{
 			"id": 297,
 			"name": "Vriendelijk",
-			"traits": [
+			"synonyms": [
 				"Aangenaam",
 				"Aardig",
 				"Attent",
@@ -10947,7 +10947,7 @@
 		{
 			"id": 298,
 			"name": "Vriendschappelijk",
-			"traits": [
+			"synonyms": [
 				"Amicaal",
 				"Gezellig",
 				"Hartelijk",
@@ -10959,7 +10959,7 @@
 		{
 			"id": 299,
 			"name": "Vrijgevochten",
-			"traits": [
+			"synonyms": [
 				"Onafhankelijk",
 				"Ongedwongen",
 				"Ontembaar",
@@ -10971,7 +10971,7 @@
 		{
 			"id": 300,
 			"name": "Vrijheidslievend",
-			"traits": [
+			"synonyms": [
 				"Onafhankelijk",
 				"Vrijgevochten"
 			]
@@ -10979,7 +10979,7 @@
 		{
 			"id": 301,
 			"name": "Vrijmoedig",
-			"traits": [
+			"synonyms": [
 				"Onbevreesd",
 				"Openhartig",
 				"Spontaan",
@@ -10990,7 +10990,7 @@
 		{
 			"id": 302,
 			"name": "Vrolijk",
-			"traits": [
+			"synonyms": [
 				"Blij",
 				"Blijmoedig",
 				"Dartel",
@@ -11010,7 +11010,7 @@
 		{
 			"id": 303,
 			"name": "Waakzaam",
-			"traits": [
+			"synonyms": [
 				"Alert",
 				"Aandachtig",
 				"Attent",
@@ -11023,7 +11023,7 @@
 		{
 			"id": 304,
 			"name": "Waardig",
-			"traits": [
+			"synonyms": [
 				"Deftig",
 				"Eervol",
 				"Ernstig",
@@ -11034,7 +11034,7 @@
 		{
 			"id": 305,
 			"name": "Wakker",
-			"traits": [
+			"synonyms": [
 				"Alert",
 				"Levendig",
 				"Opgewekt",
@@ -11044,7 +11044,7 @@
 		{
 			"id": 306,
 			"name": "Wantrouwig",
-			"traits": [
+			"synonyms": [
 				"Achterdochtig",
 				"Argwanend"
 			]
@@ -11052,7 +11052,7 @@
 		{
 			"id": 307,
 			"name": "Weerbaar",
-			"traits": [
+			"synonyms": [
 				"Assertief",
 				"Dapper",
 				"Moedig",
@@ -11063,7 +11063,7 @@
 		{
 			"id": 308,
 			"name": "Welluidend",
-			"traits": [
+			"synonyms": [
 				"Melodieus",
 				"Muzikaal",
 				"Prachtig"
@@ -11072,7 +11072,7 @@
 		{
 			"id": 309,
 			"name": "Wendbaar",
-			"traits": [
+			"synonyms": [
 				"Behendig",
 				"Beweeglijk",
 				"Flexibel",
@@ -11083,7 +11083,7 @@
 		{
 			"id": 310,
 			"name": "Wereldwijs",
-			"traits": [
+			"synonyms": [
 				"Cultureel",
 				"Mondiaal"
 			]
@@ -11091,7 +11091,7 @@
 		{
 			"id": 311,
 			"name": "Werklustig",
-			"traits": [
+			"synonyms": [
 				"Actief",
 				"Arbeidzaam",
 				"Bedrijvig",
@@ -11106,7 +11106,7 @@
 		{
 			"id": 312,
 			"name": "Zachtaardig",
-			"traits": [
+			"synonyms": [
 				"Gemoedelijk",
 				"Genegen",
 				"Goedaardig",
@@ -11120,7 +11120,7 @@
 		{
 			"id": 313,
 			"name": "Zachtmoedig",
-			"traits": [
+			"synonyms": [
 				"Geduldig",
 				"Gemoedelijk",
 				"Genegen",
@@ -11136,14 +11136,14 @@
 		{
 			"id": 314,
 			"name": "Zanglustig",
-			"traits": [
+			"synonyms": [
 				"Zangerig"
 			]
 		},
 		{
 			"id": 315,
 			"name": "Zelfbewust",
-			"traits": [
+			"synonyms": [
 				"Assertief",
 				"Vastberaden",
 				"Zelfverzekerd",
@@ -11153,7 +11153,7 @@
 		{
 			"id": 316,
 			"name": "Zelfredzaam",
-			"traits": [
+			"synonyms": [
 				"Onafhankelijk",
 				"Zelfstandig",
 				"Zelfvoorzienend"
@@ -11162,7 +11162,7 @@
 		{
 			"id": 317,
 			"name": "Zelfstandig",
-			"traits": [
+			"synonyms": [
 				"Onafhankelijk",
 				"Zelfredzaam",
 				"Zelfvoorzienend"
@@ -11171,7 +11171,7 @@
 		{
 			"id": 318,
 			"name": "Zelfzeker",
-			"traits": [
+			"synonyms": [
 				"Assertief",
 				"Resoluut",
 				"Standvastig",
@@ -11184,7 +11184,7 @@
 		{
 			"id": 319,
 			"name": "Zenuwachtig",
-			"traits": [
+			"synonyms": [
 				"Bezorgd",
 				"Gejaagd",
 				"Gespannen",
@@ -11197,7 +11197,7 @@
 		{
 			"id": 320,
 			"name": "Zorgeloos",
-			"traits": [
+			"synonyms": [
 				"Rustig",
 				"Onbezorgd",
 				"Ontspannen"
@@ -11206,7 +11206,7 @@
 		{
 			"id": 321,
 			"name": "Zorgvuldig",
-			"traits": [
+			"synonyms": [
 				"Bekwaam",
 				"Nauwgezet",
 				"Nauwkeurig",
@@ -11219,7 +11219,7 @@
 		{
 			"id": 322,
 			"name": "Zorgzaam",
-			"traits": [
+			"synonyms": [
 				"Attent",
 				"Bezorgd",
 				"Hartelijk",
@@ -11233,7 +11233,7 @@
 		{
 			"id": 323,
 			"name": "Zwervend",
-			"traits": [
+			"synonyms": [
 				"Dolend",
 				"Nomadisch",
 				"Rondtrekkend"
@@ -11242,7 +11242,7 @@
 		{
 			"id": 324,
 			"name": "Zwijgzaam",
-			"traits": [
+			"synonyms": [
 				"Discreet",
 				"Geruisloos",
 				"Onopvallend",
