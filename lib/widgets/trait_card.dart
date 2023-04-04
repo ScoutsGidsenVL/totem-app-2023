@@ -48,6 +48,11 @@ class TraitCard extends StatelessWidget {
                   Padding(
                       padding: const EdgeInsets.all(10),
                       child: TraitsList(trait.synonyms, icon: Icons.menu_book)),
+                  Padding(
+                      padding: const EdgeInsets.only(
+                          top: 16, bottom: 8, left: 10, right: 10),
+                      child: Text('Gelijkaardige kenmerken',
+                          style: Theme.of(context).textTheme.bodyLarge)),
                   ...[...trait.synonyms, trait.name]
                       .sorted((a, b) => a.compareTo(b))
                       .expand((s) {
