@@ -21,6 +21,12 @@ class TabManager extends ChangeNotifier {
       notifyListeners();
     }
   }
+
+  void selectTabRoot(int index) {
+    currentTab = index;
+    navigatorState!.popUntil((r) => r.isFirst);
+    notifyListeners();
+  }
 }
 
 class TabItem {

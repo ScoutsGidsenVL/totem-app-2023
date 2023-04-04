@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totemapp/model/profile_manager.dart';
+import 'package:totemapp/model/tab_manager.dart';
 import 'package:totemapp/model/traits_filter.dart';
 import 'package:totemapp/widgets/profile_dialog.dart';
 import 'package:share_plus/share_plus.dart';
@@ -67,34 +68,50 @@ class ProfileCard extends StatelessWidget {
           ]),
           if (profile?.animals.isNotEmpty ?? false)
             Padding(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: TextButton(
+                  style: const ButtonStyle(
+                      shape:
+                          MaterialStatePropertyAll(RoundedRectangleBorder())),
+                  onPressed: () {
+                    context.read<TabManager>().selectTabRoot(0);
+                  },
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                            padding: const EdgeInsets.only(right: 8),
+                            child: Icon(Icons.star,
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .onSurfaceVariant)),
+                        Flexible(
+                            child: Text(profile!.animals.join(', '),
+                                style: Theme.of(context).textTheme.bodySmall,
+                                softWrap: true))
+                      ]),
+                )),
+          Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: TextButton(
+                onPressed: () {
+                  context.read<TabManager>().selectTabRoot(1);
+                },
                 child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
                           padding: const EdgeInsets.only(right: 8),
-                          child: Icon(Icons.star,
+                          child: Icon(Icons.psychology,
                               color: Theme.of(context)
                                   .colorScheme
                                   .onSurfaceVariant)),
                       Flexible(
-                          child: Text(profile!.animals.join(', '),
+                          child: Text('${filter.selectedCount} eigenschappen',
                               style: Theme.of(context).textTheme.bodySmall,
-                              softWrap: true))
-                    ])),
-          Padding(
-              padding: const EdgeInsets.all(8),
-              child:
-                  Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Padding(
-                    padding: const EdgeInsets.only(right: 8),
-                    child: Icon(Icons.psychology,
-                        color: Theme.of(context).colorScheme.onSurfaceVariant)),
-                Flexible(
-                    child: Text('${filter.selectedCount} eigenschappen',
-                        style: Theme.of(context).textTheme.bodySmall,
-                        softWrap: true)),
-              ])),
+                              softWrap: true)),
+                    ]),
+              )),
           ...profile == null
               ? []
               : [

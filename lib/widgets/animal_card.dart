@@ -123,8 +123,7 @@ class _AnimalCardState extends State<AnimalCard> {
                               : Padding(
                                   padding:
                                       const EdgeInsets.only(top: 64, bottom: 8),
-                                  child: Text(
-                                      'Totems met gelijkaardige kenmerken',
+                                  child: Text('Totems met dezelfde kenmerken',
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyLarge)),
