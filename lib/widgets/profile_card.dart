@@ -67,84 +67,64 @@ class ProfileCard extends StatelessWidget {
                     icon: const Icon(Icons.edit)),
           ]),
           if (profile?.animals.isNotEmpty ?? false)
-            Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                child: TextButton(
-                  style: const ButtonStyle(
-                      shape:
-                          MaterialStatePropertyAll(RoundedRectangleBorder())),
-                  onPressed: () {
-                    context.read<TabManager>().selectTabRoot(0);
-                  },
-                  child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                            padding: const EdgeInsets.only(right: 8),
-                            child: Icon(Icons.star,
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .onSurfaceVariant)),
-                        Flexible(
-                            child: Text(profile!.animals.join(', '),
-                                style: Theme.of(context).textTheme.bodySmall,
-                                softWrap: true))
-                      ]),
-                )),
-          Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              child: TextButton(
-                onPressed: () {
-                  context.read<TabManager>().selectTabRoot(1);
-                },
-                child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                          padding: const EdgeInsets.only(right: 8),
-                          child: Icon(Icons.psychology,
-                              color: Theme.of(context)
-                                  .colorScheme
-                                  .onSurfaceVariant)),
-                      Flexible(
-                          child: Text('${filter.selectedCount} eigenschappen',
-                              style: Theme.of(context).textTheme.bodySmall,
-                              softWrap: true)),
-                    ]),
-              )),
+            TextButton(
+              style: const ButtonStyle(
+                  shape: MaterialStatePropertyAll(RoundedRectangleBorder())),
+              onPressed: () {
+                context.read<TabManager>().selectTabRoot(0);
+              },
+              child:
+                  Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: Icon(Icons.star,
+                        color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                Flexible(
+                    child: Text(profile!.animals.join(', '),
+                        style: Theme.of(context).textTheme.bodySmall,
+                        softWrap: true))
+              ]),
+            ),
+          TextButton(
+            onPressed: () {
+              context.read<TabManager>().selectTabRoot(1);
+            },
+            child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Padding(
+                  padding: const EdgeInsets.only(right: 8),
+                  child: Icon(Icons.psychology,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant)),
+              Flexible(
+                  child: Text('${filter.selectedCount} eigenschappen',
+                      style: Theme.of(context).textTheme.bodySmall,
+                      softWrap: true)),
+            ]),
+          ),
           ...profile == null
               ? []
               : [
-                  Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: FilledButton.icon(
-                          onPressed: () {
-                            Share.share(profile!.encode(manager.dynamicData!));
-                          },
-                          style: ButtonStyle(
-                              backgroundColor: MaterialStatePropertyAll(
-                                  Theme.of(context).colorScheme.surfaceVariant),
-                              foregroundColor: MaterialStatePropertyAll(
-                                  Theme.of(context)
-                                      .colorScheme
-                                      .onSurfaceVariant)),
-                          icon: const Icon(Icons.share),
-                          label: const Text('Profiel code delen'))),
-                  Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: FilledButton.icon(
-                          onPressed: () {
-                            manager.unselectProfile();
-                          },
-                          style: ButtonStyle(
-                              backgroundColor: MaterialStatePropertyAll(
-                                  Theme.of(context).colorScheme.surfaceVariant),
-                              foregroundColor: MaterialStatePropertyAll(
-                                  Theme.of(context)
-                                      .colorScheme
-                                      .onSurfaceVariant)),
-                          icon: const Icon(Icons.logout),
-                          label: const Text('Zonder profiel gebruiken'))),
+                  FilledButton.icon(
+                      onPressed: () {
+                        Share.share(profile!.encode(manager.dynamicData!));
+                      },
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStatePropertyAll(
+                              Theme.of(context).colorScheme.surfaceVariant),
+                          foregroundColor: MaterialStatePropertyAll(
+                              Theme.of(context).colorScheme.onSurfaceVariant)),
+                      icon: const Icon(Icons.share),
+                      label: const Text('Profiel code delen')),
+                  FilledButton.icon(
+                      onPressed: () {
+                        manager.unselectProfile();
+                      },
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStatePropertyAll(
+                              Theme.of(context).colorScheme.surfaceVariant),
+                          foregroundColor: MaterialStatePropertyAll(
+                              Theme.of(context).colorScheme.onSurfaceVariant)),
+                      icon: const Icon(Icons.logout),
+                      label: const Text('Zonder profiel gebruiken')),
                 ]
         ],
       ),
