@@ -28,7 +28,8 @@ class FilteredTotems extends StatelessWidget {
                     var e = animals[index];
                     return AnimalEntry(
                         animal: e.animal,
-                        swipeList: animals.map((e) => e.animal).toList());
+                        swipeList: animals.map((e) => e.animal).toList(),
+                        score: e.score);
                   }))),
       filter.isEmpty
           ? Container()

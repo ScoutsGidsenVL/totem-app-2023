@@ -67,33 +67,27 @@ class TraitsFilter extends ChangeNotifier {
   }
 
   List<TotemResult> apply(Iterable<AnimalData> animals) {
-    final traitsByState = Map.fromEntries(TraitState.values.map((state) {
-      return MapEntry(
-          state,
-          traits.entries
-              .where((e) => e.value == state)
-              .map((e) => e.key)
-              .toSet());
-    }));
+    final positiveTraits = traits.entries
+        .where((e) => e.value.isPositive)
+        .map((e) => e.key)
+        .toSet();
     return animals
         .map((animal) {
-          final traits = animal.traits.toSet();
+          final animalTraits = animal.traits.toSet();
           return TotemResult(
               animal,
-              traitsByState.entries
-                  .map((e) =>
-                      e.key.filterScore * traits.intersection(e.value).length)
-                  .sum);
+              animalTraits.intersection(positiveTraits).length /
+                  animalTraits.length);
         })
         .where((e) => e.score > 0)
         .toList()
-      ..sort((a, b) => b.score - a.score);
+      ..sort((a, b) => (b.score - a.score).sign.round());
   }
 }
 
 class TotemResult extends ISuspensionBean {
   final AnimalData animal;
-  final int score;
+  final double score;
 
   TotemResult(this.animal, this.score);
 
