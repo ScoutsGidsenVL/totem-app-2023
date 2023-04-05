@@ -10,9 +10,6 @@ import 'package:totemapp/widgets/profile_dialog.dart';
 import 'package:totemapp/widgets/trait_entry.dart';
 
 class Eigenschappen extends StatefulWidget {
-  /// UX experiment to switch between simple checkbox and 3 options.
-  static const simple = true;
-
   const Eigenschappen({Key? key}) : super(key: key);
 
   @override

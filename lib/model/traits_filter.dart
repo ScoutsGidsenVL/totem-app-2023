@@ -30,7 +30,7 @@ class TraitsFilter extends ChangeNotifier {
   }
 
   int get selectedCount {
-    return traits.values.where((state) => state.isSelected).length;
+    return traits.values.where((state) => state.isPositive).length;
   }
 
   TraitState getState(String trait) {
@@ -109,40 +109,18 @@ class TotemResult extends ISuspensionBean {
 }
 
 enum TraitState {
-  positive(2, Colors.green, Icons.keyboard_double_arrow_up),
-  related(1, Colors.lightGreen, Icons.expand_less),
-  neutral(0, Colors.grey, Icons.remove),
-  negative(-5, Colors.red, Icons.keyboard_double_arrow_down);
-
-  const TraitState(this.score, this.color, this.icon);
-
-  final int score;
-  final MaterialColor color;
-  final IconData icon;
+  positive,
+  neutral;
 
   bool get isPositive {
-    return this == TraitState.related || this == TraitState.positive;
-  }
-
-  bool get isStrong {
-    return this == TraitState.negative || this == TraitState.positive;
-  }
-
-  bool get isSelected {
-    return Eigenschappen.simple ? isPositive : this != TraitState.neutral;
+    return this == TraitState.positive;
   }
 
   int get filterScore {
-    return Eigenschappen.simple ? (isPositive ? 1 : 0) : score;
+    return isPositive ? 1 : 0;
   }
 
-  factory TraitState.fromProperties(bool positive, bool strong) {
-    return positive
-        ? strong
-            ? TraitState.positive
-            : TraitState.related
-        : strong
-            ? TraitState.negative
-            : TraitState.neutral;
+  factory TraitState.from(bool state) {
+    return state ? TraitState.positive : TraitState.neutral;
   }
 }

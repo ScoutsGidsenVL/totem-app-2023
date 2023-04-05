@@ -155,7 +155,7 @@ class ProfileData extends ISuspensionBean {
   }
 
   int get selectedCount {
-    return traits.values.where((state) => state.isSelected).length;
+    return traits.values.where((state) => state.isPositive).length;
   }
 
   String encode(DynamicData dynamicData) {
@@ -196,13 +196,10 @@ class ProfileData extends ISuspensionBean {
       return id <= 254 ? [id] : <int>[255, id - 254];
     }).toList());
 
-    // two bits per trait
     addBitset(
         360,
         (i) =>
             traits[dynamicData.traitsById![i + 1]?.name]?.isPositive ?? false);
-    addBitset(360,
-        (i) => traits[dynamicData.traitsById![i + 1]?.name]?.isStrong ?? false);
 
     final bytes = builder.takeBytes();
     final str = base64.encode(bytes);
@@ -263,12 +260,9 @@ class ProfileData extends ISuspensionBean {
           }
 
           final isPositiveTraits = getBitset(360);
-          final isStrongTraits = getBitset(360);
           final traits = Map.fromEntries(dynamicData.traitsById!.values
-              .mapIndexed((i, trait) => MapEntry(
-                  trait.name,
-                  TraitState.fromProperties(
-                      isPositiveTraits[i], isStrongTraits[i]))));
+              .mapIndexed((i, trait) =>
+                  MapEntry(trait.name, TraitState.from(isPositiveTraits[i]))));
 
           return ProfileData(name, animals, traits, color);
         default:
