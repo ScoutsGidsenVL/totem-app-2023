@@ -13,11 +13,32 @@ class Totems extends StatefulWidget {
   State<Totems> createState() => _TotemsState();
 }
 
-class _TotemsState extends State<Totems> {
+class _TotemsState extends State<Totems> with WidgetsBindingObserver {
   final FocusNode _searchFocus = FocusNode();
   final TextEditingController _searchController = TextEditingController();
   String _search = '';
   bool _showRelevant = false;
+  bool _isKeyboardVisible = false;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void didChangeMetrics() {
+    final bottomInset = WidgetsBinding.instance.window.viewInsets.bottom;
+    final newValue = bottomInset > 0.0;
+    if (newValue != _isKeyboardVisible) {
+      setState(() {
+        _isKeyboardVisible = newValue;
+        if (!_isKeyboardVisible) {
+          _searchFocus.unfocus();
+        }
+      });
+    }
+  }
 
   void doSearch(String query) {
     setState(() {
@@ -43,6 +64,7 @@ class _TotemsState extends State<Totems> {
   void dispose() {
     _searchFocus.dispose();
     _searchController.dispose();
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
