@@ -118,11 +118,17 @@ class _AnimalCardState extends State<AnimalCard> {
                                   style:
                                       Theme.of(context).textTheme.bodyMedium)),
                           TraitsList(_animal.traits),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8),
+                                child: Image.network(_animal.image)),
+                          ),
                           similarAnimals.isEmpty
                               ? Container()
                               : Padding(
                                   padding:
-                                      const EdgeInsets.only(top: 64, bottom: 8),
+                                      const EdgeInsets.only(top: 32, bottom: 8),
                                   child: Text('Totems met dezelfde kenmerken',
                                       style: Theme.of(context)
                                           .textTheme

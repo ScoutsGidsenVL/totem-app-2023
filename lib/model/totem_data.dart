@@ -17,13 +17,15 @@ class TotemData {
 
 @JsonSerializable(createToJson: false)
 class AnimalData extends ISuspensionBean {
-  AnimalData(this.id, this.name, this.synonyms, this.traits, this.description);
+  AnimalData(this.id, this.name, this.synonyms, this.traits, this.description,
+      this.image);
 
   int id;
   String name;
   List<String> synonyms;
   List<String> traits;
   String description;
+  String image;
 
   @override
   @JsonKey(includeFromJson: false)
