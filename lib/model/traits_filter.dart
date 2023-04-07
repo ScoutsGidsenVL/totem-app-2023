@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:totemapp/model/profile_manager.dart';
 import 'package:totemapp/model/totem_data.dart';
 import 'package:azlistview/azlistview.dart';
@@ -6,6 +7,9 @@ import 'package:azlistview/azlistview.dart';
 class TraitsFilter extends ChangeNotifier {
   TraitsFilter(this.profileManager, Map<String, TraitState>? selectedTraits) {
     fallbackTraits = selectedTraits ?? {};
+    if (selectedTraits == null || selectedTraits.isEmpty) {
+      loadFallbackTraits();
+    }
   }
 
   ProfileManager? profileManager;
@@ -29,6 +33,23 @@ class TraitsFilter extends ChangeNotifier {
 
   int get selectedCount {
     return traits.values.where((state) => state.isPositive).length;
+  }
+
+  Future loadFallbackTraits() async {
+    final prefs = await SharedPreferences.getInstance();
+    var encodedTraits = prefs.getStringList('traits') ?? [];
+    fallbackTraits = Map.fromEntries(
+        encodedTraits.map((t) => MapEntry(t, TraitState.positive)));
+    notifyListeners();
+  }
+
+  Future storeFallbackTraits() async {
+    final prefs = await SharedPreferences.getInstance();
+    var encodedTraits = fallbackTraits.entries
+        .where((e) => e.value.isPositive)
+        .map((e) => e.key)
+        .toList();
+    await prefs.setStringList('traits', encodedTraits);
   }
 
   TraitState getState(String trait) {
@@ -60,6 +81,7 @@ class TraitsFilter extends ChangeNotifier {
       for (final entry in traits.entries) {
         fallbackTraits[entry.key] = entry.value;
       }
+      storeFallbackTraits();
     }
     notifyListeners();
   }
