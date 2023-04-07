@@ -25,6 +25,8 @@ class AnimalStarButton extends StatelessWidget {
     final starred = profile == null
         ? profiles.any((p) => p.animals.contains(animal))
         : profile.animals.contains(animal);
+    final darkMode =
+        MediaQuery.of(context).platformBrightness == Brightness.dark;
 
     return IconButton(
         onPressed: () {
@@ -63,11 +65,8 @@ class AnimalStarButton extends StatelessWidget {
                             Navigator.pop(context);
                           },
                           child: Row(children: [
-                            starred
-                                ? Icon(Icons.star,
-                                    color: profile.color.shade700)
-                                : Icon(Icons.star_outline,
-                                    color: profile.color.shade700),
+                            Icon(starred ? Icons.star : Icons.star_outline,
+                                color: profile.color[darkMode ? 400 : 700]),
                             Padding(
                                 padding: const EdgeInsets.only(left: 8),
                                 child: Text(profile.name)),

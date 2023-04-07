@@ -280,7 +280,10 @@ class _EigenschappenState extends State<Eigenschappen>
                             padding: const EdgeInsets.symmetric(
                                 vertical: 16, horizontal: 12),
                             child: Text('${filter.selectedCount} geselecteerd',
-                                style: const TextStyle(color: Colors.white)),
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onPrimary)),
                           ),
                         ),
                         FilledButton(
@@ -293,8 +296,7 @@ class _EigenschappenState extends State<Eigenschappen>
                                     style: TextStyle(
                                         color: Theme.of(context)
                                             .colorScheme
-                                            .onPrimary,
-                                        fontWeight: FontWeight.w300)),
+                                            .onPrimary)),
                                 Icon(Icons.arrow_forward,
                                     color:
                                         Theme.of(context).colorScheme.onPrimary)

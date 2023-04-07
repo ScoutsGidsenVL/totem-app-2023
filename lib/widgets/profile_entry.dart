@@ -11,6 +11,8 @@ class ProfileEntry extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final manager = context.watch<ProfileManager>();
+    final darkMode =
+        MediaQuery.of(context).platformBrightness == Brightness.dark;
 
     return ListTile(
         contentPadding: const EdgeInsets.only(left: 16, right: 32),
@@ -21,7 +23,8 @@ class ProfileEntry extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(right: 8),
-              child: Icon(Icons.account_circle, color: profile.color.shade700),
+              child: Icon(Icons.account_circle,
+                  color: profile.color[darkMode ? 400 : 700]),
             ),
             Flexible(
               child: Text.rich(

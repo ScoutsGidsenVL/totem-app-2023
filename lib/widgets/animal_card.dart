@@ -8,7 +8,6 @@ import 'package:totemapp/model/totem_data.dart';
 import 'package:totemapp/widgets/animal_star_button.dart';
 import 'package:totemapp/widgets/animal_preview_card.dart';
 import 'package:totemapp/widgets/traits_list.dart';
-import 'package:sticky_headers/sticky_headers.dart';
 
 class AnimalCard extends StatefulWidget {
   final AnimalData animal;
@@ -63,18 +62,13 @@ class _AnimalCardState extends State<AnimalCard> {
     return DraggableScrollableSheet(
         expand: false,
         builder: (context, controller) {
-          return SingleChildScrollView(
-              controller: controller,
-              child: StickyHeader(
-                header: Container(
-                    decoration: BoxDecoration(
-                      borderRadius:
-                          const BorderRadius.vertical(top: Radius.circular(10)),
-                      color: Theme.of(context).colorScheme.surface,
-                    ),
-                    padding: const EdgeInsets.all(10),
-                    child: Column(
-                      children: [
+          return Column(
+            children: [
+              SingleChildScrollView(
+                  controller: controller,
+                  child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(children: [
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -94,7 +88,7 @@ class _AnimalCardState extends State<AnimalCard> {
                                             ?.copyWith(
                                                 color: Theme.of(context)
                                                     .colorScheme
-                                                    .tertiary)),
+                                                    .primary)),
                                     Expanded(
                                         child: Text.rich(
                                             TextSpan(children: [
@@ -128,67 +122,74 @@ class _AnimalCardState extends State<AnimalCard> {
                               image:
                                   AssetImage('assets/images/separation.png')),
                         ),
-                      ],
-                    )),
-                content: GestureDetector(
-                    onHorizontalDragEnd: widget.swipeList == null
-                        ? null
-                        : (details) {
-                            const sensitivity = 8;
-                            final dx = details.velocity.pixelsPerSecond.dx;
-                            if (dx > sensitivity) {
-                              swipeAnimal(-1);
-                            } else if (dx < -sensitivity) {
-                              swipeAnimal(1);
-                            }
-                          },
-                    child: Padding(
-                      padding:
-                          const EdgeInsets.only(left: 10, right: 10, bottom: 5),
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Padding(
-                                padding: const EdgeInsets.only(bottom: 16),
-                                child: Text(
-                                    _hidden
-                                        ? _animal.description
-                                            .replaceAll(_animal.name, '...')
-                                        : _animal.description,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyMedium)),
-                            TraitsList(_animal.traits),
-                            _hidden
-                                ? Container()
-                                : Padding(
-                                    padding: const EdgeInsets.only(top: 8),
-                                    child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(5),
-                                        child: Image.network(_animal.image)),
-                                  ),
-                            similarAnimals.isEmpty
-                                ? Container()
-                                : Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 32, bottom: 8),
-                                    child: Text('Totems met dezelfde kenmerken',
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyLarge)),
-                            ...similarAnimals.map((a) => AnimalPreviewCard(
-                                animal: a,
-                                hidden: _hidden,
-                                onPressed: () {
-                                  setState(() {
-                                    _animal = a;
-                                  });
-                                  controller.jumpTo(0);
-                                })),
-                          ]),
-                    )),
-              ));
+                      ]))),
+              Expanded(
+                child: SingleChildScrollView(
+                  controller: controller,
+                  child: GestureDetector(
+                      onHorizontalDragEnd: widget.swipeList == null
+                          ? null
+                          : (details) {
+                              const sensitivity = 8;
+                              final dx = details.velocity.pixelsPerSecond.dx;
+                              if (dx > sensitivity) {
+                                swipeAnimal(-1);
+                              } else if (dx < -sensitivity) {
+                                swipeAnimal(1);
+                              }
+                            },
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 10, right: 10, bottom: 5),
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Padding(
+                                  padding: const EdgeInsets.only(bottom: 16),
+                                  child: Text(
+                                      _hidden
+                                          ? _animal.description
+                                              .replaceAll(_animal.name, '...')
+                                          : _animal.description,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium)),
+                              TraitsList(_animal.traits),
+                              _hidden
+                                  ? Container()
+                                  : Padding(
+                                      padding: const EdgeInsets.only(top: 8),
+                                      child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(5),
+                                          child: Image.network(_animal.image)),
+                                    ),
+                              similarAnimals.isEmpty
+                                  ? Container()
+                                  : Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 32, bottom: 8),
+                                      child: Text(
+                                          'Totems met dezelfde kenmerken',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyLarge)),
+                              ...similarAnimals.map((a) => AnimalPreviewCard(
+                                  animal: a,
+                                  hidden: _hidden,
+                                  onPressed: () {
+                                    setState(() {
+                                      _animal = a;
+                                    });
+                                    controller.jumpTo(0);
+                                  })),
+                            ]),
+                      )),
+                ),
+              ),
+            ],
+          );
         });
   }
 }

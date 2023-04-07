@@ -15,6 +15,8 @@ class ProfileCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final manager = context.watch<ProfileManager>();
     final filter = context.watch<TraitsFilter>();
+    final darkMode =
+        MediaQuery.of(context).platformBrightness == Brightness.dark;
 
     return Card(
         child: Padding(
@@ -23,7 +25,8 @@ class ProfileCard extends StatelessWidget {
         children: [
           Row(children: [
             Icon(Icons.account_circle,
-                size: 48, color: (profile?.color ?? Colors.grey).shade700),
+                size: 48,
+                color: (profile?.color ?? Colors.grey)[darkMode ? 400 : 700]),
             Flexible(
               child: Padding(
                   padding: const EdgeInsets.only(left: 5),

@@ -22,14 +22,14 @@ void main() {
   runApp(const MyApp());
 }
 
-const primary = Color(0xFF005C9D);
-const lightGray = Color(0xFF6C757D);
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
+    const primaryLight = Color(0xFF005C9D);
+    const primaryDark = Color(0xFF1397F5);
+
     return MultiProvider(
         providers: [
           ChangeNotifierProvider(
@@ -48,7 +48,11 @@ class MyApp extends StatelessWidget {
                     }, badge: (context) {
                       final profile = context.watch<ProfileManager>().profile;
                       if (profile == null) return null;
-                      return BadgeInfo(profile.name, profile.color.shade700);
+                      final darkMode =
+                          MediaQuery.of(context).platformBrightness ==
+                              Brightness.dark;
+                      return BadgeInfo(
+                          profile.name, profile.color[darkMode ? 400 : 700]);
                     }),
                     TabItem('Checklist', Icons.check_circle, (settings) {
                       return const Checklist();
@@ -69,22 +73,44 @@ class MyApp extends StatelessWidget {
             title: 'Totemapp',
             theme: ThemeData(
                 colorScheme: const ColorScheme.light(
-                    primary: primary,
-                    primaryContainer: Color(0xFF004474),
-                    secondary: Color(0xFF006CBA),
+                    primary: primaryLight,
+                    secondary: primaryLight,
                     surfaceVariant: Color(0xFFE4E4E4),
-                    onSurfaceVariant: lightGray),
+                    onSurfaceVariant: Color(0xFF6C757D)),
                 textTheme: const TextTheme(
                     headlineMedium: TextStyle(
-                        fontSize: 34, color: primary, fontFamily: 'Verveine'),
+                        fontSize: 34,
+                        color: primaryLight,
+                        fontFamily: 'Verveine'),
                     headlineSmall: TextStyle(
                         fontSize: 17,
-                        color: primary,
+                        color: primaryLight,
                         fontStyle: FontStyle.italic,
                         fontWeight: FontWeight.w300),
                     bodyLarge: TextStyle(fontSize: 21),
                     bodyMedium: TextStyle(fontSize: 21),
-                    bodySmall: TextStyle(fontSize: 19, color: lightGray))),
+                    bodySmall:
+                        TextStyle(fontSize: 19, color: Color(0xFF6C757D)))),
+            darkTheme: ThemeData(
+                colorScheme: const ColorScheme.dark(
+                    primary: primaryDark,
+                    secondary: primaryDark,
+                    surfaceVariant: Color(0xFF161616),
+                    onSurfaceVariant: Color(0xFFA8B1B9)),
+                textTheme: const TextTheme(
+                    headlineMedium: TextStyle(
+                        fontSize: 34,
+                        color: primaryDark,
+                        fontFamily: 'Verveine'),
+                    headlineSmall: TextStyle(
+                        fontSize: 17,
+                        color: primaryDark,
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.w300),
+                    bodyLarge: TextStyle(fontSize: 21),
+                    bodyMedium: TextStyle(fontSize: 21),
+                    bodySmall:
+                        TextStyle(fontSize: 19, color: Color(0xFFA8B1B9)))),
             home: const Home()));
   }
 }

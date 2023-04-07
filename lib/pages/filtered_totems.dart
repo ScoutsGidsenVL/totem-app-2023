@@ -42,7 +42,8 @@ class FilteredTotems extends StatelessWidget {
                         vertical: 16, horizontal: 12),
                     child: Text(
                         '${animals.length} ${animals.length == 1 ? 'resultaat' : 'resultaten'}',
-                        style: const TextStyle(color: Colors.white)),
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.onPrimary)),
                   ),
                 ),
                 FilledButton(
@@ -53,10 +54,9 @@ class FilteredTotems extends StatelessWidget {
                     children: [
                       Icon(Icons.arrow_back,
                           color: Theme.of(context).colorScheme.onPrimary),
-                      const Text('KIES EIGENSCHAPPEN',
+                      Text('KIES EIGENSCHAPPEN',
                           style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w300)),
+                              color: Theme.of(context).colorScheme.onPrimary)),
                     ],
                   ),
                 ),

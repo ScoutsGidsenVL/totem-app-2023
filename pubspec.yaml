@@ -36,7 +36,6 @@ dependencies:
   flutter_native_splash: ^2.2.19
   share_plus: ^6.3.1
   flutter_speed_dial: ^6.2.0
-  sticky_headers: ^0.3.0+2
 
 dev_dependencies:
   flutter_test:

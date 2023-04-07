@@ -56,6 +56,8 @@ class _ProfileDialogState extends State<ProfileDialog> {
   @override
   Widget build(BuildContext context) {
     final profiles = context.watch<ProfileManager>().profiles;
+    final darkMode =
+        MediaQuery.of(context).platformBrightness == Brightness.dark;
 
     return SimpleDialog(
       title: Text(widget.title ?? 'Nieuw profiel'),
@@ -84,7 +86,9 @@ class _ProfileDialogState extends State<ProfileDialog> {
               },
               iconSize: i == _colorId ? 32 : null,
               icon: Icon(Icons.account_circle,
-                  color: i == _colorId ? c.shade700 : c.shade300));
+                  color: i == _colorId
+                      ? (darkMode ? c.shade300 : c.shade700)
+                      : (darkMode ? c.shade500 : c.shade300)));
         }).toList()),
       ],
     );

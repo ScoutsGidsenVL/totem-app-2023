@@ -25,7 +25,6 @@ class AnimalEntry extends StatelessWidget {
             padRight ? const EdgeInsets.only(left: 16, right: 32) : null,
         onTap: () {
           showModalBottomSheet(
-              backgroundColor: Theme.of(context).colorScheme.surface,
               context: context,
               enableDrag: true,
               isScrollControlled: true,
