@@ -22,6 +22,7 @@ class _EigenschappenState extends State<Eigenschappen>
   final TextEditingController _searchController = TextEditingController();
   String _search = '';
   bool _showRelevant = false;
+  bool _sortInfluence = false;
   bool _isKeyboardVisible = false;
 
   @override
@@ -64,6 +65,12 @@ class _EigenschappenState extends State<Eigenschappen>
     });
   }
 
+  void setSort(bool state) {
+    setState(() {
+      _sortInfluence = state;
+    });
+  }
+
   @override
   void dispose() {
     _searchFocus.dispose();
@@ -72,15 +79,67 @@ class _EigenschappenState extends State<Eigenschappen>
     super.dispose();
   }
 
+  Widget _buildSortMenu(BuildContext context) {
+    return DraggableScrollableSheet(
+        expand: false,
+        initialChildSize: 0.35,
+        builder: (context, controller) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Padding(
+                padding:
+                    EdgeInsets.only(top: 16, left: 16, right: 16, bottom: 8),
+                child: Text('Sorteer op'),
+              ),
+              const Divider(),
+              ListTile(
+                  onTap: () {
+                    setSort(false);
+                    Navigator.pop(context);
+                  },
+                  leading: Icon(!_sortInfluence
+                      ? Icons.radio_button_checked
+                      : Icons.radio_button_off),
+                  title: const Text('Naam', style: TextStyle(fontSize: 20))),
+              ListTile(
+                  onTap: () {
+                    setSort(true);
+                    Navigator.pop(context);
+                  },
+                  leading: Icon(_sortInfluence
+                      ? Icons.radio_button_checked
+                      : Icons.radio_button_off),
+                  title: const Text('Meeste invloed',
+                      style: TextStyle(fontSize: 20)))
+            ],
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     final filter = context.watch<TraitsFilter>();
-    final allTraits =
-        context.watch<DynamicData>().traits?.values.toList() ?? [];
+    final dynamicData = context.watch<DynamicData>();
+    final allAnimals = dynamicData.animals?.values.toList() ?? [];
+    final allTraits = dynamicData.traits?.values.toList() ?? [];
     final profileManager = context.watch<ProfileManager>();
 
-    final searchTraits = _search.isEmpty
-        ? allTraits
+    final sortedTraits = _search.isEmpty
+        ? _sortInfluence
+            ? allTraits
+                .map((t) {
+                  var influence = 0;
+                  for (var a in allAnimals) {
+                    if (a.traits.contains(t.name)) influence += 1;
+                  }
+                  return MapEntry(t, influence);
+                })
+                .sorted((a, b) => b.value - a.value)
+                .map((e) => e.key)
+                .toList()
+            : allTraits
         : allTraits
             .map((t) {
               var score = 0;
@@ -98,10 +157,10 @@ class _EigenschappenState extends State<Eigenschappen>
             .toList();
 
     var traits = _showRelevant && filter.length > 0
-        ? searchTraits
+        ? sortedTraits
             .where((t) => filter.getState(t.name) != TraitState.neutral)
             .toList()
-        : searchTraits;
+        : sortedTraits;
 
     if (filter.isEmpty && _showRelevant) {
       Future.microtask(() => setState(() => _showRelevant = false));
@@ -114,9 +173,12 @@ class _EigenschappenState extends State<Eigenschappen>
 
     return WillPopScope(
         onWillPop: () async {
-          if (_search.isNotEmpty || _showRelevant) {
+          if (_search.isNotEmpty || _showRelevant || _sortInfluence) {
             clearSearch();
-            setState(() => _showRelevant = false);
+            setState(() {
+              _showRelevant = false;
+              _sortInfluence = false;
+            });
             return false;
           }
           return true;
@@ -139,6 +201,24 @@ class _EigenschappenState extends State<Eigenschappen>
                                     : IconButton(
                                         onPressed: clearSearch,
                                         icon: const Icon(Icons.close)),
+                                _search.isNotEmpty
+                                    ? Container()
+                                    : IconButton(
+                                        onPressed: () {
+                                          showModalBottomSheet(
+                                              context: context,
+                                              enableDrag: true,
+                                              isScrollControlled: true,
+                                              shape:
+                                                  const RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.vertical(
+                                                              top: Radius
+                                                                  .circular(
+                                                                      10))),
+                                              builder: _buildSortMenu);
+                                        },
+                                        icon: const Icon(Icons.sort)),
                                 filter.isEmpty
                                     ? Container()
                                     : IconButton(
@@ -160,6 +240,7 @@ class _EigenschappenState extends State<Eigenschappen>
                                 return TraitEntry(trait: trait);
                               },
                               indexBarData: _search.isNotEmpty ||
+                                      _sortInfluence ||
                                       constraints.maxHeight < 400
                                   ? []
                                   : SuspensionUtil.getTagIndexList(traits),
