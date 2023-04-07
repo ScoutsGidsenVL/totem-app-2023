@@ -15,6 +15,9 @@ class ProfileManager extends ChangeNotifier {
   List<ProfileData> profiles = [];
   String? selectedName;
 
+  bool showRelevantAnimals = false;
+  bool showRelevantTraits = false;
+
   ProfileManager(this.dynamicData, this.selectedName) {
     loadProfiles();
   }
@@ -112,6 +115,16 @@ class ProfileManager extends ChangeNotifier {
   void updateProfile(Function fn) {
     fn();
     storeProfiles();
+    notifyListeners();
+  }
+
+  void setShowRelevantAnimals(bool state) {
+    showRelevantAnimals = state;
+    notifyListeners();
+  }
+
+  void setShowRelevantTraits(bool state) {
+    showRelevantTraits = state;
     notifyListeners();
   }
 }

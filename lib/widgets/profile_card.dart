@@ -71,6 +71,7 @@ class ProfileCard extends StatelessWidget {
               style: const ButtonStyle(
                   shape: MaterialStatePropertyAll(RoundedRectangleBorder())),
               onPressed: () {
+                manager.setShowRelevantAnimals(true);
                 context.read<TabManager>().selectTabRoot(0);
               },
               child:
@@ -87,6 +88,7 @@ class ProfileCard extends StatelessWidget {
             ),
           TextButton(
             onPressed: () {
+              manager.setShowRelevantTraits(true);
               context.read<TabManager>().selectTabRoot(1);
             },
             child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [

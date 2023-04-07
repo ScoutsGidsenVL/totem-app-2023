@@ -84,10 +84,16 @@ class _TotemsState extends State<Totems> {
       Future.microtask(() => setState(() => _showRelevant = false));
     }
 
+    if (profileManager.showRelevantAnimals) {
+      profileManager.showRelevantAnimals = false;
+      Future.microtask(() => setState(() => _showRelevant = true));
+    }
+
     return WillPopScope(
         onWillPop: () async {
-          if (_search.isNotEmpty) {
+          if (_search.isNotEmpty || _showRelevant) {
             clearSearch();
+            setState(() => _showRelevant = false);
             return false;
           }
           return true;
