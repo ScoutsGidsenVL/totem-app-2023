@@ -22,6 +22,7 @@ class AnimalCard extends StatefulWidget {
 
 class _AnimalCardState extends State<AnimalCard> {
   late AnimalData _animal;
+  bool _hidden = false;
 
   @override
   void initState() {
@@ -38,6 +39,12 @@ class _AnimalCardState extends State<AnimalCard> {
     final newAnimal = widget.swipeList![index];
     setState(() {
       _animal = newAnimal;
+    });
+  }
+
+  void toggleHidden() {
+    setState(() {
+      _hidden = !_hidden;
     });
   }
 
@@ -71,32 +78,48 @@ class _AnimalCardState extends State<AnimalCard> {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('${_animal.id.toString()}. ',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headlineMedium
-                                    ?.copyWith(
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .tertiary)),
-                            Expanded(
-                                child: Text.rich(
-                                    TextSpan(children: [
-                                      TextSpan(
-                                          text: _animal.name,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .headlineMedium),
-                                      TextSpan(
-                                          text: _animal.synonyms.isEmpty
-                                              ? null
-                                              : ' - ${_animal.synonyms.join(', ')}',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .headlineSmall),
-                                    ]),
-                                    softWrap: true)),
-                            AnimalStarButton(animal: _animal.name),
+                            ..._hidden
+                                ? [
+                                    Expanded(
+                                        child: Text('...',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .headlineMedium)),
+                                  ]
+                                : [
+                                    Text('${_animal.id.toString()}. ',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headlineMedium
+                                            ?.copyWith(
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .tertiary)),
+                                    Expanded(
+                                        child: Text.rich(
+                                            TextSpan(children: [
+                                              TextSpan(
+                                                  text: _animal.name,
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .headlineMedium),
+                                              TextSpan(
+                                                  text: _animal.synonyms.isEmpty
+                                                      ? null
+                                                      : ' - ${_animal.synonyms.join(', ')}',
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .headlineSmall),
+                                            ]),
+                                            softWrap: true)),
+                                  ],
+                            IconButton(
+                                onPressed: toggleHidden,
+                                icon: Icon(_hidden
+                                    ? Icons.visibility_off
+                                    : Icons.visibility)),
+                            AnimalStarButton(
+                                animal: _animal.name, hidden: _hidden),
                           ],
                         ),
                         const Padding(
@@ -128,17 +151,23 @@ class _AnimalCardState extends State<AnimalCard> {
                           children: [
                             Padding(
                                 padding: const EdgeInsets.only(bottom: 16),
-                                child: Text(_animal.description,
+                                child: Text(
+                                    _hidden
+                                        ? _animal.description
+                                            .replaceAll(_animal.name, '...')
+                                        : _animal.description,
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodyMedium)),
                             TraitsList(_animal.traits),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 8),
-                              child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(5),
-                                  child: Image.network(_animal.image)),
-                            ),
+                            _hidden
+                                ? Container()
+                                : Padding(
+                                    padding: const EdgeInsets.only(top: 8),
+                                    child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(5),
+                                        child: Image.network(_animal.image)),
+                                  ),
                             similarAnimals.isEmpty
                                 ? Container()
                                 : Padding(
@@ -150,6 +179,7 @@ class _AnimalCardState extends State<AnimalCard> {
                                             .bodyLarge)),
                             ...similarAnimals.map((a) => AnimalPreviewCard(
                                 animal: a,
+                                hidden: _hidden,
                                 onPressed: () {
                                   setState(() {
                                     _animal = a;

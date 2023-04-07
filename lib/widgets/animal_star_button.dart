@@ -11,9 +11,11 @@ class AnimalStarButton extends StatelessWidget {
   const AnimalStarButton({
     super.key,
     required this.animal,
+    this.hidden = false,
   });
 
   final String animal;
+  final bool hidden;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,9 @@ class AnimalStarButton extends StatelessWidget {
           if (profile != null) {
             profileManager.toggleAnimal(profile, animal, !starred);
             if (starred) {
-              showUndo(context, '$animal verwijderd van ${profile.name}', () {
+              showUndo(context,
+                  '${hidden ? '...' : animal} verwijderd van ${profile.name}',
+                  () {
                 profileManager.toggleAnimal(profile, animal, true);
               });
             }
@@ -39,7 +43,7 @@ class AnimalStarButton extends StatelessWidget {
               context: context,
               builder: (context) {
                 return SimpleDialog(
-                    title: Text('Voeg $animal toe aan'),
+                    title: Text('Voeg ${hidden ? '...' : animal} toe aan'),
                     contentPadding: const EdgeInsets.all(12),
                     children: [
                       ...profiles.map((profile) {
@@ -50,7 +54,8 @@ class AnimalStarButton extends StatelessWidget {
                                 profile, animal, !starred);
                             if (starred) {
                               showUndo(context,
-                                  '$animal verwijderd van ${profile.name}', () {
+                                  '${hidden ? '...' : animal} verwijderd van ${profile.name}',
+                                  () {
                                 profileManager.toggleAnimal(
                                     profile, animal, true);
                               });

@@ -4,9 +4,11 @@ import 'package:totemapp/widgets/animal_name.dart';
 import 'package:totemapp/widgets/traits_list.dart';
 
 class AnimalPreviewCard extends StatelessWidget {
-  const AnimalPreviewCard({super.key, required this.animal, this.onPressed});
+  const AnimalPreviewCard(
+      {super.key, required this.animal, this.hidden = false, this.onPressed});
 
   final AnimalData animal;
+  final bool hidden;
   final void Function()? onPressed;
 
   @override
@@ -22,7 +24,9 @@ class AnimalPreviewCard extends StatelessWidget {
               children: [
                 Padding(
                     padding: const EdgeInsets.only(bottom: 8),
-                    child: AnimalName(animal)),
+                    child: hidden
+                        ? const Text('...', style: TextStyle(fontSize: 20))
+                        : AnimalName(animal)),
                 TraitsList(animal.traits),
               ],
             )),
