@@ -1,9 +1,7 @@
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:totemapp/model/profile_manager.dart';
 import 'package:totemapp/model/totem_data.dart';
 import 'package:azlistview/azlistview.dart';
-import 'package:totemapp/pages/eigenschappen.dart';
 
 class TraitsFilter extends ChangeNotifier {
   TraitsFilter(this.profileManager, Map<String, TraitState>? selectedTraits) {

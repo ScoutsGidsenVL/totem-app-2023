@@ -12,7 +12,7 @@ class AnimalPreviewCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.symmetric(vertical: 4),
+      margin: const EdgeInsets.symmetric(vertical: 5),
       child: InkWell(
         onTap: onPressed,
         child: Padding(
