@@ -23,24 +23,27 @@ class Profielen extends StatelessWidget {
               padding: const EdgeInsets.all(10), child: ProfileCard(profile)),
           Expanded(
               child: Scrollbar(
-                  child: AzListView(
-                      data: profiles,
-                      itemCount: profiles.length,
-                      itemBuilder: (context, index) {
-                        return ProfileEntry(profile: profiles[index]);
-                      },
-                      indexBarData: SuspensionUtil.getTagIndexList(profiles),
-                      indexBarOptions: IndexBarOptions(
-                        needRebuild: true,
-                        hapticFeedback: true,
-                        selectTextStyle: const TextStyle(
-                            fontSize: 12,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500),
-                        selectItemDecoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Theme.of(context).colorScheme.primary),
-                      ))))
+                  child: LayoutBuilder(
+                      builder: (context, constraints) => AzListView(
+                          data: profiles,
+                          itemCount: profiles.length,
+                          itemBuilder: (context, index) {
+                            return ProfileEntry(profile: profiles[index]);
+                          },
+                          indexBarData: constraints.maxHeight < 300
+                              ? []
+                              : SuspensionUtil.getTagIndexList(profiles),
+                          indexBarOptions: IndexBarOptions(
+                            needRebuild: true,
+                            hapticFeedback: true,
+                            selectTextStyle: const TextStyle(
+                                fontSize: 12,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500),
+                            selectItemDecoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Theme.of(context).colorScheme.primary),
+                          )))))
         ]),
         floatingActionButton: SpeedDial(
           icon: Icons.add,
