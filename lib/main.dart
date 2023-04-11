@@ -158,7 +158,14 @@ class Home extends StatelessWidget {
                     icon: badge == null
                         ? Icon(t.icon)
                         : Badge(
-                            label: Text(badge.label),
+                            label: ConstrainedBox(
+                                constraints: const BoxConstraints(
+                                  maxWidth: 80,
+                                ),
+                                child: Text(badge.label,
+                                    overflow: TextOverflow.fade,
+                                    maxLines: 1,
+                                    softWrap: false)),
                             backgroundColor: badge.color ??
                                 Theme.of(context).colorScheme.primary,
                             child: Icon(t.icon),
