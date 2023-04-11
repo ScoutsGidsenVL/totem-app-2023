@@ -6,7 +6,9 @@ import 'package:totemapp/util.dart';
 class ProfileEntry extends StatelessWidget {
   final ProfileData profile;
 
-  const ProfileEntry({super.key, required this.profile});
+  const ProfileEntry({super.key, required this.profile, this.onSelect});
+
+  final void Function()? onSelect;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +20,7 @@ class ProfileEntry extends StatelessWidget {
         contentPadding: const EdgeInsets.only(left: 16, right: 32),
         onTap: () {
           manager.selectProfile(profile.name);
+          onSelect?.call();
         },
         title: Row(
           children: [
