@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const primaryLight = Color(0xFF005C9D);
-    const primaryDark = Color(0xFF1397F5);
+    const primaryDark = Color(0xFF4FA6E4);
 
     return MultiProvider(
         providers: [
@@ -95,7 +95,7 @@ class MyApp extends StatelessWidget {
                 colorScheme: const ColorScheme.dark(
                     primary: primaryDark,
                     secondary: primaryDark,
-                    surfaceVariant: Color(0xFF161616),
+                    surfaceVariant: Color(0xFF272727),
                     onSurfaceVariant: Color(0xFFA8B1B9)),
                 textTheme: const TextTheme(
                     headlineMedium: TextStyle(
