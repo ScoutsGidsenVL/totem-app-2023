@@ -40,8 +40,8 @@ class _ImportDialogState extends State<ImportDialog> {
                             actions: [
                               TextButton(
                                   onPressed: () {
-                                    Navigator.pop(parentContext);
                                     Navigator.pop(context);
+                                    Navigator.pop(parentContext);
                                   },
                                   child: const Text('Annuleren')),
                               TextButton(
