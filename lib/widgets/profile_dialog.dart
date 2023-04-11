@@ -23,14 +23,24 @@ class ProfileDialog extends StatefulWidget {
 }
 
 class _ProfileDialogState extends State<ProfileDialog> {
+  final _nameController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   late int _colorId;
 
   @override
   void initState() {
     super.initState();
+    if (widget.initialName != null) {
+      _nameController.text = widget.initialName!;
+    }
     _colorId =
         widget.initialColor ?? Random().nextInt(ProfileData.colors.length);
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    super.dispose();
   }
 
   void selectColor(int id) {
@@ -53,6 +63,13 @@ class _ProfileDialogState extends State<ProfileDialog> {
     return null;
   }
 
+  void saveProfile(BuildContext context) {
+    if (_formKey.currentState!.validate()) {
+      widget.onSubmitted(_nameController.text.trim(), _colorId);
+      Navigator.pop(context);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final profiles = context.watch<ProfileManager>().profiles;
@@ -66,13 +83,10 @@ class _ProfileDialogState extends State<ProfileDialog> {
         Form(
             key: _formKey,
             child: TextFormField(
-                initialValue: widget.initialName,
+                controller: _nameController,
                 validator: (s) => validateName(s, profiles),
                 onFieldSubmitted: (name) {
-                  if (_formKey.currentState!.validate()) {
-                    widget.onSubmitted(name.trim(), _colorId);
-                    Navigator.pop(context);
-                  }
+                  saveProfile(context);
                 },
                 autofocus: true,
                 textCapitalization: TextCapitalization.words,
@@ -90,6 +104,26 @@ class _ProfileDialogState extends State<ProfileDialog> {
                       ? (darkMode ? c.shade300 : c.shade700)
                       : (darkMode ? c.shade500 : c.shade300)));
         }).toList()),
+        Padding(
+          padding:
+              DialogTheme.of(context).actionsPadding ?? const EdgeInsets.all(8),
+          child: OverflowBar(
+            alignment: MainAxisAlignment.end,
+            overflowAlignment: OverflowBarAlignment.end,
+            children: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text('Annuleren')),
+              TextButton(
+                  onPressed: () {
+                    saveProfile(context);
+                  },
+                  child: const Text('Opslaan')),
+            ],
+          ),
+        ),
       ],
     );
   }

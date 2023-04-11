@@ -92,9 +92,9 @@ class _ProfielenState extends State<Profielen> {
                       context: context,
                       builder: (context) {
                         return ImportDialog(onSubmitted: (profile) {
-                          context
-                              .read<ProfileManager>()
-                              .addProfile(profile, force: true);
+                          context.read<ProfileManager>()
+                            ..selectedName = profile.name
+                            ..addProfile(profile, force: true);
                         });
                       });
                 },
