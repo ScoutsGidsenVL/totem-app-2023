@@ -301,11 +301,11 @@ class ProfielenLocation extends BeamLocation<BeamState> {
           child: Profielen(),
         ),
         if (state.uri.pathSegments.length == 2 &&
-            state.uri.pathSegments[1] == 'import' &&
-            state.uri.queryParameters.containsKey('code'))
+            state.uri.pathSegments[1] == 'import')
           BeamPage(
             key: const ValueKey('profielen/import'),
-            child: ImportProfile(code: state.uri.queryParameters['code']!),
+            child:
+                ImportProfile(initialCode: state.uri.queryParameters['code']),
           ),
       ];
 }

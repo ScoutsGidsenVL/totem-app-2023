@@ -6,30 +6,63 @@ import 'package:totemapp/model/profile_manager.dart';
 import 'package:totemapp/widgets/profile_card.dart';
 
 class ImportProfile extends StatefulWidget {
-  const ImportProfile({required this.code, super.key});
+  const ImportProfile({required this.initialCode, super.key});
 
-  final String code;
+  final String? initialCode;
 
   @override
   State<ImportProfile> createState() => _ImportProfileState();
 }
 
 class _ImportProfileState extends State<ImportProfile> {
+  final FocusNode _textFocus = FocusNode();
+  final TextEditingController _textController = TextEditingController();
   ProfileData? _profile;
 
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      final dynamicData = context.read<DynamicData>();
-      try {
-        final decoded = ProfileData.decode(widget.code, dynamicData);
-        setState(() {
-          _profile = decoded;
-        });
-      } catch (e) {
-        // empty catch
-      }
+    if (widget.initialCode != null) {
+      _textController.text = widget.initialCode!.trim();
+    }
+    if (_textController.text.isNotEmpty) {
+      WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+        _codeChanged(context);
+      });
+    } else {
+      _textFocus.requestFocus();
+    }
+  }
+
+  @override
+  void dispose() {
+    _textFocus.dispose();
+    _textController.dispose();
+    super.dispose();
+  }
+
+  void _codeChanged(BuildContext context) {
+    final dynamicData = context.read<DynamicData>();
+    var code = _textController.text.trim();
+    if (code.startsWith('https://')) {
+      code = code.replaceFirst('https://totemapp.be/?p=', '');
+    }
+    try {
+      final decoded = ProfileData.decode(code, dynamicData);
+      _textFocus.unfocus();
+      setState(() {
+        _profile = decoded;
+      });
+    } catch (e) {
+      // empty catch
+    }
+  }
+
+  void _clearText() {
+    _textController.text = '';
+    _textFocus.requestFocus();
+    setState(() {
+      _profile = null;
     });
   }
 
@@ -39,39 +72,54 @@ class _ImportProfileState extends State<ImportProfile> {
     final isOverwrite = manager.profiles.any((p) => p.name == _profile?.name);
 
     return Scaffold(
-      body: ListView(
-        padding: const EdgeInsets.all(10),
-        children: _profile == null
-            ? []
-            : [
-                ProfileCard(_profile, canOverwrite: true),
-                FilledButton.icon(
-                    onPressed: () {
-                      manager.selectedName = _profile!.name;
-                      manager.addProfile(_profile!, force: true);
-                      context.beamToNamed('/profielen');
-                    },
-                    icon: const Icon(Icons.person_add),
-                    label: Text(
-                        'Profiel ${isOverwrite ? 'overschrijven' : 'importeren'}')),
-                if (isOverwrite)
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 5),
-                        child: Icon(Icons.warning_amber,
-                            color:
-                                Theme.of(context).colorScheme.onSurfaceVariant),
-                      ),
-                      Flexible(
-                        child: Text(
-                            'Er bestaal al een profiel met de naam ${_profile!.name}!',
-                            style: Theme.of(context).textTheme.bodySmall),
-                      )
-                    ],
-                  ),
-              ],
-      ),
+      body: ListView(padding: const EdgeInsets.all(10), children: [
+        TextField(
+            focusNode: _textFocus,
+            controller: _textController,
+            onChanged: (_) => _codeChanged(context),
+            decoration: InputDecoration(
+                suffixIcon: IconButton(
+                    onPressed: _clearText, icon: const Icon(Icons.close)),
+                labelText: 'Link',
+                border: const OutlineInputBorder())),
+        if (_profile != null) ProfileCard(_profile, ephemeral: true),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: FilledButton.icon(
+            onPressed: _profile == null
+                ? null
+                : () {
+                    manager.selectedName = _profile!.name;
+                    manager.addProfile(_profile!, force: true);
+                    context.beamToNamed('/profielen');
+                  },
+            icon: const Icon(Icons.person_add),
+            style: _profile == null
+                ? ButtonStyle(
+                    backgroundColor: MaterialStatePropertyAll(
+                        Theme.of(context).colorScheme.surfaceVariant),
+                    foregroundColor: MaterialStatePropertyAll(
+                        Theme.of(context).colorScheme.onSurfaceVariant))
+                : null,
+            label:
+                Text('Profiel ${isOverwrite ? 'overschrijven' : 'toevoegen'}'),
+          ),
+        ),
+        if (_profile != null && isOverwrite)
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 5),
+                child: Icon(Icons.warning_amber,
+                    color: Theme.of(context).colorScheme.onSurfaceVariant),
+              ),
+              Flexible(
+                child: Text('Er bestaal al een profiel met deze naam!',
+                    style: Theme.of(context).textTheme.bodySmall),
+              )
+            ],
+          ),
+      ]),
     );
   }
 }

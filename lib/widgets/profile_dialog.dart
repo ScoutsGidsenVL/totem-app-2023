@@ -12,13 +12,13 @@ class ProfileDialog extends StatefulWidget {
       this.title,
       this.initialName,
       this.initialColor,
-      this.canOverwrite = false});
+      this.ephemeral = false});
 
   final void Function(String, int) onSubmitted;
   final String? title;
   final String? initialName;
   final int? initialColor;
-  final bool canOverwrite;
+  final bool ephemeral;
 
   @override
   State<ProfileDialog> createState() => _ProfileDialogState();
@@ -55,7 +55,7 @@ class _ProfileDialogState extends State<ProfileDialog> {
     if (name == null || name.trim().isEmpty) {
       return 'Geef een naam in';
     }
-    if (!widget.canOverwrite &&
+    if (!widget.ephemeral &&
         name.trim() != widget.initialName &&
         profiles.any((p) => p.name == name.trim())) {
       return 'Naam bestaat al';

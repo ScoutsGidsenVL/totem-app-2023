@@ -1,8 +1,8 @@
+import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totemapp/model/profile_manager.dart';
 import 'package:azlistview/azlistview.dart';
-import 'package:totemapp/widgets/import_dialog.dart';
 import 'package:totemapp/widgets/profile_card.dart';
 import 'package:totemapp/widgets/profile_dialog.dart';
 import 'package:totemapp/widgets/profile_entry.dart';
@@ -88,11 +88,7 @@ class _ProfielenState extends State<Profielen> {
                 child: const Icon(Icons.person_add)),
             SpeedDialChild(
                 onTap: () {
-                  showDialog(
-                      context: context,
-                      builder: (context) {
-                        return const ImportDialog();
-                      });
+                  context.beamToNamed('/profielen/import');
                 },
                 backgroundColor: Theme.of(context).colorScheme.primary,
                 foregroundColor: Theme.of(context).colorScheme.onPrimary,

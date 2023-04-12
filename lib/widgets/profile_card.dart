@@ -7,10 +7,10 @@ import 'package:share_plus/share_plus.dart';
 import 'package:beamer/beamer.dart';
 
 class ProfileCard extends StatelessWidget {
-  const ProfileCard(this.profile, {this.canOverwrite = false, super.key});
+  const ProfileCard(this.profile, {this.ephemeral = false, super.key});
 
   final ProfileData? profile;
-  final bool canOverwrite;
+  final bool ephemeral;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +18,9 @@ class ProfileCard extends StatelessWidget {
     final filter = context.watch<TraitsFilter>();
     final darkMode =
         MediaQuery.of(context).platformBrightness == Brightness.dark;
+    final traitCount = profile == null
+        ? filter.selectedCount
+        : profile!.traits.values.where((s) => s == TraitState.positive).length;
 
     return Card(
         child: Padding(
@@ -51,7 +54,7 @@ class ProfileCard extends StatelessWidget {
                                       traits: profileTraits,
                                       color: color);
                                 },
-                                canOverwrite: canOverwrite);
+                                ephemeral: ephemeral);
                           });
                     },
                     icon: const Icon(Icons.person_add))
@@ -75,7 +78,7 @@ class ProfileCard extends StatelessWidget {
                                 title: 'Profiel bewerken',
                                 initialName: profile!.name,
                                 initialColor: profile!.colorId,
-                                canOverwrite: canOverwrite);
+                                ephemeral: ephemeral);
                           });
                     },
                     icon: const Icon(Icons.edit)),
@@ -84,10 +87,12 @@ class ProfileCard extends StatelessWidget {
             TextButton(
               style: const ButtonStyle(
                   shape: MaterialStatePropertyAll(RoundedRectangleBorder())),
-              onPressed: () {
-                manager.setShowRelevantAnimals(true);
-                Beamer.of(context, root: true).beamToNamed('/totems');
-              },
+              onPressed: ephemeral
+                  ? null
+                  : () {
+                      manager.setShowRelevantAnimals(true);
+                      Beamer.of(context, root: true).beamToNamed('/totems');
+                    },
               child:
                   Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Padding(
@@ -101,17 +106,20 @@ class ProfileCard extends StatelessWidget {
               ]),
             ),
           TextButton(
-            onPressed: () {
-              manager.setShowRelevantTraits(true);
-              Beamer.of(context, root: true).beamToNamed('/eigenschappen');
-            },
+            onPressed: ephemeral
+                ? null
+                : () {
+                    manager.setShowRelevantTraits(true);
+                    Beamer.of(context, root: true)
+                        .beamToNamed('/eigenschappen');
+                  },
             child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Padding(
                   padding: const EdgeInsets.only(right: 8),
                   child: Icon(Icons.psychology,
                       color: Theme.of(context).colorScheme.onSurfaceVariant)),
               Flexible(
-                  child: Text('${filter.selectedCount} eigenschappen',
+                  child: Text('$traitCount eigenschappen',
                       style: Theme.of(context).textTheme.bodySmall,
                       softWrap: true)),
             ]),

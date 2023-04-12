@@ -215,7 +215,10 @@ class ProfileData extends ISuspensionBean {
             traits[dynamicData.traitsById![i + 1]?.name]?.isPositive ?? false);
 
     final bytes = builder.takeBytes();
-    final str = base64.encode(bytes);
+    var str = base64.encode(bytes);
+    while (str.endsWith('=')) {
+      str = str.substring(0, str.length - 1);
+    }
     return str;
   }
 
