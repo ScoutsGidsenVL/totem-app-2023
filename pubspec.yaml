@@ -37,6 +37,7 @@ dependencies:
   share_plus: ^6.3.1
   flutter_speed_dial: ^6.2.0
   scrollable_positioned_list: ^0.2.3
+  beamer: ^1.5.3
 
 dev_dependencies:
   flutter_test:

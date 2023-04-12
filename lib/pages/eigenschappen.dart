@@ -1,3 +1,4 @@
+import 'package:beamer/beamer.dart';
 import 'package:collection/collection.dart';
 import 'package:azlistview/azlistview.dart';
 import 'package:flutter/material.dart';
@@ -288,7 +289,7 @@ class _EigenschappenState extends State<Eigenschappen>
                         ),
                         FilledButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/results');
+                              context.beamToNamed('/eigenschappen/results');
                             },
                             child: Row(
                               children: [

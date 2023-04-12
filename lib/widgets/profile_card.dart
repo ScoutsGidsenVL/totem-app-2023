@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totemapp/model/profile_manager.dart';
-import 'package:totemapp/model/tab_manager.dart';
 import 'package:totemapp/model/traits_filter.dart';
 import 'package:totemapp/widgets/profile_dialog.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:beamer/beamer.dart';
 
 class ProfileCard extends StatelessWidget {
   const ProfileCard(this.profile, {super.key});
@@ -75,7 +75,7 @@ class ProfileCard extends StatelessWidget {
                   shape: MaterialStatePropertyAll(RoundedRectangleBorder())),
               onPressed: () {
                 manager.setShowRelevantAnimals(true);
-                context.read<TabManager>().selectTabRoot(0);
+                Beamer.of(context, root: true).beamToNamed('/totems');
               },
               child:
                   Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -92,7 +92,7 @@ class ProfileCard extends StatelessWidget {
           TextButton(
             onPressed: () {
               manager.setShowRelevantTraits(true);
-              context.read<TabManager>().selectTabRoot(1);
+              Beamer.of(context, root: true).beamToNamed('/eigenschappen');
             },
             child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Padding(

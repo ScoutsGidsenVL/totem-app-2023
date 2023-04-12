@@ -1,9 +1,7 @@
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:totemapp/model/checklist_data.dart';
 import 'package:totemapp/model/dynamic_data.dart';
 import 'package:totemapp/model/profile_manager.dart';
-import 'package:totemapp/model/tab_manager.dart';
 import 'package:totemapp/model/traits_filter.dart';
 import 'package:totemapp/pages/checklist.dart';
 import 'package:totemapp/pages/eigenschappen.dart';
@@ -12,6 +10,49 @@ import 'package:totemapp/pages/filtered_totems.dart';
 import 'package:totemapp/pages/profielen.dart';
 import 'package:totemapp/pages/totems.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:beamer/beamer.dart';
+
+final List<TabInfo> tabs = [
+  TabInfo(
+    title: 'Totems',
+    icon: Icons.pets,
+    path: '/totems',
+    locationBuilder: (info, params) {
+      return TotemsLocation(info);
+    },
+  ),
+  TabInfo(
+    title: 'Eigenschappen',
+    icon: Icons.psychology,
+    path: '/eigenschappen',
+    locationBuilder: (info, params) {
+      return EigenschappenLocation(info);
+    },
+  ),
+  TabInfo(
+    title: 'Profielen',
+    icon: Icons.person,
+    path: '/profielen',
+    locationBuilder: (info, params) {
+      return ProfielenLocation(info);
+    },
+    badge: (context) {
+      final profile = context.watch<ProfileManager>().profile;
+      if (profile == null) return null;
+      final darkMode =
+          MediaQuery.of(context).platformBrightness == Brightness.dark;
+      return BadgeInfo(profile.name, profile.color[darkMode ? 400 : 700]);
+    },
+  ),
+  TabInfo(
+    title: 'Checklist',
+    icon: Icons.check_circle,
+    path: '/checklist',
+    locationBuilder: (info, params) {
+      return ChecklistLocation(info);
+    },
+  ),
+];
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -19,11 +60,17 @@ void main() {
   Future.delayed(const Duration(milliseconds: 600)).then((_) {
     FlutterNativeSplash.remove();
   });
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final routerDelegate = BeamerDelegate(
+      initialPath: '/totems',
+      locationBuilder: RoutesLocationBuilder(routes: {
+        '*': (context, state, data) => const ScaffoldWithNavBar(),
+      }));
 
   @override
   Widget build(BuildContext context) {
@@ -32,32 +79,6 @@ class MyApp extends StatelessWidget {
 
     return MultiProvider(
         providers: [
-          ChangeNotifierProvider(
-              create: (_) => TabManager([
-                    TabItem('Totems', Icons.pets, (settings) {
-                      return const Totems();
-                    }),
-                    TabItem('Eigenschappen', Icons.psychology, (settings) {
-                      if (settings.name == '/results') {
-                        return const FilteredTotems();
-                      }
-                      return const Eigenschappen();
-                    }),
-                    TabItem('Profielen', Icons.person, (settings) {
-                      return const Profielen();
-                    }, badge: (context) {
-                      final profile = context.watch<ProfileManager>().profile;
-                      if (profile == null) return null;
-                      final darkMode =
-                          MediaQuery.of(context).platformBrightness ==
-                              Brightness.dark;
-                      return BadgeInfo(
-                          profile.name, profile.color[darkMode ? 400 : 700]);
-                    }),
-                    TabItem('Checklist', Icons.check_circle, (settings) {
-                      return const Checklist();
-                    }),
-                  ])),
           ChangeNotifierProvider(create: (_) => DynamicData()),
           ChangeNotifierProvider(create: (_) => ChecklistData()),
           ChangeNotifierProxyProvider<DynamicData, ProfileManager>(
@@ -69,112 +90,220 @@ class MyApp extends StatelessWidget {
                   TraitsFilter(profileManager, prev?.fallbackTraits),
               create: (_) => TraitsFilter(null, {})),
         ],
-        child: MaterialApp(
-            title: 'Totemapp',
-            theme: ThemeData(
-                colorScheme: const ColorScheme.light(
-                    primary: primaryLight,
-                    secondary: primaryLight,
-                    surfaceVariant: Color(0xFFE4E4E4),
-                    onSurfaceVariant: Color(0xFF6C757D)),
-                textTheme: const TextTheme(
-                    headlineMedium: TextStyle(
-                        fontSize: 34,
-                        color: primaryLight,
-                        fontFamily: 'Verveine'),
-                    headlineSmall: TextStyle(
-                        fontSize: 17,
-                        color: primaryLight,
-                        fontStyle: FontStyle.italic,
-                        fontWeight: FontWeight.w300),
-                    bodyLarge: TextStyle(fontSize: 21),
-                    bodyMedium: TextStyle(fontSize: 21),
-                    bodySmall:
-                        TextStyle(fontSize: 19, color: Color(0xFF6C757D)))),
-            darkTheme: ThemeData(
-                colorScheme: const ColorScheme.dark(
-                    primary: primaryDark,
-                    secondary: primaryDark,
-                    surfaceVariant: Color(0xFF272727),
-                    onSurfaceVariant: Color(0xFFA8B1B9)),
-                textTheme: const TextTheme(
-                    headlineMedium: TextStyle(
-                        fontSize: 34,
-                        color: primaryDark,
-                        fontFamily: 'Verveine'),
-                    headlineSmall: TextStyle(
-                        fontSize: 17,
-                        color: primaryDark,
-                        fontStyle: FontStyle.italic,
-                        fontWeight: FontWeight.w300),
-                    bodyLarge: TextStyle(fontSize: 21),
-                    bodyMedium: TextStyle(fontSize: 21),
-                    bodySmall:
-                        TextStyle(fontSize: 19, color: Color(0xFFA8B1B9)))),
-            home: const Home()));
+        child: MaterialApp.router(
+          title: 'Totemapp',
+          theme: ThemeData(
+              colorScheme: const ColorScheme.light(
+                  primary: primaryLight,
+                  secondary: primaryLight,
+                  surfaceVariant: Color(0xFFE4E4E4),
+                  onSurfaceVariant: Color(0xFF6C757D)),
+              textTheme: const TextTheme(
+                  headlineMedium: TextStyle(
+                      fontSize: 34,
+                      color: primaryLight,
+                      fontFamily: 'Verveine'),
+                  headlineSmall: TextStyle(
+                      fontSize: 17,
+                      color: primaryLight,
+                      fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.w300),
+                  bodyLarge: TextStyle(fontSize: 21),
+                  bodyMedium: TextStyle(fontSize: 21),
+                  bodySmall:
+                      TextStyle(fontSize: 19, color: Color(0xFF6C757D)))),
+          darkTheme: ThemeData(
+              colorScheme: const ColorScheme.dark(
+                  primary: primaryDark,
+                  secondary: primaryDark,
+                  surfaceVariant: Color(0xFF272727),
+                  onSurfaceVariant: Color(0xFFA8B1B9)),
+              textTheme: const TextTheme(
+                  headlineMedium: TextStyle(
+                      fontSize: 34, color: primaryDark, fontFamily: 'Verveine'),
+                  headlineSmall: TextStyle(
+                      fontSize: 17,
+                      color: primaryDark,
+                      fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.w300),
+                  bodyLarge: TextStyle(fontSize: 21),
+                  bodyMedium: TextStyle(fontSize: 21),
+                  bodySmall:
+                      TextStyle(fontSize: 19, color: Color(0xFFA8B1B9)))),
+          routerDelegate: routerDelegate,
+          routeInformationParser: BeamerParser(),
+          backButtonDispatcher:
+              BeamerBackButtonDispatcher(delegate: routerDelegate),
+        ));
   }
 }
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class ScaffoldWithNavBar extends StatefulWidget {
+  const ScaffoldWithNavBar({super.key});
+
+  @override
+  State<ScaffoldWithNavBar> createState() => _ScaffoldWithNavBarState();
+}
+
+class _ScaffoldWithNavBarState extends State<ScaffoldWithNavBar> {
+  late int _currentIndex;
+
+  final _routerDelegates = tabs
+      .map((t) => BeamerDelegate(
+          initialPath: t.path,
+          locationBuilder: (info, params) {
+            if (info.location!.contains(t.path)) {
+              return t.locationBuilder(info, params);
+            }
+            return NotFound(path: info.location!);
+          }))
+      .toList();
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final location = Beamer.of(context).configuration.location!;
+    final index = tabs.lastIndexWhere((tab) => location.startsWith(tab.path));
+    _currentIndex = index < 0 ? 0 : index;
+  }
 
   @override
   Widget build(BuildContext context) {
-    final manager = context.watch<TabManager>();
     return WillPopScope(
-        onWillPop: () async {
-          var popped = await manager.navigatorState!.maybePop();
-          if (popped) return false;
-          if (manager.currentTab != 0) {
-            manager.selectTab(0);
-            return false;
-          }
-          return true;
-        },
-        child: Scaffold(
-            body: Stack(
-                children: manager.tabs
-                    .mapIndexed((index, t) => Offstage(
-                        offstage: manager.currentTab != index,
-                        child: SafeArea(
-                            child: Navigator(
-                                key: manager.navigatorKeys[index],
-                                onGenerateRoute: (settings) {
-                                  return MaterialPageRoute(builder: (context) {
-                                    var res = t.router(settings);
-                                    if (res == null) {
-                                      assert(false);
-                                      return const SizedBox();
-                                    }
-                                    return res;
-                                  });
-                                }))))
-                    .toList()),
-            bottomNavigationBar: BottomNavigationBar(
-              type: BottomNavigationBarType.fixed,
-              items: manager.tabs.map((t) {
-                final badge = t.badge?.call(context);
-                return BottomNavigationBarItem(
-                    icon: badge == null
-                        ? Icon(t.icon)
-                        : Badge(
-                            label: ConstrainedBox(
-                                constraints: const BoxConstraints(
-                                  maxWidth: 80,
-                                ),
-                                child: Text(badge.label,
-                                    overflow: TextOverflow.fade,
-                                    maxLines: 1,
-                                    softWrap: false)),
-                            backgroundColor: badge.color ??
-                                Theme.of(context).colorScheme.primary,
-                            child: Icon(t.icon),
-                          ),
-                    label: t.title);
-              }).toList(),
-              currentIndex: manager.currentTab,
-              onTap: manager.selectTab,
-              selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-            )));
+      onWillPop: () async {
+        var popped = await _routerDelegates[_currentIndex].popRoute();
+        if (popped) return false;
+        if (_currentIndex != 0) {
+          setState(() => _currentIndex = 0);
+          _routerDelegates[_currentIndex].update(rebuild: false);
+          return false;
+        }
+        return true;
+      },
+      child: Scaffold(
+        body: SafeArea(
+          child: IndexedStack(
+            index: _currentIndex,
+            children: _routerDelegates
+                .map((delegate) => Beamer(routerDelegate: delegate))
+                .toList(),
+          ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          items: tabs.map((t) {
+            final badge = t.badge?.call(context);
+            return BottomNavigationBarItem(
+                icon: badge == null
+                    ? Icon(t.icon)
+                    : Badge(
+                        label: ConstrainedBox(
+                            constraints: const BoxConstraints(
+                              maxWidth: 80,
+                            ),
+                            child: Text(badge.label,
+                                overflow: TextOverflow.fade,
+                                maxLines: 1,
+                                softWrap: false)),
+                        backgroundColor: badge.color ??
+                            Theme.of(context).colorScheme.primary,
+                        child: Icon(t.icon),
+                      ),
+                label: t.title);
+          }).toList(),
+          currentIndex: _currentIndex,
+          onTap: (index) {
+            if (index != _currentIndex) {
+              setState(() => _currentIndex = index);
+              _routerDelegates[_currentIndex].update(rebuild: false);
+            } else {
+              _routerDelegates[_currentIndex]
+                  .popToNamed(tabs[_currentIndex].path);
+            }
+          },
+          selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
   }
+}
+
+class TabInfo {
+  const TabInfo({
+    required this.title,
+    required this.icon,
+    required this.path,
+    required this.locationBuilder,
+    this.badge,
+  });
+
+  final String title;
+  final IconData icon;
+  final String path;
+  final BeamLocation<RouteInformationSerializable<dynamic>> Function(
+      RouteInformation info, BeamParameters? params) locationBuilder;
+  final BadgeInfo? Function(BuildContext context)? badge;
+}
+
+class BadgeInfo {
+  const BadgeInfo(this.label, this.color);
+  final String label;
+  final Color? color;
+}
+
+class TotemsLocation extends BeamLocation<BeamState> {
+  TotemsLocation(super.info);
+  @override
+  List<String> get pathPatterns => ['/totems'];
+  @override
+  List<BeamPage> buildPages(BuildContext context, BeamState state) => [
+        const BeamPage(
+          key: ValueKey('totems'),
+          child: Totems(),
+        ),
+      ];
+}
+
+class EigenschappenLocation extends BeamLocation<BeamState> {
+  EigenschappenLocation(super.info);
+  @override
+  List<String> get pathPatterns => ['/eigenschappen/*'];
+  @override
+  List<BeamPage> buildPages(BuildContext context, BeamState state) => [
+        const BeamPage(
+          key: ValueKey('eigenschappen'),
+          child: Eigenschappen(),
+        ),
+        if (state.uri.pathSegments.length == 2)
+          const BeamPage(
+            key: ValueKey('eigenschappen/results'),
+            child: FilteredTotems(),
+          ),
+      ];
+}
+
+class ProfielenLocation extends BeamLocation<BeamState> {
+  ProfielenLocation(super.info);
+  @override
+  List<String> get pathPatterns => ['/profielen'];
+  @override
+  List<BeamPage> buildPages(BuildContext context, BeamState state) => [
+        const BeamPage(
+          key: ValueKey('profielen'),
+          child: Profielen(),
+        ),
+      ];
+}
+
+class ChecklistLocation extends BeamLocation<BeamState> {
+  ChecklistLocation(super.info);
+  @override
+  List<String> get pathPatterns => ['/checklist'];
+  @override
+  List<BeamPage> buildPages(BuildContext context, BeamState state) => [
+        const BeamPage(
+          key: ValueKey('checklist'),
+          child: Checklist(),
+        ),
+      ];
 }
