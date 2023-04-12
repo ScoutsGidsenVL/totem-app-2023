@@ -7,9 +7,10 @@ import 'package:share_plus/share_plus.dart';
 import 'package:beamer/beamer.dart';
 
 class ProfileCard extends StatelessWidget {
-  const ProfileCard(this.profile, {super.key});
+  const ProfileCard(this.profile, {this.canOverwrite = false, super.key});
 
   final ProfileData? profile;
+  final bool canOverwrite;
 
   @override
   Widget build(BuildContext context) {
@@ -39,13 +40,18 @@ class ProfileCard extends StatelessWidget {
                       showDialog(
                           context: context,
                           builder: (context) {
-                            return ProfileDialog(onSubmitted: (name, color) {
-                              final profileTraits =
-                                  Map<String, TraitState>.from(filter.traits);
-                              filter.reset();
-                              context.read<ProfileManager>().createProfile(name,
-                                  traits: profileTraits, color: color);
-                            });
+                            return ProfileDialog(
+                                onSubmitted: (name, color) {
+                                  final profileTraits =
+                                      Map<String, TraitState>.from(
+                                          filter.traits);
+                                  filter.reset();
+                                  context.read<ProfileManager>().createProfile(
+                                      name,
+                                      traits: profileTraits,
+                                      color: color);
+                                },
+                                canOverwrite: canOverwrite);
                           });
                     },
                     icon: const Icon(Icons.person_add))
@@ -56,15 +62,20 @@ class ProfileCard extends StatelessWidget {
                           builder: (context) {
                             return ProfileDialog(
                                 onSubmitted: (name, color) {
+                                  final wasSelected =
+                                      manager.selectedName == profile!.name;
                                   manager.updateProfile(() {
                                     profile!.name = name;
                                     profile!.colorId = color;
-                                    manager.selectedName = name;
+                                    if (wasSelected) {
+                                      manager.selectedName = name;
+                                    }
                                   });
                                 },
                                 title: 'Profiel bewerken',
                                 initialName: profile!.name,
-                                initialColor: profile!.colorId);
+                                initialColor: profile!.colorId,
+                                canOverwrite: canOverwrite);
                           });
                     },
                     icon: const Icon(Icons.edit)),
@@ -110,7 +121,8 @@ class ProfileCard extends StatelessWidget {
               : [
                   FilledButton.icon(
                       onPressed: () {
-                        Share.share(profile!.encode(manager.dynamicData!));
+                        final code = profile!.encode(manager.dynamicData!);
+                        Share.share('https://totemapp.be/?p=$code');
                       },
                       style: ButtonStyle(
                           backgroundColor: MaterialStatePropertyAll(
@@ -118,18 +130,21 @@ class ProfileCard extends StatelessWidget {
                           foregroundColor: MaterialStatePropertyAll(
                               Theme.of(context).colorScheme.onSurfaceVariant)),
                       icon: const Icon(Icons.share),
-                      label: const Text('Profiel code delen')),
-                  FilledButton.icon(
-                      onPressed: () {
-                        manager.unselectProfile();
-                      },
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStatePropertyAll(
-                              Theme.of(context).colorScheme.surfaceVariant),
-                          foregroundColor: MaterialStatePropertyAll(
-                              Theme.of(context).colorScheme.onSurfaceVariant)),
-                      icon: const Icon(Icons.logout),
-                      label: const Text('Zonder profiel gebruiken')),
+                      label: const Text('Profiel delen')),
+                  if (profile == manager.profile)
+                    FilledButton.icon(
+                        onPressed: () {
+                          manager.unselectProfile();
+                        },
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStatePropertyAll(
+                                Theme.of(context).colorScheme.surfaceVariant),
+                            foregroundColor: MaterialStatePropertyAll(
+                                Theme.of(context)
+                                    .colorScheme
+                                    .onSurfaceVariant)),
+                        icon: const Icon(Icons.logout),
+                        label: const Text('Zonder profiel gebruiken')),
                 ]
         ],
       ),

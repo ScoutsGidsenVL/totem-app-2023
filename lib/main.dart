@@ -7,6 +7,7 @@ import 'package:totemapp/pages/checklist.dart';
 import 'package:totemapp/pages/eigenschappen.dart';
 import 'package:provider/provider.dart';
 import 'package:totemapp/pages/filtered_totems.dart';
+import 'package:totemapp/pages/import_profile.dart';
 import 'package:totemapp/pages/profielen.dart';
 import 'package:totemapp/pages/totems.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -131,7 +132,14 @@ class MyApp extends StatelessWidget {
                   bodySmall:
                       TextStyle(fontSize: 19, color: Color(0xFFA8B1B9)))),
           routerDelegate: routerDelegate,
-          routeInformationParser: BeamerParser(),
+          routeInformationParser: BeamerParser(onParse: (info) {
+            if (info.location!.contains('?p=')) {
+              final code = Uri.parse(info.location!).queryParameters['p'];
+              return RouteInformation(
+                  location: '/profielen/import?code=$code', state: info.state);
+            }
+            return info;
+          }),
           backButtonDispatcher:
               BeamerBackButtonDispatcher(delegate: routerDelegate),
         ));
@@ -267,7 +275,7 @@ class TotemsLocation extends BeamLocation<BeamState> {
 class EigenschappenLocation extends BeamLocation<BeamState> {
   EigenschappenLocation(super.info);
   @override
-  List<String> get pathPatterns => ['/eigenschappen/*'];
+  List<String> get pathPatterns => [];
   @override
   List<BeamPage> buildPages(BuildContext context, BeamState state) => [
         const BeamPage(
@@ -285,13 +293,20 @@ class EigenschappenLocation extends BeamLocation<BeamState> {
 class ProfielenLocation extends BeamLocation<BeamState> {
   ProfielenLocation(super.info);
   @override
-  List<String> get pathPatterns => ['/profielen'];
+  List<String> get pathPatterns => ['/profielen/*'];
   @override
   List<BeamPage> buildPages(BuildContext context, BeamState state) => [
         const BeamPage(
           key: ValueKey('profielen'),
           child: Profielen(),
         ),
+        if (state.uri.pathSegments.length == 2 &&
+            state.uri.pathSegments[1] == 'import' &&
+            state.uri.queryParameters.containsKey('code'))
+          BeamPage(
+            key: const ValueKey('profielen/import'),
+            child: ImportProfile(code: state.uri.queryParameters['code']!),
+          ),
       ];
 }
 

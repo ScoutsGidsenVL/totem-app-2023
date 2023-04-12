@@ -91,11 +91,7 @@ class _ProfielenState extends State<Profielen> {
                   showDialog(
                       context: context,
                       builder: (context) {
-                        return ImportDialog(onSubmitted: (profile) {
-                          context.read<ProfileManager>()
-                            ..selectedName = profile.name
-                            ..addProfile(profile, force: true);
-                        });
+                        return const ImportDialog();
                       });
                 },
                 backgroundColor: Theme.of(context).colorScheme.primary,

@@ -220,7 +220,8 @@ class ProfileData extends ISuspensionBean {
   }
 
   factory ProfileData.decode(String code, DynamicData dynamicData) {
-    final bytes = base64.decode(code);
+    final normalized = base64.normalize(code);
+    final bytes = base64.decode(normalized);
     var cursor = 0;
 
     List<int> getList() {
