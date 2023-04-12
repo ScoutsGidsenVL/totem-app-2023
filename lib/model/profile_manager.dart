@@ -149,7 +149,7 @@ class ProfileData extends ISuspensionBean {
     return Random().nextInt(ProfileData.colors.length);
   }
 
-  ProfileData(this.name, this.animals, this.traits, this.colorId)
+  ProfileData(this.name, this.animals, this.traits, this.colorId, {this.error})
       : assert(name.isNotEmpty),
         assert(colorId >= 0 && colorId < colors.length);
 
@@ -157,6 +157,7 @@ class ProfileData extends ISuspensionBean {
   List<String> animals;
   Map<String, TraitState> traits;
   int colorId;
+  String? error;
 
   @override
   String getSuspensionTag() {
@@ -254,6 +255,15 @@ class ProfileData extends ISuspensionBean {
       return list;
     }
 
+    String tryGetName() {
+      try {
+        cursor = 0;
+        return utf8.decode(getList());
+      } catch (e) {
+        return '?';
+      }
+    }
+
     try {
       final versionId = bytes[cursor++];
       switch (versionId) {
@@ -283,10 +293,13 @@ class ProfileData extends ISuspensionBean {
 
           return ProfileData(name, animals, traits, color);
         default:
-          throw FormatException('Unknown profile data version $versionId');
+          return ProfileData(tryGetName(), [], {}, 0,
+              error:
+                  'Onbekend profiel formaat, zorg dat je app up-to-date is.');
       }
     } catch (e) {
-      return ProfileData(code, [], {}, 0);
+      return ProfileData(tryGetName(), [], {}, 0,
+          error: 'Onbekende fout bij laden profiel');
     }
   }
 }

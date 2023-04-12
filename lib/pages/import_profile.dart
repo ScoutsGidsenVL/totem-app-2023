@@ -24,11 +24,6 @@ class _ImportProfileState extends State<ImportProfile> {
     super.initState();
     if (widget.initialCode != null) {
       _textController.text = widget.initialCode!.trim();
-    }
-    if (_textController.text.isNotEmpty) {
-      WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-        _codeChanged(context);
-      });
     } else {
       _textFocus.requestFocus();
     }
@@ -48,13 +43,18 @@ class _ImportProfileState extends State<ImportProfile> {
       code = code.replaceFirst('https://totemapp.be/?p=', '');
     }
     try {
-      final decoded = ProfileData.decode(code, dynamicData);
+      ProfileData? decoded = ProfileData.decode(code, dynamicData);
       _textFocus.unfocus();
+      if (decoded.error != null) {
+        decoded = null;
+      }
       setState(() {
         _profile = decoded;
       });
     } catch (e) {
-      // empty catch
+      setState(() {
+        _profile = null;
+      });
     }
   }
 
@@ -70,6 +70,12 @@ class _ImportProfileState extends State<ImportProfile> {
   Widget build(BuildContext context) {
     final manager = context.watch<ProfileManager>();
     final isOverwrite = manager.profiles.any((p) => p.name == _profile?.name);
+
+    if (manager.dynamicData != null &&
+        _textController.text.isNotEmpty &&
+        _profile == null) {
+      _codeChanged(context);
+    }
 
     return Scaffold(
       body: ListView(padding: const EdgeInsets.all(10), children: [
