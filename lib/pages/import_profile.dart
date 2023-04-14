@@ -18,6 +18,7 @@ class _ImportProfileState extends State<ImportProfile> {
   final FocusNode _textFocus = FocusNode();
   final TextEditingController _textController = TextEditingController();
   ProfileData? _profile;
+  String? _errorMessage;
 
   @override
   void initState() {
@@ -45,11 +46,14 @@ class _ImportProfileState extends State<ImportProfile> {
     try {
       ProfileData? decoded = ProfileData.decode(code, dynamicData);
       _textFocus.unfocus();
-      if (decoded.error != null) {
-        decoded = null;
-      }
       setState(() {
-        _profile = decoded;
+        if (decoded.error != null) {
+          _errorMessage = decoded.error;
+          _profile = null;
+        } else {
+          _errorMessage = null;
+          _profile = decoded;
+        }
       });
     } catch (e) {
       setState(() {
@@ -89,6 +93,9 @@ class _ImportProfileState extends State<ImportProfile> {
                 labelText: 'Link',
                 border: const OutlineInputBorder())),
         if (_profile != null) ProfileCard(_profile, ephemeral: true),
+        if (_errorMessage != null)
+          Text(_errorMessage!,
+              style: TextStyle(color: Theme.of(context).colorScheme.error)),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 10),
           child: FilledButton.icon(
