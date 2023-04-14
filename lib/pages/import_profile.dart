@@ -97,7 +97,7 @@ class _ImportProfileState extends State<ImportProfile> {
                 : () {
                     manager.selectedName = _profile!.name;
                     manager.addProfile(_profile!, force: true);
-                    context.beamToNamed('/profielen');
+                    context.popToNamed('/profielen');
                   },
             icon: const Icon(Icons.person_add),
             style: _profile == null

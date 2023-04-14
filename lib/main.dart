@@ -179,7 +179,7 @@ class _ScaffoldWithNavBarState extends State<ScaffoldWithNavBar> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        var popped = await _routerDelegates[_currentIndex].popRoute();
+        var popped = _routerDelegates[_currentIndex].popBeamLocation();
         if (popped) return false;
         if (_currentIndex != 0) {
           setState(() => _currentIndex = 0);
