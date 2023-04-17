@@ -41,8 +41,7 @@ class TraitEntry extends StatelessWidget {
           activeColor: Theme.of(context).colorScheme.primary,
           value: currentState.isPositive,
           onChanged: (e) {
-            filter.setState(trait.name,
-                e ?? false ? TraitState.positive : TraitState.neutral);
+            filter.setState(trait.name, TraitState.from(e ?? false));
           },
           secondary: nested
               ? null

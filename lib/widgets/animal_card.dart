@@ -155,7 +155,7 @@ class _AnimalCardState extends State<AnimalCard> {
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyMedium)),
-                              TraitsList(_animal.traits),
+                              TraitsList(_animal.traits, interactive: true),
                               _hidden
                                   ? Container()
                                   : Padding(
