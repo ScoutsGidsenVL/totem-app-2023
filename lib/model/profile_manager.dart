@@ -11,6 +11,8 @@ import 'package:totemapp/util.dart';
 import 'package:collection/collection.dart';
 
 class ProfileManager extends ChangeNotifier {
+  static const importPrefix = 'https://totemapp.be/?p=';
+
   DynamicData? dynamicData;
   List<ProfileData> profiles = [];
   String? selectedName;
@@ -29,7 +31,13 @@ class ProfileManager extends ChangeNotifier {
     final prefs = await SharedPreferences.getInstance();
     var encodedProfiles = prefs.getStringList('profiles') ?? [];
     var allProfiles = encodedProfiles
-        .map((p) => ProfileData.decode(p, dynamicData!))
+        .expand<ProfileData>((p) {
+          try {
+            return [ProfileData.decode(p, dynamicData!)];
+          } on Exception {
+            return [];
+          }
+        })
         .where((p) => p.name.isNotEmpty)
         .toList();
 
@@ -149,7 +157,7 @@ class ProfileData extends ISuspensionBean {
     return Random().nextInt(ProfileData.colors.length);
   }
 
-  ProfileData(this.name, this.animals, this.traits, this.colorId, {this.error})
+  ProfileData(this.name, this.animals, this.traits, this.colorId)
       : assert(name.isNotEmpty),
         assert(colorId >= 0 && colorId < colors.length);
 
@@ -157,7 +165,6 @@ class ProfileData extends ISuspensionBean {
   List<String> animals;
   Map<String, TraitState> traits;
   int colorId;
-  String? error;
 
   @override
   String getSuspensionTag() {
@@ -224,47 +231,41 @@ class ProfileData extends ISuspensionBean {
   }
 
   factory ProfileData.decode(String code, DynamicData dynamicData) {
-    final normalized = base64.normalize(code);
-    final bytes = base64.decode(normalized);
-    var cursor = 0;
-
-    List<int> getList() {
-      final length = bytes[cursor++];
-      final list = bytes.slice(cursor, cursor + length);
-      cursor += length;
-      return list;
-    }
-
-    List<bool> getBitset(int length) {
-      assert(length % 8 == 0);
-      final byteLength = length ~/ 8;
-      final bitset = bytes.slice(cursor, cursor + byteLength);
-      cursor += byteLength;
-      final list = <bool>[];
-      for (var i = 0; i < byteLength; i += 1) {
-        int n = bitset[i];
-        list.add(n & (1 << 0) > 0);
-        list.add(n & (1 << 1) > 0);
-        list.add(n & (1 << 2) > 0);
-        list.add(n & (1 << 3) > 0);
-        list.add(n & (1 << 4) > 0);
-        list.add(n & (1 << 5) > 0);
-        list.add(n & (1 << 6) > 0);
-        list.add(n & (1 << 7) > 0);
-      }
-      return list;
-    }
-
-    String tryGetName() {
-      try {
-        cursor = 0;
-        return utf8.decode(getList());
-      } catch (e) {
-        return '?';
-      }
-    }
-
     try {
+      if (code.startsWith(ProfileManager.importPrefix)) {
+        code = code.replaceFirst(ProfileManager.importPrefix, '');
+      }
+      final normalized = base64.normalize(code);
+      final bytes = base64.decode(normalized);
+      var cursor = 0;
+
+      List<int> getList() {
+        final length = bytes[cursor++];
+        final list = bytes.slice(cursor, cursor + length);
+        cursor += length;
+        return list;
+      }
+
+      List<bool> getBitset(int length) {
+        assert(length % 8 == 0);
+        final byteLength = length ~/ 8;
+        final bitset = bytes.slice(cursor, cursor + byteLength);
+        cursor += byteLength;
+        final list = <bool>[];
+        for (var i = 0; i < byteLength; i += 1) {
+          int n = bitset[i];
+          list.add(n & (1 << 0) > 0);
+          list.add(n & (1 << 1) > 0);
+          list.add(n & (1 << 2) > 0);
+          list.add(n & (1 << 3) > 0);
+          list.add(n & (1 << 4) > 0);
+          list.add(n & (1 << 5) > 0);
+          list.add(n & (1 << 6) > 0);
+          list.add(n & (1 << 7) > 0);
+        }
+        return list;
+      }
+
       final versionId = bytes[cursor++];
       switch (versionId) {
         case 1:
@@ -293,13 +294,20 @@ class ProfileData extends ISuspensionBean {
 
           return ProfileData(name, animals, traits, color);
         default:
-          return ProfileData(tryGetName(), [], {}, 0,
-              error:
-                  'Onbekend profiel formaat, zorg dat je app up-to-date is.');
+          throw const ProfileDecodeException(
+              'Het formaat van de link is niet ondersteund, gelieve de laatste versie van de app te installeren');
       }
-    } catch (e) {
-      return ProfileData(tryGetName(), [], {}, 0,
-          error: 'Onbekende fout bij laden profiel');
+    } on ProfileDecodeException {
+      rethrow;
+    } catch (_) {
+      throw const ProfileDecodeException(
+          'Het formaat van de link is incorrect');
     }
   }
+}
+
+class ProfileDecodeException implements Exception {
+  final String message;
+
+  const ProfileDecodeException(this.message);
 }

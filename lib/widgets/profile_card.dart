@@ -130,7 +130,7 @@ class ProfileCard extends StatelessWidget {
                   FilledButton.icon(
                       onPressed: () {
                         final code = profile!.encode(manager.dynamicData!);
-                        Share.share('https://totemapp.be/?p=$code');
+                        Share.share(ProfileManager.importPrefix + code);
                       },
                       style: ButtonStyle(
                           backgroundColor: MaterialStatePropertyAll(

@@ -40,24 +40,24 @@ class _ImportProfileState extends State<ImportProfile> {
   void _codeChanged(BuildContext context) {
     final dynamicData = context.read<DynamicData>();
     var code = _textController.text.trim();
-    if (code.startsWith('https://')) {
-      code = code.replaceFirst('https://totemapp.be/?p=', '');
+    if (code.isEmpty) {
+      setState(() {
+        _profile = null;
+        _errorMessage = null;
+      });
+      return;
     }
     try {
       ProfileData? decoded = ProfileData.decode(code, dynamicData);
       _textFocus.unfocus();
       setState(() {
-        if (decoded.error != null) {
-          _errorMessage = decoded.error;
-          _profile = null;
-        } else {
-          _errorMessage = null;
-          _profile = decoded;
-        }
+        _profile = decoded;
+        _errorMessage = null;
       });
-    } catch (e) {
+    } on ProfileDecodeException catch (e) {
       setState(() {
         _profile = null;
+        _errorMessage = e.message;
       });
     }
   }
@@ -67,6 +67,7 @@ class _ImportProfileState extends State<ImportProfile> {
     _textFocus.requestFocus();
     setState(() {
       _profile = null;
+      _errorMessage = null;
     });
   }
 
@@ -88,14 +89,14 @@ class _ImportProfileState extends State<ImportProfile> {
             controller: _textController,
             onChanged: (_) => _codeChanged(context),
             decoration: InputDecoration(
+                labelText: 'Link',
+                hintText: '${ProfileManager.importPrefix}...',
+                errorText: _errorMessage,
+                errorMaxLines: 5,
                 suffixIcon: IconButton(
                     onPressed: _clearText, icon: const Icon(Icons.close)),
-                labelText: 'Link',
                 border: const OutlineInputBorder())),
         if (_profile != null) ProfileCard(_profile, ephemeral: true),
-        if (_errorMessage != null)
-          Text(_errorMessage!,
-              style: TextStyle(color: Theme.of(context).colorScheme.error)),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 10),
           child: FilledButton.icon(

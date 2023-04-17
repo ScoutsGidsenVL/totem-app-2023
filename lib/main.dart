@@ -141,9 +141,11 @@ class MyApp extends StatelessWidget {
           routerDelegate: routerDelegate,
           routeInformationParser: BeamerParser(onParse: (info) {
             if (info.location!.contains('?p=')) {
-              final code = Uri.parse(info.location!).queryParameters['p'];
+              final code = Uri.parse(info.location!).queryParameters['p'] ?? '';
+              final query =
+                  Uri.encodeQueryComponent(ProfileManager.importPrefix + code);
               return RouteInformation(
-                  location: '/profielen/import?code=$code', state: info.state);
+                  location: '/profielen/import?code=$query', state: info.state);
             }
             return info;
           }),
