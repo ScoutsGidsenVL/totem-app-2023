@@ -96,7 +96,28 @@ class _ImportProfileState extends State<ImportProfile> {
                 suffixIcon: IconButton(
                     onPressed: _clearText, icon: const Icon(Icons.close)),
                 border: const OutlineInputBorder())),
-        if (_profile != null) ProfileCard(_profile, ephemeral: true),
+        if (_profile != null)
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: ProfileCard(_profile, ephemeral: true),
+          ),
+        if (_profile != null && isOverwrite)
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 5),
+                  child: Icon(Icons.warning_amber,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant),
+                ),
+                Flexible(
+                  child: Text('Er bestaal al een profiel met deze naam!',
+                      style: Theme.of(context).textTheme.bodySmall),
+                )
+              ],
+            ),
+          ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 10),
           child: FilledButton.icon(
@@ -119,20 +140,20 @@ class _ImportProfileState extends State<ImportProfile> {
                 Text('Profiel ${isOverwrite ? 'overschrijven' : 'toevoegen'}'),
           ),
         ),
-        if (_profile != null && isOverwrite)
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 5),
-                child: Icon(Icons.warning_amber,
-                    color: Theme.of(context).colorScheme.onSurfaceVariant),
-              ),
-              Flexible(
-                child: Text('Er bestaal al een profiel met deze naam!',
-                    style: Theme.of(context).textTheme.bodySmall),
-              )
-            ],
-          ),
+        Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(right: 5),
+              child: Icon(Icons.info,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant),
+            ),
+            Flexible(
+              child: Text(
+                  'Profiel informatie zit volledig in de link, er wordt niets opgeslagen in de cloud. Na aanpassingen van een profiel moet altijd een nieuwe link gedeeld worden.',
+                  style: Theme.of(context).textTheme.bodySmall),
+            )
+          ],
+        ),
       ]),
     );
   }
