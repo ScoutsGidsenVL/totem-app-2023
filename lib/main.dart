@@ -140,8 +140,8 @@ class MyApp extends StatelessWidget {
             }
             return info;
           }),
-          backButtonDispatcher:
-              BeamerBackButtonDispatcher(delegate: routerDelegate),
+          backButtonDispatcher: BeamerBackButtonDispatcher(
+              delegate: routerDelegate, fallbackToBeamBack: false),
         ));
   }
 }
@@ -179,7 +179,7 @@ class _ScaffoldWithNavBarState extends State<ScaffoldWithNavBar> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        var popped = _routerDelegates[_currentIndex].popBeamLocation();
+        var popped = await _routerDelegates[_currentIndex].popRoute();
         if (popped) return false;
         if (_currentIndex != 0) {
           setState(() => _currentIndex = 0);
