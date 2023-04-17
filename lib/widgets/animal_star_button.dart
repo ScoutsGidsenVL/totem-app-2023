@@ -5,9 +5,9 @@ import 'package:totemapp/model/traits_filter.dart';
 import 'package:totemapp/util.dart';
 import 'package:totemapp/widgets/profile_dialog.dart';
 
-final starColor = Colors.amber.shade600;
-
 class AnimalStarButton extends StatelessWidget {
+  static final color = Colors.amber.shade600;
+
   const AnimalStarButton({
     super.key,
     required this.animal,
@@ -104,7 +104,7 @@ class AnimalStarButton extends StatelessWidget {
               });
           return;
         },
-        color: starred ? starColor : null,
+        color: starred ? color : null,
         icon: Icon(starred ? Icons.star : Icons.star_outline));
   }
 }

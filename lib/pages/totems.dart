@@ -5,6 +5,7 @@ import 'package:totemapp/model/dynamic_data.dart';
 import 'package:azlistview/azlistview.dart';
 import 'package:totemapp/model/profile_manager.dart';
 import 'package:totemapp/widgets/animal_entry.dart';
+import 'package:totemapp/widgets/animal_star_button.dart';
 
 class Totems extends StatefulWidget {
   const Totems({Key? key}) : super(key: key);
@@ -142,9 +143,10 @@ class _TotemsState extends State<Totems> with WidgetsBindingObserver {
                                 ? Container()
                                 : IconButton(
                                     onPressed: toggleRelevant,
-                                    icon: Icon(_showRelevant
-                                        ? Icons.star
-                                        : Icons.star_outline))
+                                    icon: _showRelevant
+                                        ? Icon(Icons.star,
+                                            color: AnimalStarButton.color)
+                                        : const Icon(Icons.star_outline))
                           ]),
                       labelText: 'Zoek totem',
                       border: const OutlineInputBorder()))),
