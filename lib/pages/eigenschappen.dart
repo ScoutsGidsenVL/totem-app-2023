@@ -60,9 +60,9 @@ class _EigenschappenState extends State<Eigenschappen>
     });
   }
 
-  void toggleRelevant() {
+  void setRelevant(bool state) {
     setState(() {
-      _showRelevant = !_showRelevant;
+      _showRelevant = state;
     });
   }
 
@@ -222,11 +222,10 @@ class _EigenschappenState extends State<Eigenschappen>
                                         icon: const Icon(Icons.sort)),
                                 filter.isEmpty
                                     ? Container()
-                                    : IconButton(
-                                        onPressed: toggleRelevant,
-                                        icon: Icon(_showRelevant
-                                            ? Icons.check_box
-                                            : Icons.check_box_outline_blank)),
+                                    : Checkbox(
+                                        value: _showRelevant,
+                                        onChanged: (enabled) =>
+                                            setRelevant(enabled ?? false)),
                               ]),
                           labelText: 'Zoek eigenschap',
                           border: const OutlineInputBorder()))),
