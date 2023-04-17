@@ -16,7 +16,7 @@ import 'package:beamer/beamer.dart';
 final List<TabInfo> tabs = [
   TabInfo(
     title: 'Totems',
-    icon: Icons.pets,
+    icon: (_) => const Icon(Icons.pets),
     path: '/totems',
     locationBuilder: (info, params) {
       return TotemsLocation(info);
@@ -24,7 +24,7 @@ final List<TabInfo> tabs = [
   ),
   TabInfo(
     title: 'Eigenschappen',
-    icon: Icons.psychology,
+    icon: (_) => const Icon(Icons.psychology),
     path: '/eigenschappen',
     locationBuilder: (info, params) {
       return EigenschappenLocation(info);
@@ -32,22 +32,29 @@ final List<TabInfo> tabs = [
   ),
   TabInfo(
     title: 'Profielen',
-    icon: Icons.person,
+    icon: (context) {
+      final profile = context.watch<ProfileManager>().profile;
+      if (profile == null) return const Icon(Icons.person);
+      final darkMode =
+          MediaQuery.of(context).platformBrightness == Brightness.dark;
+      return Badge(
+          label: ConstrainedBox(
+              constraints: const BoxConstraints(
+                maxWidth: 80,
+              ),
+              child: Text(profile.name,
+                  overflow: TextOverflow.fade, maxLines: 1, softWrap: false)),
+          backgroundColor: profile.color[darkMode ? 400 : 700],
+          child: const Icon(Icons.person));
+    },
     path: '/profielen',
     locationBuilder: (info, params) {
       return ProfielenLocation(info);
     },
-    badge: (context) {
-      final profile = context.watch<ProfileManager>().profile;
-      if (profile == null) return null;
-      final darkMode =
-          MediaQuery.of(context).platformBrightness == Brightness.dark;
-      return BadgeInfo(profile.name, profile.color[darkMode ? 400 : 700]);
-    },
   ),
   TabInfo(
     title: 'Checklist',
-    icon: Icons.check_circle,
+    icon: (_) => const Icon(Icons.check_circle),
     path: '/checklist',
     locationBuilder: (info, params) {
       return ChecklistLocation(info);
@@ -167,6 +174,8 @@ class _ScaffoldWithNavBarState extends State<ScaffoldWithNavBar> {
           }))
       .toList();
 
+  BeamerDelegate get currentDelegate => _routerDelegates[_currentIndex];
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -179,11 +188,11 @@ class _ScaffoldWithNavBarState extends State<ScaffoldWithNavBar> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        var popped = await _routerDelegates[_currentIndex].popRoute();
+        var popped = await currentDelegate.popRoute();
         if (popped) return false;
         if (_currentIndex != 0) {
           setState(() => _currentIndex = 0);
-          _routerDelegates[_currentIndex].update(rebuild: false);
+          currentDelegate.update(rebuild: false);
           return false;
         }
         return true;
@@ -199,34 +208,17 @@ class _ScaffoldWithNavBarState extends State<ScaffoldWithNavBar> {
         ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          items: tabs.map((t) {
-            final badge = t.badge?.call(context);
-            return BottomNavigationBarItem(
-                icon: badge == null
-                    ? Icon(t.icon)
-                    : Badge(
-                        label: ConstrainedBox(
-                            constraints: const BoxConstraints(
-                              maxWidth: 80,
-                            ),
-                            child: Text(badge.label,
-                                overflow: TextOverflow.fade,
-                                maxLines: 1,
-                                softWrap: false)),
-                        backgroundColor: badge.color ??
-                            Theme.of(context).colorScheme.primary,
-                        child: Icon(t.icon),
-                      ),
-                label: t.title);
-          }).toList(),
+          items: tabs
+              .map((t) => BottomNavigationBarItem(
+                  icon: t.icon(context), label: t.title))
+              .toList(),
           currentIndex: _currentIndex,
           onTap: (index) {
             if (index != _currentIndex) {
               setState(() => _currentIndex = index);
-              _routerDelegates[_currentIndex].update(rebuild: false);
+              currentDelegate.update(rebuild: false);
             } else {
-              _routerDelegates[_currentIndex]
-                  .popToNamed(tabs[_currentIndex].path);
+              currentDelegate.popToNamed(tabs[_currentIndex].path);
             }
           },
           selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
@@ -242,21 +234,13 @@ class TabInfo {
     required this.icon,
     required this.path,
     required this.locationBuilder,
-    this.badge,
   });
 
   final String title;
-  final IconData icon;
+  final Widget Function(BuildContext context) icon;
   final String path;
   final BeamLocation<RouteInformationSerializable<dynamic>> Function(
       RouteInformation info, BeamParameters? params) locationBuilder;
-  final BadgeInfo? Function(BuildContext context)? badge;
-}
-
-class BadgeInfo {
-  const BadgeInfo(this.label, this.color);
-  final String label;
-  final Color? color;
 }
 
 class TotemsLocation extends BeamLocation<BeamState> {
@@ -275,7 +259,7 @@ class TotemsLocation extends BeamLocation<BeamState> {
 class EigenschappenLocation extends BeamLocation<BeamState> {
   EigenschappenLocation(super.info);
   @override
-  List<String> get pathPatterns => [];
+  List<String> get pathPatterns => ['/eigenschappen/*'];
   @override
   List<BeamPage> buildPages(BuildContext context, BeamState state) => [
         const BeamPage(
