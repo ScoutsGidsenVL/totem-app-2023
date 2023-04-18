@@ -16,8 +16,6 @@ class ProfileCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final manager = context.watch<ProfileManager>();
     final filter = context.watch<TraitsFilter>();
-    final darkMode =
-        MediaQuery.of(context).platformBrightness == Brightness.dark;
     final traitCount = profile == null
         ? filter.selectedCount
         : profile!.traits.values.where((s) => s == TraitState.positive).length;
@@ -30,9 +28,7 @@ class ProfileCard extends StatelessWidget {
             children: [
               Row(children: [
                 Icon(Icons.account_circle,
-                    size: 48,
-                    color:
-                        (profile?.color ?? Colors.grey)[darkMode ? 400 : 700]),
+                    size: 48, color: profile?.getColor(context) ?? Colors.grey),
                 Flexible(
                   child: Padding(
                       padding: const EdgeInsets.only(left: 5),
@@ -53,7 +49,8 @@ class ProfileCard extends StatelessWidget {
                                       filter.reset();
                                       context
                                           .read<ProfileManager>()
-                                          .createProfile(name,
+                                          .createProfile(
+                                              name: name,
                                               traits: profileTraits,
                                               color: color);
                                     },
@@ -72,7 +69,7 @@ class ProfileCard extends StatelessWidget {
                                           manager.selectedName == profile!.name;
                                       manager.updateProfile(() {
                                         profile!.name = name;
-                                        profile!.colorId = color;
+                                        profile!.color = color;
                                         if (wasSelected) {
                                           manager.selectedName = name;
                                         }
@@ -80,7 +77,7 @@ class ProfileCard extends StatelessWidget {
                                     },
                                     title: 'Profiel bewerken',
                                     initialName: profile!.name,
-                                    initialColor: profile!.colorId,
+                                    initialColor: profile!.color,
                                     ephemeral: ephemeral);
                               });
                         },

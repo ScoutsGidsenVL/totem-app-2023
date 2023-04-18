@@ -25,7 +25,7 @@ class _ProfielenState extends State<Profielen> {
     final profiles = manager.profiles;
     final profile = manager.profile;
 
-    final profilesWithHeader = [ProfileData('#', [], {}, 0), ...profiles];
+    final profilesWithHeader = [ProfileData(name: '#'), ...profiles];
 
     return Scaffold(
         body: Scrollbar(
@@ -78,7 +78,7 @@ class _ProfielenState extends State<Profielen> {
                         return ProfileDialog(onSubmitted: (name, color) {
                           context
                               .read<ProfileManager>()
-                              .createProfile(name, color: color);
+                              .createProfile(name: name, color: color);
                         });
                       });
                 },

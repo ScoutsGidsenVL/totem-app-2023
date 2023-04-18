@@ -35,8 +35,6 @@ final List<TabInfo> tabs = [
     icon: (context) {
       final profile = context.watch<ProfileManager>().profile;
       if (profile == null) return const Icon(Icons.person);
-      final darkMode =
-          MediaQuery.of(context).platformBrightness == Brightness.dark;
       return Badge(
           label: ConstrainedBox(
               constraints: const BoxConstraints(
@@ -44,7 +42,7 @@ final List<TabInfo> tabs = [
               ),
               child: Text(profile.name,
                   overflow: TextOverflow.fade, maxLines: 1, softWrap: false)),
-          backgroundColor: profile.color[darkMode ? 400 : 700],
+          backgroundColor: profile.getColor(context),
           child: const Icon(Icons.person));
     },
     path: '/profielen',

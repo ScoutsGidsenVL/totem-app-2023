@@ -321,7 +321,7 @@ class _EigenschappenState extends State<Eigenschappen>
                                           filter.traits);
                                   filter.reset();
                                   context.read<ProfileManager>().createProfile(
-                                      name,
+                                      name: name,
                                       traits: profileTraits,
                                       color: color);
                                 });

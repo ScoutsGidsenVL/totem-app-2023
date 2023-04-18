@@ -80,11 +80,19 @@ class ProfileManager extends ChangeNotifier {
     notifyListeners();
   }
 
-  void createProfile(String name,
-      {List<String>? animals, Map<String, TraitState>? traits, int? color}) {
+  void createProfile({
+    required String name,
+    List<String>? animals,
+    Map<String, TraitState>? traits,
+    int? color,
+  }) {
     selectedName = name;
     addProfile(ProfileData(
-        name, animals ?? [], traits ?? {}, color ?? ProfileData.randomColor()));
+      name: name,
+      animals: animals,
+      traits: traits,
+      color: color ?? ProfileData.randomColor(),
+    ));
   }
 
   void addProfile(ProfileData profile, {bool force = false}) {
@@ -157,26 +165,35 @@ class ProfileData extends ISuspensionBean {
     return Random().nextInt(ProfileData.colors.length);
   }
 
-  ProfileData(this.name, this.animals, this.traits, this.colorId)
-      : assert(name.isNotEmpty),
-        assert(colorId >= 0 && colorId < colors.length);
+  ProfileData({
+    this.name = '?',
+    List<String>? animals,
+    Map<String, TraitState>? traits,
+    this.color = 0,
+  })  : assert(name.isNotEmpty),
+        assert(color >= 0 && color < colors.length),
+        animals = animals ?? [],
+        traits = traits ?? {};
 
   String name;
   List<String> animals;
   Map<String, TraitState> traits;
-  int colorId;
+  int color;
 
   @override
   String getSuspensionTag() {
     return getFirstLetter(name);
   }
 
-  MaterialColor get color {
-    return ProfileData.colors[colorId];
-  }
-
   int get selectedCount {
     return traits.values.where((state) => state.isPositive).length;
+  }
+
+  Color getColor(BuildContext context) {
+    final darkMode =
+        MediaQuery.of(context).platformBrightness == Brightness.dark;
+    final materialColor = ProfileData.colors[color];
+    return darkMode ? materialColor.shade400 : materialColor.shade700;
   }
 
   String encode(DynamicData dynamicData) {
@@ -210,7 +227,7 @@ class ProfileData extends ISuspensionBean {
     var encodedName = utf8.encode(name);
     addList(encodedName);
 
-    builder.addByte(colorId);
+    builder.addByte(color);
 
     addList(animals.expand((a) {
       final id = dynamicData.animals![a]?.id ?? 0;
@@ -292,7 +309,8 @@ class ProfileData extends ISuspensionBean {
               .mapIndexed((i, trait) =>
                   MapEntry(trait.name, TraitState.from(isPositiveTraits[i]))));
 
-          return ProfileData(name, animals, traits, color);
+          return ProfileData(
+              name: name, animals: animals, traits: traits, color: color);
         default:
           throw const ProfileDecodeException(
               'Het formaat van de link is niet ondersteund, gelieve de laatste versie van de app te installeren');
