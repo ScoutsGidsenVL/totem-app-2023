@@ -8,6 +8,7 @@ import 'package:totemapp/model/totem_data.dart';
 import 'package:totemapp/widgets/animal_star_button.dart';
 import 'package:totemapp/widgets/animal_preview_card.dart';
 import 'package:totemapp/widgets/traits_list.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class AnimalCard extends StatefulWidget {
   final AnimalData animal;
@@ -163,7 +164,8 @@ class _AnimalCardState extends State<AnimalCard> {
                                       child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(5),
-                                          child: Image.network(_animal.image)),
+                                          child: CachedNetworkImage(
+                                              imageUrl: _animal.image)),
                                     ),
                               similarAnimals.isEmpty
                                   ? Container()
