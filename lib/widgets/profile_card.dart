@@ -136,19 +136,23 @@ class ProfileCard extends StatelessWidget {
                   ? []
                   : [
                       FilledButton.icon(
-                          onPressed: () {
-                            final code = profile!.encode(manager.dynamicData!);
-                            Share.share(ProfileManager.importPrefix + code);
-                          },
-                          style: ButtonStyle(
-                              backgroundColor: MaterialStatePropertyAll(
-                                  Theme.of(context).colorScheme.surfaceVariant),
-                              foregroundColor: MaterialStatePropertyAll(
-                                  Theme.of(context)
-                                      .colorScheme
-                                      .onSurfaceVariant)),
-                          icon: const Icon(Icons.share),
-                          label: const Text('Profiel delen')),
+                        onPressed: () {
+                          final code = profile!.encode(manager.dynamicData!);
+                          final box = context.findRenderObject() as RenderBox?;
+                          Share.share(ProfileManager.importPrefix + code,
+                              sharePositionOrigin:
+                                  box!.localToGlobal(Offset.zero) & box.size);
+                        },
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStatePropertyAll(
+                                Theme.of(context).colorScheme.surfaceVariant),
+                            foregroundColor: MaterialStatePropertyAll(
+                                Theme.of(context)
+                                    .colorScheme
+                                    .onSurfaceVariant)),
+                        icon: const Icon(Icons.share),
+                        label: const Text('Profiel delen'),
+                      ),
                       if (profile == manager.profile)
                         FilledButton.icon(
                             onPressed: () {
