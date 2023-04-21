@@ -16,7 +16,7 @@ import 'package:beamer/beamer.dart';
 final List<TabInfo> tabs = [
   TabInfo(
     title: 'Totems',
-    icon: (_) => const Icon(Icons.pets),
+    icon: const Icon(Icons.pets),
     path: '/totems',
     locationBuilder: (info, params) {
       return TotemsLocation(info);
@@ -24,7 +24,7 @@ final List<TabInfo> tabs = [
   ),
   TabInfo(
     title: 'Eigenschappen',
-    icon: (_) => const Icon(Icons.psychology),
+    icon: const Icon(Icons.psychology),
     path: '/eigenschappen',
     locationBuilder: (info, params) {
       return EigenschappenLocation(info);
@@ -32,7 +32,7 @@ final List<TabInfo> tabs = [
   ),
   TabInfo(
     title: 'Profielen',
-    icon: (context) {
+    icon: Builder(builder: (context) {
       final profile = context.watch<ProfileManager>().profile;
       if (profile == null) return const Icon(Icons.person);
       return Badge(
@@ -44,7 +44,7 @@ final List<TabInfo> tabs = [
                   overflow: TextOverflow.fade, maxLines: 1, softWrap: false)),
           backgroundColor: profile.getColor(context),
           child: const Icon(Icons.person));
-    },
+    }),
     path: '/profielen',
     locationBuilder: (info, params) {
       return ProfielenLocation(info);
@@ -52,7 +52,7 @@ final List<TabInfo> tabs = [
   ),
   TabInfo(
     title: 'Checklist',
-    icon: (_) => const Icon(Icons.check_circle),
+    icon: const Icon(Icons.check_circle),
     path: '/checklist',
     locationBuilder: (info, params) {
       return ChecklistLocation(info);
@@ -209,8 +209,7 @@ class _ScaffoldWithNavBarState extends State<ScaffoldWithNavBar> {
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           items: tabs
-              .map((t) => BottomNavigationBarItem(
-                  icon: t.icon(context), label: t.title))
+              .map((t) => BottomNavigationBarItem(icon: t.icon, label: t.title))
               .toList(),
           currentIndex: _currentIndex,
           onTap: (index) {
@@ -237,7 +236,7 @@ class TabInfo {
   });
 
   final String title;
-  final Widget Function(BuildContext context) icon;
+  final Widget icon;
   final String path;
   final BeamLocation<RouteInformationSerializable<dynamic>> Function(
       RouteInformation info, BeamParameters? params) locationBuilder;
