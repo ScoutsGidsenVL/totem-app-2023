@@ -13,6 +13,9 @@ class Checklist extends StatelessWidget {
     final body = context.watch<DynamicData>().text['checklist'] ?? '';
     final checklist = context.watch<SettingsData>();
 
+    var totalCount = 0;
+    var checkedCount = 0;
+
     final parts = <String>[];
     var currentPart = '';
     for (final line in body.split('\n')) {
@@ -22,6 +25,10 @@ class Checklist extends StatelessWidget {
           currentPart = '';
         }
         parts.add(line);
+        totalCount += 1;
+        if (checklist.isChecked(line.trim().substring(2))) {
+          checkedCount += 1;
+        }
       } else {
         currentPart += '$line\n';
       }
@@ -31,7 +38,13 @@ class Checklist extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Totemisatie checklist')),
+      appBar: AppBar(
+          title: Row(
+        children: [
+          const Expanded(child: Text('Totemisatie checklist')),
+          Text('$checkedCount / $totalCount'),
+        ],
+      )),
       body: ListView(
         padding: const EdgeInsets.only(top: 8),
         children: [
@@ -40,14 +53,16 @@ class Checklist extends StatelessWidget {
               return Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                child:
-                    MarkdownBody(data: p, styleSheet: markdownStyle(context)),
+                child: MarkdownBody(
+                    data: p,
+                    styleSheet: markdownStyle(context),
+                    onTapLink: linkHandler(context)),
               );
             }
             final name = p.trim().substring(2);
             return CheckboxListTile(
                 contentPadding: EdgeInsets.only(
-                    left: p.startsWith(' ') ? 40 : 16, right: 16),
+                    left: p.startsWith(' ') ? 40 : 12, right: 12),
                 controlAffinity: ListTileControlAffinity.leading,
                 visualDensity: VisualDensity.compact,
                 dense: true,

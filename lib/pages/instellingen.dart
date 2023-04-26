@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totemapp/model/settings_data.dart';
 import 'package:totemapp/model/dynamic_data.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 
 class Instellingen extends StatelessWidget {
   const Instellingen({super.key});

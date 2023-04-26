@@ -1,5 +1,7 @@
+import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 String getFirstLetter(String value) {
   if (value.isEmpty) return '#';
@@ -24,6 +26,22 @@ MarkdownStyleSheet markdownStyle(BuildContext context) {
           color: Theme.of(context).colorScheme.primary),
       h2: TextStyle(fontSize: 24, color: Theme.of(context).colorScheme.primary),
       h2Padding: const EdgeInsets.only(top: 16));
+}
+
+void Function(String, String?, String) linkHandler(BuildContext context) {
+  return (String text, String? url, String title) {
+    if (url == null) {
+      return;
+    }
+    if (url.startsWith("http://") ||
+        url.startsWith("https://") ||
+        url.startsWith("tel:") ||
+        url.startsWith("mailto:")) {
+      launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+    } else if (url.startsWith("/")) {
+      Beamer.of(context, root: true).beamToNamed(url);
+    }
+  };
 }
 
 void showUndo(BuildContext context, String text, void Function() onUndo) {
