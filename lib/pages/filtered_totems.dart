@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:totemapp/model/dynamic_data.dart';
 import 'package:totemapp/model/settings_data.dart';
 import 'package:totemapp/model/traits_filter.dart';
+import 'package:totemapp/util.dart';
 import 'package:totemapp/widgets/animal_entry.dart';
 
 class FilteredTotems extends StatelessWidget {
@@ -39,9 +40,16 @@ class FilteredTotems extends StatelessWidget {
                         OutlinedButton.icon(
                           onPressed: () {
                             settings.hideAnimal(e.animal.name);
+                            showUndo(context,
+                                '${e.animal.name} verborgen bij resultaten',
+                                () {
+                              settings.setHiddenAnimals(settings.hiddenAnimals
+                                  .where((name) => name != e.animal.name));
+                            });
                           },
                           icon: const Icon(Icons.remove_circle),
-                          label: const Text('Deze totem niet meer voorstellen'),
+                          label:
+                              const Text('Deze totem verbergen bij resultaten'),
                         )
                       ],
                     );

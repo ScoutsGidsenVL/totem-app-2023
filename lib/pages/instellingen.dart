@@ -2,12 +2,16 @@ import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totemapp/model/settings_data.dart';
+import 'package:totemapp/model/dynamic_data.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 class Instellingen extends StatelessWidget {
   const Instellingen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final dynamicData = context.watch<DynamicData>();
+    final pkg = dynamicData.packageInfo;
     final settings = context.watch<SettingsData>();
 
     return Scaffold(
@@ -50,7 +54,10 @@ class Instellingen extends StatelessWidget {
               },
               secondary: const Icon(Icons.photo),
               title: const Text('Afbeeldingen bij totems',
-                  style: TextStyle(fontSize: 20))),
+                  style: TextStyle(fontSize: 20)),
+              subtitle: const Text(
+                  'Toon een afbeelding van het dier bij elke totem.',
+                  style: TextStyle(fontSize: 18))),
           ListTile(
               onTap: () {
                 context.beamToNamed('/instellingen/verborgen-totems');
@@ -62,6 +69,14 @@ class Instellingen extends StatelessWidget {
               subtitle: const Text(
                   'Deze totems zullen niet voorgesteld worden in de lijst met resultaten.',
                   style: TextStyle(fontSize: 18))),
+          ListTile(
+            leading: const Icon(Icons.info),
+            title: const Text('Scouts en Gidsen Vlaanderen ©',
+                style: TextStyle(fontSize: 20)),
+            subtitle: Text(
+                'Totemapp ${pkg == null ? '' : '${pkg.version}+${pkg.buildNumber}'}',
+                style: const TextStyle(fontSize: 18)),
+          )
         ],
       ),
     );

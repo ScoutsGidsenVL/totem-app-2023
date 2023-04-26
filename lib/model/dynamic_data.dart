@@ -4,11 +4,13 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:totemapp/model/totem_data.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 const dataRepo =
     'https://raw.githubusercontent.com/ScoutsGidsenVL/totem-app-2023/main';
 
 class DynamicData extends ChangeNotifier {
+  PackageInfo? packageInfo;
   Map<String, AnimalData>? animals;
   Map<String, TraitData>? traits;
   Map<int, AnimalData>? animalsById;
@@ -22,10 +24,15 @@ class DynamicData extends ChangeNotifier {
 
   Future refreshData() async {
     await Future.wait([
+      getPackageInfo(),
       refreshTotemData(),
       refreshText('checklist'),
     ]);
     notifyListeners();
+  }
+
+  Future getPackageInfo() async {
+    packageInfo = await PackageInfo.fromPlatform();
   }
 
   Future refreshTotemData() async {
