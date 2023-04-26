@@ -14,8 +14,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 class AnimalCard extends StatefulWidget {
   final AnimalData animal;
   final List<AnimalData>? swipeList;
+  final List<Widget> actions;
 
-  const AnimalCard({super.key, required this.animal, this.swipeList});
+  const AnimalCard({
+    super.key,
+    required this.animal,
+    this.swipeList,
+    this.actions = const [],
+  });
 
   @override
   State<AnimalCard> createState() => _AnimalCardState();
@@ -167,6 +173,9 @@ class _AnimalCardState extends State<AnimalCard> {
                                       child: CachedNetworkImage(
                                           imageUrl: _animal.image)),
                                 ),
+                              ...widget.actions.map((e) => Padding(
+                                  padding: const EdgeInsets.only(top: 8),
+                                  child: e)),
                               if (similarAnimals.isNotEmpty)
                                 Padding(
                                     padding: const EdgeInsets.only(

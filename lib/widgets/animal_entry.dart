@@ -10,6 +10,7 @@ class AnimalEntry extends StatelessWidget {
   final List<AnimalData>? swipeList;
   final double? score;
   final Widget? trailing;
+  final List<Widget> actions;
 
   const AnimalEntry({
     super.key,
@@ -18,6 +19,7 @@ class AnimalEntry extends StatelessWidget {
     this.swipeList,
     this.score,
     this.trailing,
+    this.actions = const [],
   });
 
   @override
@@ -35,7 +37,8 @@ class AnimalEntry extends StatelessWidget {
                   borderRadius:
                       BorderRadius.vertical(top: Radius.circular(10))),
               builder: (context) {
-                return AnimalCard(animal: animal, swipeList: swipeList);
+                return AnimalCard(
+                    animal: animal, swipeList: swipeList, actions: actions);
               });
         },
         title: AnimalName(animal),

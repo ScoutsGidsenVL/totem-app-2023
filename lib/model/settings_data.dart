@@ -75,6 +75,11 @@ class SettingsData extends ChangeNotifier {
     return hiddenAnimals.contains(name);
   }
 
+  void hideAnimal(String name) {
+    hiddenAnimals.add(name);
+    setHiddenAnimals(hiddenAnimals);
+  }
+
   void setHiddenAnimals(Iterable<String> names) {
     hiddenAnimals = names.toList();
     storeSettings();
