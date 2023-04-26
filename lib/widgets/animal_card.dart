@@ -4,6 +4,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totemapp/model/dynamic_data.dart';
+import 'package:totemapp/model/settings_data.dart';
 import 'package:totemapp/model/totem_data.dart';
 import 'package:totemapp/widgets/animal_star_button.dart';
 import 'package:totemapp/widgets/animal_preview_card.dart';
@@ -59,6 +60,7 @@ class _AnimalCardState extends State<AnimalCard> {
         .sorted((a, b) => b.value - a.value)
         .map((e) => e.key)
         .take(4);
+    final settings = context.watch<SettingsData>();
 
     return DraggableScrollableSheet(
         expand: false,
@@ -157,26 +159,22 @@ class _AnimalCardState extends State<AnimalCard> {
                                           .textTheme
                                           .bodyMedium)),
                               TraitsList(_animal.traits, interactive: true),
-                              _hidden
-                                  ? Container()
-                                  : Padding(
-                                      padding: const EdgeInsets.only(top: 8),
-                                      child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                          child: CachedNetworkImage(
-                                              imageUrl: _animal.image)),
-                                    ),
-                              similarAnimals.isEmpty
-                                  ? Container()
-                                  : Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 32, bottom: 8),
-                                      child: Text(
-                                          'Totems met dezelfde kenmerken',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyLarge)),
+                              if (!_hidden && settings.showAnimalImages)
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 8),
+                                  child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(5),
+                                      child: CachedNetworkImage(
+                                          imageUrl: _animal.image)),
+                                ),
+                              if (similarAnimals.isNotEmpty)
+                                Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 32, bottom: 8),
+                                    child: Text('Totems met dezelfde kenmerken',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyLarge)),
                               ...similarAnimals.map((a) => AnimalPreviewCard(
                                   animal: a,
                                   hidden: _hidden,

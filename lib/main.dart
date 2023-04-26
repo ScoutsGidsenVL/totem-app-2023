@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:totemapp/model/checklist_data.dart';
+import 'package:totemapp/model/settings_data.dart';
 import 'package:totemapp/model/dynamic_data.dart';
 import 'package:totemapp/model/profile_manager.dart';
 import 'package:totemapp/model/traits_filter.dart';
 import 'package:totemapp/pages/checklist.dart';
+import 'package:totemapp/pages/instellingen.dart';
 import 'package:totemapp/pages/eigenschappen.dart';
 import 'package:provider/provider.dart';
 import 'package:totemapp/pages/filtered_totems.dart';
@@ -12,6 +13,7 @@ import 'package:totemapp/pages/profielen.dart';
 import 'package:totemapp/pages/totems.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:beamer/beamer.dart';
+import 'package:totemapp/pages/verborgen_totems.dart';
 
 final List<TabInfo> tabs = [
   TabInfo(
@@ -51,11 +53,11 @@ final List<TabInfo> tabs = [
     },
   ),
   TabInfo(
-    title: 'Checklist',
-    icon: const Icon(Icons.check_circle),
-    path: '/checklist',
+    title: 'Instellingen',
+    icon: const Icon(Icons.settings),
+    path: '/instellingen',
     locationBuilder: (info, params) {
-      return ChecklistLocation(info);
+      return InstellingenLocation(info);
     },
   ),
 ];
@@ -86,7 +88,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) => DynamicData()),
-          ChangeNotifierProvider(create: (_) => ChecklistData()),
+          ChangeNotifierProvider(create: (_) => SettingsData()),
           ChangeNotifierProxyProvider<DynamicData, ProfileManager>(
               update: (_, dynamicData, prev) =>
                   ProfileManager(dynamicData, prev?.selectedName),
@@ -96,60 +98,67 @@ class MyApp extends StatelessWidget {
                   TraitsFilter(profileManager, prev?.fallbackTraits),
               create: (_) => TraitsFilter(null, {})),
         ],
-        child: MaterialApp.router(
-          title: 'Totemapp',
-          theme: ThemeData(
-              colorScheme: const ColorScheme.light(
-                  primary: primaryLight,
-                  secondary: primaryLight,
-                  surfaceVariant: Color(0xFFE4E4E4),
-                  onSurfaceVariant: Color(0xFF6C757D)),
-              textTheme: const TextTheme(
-                  headlineMedium: TextStyle(
-                      fontSize: 34,
-                      color: primaryLight,
-                      fontFamily: 'Verveine'),
-                  headlineSmall: TextStyle(
-                      fontSize: 17,
-                      color: primaryLight,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w300),
-                  bodyLarge: TextStyle(fontSize: 21),
-                  bodyMedium: TextStyle(fontSize: 21),
-                  bodySmall:
-                      TextStyle(fontSize: 19, color: Color(0xFF6C757D)))),
-          darkTheme: ThemeData(
-              colorScheme: const ColorScheme.dark(
-                  primary: primaryDark,
-                  secondary: primaryDark,
-                  surfaceVariant: Color(0xFF272727),
-                  onSurfaceVariant: Color(0xFFA8B1B9)),
-              textTheme: const TextTheme(
-                  headlineMedium: TextStyle(
-                      fontSize: 34, color: primaryDark, fontFamily: 'Verveine'),
-                  headlineSmall: TextStyle(
-                      fontSize: 17,
-                      color: primaryDark,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w300),
-                  bodyLarge: TextStyle(fontSize: 21),
-                  bodyMedium: TextStyle(fontSize: 21),
-                  bodySmall:
-                      TextStyle(fontSize: 19, color: Color(0xFFA8B1B9)))),
-          routerDelegate: routerDelegate,
-          routeInformationParser: BeamerParser(onParse: (info) {
-            if (info.location!.contains('?p=')) {
-              final code = Uri.parse(info.location!).queryParameters['p'] ?? '';
-              final query =
-                  Uri.encodeQueryComponent(ProfileManager.importPrefix + code);
-              return RouteInformation(
-                  location: '/profielen/import?code=$query', state: info.state);
-            }
-            return info;
-          }),
-          backButtonDispatcher: BeamerBackButtonDispatcher(
-              delegate: routerDelegate, fallbackToBeamBack: false),
-        ));
+        child: Builder(builder: (context) {
+          return MaterialApp.router(
+            title: 'Totemapp',
+            theme: ThemeData(
+                colorScheme: const ColorScheme.light(
+                    primary: primaryLight,
+                    secondary: primaryLight,
+                    surfaceVariant: Color(0xFFE4E4E4),
+                    onSurfaceVariant: Color(0xFF6C757D)),
+                textTheme: const TextTheme(
+                    headlineMedium: TextStyle(
+                        fontSize: 34,
+                        color: primaryLight,
+                        fontFamily: 'Verveine'),
+                    headlineSmall: TextStyle(
+                        fontSize: 17,
+                        color: primaryLight,
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.w300),
+                    bodyLarge: TextStyle(fontSize: 21),
+                    bodyMedium: TextStyle(fontSize: 21),
+                    bodySmall:
+                        TextStyle(fontSize: 19, color: Color(0xFF6C757D)))),
+            darkTheme: ThemeData(
+                colorScheme: const ColorScheme.dark(
+                    primary: primaryDark,
+                    secondary: primaryDark,
+                    surfaceVariant: Color(0xFF272727),
+                    onSurfaceVariant: Color(0xFFA8B1B9)),
+                textTheme: const TextTheme(
+                    headlineMedium: TextStyle(
+                        fontSize: 34,
+                        color: primaryDark,
+                        fontFamily: 'Verveine'),
+                    headlineSmall: TextStyle(
+                        fontSize: 17,
+                        color: primaryDark,
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.w300),
+                    bodyLarge: TextStyle(fontSize: 21),
+                    bodyMedium: TextStyle(fontSize: 21),
+                    bodySmall:
+                        TextStyle(fontSize: 19, color: Color(0xFFA8B1B9)))),
+            themeMode: context.watch<SettingsData>().theme,
+            routerDelegate: routerDelegate,
+            routeInformationParser: BeamerParser(onParse: (info) {
+              if (info.location!.contains('?p=')) {
+                final code =
+                    Uri.parse(info.location!).queryParameters['p'] ?? '';
+                final query = Uri.encodeQueryComponent(
+                    ProfileManager.importPrefix + code);
+                return RouteInformation(
+                    location: '/profielen/import?code=$query',
+                    state: info.state);
+              }
+              return info;
+            }),
+            backButtonDispatcher: BeamerBackButtonDispatcher(
+                delegate: routerDelegate, fallbackToBeamBack: false),
+          );
+        }));
   }
 }
 
@@ -293,15 +302,27 @@ class ProfielenLocation extends BeamLocation<BeamState> {
       ];
 }
 
-class ChecklistLocation extends BeamLocation<BeamState> {
-  ChecklistLocation(super.info);
+class InstellingenLocation extends BeamLocation<BeamState> {
+  InstellingenLocation(super.info);
   @override
-  List<String> get pathPatterns => ['/checklist'];
+  List<String> get pathPatterns => ['/instellingen/*'];
   @override
   List<BeamPage> buildPages(BuildContext context, BeamState state) => [
         const BeamPage(
-          key: ValueKey('checklist'),
-          child: Checklist(),
+          key: ValueKey('instellingen'),
+          child: Instellingen(),
         ),
+        if (state.uri.pathSegments.length == 2 &&
+            state.uri.pathSegments[1] == 'checklist')
+          const BeamPage(
+            key: ValueKey('instellingen/checklist'),
+            child: Checklist(),
+          ),
+        if (state.uri.pathSegments.length == 2 &&
+            state.uri.pathSegments[1] == 'verborgen-totems')
+          const BeamPage(
+            key: ValueKey('instellingen/verborgen-totems'),
+            child: VerborgenTotems(),
+          ),
       ];
 }

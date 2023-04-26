@@ -9,13 +9,16 @@ class AnimalEntry extends StatelessWidget {
   final bool padRight;
   final List<AnimalData>? swipeList;
   final double? score;
+  final Widget? trailing;
 
-  const AnimalEntry(
-      {super.key,
-      required this.animal,
-      this.padRight = false,
-      this.swipeList,
-      this.score});
+  const AnimalEntry({
+    super.key,
+    required this.animal,
+    this.padRight = false,
+    this.swipeList,
+    this.score,
+    this.trailing,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -36,14 +39,15 @@ class AnimalEntry extends StatelessWidget {
               });
         },
         title: AnimalName(animal),
-        trailing: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            if (score != null)
-              Text('${(score! * 100).round()}%',
-                  style: Theme.of(context).textTheme.bodySmall),
-            AnimalStarButton(animal: animal.name),
-          ],
-        ));
+        trailing: trailing ??
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                if (score != null)
+                  Text('${(score! * 100).round()}%',
+                      style: Theme.of(context).textTheme.bodySmall),
+                AnimalStarButton(animal: animal.name),
+              ],
+            ));
   }
 }
