@@ -3,7 +3,9 @@ import 'dart:math';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:totemapp/model/dynamic_data.dart';
+import 'package:totemapp/model/profile_manager.dart';
 import 'package:totemapp/model/settings_data.dart';
 import 'package:totemapp/model/totem_data.dart';
 import 'package:totemapp/widgets/animal_star_button.dart';
@@ -81,46 +83,53 @@ class _AnimalCardState extends State<AnimalCard> {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            ..._hidden
-                                ? [
-                                    Expanded(
-                                        child: Text('...',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .headlineMedium)),
-                                  ]
-                                : [
-                                    Text('${_animal.id.toString()}. ',
+                            Expanded(
+                              child: InkWell(
+                                onTap: toggleHidden,
+                                child: _hidden
+                                    ? Text('...',
                                         style: Theme.of(context)
                                             .textTheme
-                                            .headlineMedium
-                                            ?.copyWith(
-                                                color: Theme.of(context)
-                                                    .colorScheme
-                                                    .primary)),
-                                    Expanded(
-                                        child: Text.rich(
-                                            TextSpan(children: [
-                                              TextSpan(
-                                                  text: _animal.name,
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .headlineMedium),
-                                              TextSpan(
-                                                  text: _animal.synonyms.isEmpty
-                                                      ? null
-                                                      : ' - ${_animal.synonyms.join(', ')}',
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .headlineSmall),
-                                            ]),
-                                            softWrap: true)),
-                                  ],
+                                            .headlineMedium)
+                                    : Text.rich(
+                                        TextSpan(children: [
+                                          TextSpan(
+                                              text:
+                                                  '${_animal.id.toString()}. ',
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .headlineMedium
+                                                  ?.copyWith(
+                                                      color: Theme.of(context)
+                                                          .colorScheme
+                                                          .primary)),
+                                          TextSpan(
+                                              text: _animal.name,
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .headlineMedium),
+                                          TextSpan(
+                                              text: _animal.synonyms.isEmpty
+                                                  ? null
+                                                  : ' - ${_animal.synonyms.join(', ')}',
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .headlineSmall),
+                                        ]),
+                                        softWrap: true),
+                              ),
+                            ),
                             IconButton(
-                                onPressed: toggleHidden,
-                                icon: Icon(_hidden
-                                    ? Icons.visibility_off
-                                    : Icons.visibility)),
+                                onPressed: () {
+                                  final box =
+                                      context.findRenderObject() as RenderBox?;
+                                  Share.share(
+                                      '${ProfileManager.sharePrefix}?t=${Uri.encodeQueryComponent(_animal.name)}',
+                                      sharePositionOrigin:
+                                          box!.localToGlobal(Offset.zero) &
+                                              box.size);
+                                },
+                                icon: const Icon(Icons.share)),
                             AnimalStarButton(
                                 animal: _animal.name, hidden: _hidden),
                           ],
@@ -156,7 +165,7 @@ class _AnimalCardState extends State<AnimalCard> {
                             children: [
                               Padding(
                                   padding: const EdgeInsets.only(bottom: 16),
-                                  child: Text(
+                                  child: SelectableText(
                                       _hidden
                                           ? _animal.description
                                               .replaceAll(_animal.name, '...')

@@ -11,7 +11,8 @@ import 'package:totemapp/util.dart';
 import 'package:collection/collection.dart';
 
 class ProfileManager extends ChangeNotifier {
-  static const importPrefix = 'https://totemapp.be/?p=';
+  static const sharePrefix = 'https://totemapp.be/';
+  static const importPrefix = '$sharePrefix?p=';
 
   DynamicData? dynamicData;
   List<ProfileData> profiles = [];
