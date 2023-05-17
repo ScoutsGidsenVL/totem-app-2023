@@ -1,3 +1,4 @@
+import 'package:beamer/beamer.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -13,9 +14,6 @@ class Checklist extends StatelessWidget {
     final body = context.watch<DynamicData>().text['checklist'] ?? '';
     final checklist = context.watch<SettingsData>();
 
-    var totalCount = 0;
-    var checkedCount = 0;
-
     final parts = <String>[];
     var currentPart = '';
     for (final line in body.split('\n')) {
@@ -25,10 +23,6 @@ class Checklist extends StatelessWidget {
           currentPart = '';
         }
         parts.add(line);
-        totalCount += 1;
-        if (checklist.isChecked(line.trim().substring(2))) {
-          checkedCount += 1;
-        }
       } else {
         currentPart += '$line\n';
       }
@@ -39,12 +33,16 @@ class Checklist extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-          title: Row(
-        children: [
-          const Expanded(child: Text('Totemisatie checklist')),
-          Text('$checkedCount / $totalCount'),
+        title: const Text('Totemisatie'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              context.beamToNamed('/totemisatie/instellingen');
+            },
+            icon: const Icon(Icons.settings),
+          ),
         ],
-      )),
+      ),
       body: ListView(
         padding: const EdgeInsets.only(top: 8),
         children: [

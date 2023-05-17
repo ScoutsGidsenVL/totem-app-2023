@@ -3,7 +3,7 @@ import 'package:totemapp/model/settings_data.dart';
 import 'package:totemapp/model/dynamic_data.dart';
 import 'package:totemapp/model/profile_manager.dart';
 import 'package:totemapp/model/traits_filter.dart';
-import 'package:totemapp/pages/checklist.dart';
+import 'package:totemapp/pages/totemisatie.dart';
 import 'package:totemapp/pages/instellingen.dart';
 import 'package:totemapp/pages/eigenschappen.dart';
 import 'package:provider/provider.dart';
@@ -16,6 +16,14 @@ import 'package:beamer/beamer.dart';
 import 'package:totemapp/pages/verborgen_totems.dart';
 
 final List<TabInfo> tabs = [
+  TabInfo(
+    title: 'Totemisatie',
+    icon: const Icon(Icons.home),
+    path: '/totemisatie',
+    locationBuilder: (info, params) {
+      return TotemisatieLocation(info);
+    },
+  ),
   TabInfo(
     title: 'Totems',
     icon: const Icon(Icons.pets),
@@ -40,7 +48,7 @@ final List<TabInfo> tabs = [
       return Badge(
           label: ConstrainedBox(
               constraints: const BoxConstraints(
-                maxWidth: 80,
+                maxWidth: 40,
               ),
               child: Text(profile.name,
                   overflow: TextOverflow.fade, maxLines: 1, softWrap: false)),
@@ -50,14 +58,6 @@ final List<TabInfo> tabs = [
     path: '/profielen',
     locationBuilder: (info, params) {
       return ProfielenLocation(info);
-    },
-  ),
-  TabInfo(
-    title: 'Instellingen',
-    icon: const Icon(Icons.settings),
-    path: '/instellingen',
-    locationBuilder: (info, params) {
-      return InstellingenLocation(info);
     },
   ),
 ];
@@ -75,7 +75,7 @@ class MyApp extends StatelessWidget {
   MyApp({super.key});
 
   final routerDelegate = BeamerDelegate(
-      initialPath: '/totems',
+      initialPath: '/totemisatie',
       locationBuilder: RoutesLocationBuilder(routes: {
         '*': (context, state, data) => const ScaffoldWithNavBar(),
       }));
@@ -302,26 +302,27 @@ class ProfielenLocation extends BeamLocation<BeamState> {
       ];
 }
 
-class InstellingenLocation extends BeamLocation<BeamState> {
-  InstellingenLocation(super.info);
+class TotemisatieLocation extends BeamLocation<BeamState> {
+  TotemisatieLocation(super.info);
   @override
-  List<String> get pathPatterns => ['/instellingen/*'];
+  List<String> get pathPatterns => ['/totemisatie/*'];
   @override
   List<BeamPage> buildPages(BuildContext context, BeamState state) => [
         const BeamPage(
-          key: ValueKey('instellingen'),
-          child: Instellingen(),
+          key: ValueKey('totemisatie'),
+          child: Checklist(),
         ),
-        if (state.uri.pathSegments.length == 2 &&
-            state.uri.pathSegments[1] == 'checklist')
+        if (state.uri.pathSegments.length >= 2 &&
+            state.uri.pathSegments[1] == 'instellingen')
           const BeamPage(
-            key: ValueKey('instellingen/checklist'),
-            child: Checklist(),
+            key: ValueKey('totemisatie/instellingen'),
+            child: Instellingen(),
           ),
-        if (state.uri.pathSegments.length == 2 &&
-            state.uri.pathSegments[1] == 'verborgen-totems')
+        if (state.uri.pathSegments.length == 3 &&
+            state.uri.pathSegments[1] == 'instellingen' &&
+            state.uri.pathSegments[2] == 'verborgen-totems')
           const BeamPage(
-            key: ValueKey('instellingen/verborgen-totems'),
+            key: ValueKey('totemisatie/instellingen/verborgen-totems'),
             child: VerborgenTotems(),
           ),
       ];
