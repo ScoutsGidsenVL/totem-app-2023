@@ -1,4 +1,6 @@
-Een goede, kwalitatieve totemisatie vergt tijd en inspanning. Deze handige checklist helpt je om niets te vergeten. Wil je weten wat er achter deze checklist schuilt? Kijk dan in de [Totemmap](https://www.scoutsengidsenvlaanderen.be/publicaties/totemmap), hét handboek voor elke totemisatie en een bron van ideeën en inspiratie om je totemactiviteiten top te maken.
+Totemisatie is een van de belangrijkste rituelen binnen scouting. Een goede, kwalitatieve totemisatie vraagt tijd en inspanning. Dat verdient iedereen die een totem krijgt. Deze handige checklist helpt je stil te staan bij elke stap van het proces. Want een sterke, positieve totemisatie, da’s iets om trots op te zijn!
+
+Meer tips nodig? Lees dan zeker ook de eerste pagina’s in de [Totemmap](https://www.scoutsengidsenvlaanderen.be/publicaties/totemmap). Daarin staan niet alleen de dieren waaruit je kan kiezen, maar het staat ook boordevol inspiratie en aandachtspunten.  
 
 ## Voorbereiding
 Sta stil bij:
