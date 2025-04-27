@@ -46,13 +46,8 @@ void Function(String, String?, String) linkHandler(BuildContext context) {
 }
 
 void showUndo(BuildContext context, String text, void Function() onUndo) {
-  final textColor = HSLColor.fromColor(Theme.of(context).colorScheme.primary)
-      .withLightness(0.5)
-      .toColor();
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       duration: const Duration(seconds: 8),
       content: Text(text),
-      padding: const EdgeInsets.only(top: 5, bottom: 5, left: 24),
-      action: SnackBarAction(
-          label: 'UNDO', textColor: textColor, onPressed: onUndo)));
+      action: SnackBarAction(label: 'UNDO', onPressed: onUndo)));
 }

@@ -82,8 +82,37 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const primaryLight = Color(0xFF005C9D);
-    const primaryDark = Color(0xFF4FA6E4);
+    var colorSchemeLight = ColorScheme.fromSeed(seedColor: Color(0xFF005C9D));
+    var colorSchemeDark = ColorScheme.fromSeed(
+        seedColor: Color(0xFF4FA6E4), brightness: Brightness.dark);
+    var textThemeLight = TextTheme(
+        headlineMedium: TextStyle(
+            fontSize: 34,
+            fontFamily: 'Verveine',
+            color: colorSchemeLight.primary),
+        headlineSmall: TextStyle(
+            fontSize: 17,
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.w300,
+            color: colorSchemeLight.primary),
+        bodyLarge: TextStyle(fontSize: 21),
+        bodyMedium: TextStyle(fontSize: 21),
+        bodySmall:
+            TextStyle(fontSize: 19, color: colorSchemeLight.onSurfaceVariant));
+    var textThemeDark = TextTheme(
+        headlineMedium: TextStyle(
+            fontSize: 34,
+            fontFamily: 'Verveine',
+            color: colorSchemeDark.primary),
+        headlineSmall: TextStyle(
+            fontSize: 17,
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.w300,
+            color: colorSchemeDark.primary),
+        bodyLarge: TextStyle(fontSize: 21),
+        bodyMedium: TextStyle(fontSize: 21),
+        bodySmall:
+            TextStyle(fontSize: 19, color: colorSchemeDark.onSurfaceVariant));
 
     return MultiProvider(
         providers: [
@@ -102,45 +131,9 @@ class MyApp extends StatelessWidget {
           return MaterialApp.router(
             title: 'Totemapp',
             theme: ThemeData(
-                colorScheme: const ColorScheme.light(
-                    primary: primaryLight,
-                    secondary: primaryLight,
-                    surfaceContainerHighest: Color(0xFFE4E4E4),
-                    onSurfaceVariant: Color(0xFF6C757D)),
-                textTheme: const TextTheme(
-                    headlineMedium: TextStyle(
-                        fontSize: 34,
-                        color: primaryLight,
-                        fontFamily: 'Verveine'),
-                    headlineSmall: TextStyle(
-                        fontSize: 17,
-                        color: primaryLight,
-                        fontStyle: FontStyle.italic,
-                        fontWeight: FontWeight.w300),
-                    bodyLarge: TextStyle(fontSize: 21),
-                    bodyMedium: TextStyle(fontSize: 21),
-                    bodySmall:
-                        TextStyle(fontSize: 19, color: Color(0xFF6C757D)))),
+                colorScheme: colorSchemeLight, textTheme: textThemeLight),
             darkTheme: ThemeData(
-                colorScheme: const ColorScheme.dark(
-                    primary: primaryDark,
-                    secondary: primaryDark,
-                    surfaceContainerHighest: Color(0xFF272727),
-                    onSurfaceVariant: Color(0xFFA8B1B9)),
-                textTheme: const TextTheme(
-                    headlineMedium: TextStyle(
-                        fontSize: 34,
-                        color: primaryDark,
-                        fontFamily: 'Verveine'),
-                    headlineSmall: TextStyle(
-                        fontSize: 17,
-                        color: primaryDark,
-                        fontStyle: FontStyle.italic,
-                        fontWeight: FontWeight.w300),
-                    bodyLarge: TextStyle(fontSize: 21),
-                    bodyMedium: TextStyle(fontSize: 21),
-                    bodySmall:
-                        TextStyle(fontSize: 19, color: Color(0xFFA8B1B9)))),
+                colorScheme: colorSchemeDark, textTheme: textThemeDark),
             themeMode: context.watch<SettingsData>().theme,
             routerDelegate: routerDelegate,
             routeInformationParser: BeamerParser(onParse: (info) {
