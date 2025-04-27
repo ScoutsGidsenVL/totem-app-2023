@@ -105,7 +105,7 @@ class MyApp extends StatelessWidget {
                 colorScheme: const ColorScheme.light(
                     primary: primaryLight,
                     secondary: primaryLight,
-                    surfaceVariant: Color(0xFFE4E4E4),
+                    surfaceContainerHighest: Color(0xFFE4E4E4),
                     onSurfaceVariant: Color(0xFF6C757D)),
                 textTheme: const TextTheme(
                     headlineMedium: TextStyle(
@@ -125,7 +125,7 @@ class MyApp extends StatelessWidget {
                 colorScheme: const ColorScheme.dark(
                     primary: primaryDark,
                     secondary: primaryDark,
-                    surfaceVariant: Color(0xFF272727),
+                    surfaceContainerHighest: Color(0xFF272727),
                     onSurfaceVariant: Color(0xFFA8B1B9)),
                 textTheme: const TextTheme(
                     headlineMedium: TextStyle(
@@ -144,9 +144,9 @@ class MyApp extends StatelessWidget {
             themeMode: context.watch<SettingsData>().theme,
             routerDelegate: routerDelegate,
             routeInformationParser: BeamerParser(onParse: (info) {
-              if (info.location!.contains('?p=')) {
+              if (info.location.contains('?p=')) {
                 final code =
-                    Uri.parse(info.location!).queryParameters['p'] ?? '';
+                    Uri.parse(info.location).queryParameters['p'] ?? '';
                 final query = Uri.encodeQueryComponent(
                     ProfileManager.importPrefix + code);
                 return RouteInformation(
@@ -176,10 +176,10 @@ class _ScaffoldWithNavBarState extends State<ScaffoldWithNavBar> {
       .map((t) => BeamerDelegate(
           initialPath: t.path,
           locationBuilder: (info, params) {
-            if (info.location!.contains(t.path)) {
+            if (info.location.contains(t.path)) {
               return t.locationBuilder(info, params);
             }
-            return NotFound(path: info.location!);
+            return NotFound(path: info.location);
           }))
       .toList();
 
@@ -188,7 +188,7 @@ class _ScaffoldWithNavBarState extends State<ScaffoldWithNavBar> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final location = Beamer.of(context).configuration.location!;
+    final location = Beamer.of(context).configuration.location;
     final index = tabs.lastIndexWhere((tab) => location.startsWith(tab.path));
     _currentIndex = index < 0 ? 0 : index;
   }

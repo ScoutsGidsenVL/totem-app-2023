@@ -80,7 +80,7 @@ class Checklist extends StatelessWidget {
                 });
               },
               style: const ButtonStyle(
-                  padding: MaterialStatePropertyAll(EdgeInsets.all(24))),
+                  padding: WidgetStatePropertyAll(EdgeInsets.all(24))),
               child: const Text('Checklist wissen'))
         ],
       ),

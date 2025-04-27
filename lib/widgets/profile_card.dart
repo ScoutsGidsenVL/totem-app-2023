@@ -87,7 +87,7 @@ class ProfileCard extends StatelessWidget {
                 TextButton(
                   style: const ButtonStyle(
                       shape:
-                          MaterialStatePropertyAll(RoundedRectangleBorder())),
+                          WidgetStatePropertyAll(RoundedRectangleBorder())),
                   onPressed: ephemeral
                       ? null
                       : () {
@@ -144,9 +144,9 @@ class ProfileCard extends StatelessWidget {
                                   box!.localToGlobal(Offset.zero) & box.size);
                         },
                         style: ButtonStyle(
-                            backgroundColor: MaterialStatePropertyAll(
-                                Theme.of(context).colorScheme.surfaceVariant),
-                            foregroundColor: MaterialStatePropertyAll(
+                            backgroundColor: WidgetStatePropertyAll(
+                                Theme.of(context).colorScheme.surfaceContainerHighest),
+                            foregroundColor: WidgetStatePropertyAll(
                                 Theme.of(context)
                                     .colorScheme
                                     .onSurfaceVariant)),
@@ -159,11 +159,11 @@ class ProfileCard extends StatelessWidget {
                               manager.unselectProfile();
                             },
                             style: ButtonStyle(
-                                backgroundColor: MaterialStatePropertyAll(
+                                backgroundColor: WidgetStatePropertyAll(
                                     Theme.of(context)
                                         .colorScheme
-                                        .surfaceVariant),
-                                foregroundColor: MaterialStatePropertyAll(
+                                        .surfaceContainerHighest),
+                                foregroundColor: WidgetStatePropertyAll(
                                     Theme.of(context)
                                         .colorScheme
                                         .onSurfaceVariant)),

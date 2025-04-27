@@ -131,9 +131,9 @@ class _ImportProfileState extends State<ImportProfile> {
             icon: const Icon(Icons.person_add),
             style: _profile == null
                 ? ButtonStyle(
-                    backgroundColor: MaterialStatePropertyAll(
-                        Theme.of(context).colorScheme.surfaceVariant),
-                    foregroundColor: MaterialStatePropertyAll(
+                    backgroundColor: WidgetStatePropertyAll(
+                        Theme.of(context).colorScheme.surfaceContainerHighest),
+                    foregroundColor: WidgetStatePropertyAll(
                         Theme.of(context).colorScheme.onSurfaceVariant))
                 : null,
             label:

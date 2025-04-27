@@ -91,7 +91,7 @@ class AnimalStarButton extends StatelessWidget {
                                 });
                               });
                         },
-                        child: Row(children: const [
+                        child: const Row(children: [
                           Icon(Icons.person_add),
                           Padding(
                               padding: EdgeInsets.only(left: 8),
