@@ -194,16 +194,12 @@ class _ScaffoldWithNavBarState extends State<ScaffoldWithNavBar> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        var popped = await currentDelegate.popRoute();
-        if (popped) return false;
-        if (_currentIndex != 0) {
+    return PopScope(
+      canPop: _currentIndex == 0,
+      onPopInvokedWithResult: (didPop, result) {
+        if (!didPop) {
           setState(() => _currentIndex = 0);
-          currentDelegate.update(rebuild: false);
-          return false;
         }
-        return true;
       },
       child: Scaffold(
         body: SafeArea(

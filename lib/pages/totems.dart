@@ -112,14 +112,13 @@ class _TotemsState extends State<Totems> with WidgetsBindingObserver {
       Future.microtask(() => setState(() => _showRelevant = true));
     }
 
-    return WillPopScope(
-        onWillPop: () async {
-          if (_search.isNotEmpty || _showRelevant) {
+    return PopScope(
+        canPop: !_search.isNotEmpty && !_showRelevant,
+        onPopInvokedWithResult: (didPop, result) {
+          if (!didPop) {
             clearSearch();
             setState(() => _showRelevant = false);
-            return false;
           }
-          return true;
         },
         child: Scaffold(
             body: Column(children: [
