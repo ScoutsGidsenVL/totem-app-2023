@@ -18,7 +18,8 @@ MarkdownStyleSheet markdownStyle(BuildContext context) {
       p: const TextStyle(fontSize: 18),
       a: TextStyle(
           color: Theme.of(context).colorScheme.primary,
-          decoration: TextDecoration.underline),
+          decoration: TextDecoration.underline,
+          decorationColor: Theme.of(context).colorScheme.primary),
       h1: TextStyle(
           fontSize: 26,
           fontWeight: FontWeight.bold,

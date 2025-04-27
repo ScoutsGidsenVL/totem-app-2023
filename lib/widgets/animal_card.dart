@@ -123,11 +123,11 @@ class _AnimalCardState extends State<AnimalCard> {
                                 onPressed: () {
                                   final box =
                                       context.findRenderObject() as RenderBox?;
-                                  Share.share(
-                                      '${ProfileManager.sharePrefix}?t=${Uri.encodeQueryComponent(_animal.name)}',
-                                      sharePositionOrigin:
-                                          box!.localToGlobal(Offset.zero) &
-                                              box.size);
+                                  SharePlus.instance.share(ShareParams(
+                                    uri: Uri.parse('${ProfileManager.sharePrefix}?t=${Uri.encodeQueryComponent(_animal.name)}'),
+                                    sharePositionOrigin:
+                                        box!.localToGlobal(Offset.zero) &
+                                            box.size));
                                 },
                                 icon: const Icon(Icons.share)),
                             AnimalStarButton(

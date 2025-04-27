@@ -78,7 +78,7 @@ class MyApp extends StatelessWidget {
       initialPath: '/totemisatie',
       locationBuilder: RoutesLocationBuilder(routes: {
         '*': (context, state, data) => const ScaffoldWithNavBar(),
-      }));
+      }).call);
 
   @override
   Widget build(BuildContext context) {
@@ -144,13 +144,12 @@ class MyApp extends StatelessWidget {
             themeMode: context.watch<SettingsData>().theme,
             routerDelegate: routerDelegate,
             routeInformationParser: BeamerParser(onParse: (info) {
-              if (info.location.contains('?p=')) {
-                final code =
-                    Uri.parse(info.location).queryParameters['p'] ?? '';
+              if (info.uri.path.contains('?p=')) {
+                final code = info.uri.queryParameters['p'] ?? '';
                 final query = Uri.encodeQueryComponent(
                     ProfileManager.importPrefix + code);
                 return RouteInformation(
-                    location: '/profielen/import?code=$query',
+                    uri: Uri.parse('/profielen/import?code=$query'),
                     state: info.state);
               }
               return info;
@@ -176,10 +175,10 @@ class _ScaffoldWithNavBarState extends State<ScaffoldWithNavBar> {
       .map((t) => BeamerDelegate(
           initialPath: t.path,
           locationBuilder: (info, params) {
-            if (info.location.contains(t.path)) {
+            if (info.uri.path.contains(t.path)) {
               return t.locationBuilder(info, params);
             }
-            return NotFound(path: info.location);
+            return NotFound(path: info.uri.path);
           }))
       .toList();
 
@@ -188,8 +187,8 @@ class _ScaffoldWithNavBarState extends State<ScaffoldWithNavBar> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final location = Beamer.of(context).configuration.location;
-    final index = tabs.lastIndexWhere((tab) => location.startsWith(tab.path));
+    final uri = Beamer.of(context).configuration.uri;
+    final index = tabs.lastIndexWhere((tab) => uri.path.startsWith(tab.path));
     _currentIndex = index < 0 ? 0 : index;
   }
 

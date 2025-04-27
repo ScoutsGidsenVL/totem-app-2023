@@ -70,7 +70,7 @@ class AnimalStarButton extends StatelessWidget {
                                 child: Text(profile.name)),
                           ]),
                         );
-                      }).toList(),
+                      }),
                       SimpleDialogOption(
                         onPressed: () {
                           final parentContext = context;

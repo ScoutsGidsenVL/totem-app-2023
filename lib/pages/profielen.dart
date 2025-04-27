@@ -10,7 +10,7 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class Profielen extends StatefulWidget {
-  const Profielen({Key? key}) : super(key: key);
+  const Profielen({super.key});
 
   @override
   State<Profielen> createState() => _ProfielenState();

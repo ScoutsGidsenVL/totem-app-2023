@@ -8,7 +8,7 @@ import 'package:totemapp/widgets/animal_entry.dart';
 import 'package:totemapp/widgets/animal_star_button.dart';
 
 class Totems extends StatefulWidget {
-  const Totems({Key? key}) : super(key: key);
+  const Totems({super.key});
 
   @override
   State<Totems> createState() => _TotemsState();

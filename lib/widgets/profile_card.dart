@@ -139,9 +139,10 @@ class ProfileCard extends StatelessWidget {
                         onPressed: () {
                           final code = profile!.encode(manager.dynamicData!);
                           final box = context.findRenderObject() as RenderBox?;
-                          Share.share(ProfileManager.importPrefix + code,
+                          SharePlus.instance.share(ShareParams(
+                            uri: Uri.parse(ProfileManager.importPrefix + code),
                               sharePositionOrigin:
-                                  box!.localToGlobal(Offset.zero) & box.size);
+                                  box!.localToGlobal(Offset.zero) & box.size));
                         },
                         style: ButtonStyle(
                             backgroundColor: WidgetStatePropertyAll(

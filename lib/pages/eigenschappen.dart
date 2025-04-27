@@ -11,7 +11,7 @@ import 'package:totemapp/widgets/profile_dialog.dart';
 import 'package:totemapp/widgets/trait_entry.dart';
 
 class Eigenschappen extends StatefulWidget {
-  const Eigenschappen({Key? key}) : super(key: key);
+  const Eigenschappen({super.key});
 
   @override
   State<Eigenschappen> createState() => _EigenschappenState();

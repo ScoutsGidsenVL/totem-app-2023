@@ -21,7 +21,11 @@ class FilteredTotems extends StatelessWidget {
         .toList();
 
     if (filter.isEmpty) {
-      Future.microtask(() => Navigator.popUntil(context, (r) => r.isFirst));
+      Future.microtask(() => {
+        if (context.mounted) {
+          Navigator.popUntil(context, (r) => r.isFirst)
+        }
+      });
     }
 
     return Scaffold(
