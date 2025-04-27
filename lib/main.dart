@@ -214,13 +214,12 @@ class _ScaffoldWithNavBarState extends State<ScaffoldWithNavBar> {
                 .toList(),
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          items: tabs
-              .map((t) => BottomNavigationBarItem(icon: t.icon, label: t.title))
+        bottomNavigationBar: NavigationBar(
+          destinations: tabs
+              .map((t) => NavigationDestination(icon: t.icon, label: t.title))
               .toList(),
-          currentIndex: _currentIndex,
-          onTap: (index) {
+          selectedIndex: _currentIndex,
+          onDestinationSelected: (index) {
             if (index != _currentIndex) {
               setState(() => _currentIndex = index);
               currentDelegate.update(rebuild: false);
@@ -228,7 +227,6 @@ class _ScaffoldWithNavBarState extends State<ScaffoldWithNavBar> {
               currentDelegate.popToNamed(tabs[_currentIndex].path);
             }
           },
-          selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
     );
