@@ -49,7 +49,6 @@ class _TotemsState extends State<Totems> with WidgetsBindingObserver {
 
   void clearSearch() {
     setState(() {
-      _searchFocus.unfocus();
       _searchController.clear();
       _search = '';
     });
@@ -139,14 +138,12 @@ class _TotemsState extends State<Totems> with WidgetsBindingObserver {
                                 : IconButton(
                                     onPressed: clearSearch,
                                     icon: const Icon(Icons.close)),
-                            relevantAnimals.isEmpty
-                                ? Container()
-                                : IconButton(
-                                    onPressed: toggleRelevant,
-                                    icon: _showRelevant
-                                        ? Icon(Icons.star,
-                                            color: AnimalStarButton.color)
-                                        : const Icon(Icons.star_outline))
+                            IconButton(
+                                onPressed: toggleRelevant,
+                                icon: _showRelevant
+                                    ? Icon(Icons.star,
+                                        color: AnimalStarButton.color)
+                                    : const Icon(Icons.star_outline))
                           ]),
                       labelText: 'Zoek totem',
                       border: const OutlineInputBorder()))),

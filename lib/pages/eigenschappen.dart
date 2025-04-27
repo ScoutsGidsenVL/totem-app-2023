@@ -54,7 +54,6 @@ class _EigenschappenState extends State<Eigenschappen>
 
   void clearSearch() {
     setState(() {
-      _searchFocus.unfocus();
       _searchController.clear();
       _search = '';
     });
