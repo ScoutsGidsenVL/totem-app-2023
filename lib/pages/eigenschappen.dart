@@ -172,16 +172,17 @@ class _EigenschappenState extends State<Eigenschappen>
       Future.microtask(() => setState(() => _showRelevant = true));
     }
 
-    return PopScope(
-        canPop: !_search.isNotEmpty && !_showRelevant && !_sortInfluence,
-        onPopInvokedWithResult: (didPop, result) {
-          if (!didPop) {
+    return WillPopScope(
+        onWillPop: () async {
+          if (_search.isNotEmpty || _showRelevant || _sortInfluence) {
             clearSearch();
             setState(() {
               _showRelevant = false;
               _sortInfluence = false;
             });
+            return false;
           }
+          return true;
         },
         child: Scaffold(
             body: Column(children: [
