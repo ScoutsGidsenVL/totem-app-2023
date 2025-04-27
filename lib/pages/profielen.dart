@@ -66,9 +66,14 @@ class _ProfielenState extends State<Profielen> {
         floatingActionButton: SpeedDial(
           icon: Icons.add,
           activeIcon: Icons.close,
-          spacing: 3,
+          spacing: 16,
           backgroundColor: Theme.of(context).colorScheme.primary,
           foregroundColor: Theme.of(context).colorScheme.onPrimary,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          childMargin: EdgeInsets.zero,
+          childPadding: const EdgeInsets.all(8.0),
           children: [
             SpeedDialChild(
                 onTap: () {
@@ -84,6 +89,9 @@ class _ProfielenState extends State<Profielen> {
                 },
                 backgroundColor: Theme.of(context).colorScheme.primary,
                 foregroundColor: Theme.of(context).colorScheme.onPrimary,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(12)),
+                ),
                 label: 'Nieuw profiel',
                 child: const Icon(Icons.person_add)),
             SpeedDialChild(
@@ -92,6 +100,9 @@ class _ProfielenState extends State<Profielen> {
                 },
                 backgroundColor: Theme.of(context).colorScheme.primary,
                 foregroundColor: Theme.of(context).colorScheme.onPrimary,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(12)),
+                ),
                 label: 'Importeer profiel',
                 child: const Icon(Icons.link)),
           ],
