@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:totemapp/model/totem_data.dart';
 import 'package:totemapp/widgets/animal_card.dart';
+import 'package:totemapp/widgets/animal_chip.dart';
 import 'package:totemapp/widgets/animal_name.dart';
 import 'package:totemapp/widgets/animal_star_button.dart';
 
@@ -41,7 +42,13 @@ class AnimalEntry extends StatelessWidget {
                     animal: animal, swipeList: swipeList, actions: actions);
               });
         },
-        title: AnimalName(animal),
+        title: Row(
+          children: [
+            Expanded(child: AnimalName(animal)),
+            if (animal.isNew)
+              AnimalChip()
+          ],
+        ),
         trailing: trailing ??
             Row(
               mainAxisSize: MainAxisSize.min,
