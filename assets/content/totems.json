@@ -7678,6 +7678,962 @@
 			],
 			"description": "Deze snelle, sierlijke vlieger jaagt tijdens zijn vlucht op insecten. De Zwaluw is behendig en kunstig. Deze zangvogel is hulpvaardig en bedrijvig. De Zwaluw is uitgesproken sociaal, betrouwbaar en leeft nauw samen in grote groepen. Hij is flexibel en weinig kieskeurig. De Zwaluw is beschermend voor zijn jongen.",
 			"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Tachycineta_bicolor1.jpg/640px-Tachycineta_bicolor1.jpg"
+		},
+		{
+			"id": 393,
+			"name": "Anemoonvis",
+			"synonyms": [
+				"Harlekijnvis",
+				"Clownvis",
+				"Nemo"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Amphiprion_ocellaris_%28Clown_anemonefish%29_by_Nick_Hobgood.jpg",
+			"description": "Deze bekende vis houdt van de geborgenheid van het rif. Hun vrolijke verschijning weet eenieder te charmeren. De anemoonvis hecht veel belang aan hun omgeving en floreert in groepen. Deze koraalvis is zorgzaam voor kroost en soortgenoten. In warme wateren is de anemoonvis intelligent, energiek en van alle markten thuis. Wanneer uitgedaagd, reageert dit visje listig en meedogenloos.",
+			"traits": [
+				"Vrolijk",
+				"Charmant",
+				"Groepsdier",
+				"Zorgzaam",
+				"Intelligent",
+				"Energiek",
+				"Veelzijdig",
+				"Gemeenschapsgevoel",
+				"Listig"
+			]
+		},
+		{
+			"id": 394,
+			"name": "Axolotl",
+			"synonyms": [
+				"Wandelvis",
+				"Waterdraak"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/7/75/Ambystoma_mexicanum_1zz.jpg",
+			"description": "Teruggetrokken in diepe meren vertoeft de Axolotl. Deze salamander is zachtaardig en weerbaar. Bij een eerste contact blijft de axolotl waakzaam en schuw. Met een scherp observatievermogen past deze vindingrijke jager zich moeiteloos aan de omgeving aan. De axolotl toont zich gemoedelijk, maar kan plots speels en energiek ontspringen.",
+			"traits": [
+				"Teruggetrokken",
+				"Zachtaardig",
+				"Weerbaar",
+				"Waakzaam",
+				"Schuw",
+				"Vindingrijk",
+				"Observerend",
+				"Aanpassend",
+				"Gemoedelijk",
+				"Speels",
+				"Energiek"
+			]
+		},
+		{
+			"id": 395,
+			"name": "Barracuda",
+			"synonyms": [
+				"Zeesnoek",
+				"Zeetijger",
+				"Cuda",
+				"Becuna",
+				"Rondsnoek"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Barracuda_laban.jpg",
+			"description": "De Barracuda is een sterk en moedig roofdier dat op sommige plekken meer wordt gevreesd dan haaien. Wie hen kent, weet echter dat dit onterecht is. De Barracuda werkt tactisch en actief samen in grote scholen. De jongen zijn weerbaar en zelfredzaam. De Barracuda kan opportunistisch uit de hoek komen.",
+			"traits": [
+				"Actief",
+				"Geducht",
+				"Groepsdier (Grote Groep)",
+				"Moedig",
+				"Opportunistisch",
+				"Samenwerkend",
+				"Sterk",
+				"Weerbaar",
+				"Tactisch",
+				"Zelfredzaam"
+			]
+		},
+		{
+			"id": 396,
+			"name": "Beerdiertje",
+			"synonyms": [
+				"Waterbeer",
+				"Tardigraad",
+				"Mosbeer"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/c/cd/SEM_image_of_Milnesium_tardigradum_in_active_state_-_journal.pone.0045682.g001-2.png",
+			"description": "Het Beerdiertje staat bekend als het meest veerkrachtige dier op aarde. Het is volhardend, sterk en dapper. Levenlustig en vindingrijk pas het Beerdiertje zich aan en overleeft het in alle omstandigheden door stromingen geleid, toont dit minuscule wezen verrassend veel moed. Dit groepsdier werkt graag samen, maar kan ook zwervend een eigen weg vinden.",
+			"traits": [
+				"Volhardend",
+				"Sterk",
+				"Dapper",
+				"Levenslustig",
+				"Vindingrijk",
+				"Zwervend",
+				"Verrassend",
+				"Moedig",
+				"Groepsdier",
+				"Zelfstandig"
+			]
+		},
+		{
+			"id": 397,
+			"name": "Cichlide",
+			"synonyms": [
+				"Quetzalcichlide",
+				"Zebracichlide",
+				"Discusvis",
+				"Maanvis"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/2/21/Sea_Life_Centre%2C_Blackpool_2016_009_-_Malawi_Cichlid.jpg",
+			"description": "De Cichlide is bovenal verzorgend naar de jongen. De eitjes krijgen veel liefde en het territorium wordt fel bewaakt. Dat kan soms agressief overkomen, maar is altijd in het belang van de soortgenoten. De cichlide is steeds aan het werk om het leefgebied te verbeteren.  Dit energiek dier heeft een grote eetlust en is niet veeleisend.",
+			"traits": [
+				"Bedrijvig",
+				"Energiek",
+				"Eetlustig",
+				"Liefdevol",
+				"Niet veeleisend",
+				"Territoriaal",
+				"Zorgzaam",
+				"Verdedigend"
+			]
+		},
+		{
+			"id": 398,
+			"name": "Danio",
+			"synonyms": [
+				"Zebradanio",
+				"Zebravis"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/2/27/Danio_rerio_port.jpg",
+			"description": "De Danio is bovenal verstandig en werkt graag samen. Dit groepsdier leeft in scholen. Speels en nieuwsgierig gaat het op verkenning. De Danio is zachtmoedig en vreedzaam van aard. Bij gevaar stelt dit dappere visje zich beschermend op.",
+			"traits": [
+				"Verstandig",
+				"Samenwerkend",
+				"Groepsdier",
+				"Speels",
+				"Nieuwsgierig",
+				"Vreedzaam",
+				"Zachtaardig",
+				"Moedig",
+				"Beschermend"
+			]
+		},
+		{
+			"id": 399,
+			"name": "Boomkikker",
+			"synonyms": [
+				"Hyla",
+				"Roodoogmakikikker"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/a/af/Rzekotka_drzewna_2.jpg",
+			"description": "In het struikgewas nabij een poel zit deze huiselijke levensgenieter verscholen. De Boomkikker is uitermate expressief en kleurt donkergroen tot bruin wanneer het zich niet goed voelt.  Dit koddig amfibie is een goede luisteraar die interesse toont in de ander. De Boomkikker is communicatief sterk en vindt altijd wel een reden om te lachen.",
+			"traits": [
+				"Huiselijk",
+				"Levensgenieter",
+				"Luisterbereid",
+				"Geïnteresseerd",
+				"Koddig",
+				"Lachend",
+				"Communicatief",
+				"Expressief"
+			]
+		},
+		{
+			"id": 400,
+			"name": "Hondshaai",
+			"synonyms": [
+				"Zandhaai",
+				"Kathaai"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Scyliorhinus_canicula.jpg",
+			"description": "Deze kleine, bevallige en mystieke jager leeft op grote diepte. De Hondshaai is zachter dan het oog doet vermoeden. Dit dier is oprecht en betrouwbaar. Van karakter is deze krachtige roofvis eerder solitair, maar blijft nooit ver weg van soortgenoten. De hondshaai is attent en denkt goed na alvorens actie te ondernemen.",
+			"traits": [
+				"Bevallig",
+				"Mysterieus",
+				"Zachtaardig",
+				"Eerlijk",
+				"Betrouwbaar",
+				"Krachtig",
+				"Solitair",
+				"Gemeenschapsgevoel",
+				"Attent",
+				"Vooruitziend"
+			]
+		},
+		{
+			"id": 401,
+			"name": "Kabeljauw",
+			"synonyms": [
+				"Beugvis",
+				"Bacalao",
+				"Gadus"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Gadus_morhua_Cod-2b-Atlanterhavsparken-Norway.JPG",
+			"description": "Deze vis leeft in grote groepen met een duidelijke hiërarchie, waarin het voedsel eerlijk verdeeld wordt. Jaarlijks keert de kabeljauw terug naar de geboorteplaats, waarvoor een sterk oriëntatievermogen nodig is. Tijdens de lange tocht gebruikt deze roofvis hun energie efficiënt. De kabeljauw is niet kieskeurig.",
+			"traits": [
+				"Groepsdier (Grote Groep)",
+				"Hiërarchisch",
+				"Delend",
+				"Gewoontedier",
+				"Goed oriëntatiegevoel",
+				"Efficiënt",
+				"Niet kieskeurig"
+			]
+		},
+		{
+			"id": 402,
+			"name": "Kamsalamander",
+			"synonyms": [
+				"Grote watersalamander"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/9/98/Kammmolch-Goettingen-02.jpg",
+			"description": "De Kamsalamander is de grootste inheemse watersalamander. Na hun jeugd in het water verkiezen deze dieren graag de rust van beschutte gebieden zoals bossen, altijd in de buurt van stille waterplassen. De kamsalamander is behoedzaam en heel honkvast. Het is een sterke en snelle zwemmer. De geel-oranje onderkant is voor elk dier uniek en schrikt agressors af. Dit indrukwekkende amfibie is gehard, alert en wendbaar.",
+			"traits": [
+				"Gehard",
+				"Indrukwekkend",
+				"Uniek",
+				"Honkvast",
+				"Snel",
+				"Alert",
+				"Behoedzaam",
+				"Wendbaar"
+			]
+		},
+		{
+			"id": 403,
+			"name": "Karakol",
+			"synonyms": [
+				"Alikruik",
+				"Littorina"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/5/54/Littorina_littorea_001.jpg",
+			"description": "De Karakol is een geduldig, inheems kustdier. Het kan ook in moeilijke natuuromstandigheden afwachtend gedijen. De gekromde schelp heeft een eenvoudige elegantie. Bij het opgroeien maakt de karakol een ware transformatie door, waarbij dit zeedier eerst vrij rondzwemt en zich later op een rustige plek vestigt. Steeds bescheiden toont deze zeeslak verdraagzaamheid. De karakol kan zich enkel volledig ontwikkelen in een geschikte omgeving.",
+			"traits": [
+				"Afwachtend",
+				"Bescheiden",
+				"Elegant",
+				"Geduldig",
+				"Rustig",
+				"Verdraagzaam"
+			]
+		},
+		{
+			"id": 404,
+			"name": "Kempvis",
+			"synonyms": [
+				"Betta",
+				"Kroonstaart"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/4/42/Betta_splendens_male_crowntail.png",
+			"description": "Dit gracieus visje heeft felle, kleurrijke vinnen die een elegante waaier vormen. Om te verkrijgen wat die nodig heeft gaat de Kempvis onbevreesd en tactisch het gevecht aan met soortgenoten. Bij de eigen kroost komt het liefdevolle in hen naar boven. Zo wordt er voor de eitjes een ingenieus nest gebouwd. De Kempvis is aantrekkelijk en toegewijd.",
+			"traits": [
+				"Gracieus",
+				"Kleurrijk",
+				"Elegant",
+				"Onbevreesd",
+				"Tactisch",
+				"Ingenieus",
+				"Aantrekkelijk",
+				"Toegewijd",
+				"Liefdevol"
+			]
+		},
+		{
+			"id": 405,
+			"name": "Kogelvis",
+			"synonyms": [
+				"Takifugu",
+				"Puffer"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/1/11/Arothron_meleagris_by_NPS_1.jpg",
+			"description": "De Kogelvis is één van de meest expressieve zeewezens. Dit diertje bouwt soms dagen aan een nest. Het is een artistiek meesterwerk dat getuigt van een groot doorzettingsvermogen en verantwoordelijkheidszin. Het goedgeluimde karakter en de guitige lach van de kogelvis werken aanstekelijk. De kogelvis is gevoelig en openhartig tegenover vrienden. Het is een moedige vis, maar probeert grote dreigingen te vermijden.",
+			"traits": [
+				"Expressief",
+				"Creatief",
+				"Doorzettend",
+				"Verantwoordelijk",
+				"Goedgeluimd",
+				"Guitig",
+				"Gevoelig",
+				"Openhartig",
+				"Moedig",
+				"Voorzichtig"
+			]
+		},
+		{
+			"id": 406,
+			"name": "Koraalduivel",
+			"synonyms": [
+				"Leeuwvis",
+				"Schorpioenvis"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/0/07/Pterois_volitans_Manado-e.jpg",
+			"description": "Met kleurrijke vinnen en giftige stekels, heeft de koraalduivel een sprekend voorkomen. Deze vis is steeds op zijn hoede, je benadert hem best voorzichtig en gecontroleerd. De koraalduivel is vooral 's avonds actief, overdag houdt het zich schuil. Bij uitdagingen gaat het samenwerkingen aan, verder is het goed op zichzelf.",
+			"traits": [
+				"Nachtelijk",
+				"Solitair",
+				"Samenwerkend",
+				"Opvallend",
+				"Opmerkzaam",
+				"Zelfredzaam",
+				"Opportunistisch"
+			]
+		},
+		{
+			"id": 407,
+			"name": "Koraalvlinder",
+			"synonyms": [
+				"Pincetvis",
+				"Chelmon"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Johnrandallia_nigrirostris.jpg",
+			"description": "Deze snelle en wendbare zwemmer heeft een kleurrijk voorkomen. De koraalvlinder leeft voornamelijk in het koraalrif en is niet snel geneigd om dat te verlaten. Deze tropische vis is onderhoudend en draagt actief zorg voor zijn vertrouwde leefomgeving.",
+			"traits": [
+				"Snel",
+				"Wendbaar",
+				"Kleurrijk",
+				"Honkvast",
+				"Zorgzaam",
+				"Onderhoudend"
+			]
+		},
+		{
+			"id": 408,
+			"name": "Krab",
+			"synonyms": [
+				"Strandkrab",
+				"Uca"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Gecarcinus_quadratus_%28Nosara%29.jpg",
+			"description": "Dit schaaldier is niet veeleisend, waardoor het overal kan gedijen. De krab leeft in grote groepen die nauw samenwerken om de jongen te beschermen. Zowel op het land als in het water kan dit ingenieuze diertje zich uitstekend oriënteren.",
+			"traits": [
+				"Niet veeleisend",
+				"Groepsdier (Grote Groep)",
+				"Samenwerkend",
+				"Beschermend",
+				"Ingenieus",
+				"Goed oriëntatiegevoel"
+			]
+		},
+		{
+			"id": 409,
+			"name": "Kreeft",
+			"synonyms": [
+				"Awwista",
+				"Rivierkreeft"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Ecrevisse_pattes_rouges.jpg",
+			"description": "Dit uitermate behendige schaaldier schuwt complexe uitdagingen niet. De kreeft is rustig en verschuilt zich graag. Wanneer de nacht valt, wordt deze zelfstandige jager actief. Deze alleseter voelt zich overal snel thuis. De kreeft heeft een uitgesproken temperament.",
+			"traits": [
+				"Behendig",
+				"Vindingrijk",
+				"Rustig",
+				"Schuw",
+				"Nachtelijk",
+				"Zelfstandig",
+				"Niet kieskeurig",
+				"Aanpassend",
+				"Temperamentvol"
+			]
+		},
+		{
+			"id": 410,
+			"name": "Loodsmannetje",
+			"synonyms": [
+				"Naucrates",
+				"Nfànfaru",
+				"Losfisk"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/3/32/Carcharhinus_longimanus_1.jpg",
+			"description": "Deze sociale vis leeft in scholen en werkt vernuftig samen met grotere roofdieren. Hierbij komt het vriendelijk en vredelievend karakter van het loodsmannetje tot uiting. Het is opmerkzaam en stelt zich moedig op bij gevaar. Het doorzettingsvermogen van het loodsmannetje is ongezien.",
+			"traits": [
+				"Sociaal",
+				"Groepsdier",
+				"Slim",
+				"Samenwerkend",
+				"Vriendelijk",
+				"Vredelievend",
+				"Opmerkzaam",
+				"Moedig",
+				"Doorzettend"
+			]
+		},
+		{
+			"id": 411,
+			"name": "Makreelhaai",
+			"synonyms": [
+				"Mako",
+				"Isurus"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Isurus_oxyrinchus_by_mark_conlin2.JPG",
+			"description": "De makreelhaai jaagt met snelheid, behendigheid en kracht op prooien. Dit intelligent en warmbloedig roofdier toont geen angst en blijft voortdurend alert. Met een glanzend blauw en zilveren lichaam straalt het een indrukwekkende schoonheid uit. De solitaire aard, scherpe zintuigen en onvermoeibare ingesteldheid maken de makreelhaai tot een efficiënte en sluwe jager.",
+			"traits": [
+				"Snel",
+				"Behendig",
+				"Krachtig",
+				"Intelligent",
+				"Alert",
+				"Indrukwekkend",
+				"Solitair",
+				"Scherpzinnig",
+				"Onvermoeibaar",
+				"Efficiënt",
+				"Sluw"
+			]
+		},
+		{
+			"id": 412,
+			"name": "Marlijn",
+			"synonyms": [
+				"Makaira",
+				"Zeilvis"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Atlantic_blue_marlin.jpg",
+			"description": "In de diepten van de oceaan heerst deze majestueuze zwemmer, onbevreesd en onvermoeibaar. De Marlijn is een tactische en scherpzinnige jager. Deze avontuurlijke acrobaat blinkt uit in snelheid en behendigheid. Met vastberadenheid en moed belichaamt de Marlijn de kracht van de oceaan.",
+			"traits": [
+				"Majestueus",
+				"Onbevreesd",
+				"Onvermoeibaar",
+				"Tactisch",
+				"Scherpzinnig",
+				"Avontuurlijk",
+				"Acrobatisch",
+				"Snel",
+				"Behendig",
+				"Standvastig",
+				"Moedig",
+				"Krachtig"
+			]
+		},
+		{
+			"id": 413,
+			"name": "Franjeschildpad",
+			"synonyms": [
+				"Matamata"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/7/7f/2009_Chelus_fimbriatus.JPG",
+			"description": "De Franjeschildpad is erg gesteld op rust en ruimte voor zichzelf.  Het is een rasechte levensgenieter en plantrekker. Door het spaarzaam en doordacht plannen van acties, maakt de Franjeschildpad een geduldige indruk. Meestal houdt dit reptiel zich verborgen, om vervolgens op het geknipte moment hun slag te slaan.",
+			"traits": [
+				"Rustzoeker",
+				"Onafhankelijk",
+				"Spaarzaam",
+				"Doordacht",
+				"Geduldig",
+				"Zelfredzaam",
+				"Levensgenieter"
+			]
+		},
+		{
+			"id": 414,
+			"name": "Murene",
+			"synonyms": [
+				"Moeraal"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/7/71/Black-yellow_moray_eel_%2851434134045%29.jpg",
+			"description": "De Murene heeft het vermogen om zich aan te passen aan zowel zoet als zout water en werkt graag samen met andere soorten. Deze listige jager wacht de prooi waakzaam en geduldig op in holtes of rotsspleten. Eens een prooi in zicht is, gaat de Murene assertief en efficiënt te werk. Deze vis is zelfstandig en leert uit ervaring.",
+			"traits": [
+				"Aanpassend",
+				"Samenwerkend",
+				"Listig",
+				"Waakzaam",
+				"Geduldig",
+				"Assertief",
+				"Efficiënt",
+				"Zelfstandig",
+				"Ervaringsgericht"
+			]
+		},
+		{
+			"id": 415,
+			"name": "Octopus",
+			"synonyms": [
+				"Piovra",
+				"Polpo"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Octopus_Vulgaris.jpg",
+			"description": "Deze intelligente en veelzijdige zeebewoner past zich moeiteloos aan de omgeving aan. Hoewel de Octopus graag alleen vertoeft, vertoont het een speelsheid in interactie met objecten of prooien. Met hun flexibele tentakels beweegt het zowel sierlijk als verrassend snel. De Octopus maakt een charmante impressie, maar kan ook soms onhandig overkomen.",
+			"traits": [
+				"Intelligent",
+				"Flexibel",
+				"Rustzoeker",
+				"Speels",
+				"Sierlijk",
+				"Snel",
+				"Onhandig",
+				"Charmant",
+				"Veelzijdig",
+				"Aanpassend"
+			]
+		},
+		{
+			"id": 416,
+			"name": "Paling",
+			"synonyms": [
+				"Aal",
+				"Angerjas"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/5/58/Anguilla_anguilla.jpg",
+			"description": "Dit mysterieuze wezen legt enorme afstanden af tijdens de migratie over zoet en zout water, met de stroom mee en er tegen in. De Paling is een meester in volharding en inventiviteit, waardoor het menig obstakel weet te overwinnen. Deze vis ondervindt de gevolgen van hun acties en past hun gedrag hieraan aan. De paling is eigenzinnig, assertief en toegewijd.",
+			"traits": [
+				"Mysterieus",
+				"Volhardend",
+				"Inventief",
+				"Ervaringsgericht",
+				"Eigenzinnig",
+				"Assertief",
+				"Toegewijd"
+			]
+		},
+		{
+			"id": 417,
+			"name": "Parelkwal",
+			"synonyms": [
+				"Lichtende kwal",
+				"Meduse",
+				"Pelagia"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/7/77/Pelagia_noctiluca_%28Sardinia%29.jpg",
+			"description": "Deze kleurrijke kwal leeft in grote groepen, waarbij het zich volgzaam opstelt. De parelkwal is edelmoedig, maar kan fel uit de hoek komen bij bedreiging. In vertrouwde omgevingen is de Parelkwal expressief en toont het hun gevoelens helder.",
+			"traits": [
+				"Kleurrijk",
+				"Groepsdier (Grote Groep)",
+				"Volgzaam",
+				"Edelmoedig",
+				"Fel",
+				"Expressief",
+				"Temperamentvol",
+				"Gehecht"
+			]
+		},
+		{
+			"id": 418,
+			"name": "Pauwoogstekelrog",
+			"synonyms": [
+				"Zoetwaterrog"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Ocellate_river_stingray%2C_Boston_Aquarium.jpg",
+			"description": "Statig en sierlijk glijdt de Pauwoogstekelrog over de zeebodem. Met waakzame blik observeert het de omgeving, ten allen tijde klaar om gezwind te reageren op veranderingen. Hoewel dit roofdier onbevreesd is, vermijdt het onnodige conflicten. De Pauwoogstekelrog is geduldig, maar laat nooit een kans onbenut.",
+			"traits": [
+				"Statig",
+				"Sierlijk",
+				"Waakzaam",
+				"Onbevreesd",
+				"Vreedzaam",
+				"Geduldig",
+				"Opportunistisch"
+			]
+		},
+		{
+			"id": 419,
+			"name": "Penseelkrab",
+			"synonyms": [
+				"Borstelkrab",
+				"Takanoi"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Hemigrapsus_tokanoi_1.jpg",
+			"description": "Verborgen tussen rotsen of begroeiing leidt de Penseelkrab een teruggetrokken bestaan. Deze verzamelaar is monter en kan voortreffelijk wennen aan veranderende omstandigheden. De Penseelkrab is elegant en vermijdt confrontaties.",
+			"traits": [
+				"Teruggetrokken",
+				"Verzamelend",
+				"Monter",
+				"Aanpassend",
+				"Elegant",
+				"Voorzichtig"
+			]
+		},
+		{
+			"id": 420,
+			"name": "Piranha",
+			"synonyms": [
+				"Pacu"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/5/54/Close-up_of_a_piranha_at_Georgia_Aquarium.jpg",
+			"description": "In tegenstelling tot de vertellingen is de Piranha ontzettend vriendelijk. Deze vredelievende zoetwatervis leeft hoofdzakelijk van gevallen fruit en karkassen. De Piranha heeft een geduchte beet die het enkel in noodgevallen zal etaleren. Het is een stille gezel die alles opmerkt en steeds in de bres springt voor soortgenoten. De Piranha is een volbloed doorbijter.",
+			"traits": [
+				"Vriendelijk",
+				"Vredelievend",
+				"Geducht",
+				"Stil",
+				"Opmerkzaam",
+				"Hulpvaardig",
+				"Doorzettend"
+			]
+		},
+		{
+			"id": 421,
+			"name": "Schippertje",
+			"synonyms": [
+				"Argonauta",
+				"Papierboot"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/a/a4/La_Tortuga_2010_012.jpg",
+			"description": "Deze nieuwsgierige en avontuurlijke inktvis verkent graag onbekend terrein. Om hun kroost te beschermen, maakt het Schippertje een stevige schelp van wat er voorhanden is. Dit merkwaardige dier is sociaal en weet zich aan elke situatie aan te passen.",
+			"traits": [
+				"Nieuwsgierig",
+				"Avontuurlijk",
+				"Beschermend",
+				"Merkwaardig",
+				"Sociaal",
+				"Aanpassend"
+			]
+		},
+		{
+			"id": 422,
+			"name": "Tijgerhaai",
+			"synonyms": [
+				"Galeocerdo"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/1/19/Tigershark2.jpg",
+			"description": "In de tropische diepe wateren heerst de Tijgerhaai met vastberadenheid. Het is een nieuwsgierige en eigenzinnige reiziger, die jaarlijks duizenden kilometers aflegt. De Tijgerhaai is energiek en ondeugend. Deze intelligente haai heeft voortreffelijke instincten. Tijdens het jagen kan de Tijgerhaai vertrouwen op hun scherpe zicht en reukzin.",
+			"traits": [
+				"Standvastig",
+				"Nieuwsgierig",
+				"Eigenzinnig",
+				"Energiek",
+				"Ondeugend",
+				"Intelligent",
+				"Instinctief",
+				"Scherpzinnig"
+			]
+		},
+		{
+			"id": 423,
+			"name": "Vampierinktvis",
+			"synonyms": [
+				"Kraken"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Vampyroteuthis1.jpg",
+			"description": "De vampierinktvis is niet veeleisend waardoor het kan overleven in de diepzee. Hoewel de naam anders doet vermoeden, is de vampierinktvis teder en kwetsbaar. Toch kan deze nachtelijke diepzee-inktvis verrassend uit de hoek komen. Als het wordt opgeschrikt door een roofdier, komt het tot inventieve oplossingen om het gevaar af te wenden. Dit weekdier zwemt snel en behendig.",
+			"traits": [
+				"Teder",
+				"Kwetsbaar",
+				"Verrassend",
+				"Inventief",
+				"Snel",
+				"Behendig",
+				"Niet veeleisend",
+				"Nachtelijk"
+			]
+		},
+		{
+			"id": 424,
+			"name": "Vuurstaartlabeo",
+			"synonyms": [
+				"Regenbooghaai",
+				"Roodvinhaai"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/0/01/Epalzeorhynchos_bicolor1.jpg",
+			"description": "De Vuurstaartlabeo fleurt op in sociale kringen met een grote verscheidenheid aan soorten, maar duldt geen soortgenoten in het nauwkeurig afgezet territorium. Vrienden en kleinere dieren kunnen rekenen op de bescherming van de Vuurstaartlabeo. Dit visje is levendig en actief van aard. De vuurstaartlabeo verkent graag onbekend terrein.",
+			"traits": [
+				"Sociaal",
+				"Samenwerkend",
+				"Nauwkeurig",
+				"Territoriaal",
+				"Beschermend",
+				"Levendig",
+				"Actief",
+				"Nieuwsgierig"
+			]
+		},
+		{
+			"id": 425,
+			"name": "Wulk",
+			"synonyms": [
+				"Agngágga",
+				"Kieuwslak",
+				"Noordhoorn"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Buccinum_undatum_2018_01.jpg",
+			"description": "Deze huisjesslak uit de Noordzee past zich aan alle omstandigheden aan, maar komt het meest tot hun recht in stille wateren. De Wulk schuimt al miljoenen jaren fier over de zeebodem. Deze rasechte plantrekker draagt bij aan een gezonde omgeving. De Wulk is nuttig en geduldig. Dit weekdiertje schat de situatie voorzichtig in, alvorens zich voluit te geven.",
+			"traits": [
+				"Aanpassend",
+				"Kalm",
+				"Fier",
+				"Plantrekker",
+				"Onderhoudend",
+				"Nuttig",
+				"Geduldig",
+				"Voorzichtig"
+			]
+		},
+		{
+			"id": 426,
+			"name": "Zee-egel",
+			"synonyms": [
+				"Zeeappel",
+				"Hartegel"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Tripneustes_ventricosus_%28West_Indian_Sea_Egg-top%29_and_Echinometra_viridis_%28Reef_Urchin_-_bottom%29.jpg",
+			"description": "Deze zeebewoner is altijd hard aan het werk. De Zee-egel is nauwkeurig en zal nooit half werk leveren. Tegenover vreemden toont het zich verlegen, maar naar vrienden toe is het behulpzaam en uiterst trouw. De Zee-egel is gesteld op hun vrijheid.",
+			"traits": [
+				"Trouw",
+				"Behulpzaam",
+				"Verlegen",
+				"Hardwerkend",
+				"Nauwkeurig",
+				"Vrijheidslievend"
+			]
+		},
+		{
+			"id": 427,
+			"name": "Zee-engel",
+			"synonyms": [
+				"Paddehaai",
+				"Pakhaai",
+				"Schoorhaai",
+				"Squatina"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Squatina_squatina_tenerife2.jpg",
+			"description": "Deze geduldige kraakbeenvis verbergt zich vaak op de bodem, wachtend op een prooi. Eens die nabij is, slaat de zee-engel krachtig en behendig toe. Hun grote gestalte en scherpe tanden maken een impressionante verschijning. De zee-engel gaat rustig en verstandig te werk en is onmiskenbaar niet agressief.",
+			"traits": [
+				"Geduldig",
+				"Krachtig",
+				"Behendig",
+				"Indrukwekkend",
+				"Rustig",
+				"Verstandig"
+			]
+		},
+		{
+			"id": 428,
+			"name": "Zeekat",
+			"synonyms": [
+				"Sepia"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Sepia_officinalis_%28aquarium%29.jpg",
+			"description": "De inkt van deze inktvis vormt de basis voor sepia. De Zeekat is joviaal en gemoedelijk van aard. Tijdens het jagen doet deze eigenzinnige guit verstopte dieren opschrikken door met hun mond waterstraaltjes te maken. De intelligentie en het sterke geheugen van de Zeekat maken hen tot een geduchte bodembewoner.",
+			"traits": [
+				"Joviaal",
+				"Gemoedelijk",
+				"Eigenzinnig",
+				"Guitig",
+				"Goed geheugen",
+				"Verstandig",
+				"Geducht"
+			]
+		},
+		{
+			"id": 429,
+			"name": "Zeester",
+			"synonyms": [
+				"Asterias",
+				"Kamster",
+				"Zonnester"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/9/9c/%E6%B5%B7%E6%98%9F%EF%BC%88%E6%AD%A3%E9%9D%A2%EF%BC%89.JPG",
+			"description": "Op de bodem van de oceaan schuifelt dit creatieve en grappige dier. De zeester is nederig en zal zich nooit opdringen, maar staat steeds klaar om te helpen waar nodig. Als symbiont gaat het voortdurend nieuwe samenwerkingen aan. De Zeester heeft een harde huid en kan in nood een arm afstoten, die later teruggroeit. Deze gezellige zeebewoner draagt goed zorg voor hun omgeving.",
+			"traits": [
+				"Creatief",
+				"Afwachtend",
+				"Grappig",
+				"Samenwerkend",
+				"Weerbaar",
+				"Behulpzaam",
+				"Pretentieloos",
+				"Gezellig",
+				"Onderhoudend"
+			]
+		},
+		{
+			"id": 430,
+			"name": "Zonnebaars",
+			"synonyms": [
+				"Lepomis",
+				"Grasbaars"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Lepomis_gibbosus_01.jpg",
+			"description": "De zonnebaars is een zoetwatervis met levendige kleuren. Het groeit snel en is gevoelig voor vervuiling. De zonnebaars leeft sociaal in scholen, maar stelt zich met momenten territoriaal op. Deze vis is nieuwsgierig en toch steeds alert voor gevaar. Op die momenten vertoont het daadkracht en strijdlust. In nieuwe omgevingen, legt de Zonnebaars een zekere brutaliteit voor de dag.",
+			"traits": [
+				"Kleurrijk",
+				"Kwetsbaar",
+				"Groepsdier (Grote Groep)",
+				"Territoriaal",
+				"Nieuwsgierig",
+				"Alert",
+				"Assertief",
+				"Strijdlustig",
+				"Brutaal"
+			]
+		},
+		{
+			"id": 431,
+			"name": "Zonnevis",
+			"synonyms": [
+				"Zeehaan",
+				"Spiegelvis",
+				"Sint-Pietervis"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Zeus.faber.jpg",
+			"description": "Deze edele vis leeft alleen of in kleine groepen. De zonnevis dankt hun naam aan de gouden schijn in hun schubben. De grote zwarte vlek op hun zijkant doet dienst als vals oog, een sluwe list om roofdieren af te schrikken. De zonnevis legt zich vaak net boven de zeebodem om uit te rusten en even te genieten.",
+			"traits": [
+				"Edel",
+				"Solitair",
+				"Groepsdier (Kleine Groep)",
+				"Sluw",
+				"Listig",
+				"Rustzoeker",
+				"Genieter"
+			]
+		},
+		{
+			"id": 432,
+			"name": "Bladschaap",
+			"synonyms": [
+				"Costasiella",
+				"Zeeschaap"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/1/14/Costasiella_sp_%2819797152176%29.jpg",
+			"description": "Het bladschaap heeft heel wat kleine bladachtige uitsteeksels, waardoor het op een wollig schaap lijkt. Het eet de groene cellen van algen op waardoor het naast de groene kleur ook fotosynthese kan toepassen. Deze zeeslak krijgt dus energie door te zonnebaden en geeft zelf licht in het donker. Hierdoor laten anderen het bladschaap met rust. Het beweegt langzaam en voorzichtig. Door de groene of bruine kleur kan het zich gemakkelijk verbergen tussen zeegras en koraal en kan het ongestoord de hele dag eten.",
+			"traits": [
+				"Zelfstandig",
+				"Voorzichtig",
+				"Zelfredzaam",
+				"Stil",
+				"Genieter",
+				"Fascinerend",
+				"Gezapig",
+				"Ingenieus",
+				"Tactisch",
+				"Uithoudend"
+			]
+		},
+		{
+			"id": 433,
+			"name": "Maskerwimpelvis",
+			"synonyms": [
+				"Zanclus"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Zanclus_cornutus_in_Kona.jpg",
+			"description": "Deze koraalbewoner leeft veelal solitair, maar is ook terug te vinden in paren of kleine scholen. Dankzij hun gestreepte lichaam en masker, kan de Maskerwimpelvis zich goed camoufleren tussen de koraalriffen. Het zorgzame karakter van deze vis uit zich vooral in het gezond houden van het rif. Bij gevaar stelt de Maskerwimpelvis zich schuw op.",
+			"traits": [
+				"Solitair",
+				"Groepsdier (Kleine Groep)",
+				"Onopvallend",
+				"Zorgzaam",
+				"Onderhoudend",
+				"Schuw"
+			]
+		},
+		{
+			"id": 434,
+			"name": "Zeeleeuw",
+			"synonyms": [
+				"Otaria",
+				"Manenrob",
+				"Zalophus"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/7/74/California_sea_lion_in_La_Jolla_%2870568%29.jpg",
+			"description": "Dit liefdevolle zeezoogdier leeft in grote kolonies. De zeeleeuw is schrander en scherpzinnig. Na het vissen herkent deze acrobatische duiker hun pups door hun geur en stemgeluid. Tijdens de paartijd toont de zeeleeuw zich imponerend en assertief.",
+			"traits": [
+				"Liefdevol",
+				"Groepsdier (Grote Groep)",
+				"Schrander",
+				"Scherpzinnig",
+				"Goed geheugen",
+				"Imponerend",
+				"Assertief"
+			]
+		},
+		{
+			"id": 435,
+			"name": "Bruinvis",
+			"synonyms": [
+				"Phocoena",
+				"Zeevarken"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/2/26/Ecomare_-_bruinvis_Berend_%28berend3%29.jpg",
+			"description": "De bruinvis is noch bruin, noch een vis. Deze energieke zwemmer leeft dapper en onbevreesd nabij riviermondingen en kustgebieden. De bruinvis is een sociaal dier. Het toont zich vriendelijk en verdraagzaam naar zowel soortgenoten als anderen. Met behulp van hun spatelvormige tanden vangt de beweeglijke bruinvis met veel gemak kleine visjes. Deze intelligente duiker verkent graag onbekend terrein. Dankzij hun sterke oriëntatiegevoel en geheugen vindt de bruinvis steeds de weg naar hun zomer- en winterverblijven.",
+			"traits": [
+				"Goed geheugen",
+				"Goed oriëntatiegevoel",
+				"Intelligent",
+				"Beweeglijk",
+				"Onbevreesd"
+			]
+		},
+		{
+			"id": 436,
+			"name": "Pijlinktvis",
+			"synonyms": [
+				"Loligo",
+				"Nautilus"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Squid_colors_2.jpg",
+			"description": "In de diepe zeeën en donkere oceanen zwemt een nieuwsgierige genieter. De pijlinktvis is standvastig en ondeugend. Het verandert niet enkel van kleur om zich te camoufleren tijdens het jagen, maar ook als amusement voor soortgenoten. In hachelijke situaties schiet het inkt naar hun tegenstander en maakt het zich vlot uit de voeten. De pijlinktvis is een rustige vriend, met een uitdagend kantje.",
+			"traits": [
+				"Genieter",
+				"Rustig",
+				"Snel",
+				"Standvastig",
+				"Verdedigend",
+				"Vriendelijk",
+				"Grappig",
+				"Nieuwsgierig",
+				"Ondeugend",
+				"Uitdagend",
+				"Ingenieus"
+			]
+		},
+		{
+			"id": 437,
+			"name": "Arapaima",
+			"synonyms": [
+				"Pirarucu",
+				"Paiche"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Arapaima_gigas_at_Beijing_aquarium.JPG",
+			"description": "Dit intelligente groepsdier graaft een nest in het zand voor hun kleintjes, die het lange tijd beschermt. De Arapaima toont zich vriendelijk en behulpzaam bij vertrouwd gezelschap, maar schuwt confrontaties niet. Het ene moment kan het vrolijk en onstuimig rondscharrelen, om vervolgens vol elan van zich af te bijten. Zo eist deze robuuste kanjer hun plaats op. Regelmatig zwemt de arapaima naar het watervlak om lucht te happen. Ook vogels behoren tot buit van deze noeste en fiere jager. De arapaima is steeds klaar voor een volgende uitdaging.",
+			"traits": [
+				"Fier",
+				"Strijdlustig",
+				"Temperamentvol",
+				"Vrolijk",
+				"Onstuimig",
+				"Actief",
+				"Behulpzaam",
+				"Groepsdier",
+				"Intelligent",
+				"Vertrouwend",
+				"Vriendelijk"
+			]
+		},
+		{
+			"id": 438,
+			"name": "Marmersalamander",
+			"synonyms": [
+				"Marmoratus"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/8/81/Triturus_marmoratus1.JPG",
+			"description": "De marmersalamander staat gekend als een echte levensgenieter. Het dwaalt met veel enthousiasme van het ene zonnige plekje naar het andere om zich te verwarmen. Eenmaal op hun gemak is de marmersalamander sociaal, vriendelijk en aanhankelijk. Bij gevaar werpt dit dappere amfibie hun staart af. Hun goede geheugen en slimme aard maakt hen tot een bekwame helper. Achter de ondeugende streken van de marmersalamander gaat een gevoelige kant schuil.",
+			"traits": [
+				"Dapper",
+				"Enthousiast",
+				"Genieter",
+				"Ondeugend",
+				"Slim",
+				"Sociaal"
+			]
+		},
+		{
+			"id": 439,
+			"name": "Goudvis",
+			"synonyms": [
+				"Oranda",
+				"Ranchu",
+				"Sarasa"
+			],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Goldfish3.jpg",
+			"description": "In menig poeltje kan je de goudvis levendig en behendig zien schitteren. Dit visje beweegt niet uit eigenbelang, maar om anderen ruimte te geven. Nieuwsgierig naar elke rimpeling verkent de goudvis de omgeving. Deze gezellige allemansvriend is guitig, sociaal en hulpvaardig. Ongeacht de temperatuur van het water dwarrelt de goudvis zorgeloos en opgewekt rond.",
+			"traits": [
+				"Altruïstisch",
+				"Behendig",
+				"Gezellig",
+				"Guitig",
+				"Hulpvaardig",
+				"Levendig",
+				"Niet kieskeurig",
+				"Nieuwsgierig",
+				"Opgewekt",
+				"Sociaal",
+				"Zorgeloos"
+			]
 		}
 	],
 	"traits": [
