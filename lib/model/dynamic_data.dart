@@ -41,6 +41,7 @@ class DynamicData extends ChangeNotifier {
     var totemData = TotemData.fromJson(data);
 
     var allAnimals = totemData.animals;
+    allAnimals.sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
     animals = Map.fromEntries(allAnimals.map((a) => MapEntry(a.name, a)));
     animalsById = Map.fromEntries(allAnimals.map((a) => MapEntry(a.id, a)));
 

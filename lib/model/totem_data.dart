@@ -18,7 +18,8 @@ class TotemData {
 @JsonSerializable(createToJson: false)
 class AnimalData extends ISuspensionBean {
   AnimalData(this.id, this.name, this.synonyms, this.traits, this.description,
-      this.image);
+      this.image)
+      : isNew = id >= 393 && DateTime.now().isBefore(DateTime(2026, 1, 1));
 
   int id;
   String name;
@@ -26,6 +27,7 @@ class AnimalData extends ISuspensionBean {
   List<String> traits;
   String description;
   String image;
+  final bool isNew;
 
   @override
   @JsonKey(includeFromJson: false)

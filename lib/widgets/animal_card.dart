@@ -8,6 +8,7 @@ import 'package:totemapp/model/dynamic_data.dart';
 import 'package:totemapp/model/profile_manager.dart';
 import 'package:totemapp/model/settings_data.dart';
 import 'package:totemapp/model/totem_data.dart';
+import 'package:totemapp/widgets/animal_chip.dart';
 import 'package:totemapp/widgets/animal_star_button.dart';
 import 'package:totemapp/widgets/animal_preview_card.dart';
 import 'package:totemapp/widgets/traits_list.dart';
@@ -119,19 +120,32 @@ class _AnimalCardState extends State<AnimalCard> {
                                         softWrap: true),
                               ),
                             ),
-                            IconButton(
-                                onPressed: () {
-                                  final box =
-                                      context.findRenderObject() as RenderBox?;
-                                  SharePlus.instance.share(ShareParams(
-                                    uri: Uri.parse('${ProfileManager.sharePrefix}?t=${Uri.encodeQueryComponent(_animal.name)}'),
-                                    sharePositionOrigin:
-                                        box!.localToGlobal(Offset.zero) &
-                                            box.size));
-                                },
-                                icon: const Icon(Icons.share)),
-                            AnimalStarButton(
-                                animal: _animal.name, hidden: _hidden),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    IconButton(
+                                        onPressed: () {
+                                          final box = context.findRenderObject()
+                                              as RenderBox?;
+                                          SharePlus.instance.share(ShareParams(
+                                              uri: Uri.parse(
+                                                  '${ProfileManager.sharePrefix}?t=${Uri.encodeQueryComponent(_animal.name)}'),
+                                              sharePositionOrigin: box!
+                                                      .localToGlobal(
+                                                          Offset.zero) &
+                                                  box.size));
+                                        },
+                                        icon: const Icon(Icons.share)),
+                                    AnimalStarButton(
+                                        animal: _animal.name, hidden: _hidden),
+                                  ],
+                                ),
+                                if (_animal.isNew) AnimalChip()
+                              ],
+                            ),
                           ],
                         ),
                         const Padding(
@@ -202,6 +216,28 @@ class _AnimalCardState extends State<AnimalCard> {
                                     });
                                     controller.jumpTo(0);
                                   })),
+                              if (_animal.isNew)
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 8),
+                                      child: Text(
+                                          'Wow, je hebt een nieuwe totem gevonden!',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyLarge),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 8),
+                                      child: Text(
+                                          'Hebben jullie als een van de eerste groepen deze totem gegeven? Stuur dan snel een foto naar Ploeg Zingeving!',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodySmall),
+                                    ),
+                                  ],
+                                ),
                             ]),
                       )),
                 ),
